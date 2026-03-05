@@ -1,0 +1,287 @@
+/* Container Principal */
+.md-typeset .confluence-card {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 10px 0 20px 0;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Reset de estilos nativos do Material que interferem no details */
+.md-typeset details.custom-expand {
+    border: none !important;
+    box-shadow: none !important;
+    background-color: transparent !important;
+    margin: 0 !important;
+    border-left: 6px solid #595959 !important; /* Sua barra cinza */
+    border-bottom: 1px solid #e0e0e0 !important;
+}
+
+.md-typeset details.custom-expand[open] {
+    padding-bottom: 0 !important;
+}
+
+/* Header (Summary) */
+.md-typeset details.custom-expand summary {
+    list-style: none;
+    padding: 18px 20px !important;
+    cursor: pointer;
+    background-color: #fafbfc !important;
+    display: flex !important;
+    align-items: center;
+    outline: none;
+    transition: background 0.2s;
+}
+
+.md-typeset details.custom-expand summary:hover { 
+    background-color: #f4f5f7 !important; 
+}
+
+/* Esconde a seta padrão do Material */
+.md-typeset details.custom-expand summary::after,
+.md-typeset details.custom-expand summary::before {
+    display: none !important;
+}
+
+/* Títulos e Números */
+.md-typeset .summary-title {
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    color: #172b4d !important;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+.md-typeset .summary-title-sub {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #172b4d !important;
+    margin: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+.md-typeset summary h3 {
+    display: inline-block !important; 
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important; 
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    color: #172b4d !important;
+    line-height: 1.2 !important;
+}
+
+.md-typeset summary h3::after, 
+.md-typeset summary h3::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* Esconde o ícone de "âncora" (link) que aparece ao passar o mouse no título */
+.md-typeset summary h3 .headerlink {
+    display: none !important;
+}
+
+.md-typeset summary {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.md-typeset .summary-number {
+    color: #FF6000 !important; /* O laranja solicitado */
+    margin-right: 12px;
+}
+
+/* Conteúdo Interno */
+.md-typeset .content-body {
+    padding: 24px 30px !important;    
+    line-height: 1.6;
+    color: #172b4d;
+}
+
+.md-typeset .content-body h3 {
+    font-size: 18px !important;
+    color: #0747a6 !important;
+    margin-top: 0 !important;
+    margin-bottom: 15px !important;
+    border-bottom: none !important; /* Remove linha de h3 do Material */
+}
+
+/* Painel de Aviso Estilo Confluence */
+.md-typeset .warning-panel {
+background-color: #fff7f7 !important;
+    border-left: 4px solid #de350b !important;
+    padding: 15px !important;
+    margin: 20px 0 !important;
+    border-radius: 4px;
+}
+
+.md-typeset .warning-title {
+    color: #de350b !important;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+}
+
+/* Alarga o container principal */
+.md-container {
+    display: flex;
+    justify-content: center;
+}
+
+.md-main__inner {
+    max-width: 100% !important; /* Remove o limite de largura */
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* Ajusta a largura da área de conteúdo central */
+.md-content {
+    max-width: 1200px; /* Ou o valor que preferir para dar ênfase */
+    margin: 0 auto;
+    flex-grow: 1;
+}
+
+/* Garante que os menus laterais fiquem "presos" nas pontas */
+.md-sidebar--primary {
+    left: 0;
+}
+
+.md-sidebar--secondary {
+    right: 0;
+}
+
+/* Ajuste para que o título Markdown (h2) funcione dentro do summary */
+.md-typeset summary h2 {
+    display: inline-flex !important; /* Mantém na mesma linha do número */
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important; /* Remove a linha horizontal do Material */
+    font-size: 22px !important; /* Mantém o tamanho do seu estilo original */
+    font-weight: 600 !important;
+    color: #172b4d !important;
+}
+
+/* Remove o ícone de link (âncora) que o MkDocs coloca automaticamente */
+.md-typeset summary h2 .headerlink {
+    display: none !important;
+}
+
+/* Tabela de Bancos - Estilo Confluence */
+.md-typeset .banks-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 20px 0 !important;
+    font-size: 14px !important;
+    display: table !important; /* Garante comportamento de tabela real */
+    table-layout: auto; /* Permite que as colunas se ajustem ao conteúdo */
+}
+
+.md-typeset .banks-table th {
+    background-color: #f4f5f7 !important;
+    color: #172b4d !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    font-size: 12px;
+    padding: 12px 14px !important;
+    border: 1px solid #dfe1e6 !important;
+    text-align: left;
+}
+
+.md-typeset .banks-table td {
+    padding: 12px 14px !important;
+    border: 1px solid #dfe1e6 !important;
+    vertical-align: top !important;
+    line-height: 1.6 !important;
+    color: #172b4d !important;
+}
+
+/* Cores específicas para destaques dentro da tabela */
+.md-typeset .banks-table td strong {
+    color: #0747a6 !important; 
+}
+
+/* Responsividade: Scroll horizontal se a tela for muito pequena */
+/*.content-body {
+    overflow-x: clip;
+}*/
+
+/* Ajuste para que a tabela "estique" quando a página central alargar */
+.md-content__inner {
+    width: 100%;
+}
+
+.md-typeset .flow-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #dfe1e6;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin: 20px 0;
+}
+
+.md-typeset h4 { color: #172b4d !important; font-weight: 700; margin-top: 30px; }
+.md-typeset h5 { color: #FF6000 !important; font-weight: 600; }
+
+/* Container do código dentro da tabela */
+.md-typeset .banks-table td .highlight {
+    margin: 0;
+    border-left: 4px solid #0052cc !important; /* A linha azul do print */
+    border-radius: 4px;
+    background-color: #f4f5f7 !important; /* Fundo cinza claro do Confluence */
+    padding: 10px !important;
+}
+
+/* Cores de Sintaxe (Simulando seu script JS via CSS do Pygments) */
+.md-typeset .tk-cm, .md-typeset .c, .md-typeset .c1 { color: #7a869a !important; font-style: italic; } /* Comentários */
+.md-typeset .tk-kw, .md-typeset .k, .md-typeset .nb { color: #0052cc !important; font-weight: bold; } /* Keywords/If/EndIf */
+.md-typeset .tk-st, .md-typeset .s, .md-typeset .s2 { color: #00875a !important; } /* Strings */
+.md-typeset .tk-fn, .md-typeset .nf { color: #6554c0 !important; } /* Funções */
+
+/* Garante que o bloco de código não quebre o layout da tabela */
+.md-typeset .banks-table td pre {
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    background: transparent !important;
+}
+
+.md-typeset .help-box {
+    background-color: #f3f9f4 !important; /* Verde bem claro */
+    border: 1px solid #e3f1e6 !important;
+    border-left: 4px solid #00875a !important; /* Barra lateral verde */
+    padding: 1px 1px 1px 10px !important;
+    margin: 10px 0 20px 0 !important;
+    border-radius: 5px;
+    color: #172b4d;
+    font-size: 14px;
+}
+
+.md-typeset .entry-points-table {
+    background-color: #f4f5f7;
+    font-weight: 600;
+    color: #0747a6;    
+    border: 1px solid #dfe1e6;
+    padding: 10px;
+    text-align: left;
+    vertical-align: top;
+}
+
+/* Ajuste de títulos H4 dentro dos cards */
+.md-typeset .content-body h4 {
+    color: #0747a6 !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    margin-top: 20px !important;
+    margin-bottom: 8px !important;
+}
+
+/* Espaçamento entre os campos (expansões internas) */
+.field-expand {
+    margin-bottom: 15px !important;
+    border: 1px solid #f0f0f0 !important;
+    border-radius: 4px;
+}
