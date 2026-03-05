@@ -1,6 +1,6 @@
+uv.lock
+pyproject.toml
+.python-version
+main.py
 .venv/
 site/
-.python-version
-__pycache__/
-uv.lock
-README.md
