@@ -1,6 +1,6 @@
 site_name: TOTVS ADDONS
-site_url: https://fsw.mi.totvsoeste-allview.gitlab.io/documentacao-eletronica/
-repo_url: https://gitlab.com/fsw.mi.totvsoeste-allview/documentacao-eletronica
+site_url: https://fsw.mi.totvsoeste.gitlab.io/documentacao-eletronica/
+repo_url: https://gitlab.com/fsw.mi.totvsoeste/documentacao-eletronica
 
 theme:
   name: material
