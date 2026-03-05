@@ -1,4 +1,6 @@
-venv/
+.venv/
 site/
 .python-version
 __pycache__/
+uv.lock
+README.md
