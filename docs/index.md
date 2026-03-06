@@ -1,15 +1,15 @@
 ---
+template: main.html
 hide:
   - navigation
   - toc
 ---
-# 
+
+# Página em Desenvolvimento {.home-hero}
 
 <div class="grid cards" markdown>
 
-## WIP
 ## Documentação TOTVS ADDONS
-Central de manuais e guias técnicos para os Addons de documentação eletrônica.
 
 </div>
 

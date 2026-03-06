@@ -5,6 +5,8 @@ repo_url: https://gitlab.com/fsw-mi-totvsoeste/documentacao-eletronica
 theme:
   name: material
   language: pt
+  logo: assets/totvs_icon_write.png
+  favicon: assets/totvs_icon.png
   palette:
     - scheme: default
       primary: custom
@@ -24,7 +26,7 @@ nav:
   - Início: index.md
   - Addons:
       - CNAB A Receber: addon-cnab-a-receber.md
-      - CNAB A Pagar: addon-cnab-a-pagar.md
+      - CNAB  Pagar: addon-cnab-a-pagar.md
       - CNAB Folha: addon-cnab-folha.md
       - CNAB Extrato Bancario: addon-cnab-extrato-bancario.md      
 

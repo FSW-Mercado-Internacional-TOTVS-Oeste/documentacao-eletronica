@@ -4,6 +4,35 @@
   --md-primary-fg-color--dark: #003366;
 }
 
+[data-md-main-steps] .md-content {
+    background: none;a
+}
+
+/* Remove fundos de containers internos para não tapar o fundo principal */
+body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-content,
+body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-content__inner {
+    background: transparent !important;
+}   
+
+/* Seletor específico para a Home (Index) */
+body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) {
+    background-image: 
+        /* Degradê: Começa branco sólido e fica transparente no final para mostrar a imagem */
+        linear-gradient(to bottom, #ffffff 75%, rgba(255, 255, 255, 0) 100%), 
+        url('https://tiinside.com.br/wp-content/uploads/2023/08/TOTVS-0493-1-scaled.jpg') !important;
+    
+    background-repeat: no-repeat !important;
+    background-position: bottom center !important;
+    background-size: contain !important; /* 'contain' evita que a imagem fique gigante e 'perdida' */
+    background-attachment: scroll !important;
+    background-color: #ffffff !important; /* Garante fundo branco onde a imagem não chega */
+}
+/* Garante que as subpáginas fiquem com o fundo limpo */
+body:not(:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"])) {
+    background-image: none !important;
+    background-color: #ffffff !important;
+}
+
 /* Deixar os cards mais modernos */
 .md-typeset .grid.cards > ul > li {
   border-radius: 8px;
@@ -169,6 +198,7 @@ background-color: #fff7f7 !important;
     max-width: 1200px; /* Ou o valor que preferir para dar ênfase */
     margin: 0 auto;
     flex-grow: 1;
+    background: none;
 }
 
 /* Garante que os menus laterais fiquem "presos" nas pontas */
@@ -309,4 +339,19 @@ background-color: #fff7f7 !important;
     margin-bottom: 15px !important;
     border: 1px solid #f0f0f0 !important;
     border-radius: 4px;
+}
+
+/* Esconde o botão do repositório GitLab no cabeçalho */
+.md-header__source {
+    display: none !important;
+}
+
+/* Esconde o botão de edição da página */
+.md-content__button {
+    display: none !important;
+}
+
+/* Esconde o rodapé "Made with Material for MkDocs" */
+.md-footer-meta {
+    display: none !important;
 }
