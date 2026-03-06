@@ -59,13 +59,10 @@ Acesse `http://127.0.0.1:8000` no seu navegador.
 
 ```
 
----
-
-### Como subir este arquivo:
-1. Salve o conteúdo acima em um arquivo chamado `README.md` na sua pasta `C:\Dev\Manuais_ADDON\CNAB_FOLHA`.
-2. No terminal, execute:
+### Como realizar um commit
+No terminal, execute:
    ```powershell
-   git add README.md
-   git commit -m "Docs: Adicionando README explicativo"
+   git add .
+   git commit -m "Comentario do commit"
    git push origin main
    ```
