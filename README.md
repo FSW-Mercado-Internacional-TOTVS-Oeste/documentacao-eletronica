@@ -1,5 +1,4 @@
 
-```markdown
 # Documentação Eletrônica - TOTVS Oeste
 
 Este repositório contém os arquivos fontes do manual de documentação eletrônica, gerado estaticamente através do **MkDocs** e hospedado via **GitLab Pages**.
