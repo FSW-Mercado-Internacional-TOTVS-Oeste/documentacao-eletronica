@@ -7,17 +7,9 @@ theme:
   language: pt
   palette:
     - scheme: default
-      primary: indigo
+      primary: custom
       accent: orange
-      toggle:
-        icon: material/weather-sunny
-        name: Modo escuro
-    - scheme: slate
-      primary: indigo
-      accent: orange
-      toggle:
-        icon: material/weather-night
-        name: Modo claro
+
   features:
     - navigation.sections
     - navigation.expand
@@ -26,12 +18,13 @@ theme:
     - search.suggest
     - content.code.copy
     - content.action.edit
+    - content.tabs.link
 
 nav:
   - Início: index.md
   - Addons:
-      - CNAB a Receber: addon-cnab-a-receber.md
-      - CNAB a Pagar: addon-cnab-a-pagar.md
+      - CNAB A Receber: addon-cnab-a-receber.md
+      - CNAB A Pagar: addon-cnab-a-pagar.md
       - CNAB Folha: addon-cnab-folha.md
       - CNAB Extrato Bancario: addon-cnab-extrato-bancario.md      
 

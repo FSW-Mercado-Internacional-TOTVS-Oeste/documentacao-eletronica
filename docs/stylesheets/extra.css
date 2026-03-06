@@ -1,3 +1,28 @@
+:root > * {
+  --md-primary-fg-color: #004a92;
+  --md-primary-fg-color--light: #005bb5;
+  --md-primary-fg-color--dark: #003366;
+}
+
+/* Deixar os cards mais modernos */
+.md-typeset .grid.cards > ul > li {
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease-in-out;
+  border-left: 4px solid #004a92;
+}
+
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-5px);
+  background-color: #f8f9fa;
+  border-left: 4px solid #ff7f00; /* Laranja de destaque no hover */
+}
+
+/* Esconder o título h1 da home para usar o layout customizado */
+.md-main__inner:has(.hide-toc) h1 {
+  display: none;
+}
+
 /* Container Principal */
 .md-typeset .confluence-card {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
