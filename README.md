@@ -6,7 +6,7 @@ Este repositório contém os arquivos fontes do manual de documentação eletrô
 
 ## 🌐 Link de Acesso
 O manual publicado pode ser acessado em:
-[https://fsw.mi.totvsoeste-allview.gitlab.io/documentacao-eletronica/](https://fsw.mi.totvsoeste-allview.gitlab.io/documentacao-eletronica/)
+[https://fsw.mi.totvsoeste.gitlab.io/documentacao-eletronica/](https://fsw.mi.totvsoeste.gitlab.io/documentacao-eletronica/)
 
 ---
 
