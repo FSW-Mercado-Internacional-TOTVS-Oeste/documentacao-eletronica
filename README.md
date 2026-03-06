@@ -17,7 +17,7 @@ Certifique-se de ter o Python 3.11+ instalado em sua máquina.
 ### 2. Configuração do Ambiente Local
 Ao baixar o projeto pela primeira vez, configure o ambiente virtual para evitar conflitos:
 
-```powershell
+```
 # Criar ambiente virtual
 python -m venv .venv
 
@@ -32,12 +32,10 @@ pip install -r requirements.txt
 ### 3. Visualização em Tempo Real
 
 Para editar e ver as mudanças antes de subir para o servidor, use o comando:
-
-```powershell
+```
 mkdocs serve
 
 ```
-
 Acesse `http://127.0.0.1:8000` no seu navegador.
 
 ---
@@ -58,11 +56,10 @@ Acesse `http://127.0.0.1:8000` no seu navegador.
 * **Arquivos Ignorados**: Pastas como `.venv/`, `site/` e arquivos de trava como `uv.lock` não devem ser enviados ao repositório para manter a estrutura limpa.
 
 ```
-
 ### Como realizar um commit
 No terminal, execute:
-   ```powershell
-   git add .
-   git commit -m "Comentario do commit"
-   git push origin main
-   ```
+
+git add .
+git commit -m "Comentario do commit"
+git push origin main
+```
