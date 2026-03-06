@@ -355,3 +355,75 @@ background-color: #fff7f7 !important;
 .md-footer-meta {
     display: none !important;
 }
+
+/* =====================================================
+   SEÇÃO HERO FINAL - "Como podemos ajudar?"
+   ===================================================== */
+
+/* Container da seção hero no final da página */
+.home-hero-contact {
+    position: relative;
+    width: 100vw;
+    left: 51%;
+    right: 50%;
+    margin-left: -52vw;
+    margin-right: -50vw;
+    margin-top: 60px;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    /* Imagem de fundo com degradê branco no topo */
+    background-image:
+        linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,0) 40%),
+        url('../assets/totvs-background_2.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+/* Overlay escuro sobre a imagem para dar legibilidade ao texto */
+.home-hero-contact::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 30, 70, 0.45) 100%);
+    pointer-events: none;
+}
+
+/* Conteúdo centralizado acima do overlay */
+.home-hero-contact__inner {
+    position: relative;
+    z-index: 1;
+    padding: 60px 20px 50px;
+}
+
+.home-hero-contact__title {
+    font-size: 28px !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    margin: 0 0 24px 0 !important;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+/* Botão de contato */
+.home-hero-contact__btn {
+    display: inline-block;
+    background-color: #004a92;
+    color: #ffffff !important;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none !important;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+.home-hero-contact__btn:hover {
+    background-color: #ff7f00;
+    transform: translateY(-2px);
+    color: #ffffff !important;
+}

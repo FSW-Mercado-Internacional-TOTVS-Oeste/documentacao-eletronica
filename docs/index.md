@@ -5,11 +5,11 @@ hide:
   - toc
 ---
 
-# Página em Desenvolvimento {.home-hero}
+# Pagina em Construção {.home-hero}
 
 <div class="grid cards" markdown>
 
-## Documentação TOTVS ADDONS
+## Documentação Eletrônica
 
 </div>
 
@@ -18,7 +18,7 @@ hide:
 
 -   [__CNAB a Receber__](addon-cnab-a-receber.md)
     
-    Gestão eficiente de arquivos de remessa e retorno para cobrança bancária automatizada.
+    [Gestão eficiente de arquivos de remessa e retorno para cobrança bancária automatizada.](addon-cnab-a-receber.md)
 
 -   [__CNAB a Pagar__](addon-cnab-a-pagar.md)
     
@@ -42,4 +42,11 @@ hide:
 -   **Suporte Técnico**
     Dúvidas sobre integração ou erros de processamento? Consulte nossa FAQ.
 
+</div>
+
+<div class="home-hero-contact">
+  <div class="home-hero-contact__inner">
+    <p class="home-hero-contact__title">Como podemos ajudar?</p>
+    <a href="suporte.md" class="home-hero-contact__btn">Entre em contato e fale conosco!</a>
+  </div>
 </div>
