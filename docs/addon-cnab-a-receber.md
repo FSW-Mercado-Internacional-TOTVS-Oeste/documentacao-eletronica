@@ -1099,6 +1099,7 @@ EndIf
 Return(lRet)
 
 ```
+
 </td>
     </tr>
   </tbody>
@@ -1195,7 +1196,6 @@ Informe se este banco/agencia/conta está habilitado para geração de boletos. 
 </div>
 </details>
 
-
 <details class="field-expand" markdown="1">
 <summary markdown="1">
 <span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **EE_X_SEQ**</span>
@@ -1275,7 +1275,6 @@ Sequencia para calculo do Nosso Numero.
 
 </div>
 </details>
-
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -1357,7 +1356,6 @@ Sequencia para calculo do Nosso Numero.
 </div>
 </details>
 
-
 <details class="field-expand" markdown="1">
 <summary markdown="1">
 <span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **EE_X_TPCAD**</span>
@@ -1437,7 +1435,6 @@ Sequencia para calculo do Nosso Numero.
 
 </div>
 </details>
-
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -1519,7 +1516,6 @@ Sequencia para calculo do Nosso Numero.
 </div>
 </details>
 
-
 <details class="field-expand" markdown="1">
 <summary markdown="1">
 <span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **EE_X_BANCO**</span>
@@ -1599,7 +1595,6 @@ Codigo do banco correspondente/vinculado para cobranca registrada. Ex: Banco SIC
 
 </div>
 </details>
-
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -1681,7 +1676,6 @@ Agencia do banco correspondente
 </div>
 </details>
 
-
 <details class="field-expand" markdown="1">
 <summary markdown="1">
 <span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **EE_X_DVACO**</span>
@@ -1761,7 +1755,6 @@ Digito Verificador da Agencia do banco correspondente
 
 </div>
 </details>
-
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -1843,7 +1836,6 @@ Numero da Conta do banco correspondente
 </div>
 </details>
 
-
 <details class="field-expand" markdown="1">
 <summary markdown="1">
 <span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **EE_X_DVCCO**</span>
@@ -1923,7 +1915,6 @@ Digito Verificador da Conta do banco correspondente
 
 </div>
 </details>
-
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -2005,7 +1996,6 @@ Informe o diretorio para remessa de arquivos via CNAB.
 </div>
 </details>
 
-
 <details class="field-expand" markdown="1">
 <summary markdown="1">
 <span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **EE_X_DRET**</span>
@@ -2085,7 +2075,6 @@ Informe o diretorio para retorno de arquivos via CNAB.
 
 </div>
 </details>
-
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -2167,7 +2156,6 @@ Informe o nome do arquivo de configuração para remessa para retorno de arquivo
 </div>
 </details>
 
-
 <details class="field-expand" markdown="1">
 <summary markdown="1">
 <span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **EE_X_CREM**</span>
@@ -2247,7 +2235,6 @@ Informe o nome do arquivo de configuração para remessa para remessa de arquivo
 
 </div>
 </details>
-
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -2329,7 +2316,6 @@ Informe o CNPJ que será enviado no arquivo do CNAB. Se não preenchido, será e
 </div>
 </details>
 
-
 <details class="field-expand" markdown="1">
 <summary markdown="1">
 <span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **EE_X_PRINT**</span>
@@ -2410,7 +2396,6 @@ Informe quem será o emissor e distribuidor do boleto.
 </div>
 </details>
 
-
 <details class="field-expand" markdown="1">
 <summary markdown="1">
 <span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **EE_X_BAIXA**</span>
@@ -2490,7 +2475,6 @@ Informe Sim para que o título sofra baixa e devolução se não for pago após 
 
 </div>
 </details>
-
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -2584,7 +2568,6 @@ Informe a quantidade de dias para que os títulos em aberto sofram baixa/devolu�
 ### 9. Campos padrões (SEE - Parâmetros de Banco)
 
 #### Campos padrões do SEE - Parâmetros de Banco
-
 
 <table class="banks-table">
   <thead>
@@ -2711,7 +2694,6 @@ Endereco de e-mail para envioboleto bancario. Verificar configuracao do parametr
 </div>
 </details>
 
-
 <details class="field-expand" markdown="1">
 <summary markdown="1">
 <span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **A1_X_WFB**</span>
@@ -2791,7 +2773,6 @@ Informe 'S' para que seja enviado um e-mail ao cliente (A1_X_MAIL) com os boleto
 
 </div>
 </details>
-
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -2938,11 +2919,11 @@ Seu correto preenchimento é de suma importância, abaixo os principais campos q
 - <strong>CÓDIGO TRANSMISSAO</strong>: utilizado para Santander informando o código da transmissão e para o banco CITI informando o código da conta COSMOS
 - <strong>NR. BYTES</strong>: informe a quantidade de posições da remessa/retorno layout: 240 ou 400
 - <strong>FORMATO DATA</strong>: informar o tipo da data que o banco trabalha no arquivo de retorno. Consultar manual técnico de cada banco.<br>
- Formato da data no retorno:<br>
- 1-ddmmaa, 2=mmddaa, 3=aammdd, 4=ddmmaaaa,5=aaaammdd,6=mmddaaaa
+  Formato da data no retorno:<br>
+  1-ddmmaa, 2=mmddaa, 3=aammdd, 4=ddmmaaaa,5=aaaammdd,6=mmddaaaa
 - <strong>MSG.JUROS / MSG.MULTA</strong>: informar as mensagens de instruções do boleto para juros e multa, estes campos são fórmulas em sintaxe ADVPL, na impressão de cada boleto é calculado o valor e concatenado na mensagem
 - <strong>MSG.EXTRA 1 / MSG.EXTRA 2</strong>: informar as mensagens de instruções complementares para impressão no boleto, se necessário.Estes campos são fórmulas em sintaxe ADVPL
-    - <strong>OBS</strong>: no campo MSG.EXTRA 2 poderá ser informado um caractere de quebra de linha CHR(13)+CHR(10) para forçar uma quebra na impressão da mensagem, diretamente na fórmula e/ou função ADVPL se utilizada (limitado a apenas uma quebra)
+  - <strong>OBS</strong>: no campo MSG.EXTRA 2 poderá ser informado um caractere de quebra de linha CHR(13)+CHR(10) para forçar uma quebra na impressão da mensagem, diretamente na fórmula e/ou função ADVPL se utilizada (limitado a apenas uma quebra)
 - <strong>DIAS PROTESTO</strong>: quando for necessário ter instrução de protesto automático na remessa, informar uma quantidade de dias para protesto. Para não protestar deixar o campo em branco
 - <strong>CÓD. CARTEIRA</strong>: informe o código da carteira de cobrança contratada, fornecido pelo banco
 - <strong>VARIAÇÃO CARTEIRA</strong>: específico para o Banco do Brasil informe o código da variação da carteira de cobrança contratada, fornecido pelo banco
@@ -2955,24 +2936,26 @@ Seu correto preenchimento é de suma importância, abaixo os principais campos q
 * 3=Cobrança Caucionada;<br>
 * 4=Cobrança Descontada;<br>
 * 5=Cobrança Vendor;<br>
- Obs: nem todos os bancos trabalham com todas as opções, consultar manual técnico do banco
+  Obs: nem todos os bancos trabalham com todas as opções, consultar manual técnico do banco
+
 - <strong>TIPO CADASTRO TÍTULO</strong>: informe a modalidade de carteira de cobrança em relação a forma de cadastramento dos títulos:<br>
 
 * 1=Cobrança Com Registro;<br>
 * 2=Cobrança Sem Registro;<br>
- Obs: nem todos os bancos trabalham com todas as opções, consultar manual técnico do banco
+  Obs: nem todos os bancos trabalham com todas as opções, consultar manual técnico do banco
+
 - <strong>COD. POSTO</strong>: campo de utilização exclusiva para o Banco SICREDI. Informe o código do posto de atendimento (pode ser obtido junto ao SICREDI)
 - <strong>DIR. REMESSA</strong>: informe o caminho (diretório) onde serão gerados os arquivos de remessa. Exemplo: D:\CNAB\REMESSA\BANCO\.<br>
- Na hipótese de ser um caminho na rede, o mesmo deverá estar mapeado na unidade local.<br>
- Este caminho será automaticamente sugerido na rotina de geração de remessa
+  Na hipótese de ser um caminho na rede, o mesmo deverá estar mapeado na unidade local.<br>
+  Este caminho será automaticamente sugerido na rotina de geração de remessa
 - <strong>DIR. RETORNO</strong>: informe o caminho (diretório) onde são gravados os arquivos de retorno de CNAB. Exemplo: D:\CNAB\RETORNO\BANCO.<br>
- Este campo é meramente informativo, apenas para auxílio ao usuário, pois no processamento do retorno o usuário deverá informar qual o arquivo a ser processado
+  Este campo é meramente informativo, apenas para auxílio ao usuário, pois no processamento do retorno o usuário deverá informar qual o arquivo a ser processado
 - <strong>CONF. REMESSA</strong>: informe o nome do arquivo de configuração de remessa.<br>
- Exemplo: banco240.2RE
+  Exemplo: banco240.2RE
 - <strong>CONF. RETORNO</strong>: informe o nome do arquivo de configuração de retorno.<br>
- Exemplo: banco240.2RR
+  Exemplo: banco240.2RR
 - <strong>EMIS. BOLETO</strong>: informe quem é o responsável pela emissão e distribuição do Boleto.<br>
- 1=Banco Emite, 2=Cliente emite. Se este campo não for preenchido o padrão é 2=Cliente Emite (Beneficiário)
+  1=Banco Emite, 2=Cliente emite. Se este campo não for preenchido o padrão é 2=Cliente Emite (Beneficiário)
 - <strong>BAIXA/DEV</strong>?: informe 1=Sim para que o banco após o período parametrizado no campo (DIAS P/BAIXA) efetue a baixa e devolução do título
 - <strong>DIAS P/BAIXA</strong>?: informe a quantidade de dias para que títulos em aberto (não pagos) sofram baixa e devolução
 
@@ -2989,15 +2972,15 @@ Outros campos do cadastro de Parâmetros Bancários:
 ![](./assets/cnabreceber/02.png)
 
 - <strong>BCO CORRESP/AGE CORRESP/DV AG.CORRESP/CTA.CORRESP/DV CTA.CORRESP</strong>: Campos para informar o banco correspondente/vinculado ao banco Portador (Código do Banco, Código da Agência, Dígito Verificador da Agência, Número da Conta, DV da Conta).<br>
- Opcional. Exemplo de uso é o banco SICOOB que na opção de Cobrança Registrada utiliza o banco B.BRASIL como correspondente. Neste caso, na impressão dos Boletos e arquivo de remessa do CNAB devem ir algumas informações do banco correspondente ao invés do banco portador
+  Opcional. Exemplo de uso é o banco SICOOB que na opção de Cobrança Registrada utiliza o banco B.BRASIL como correspondente. Neste caso, na impressão dos Boletos e arquivo de remessa do CNAB devem ir algumas informações do banco correspondente ao invés do banco portador
 
 #### 1.2. Ocorrências CNAB
 
 O cadastro de ocorrências define os registros dos códigos atribuídos pelos próprios bancos a fim de identificar os resultados da leitura dos arquivos.
 
-Devem ser cadastradas de acordo com o manual de cada banco. 
+Devem ser cadastradas de acordo com o manual de cada banco.
 
-Anexo ao pacote FS99999_003A existe uma tabela pré-cadastrada (seb003a.dtc) que poderá auxiliar no cadastramento. De qualquer forma, é importante a revisão das ocorrências de acordo com o manual de cada banco. 
+Anexo ao pacote FS99999_003A existe uma tabela pré-cadastrada (seb003a.dtc) que poderá auxiliar no cadastramento. De qualquer forma, é importante a revisão das ocorrências de acordo com o manual de cada banco.
 
 #### 1.3. Clientes
 
@@ -3011,9 +2994,9 @@ Atentar para configuração do parâmetro <strong>MV_X003011</strong> (0=Desativ
 
 <u>Envio de link ou .pdf para impressão do Boleto:</u>
 
-No cadastro de clientes existem dois campos (envia ou não e-mail, e o endereço do e-mail), e deverão ser preenchidos de acordo com a necessidade de envio ou não do Workflow com os links dos boletos. 
+No cadastro de clientes existem dois campos (envia ou não e-mail, e o endereço do e-mail), e deverão ser preenchidos de acordo com a necessidade de envio ou não do Workflow com os links dos boletos.
 
-A prioridade é o campo A1_X_MAIL, se este não estiver preenchido, será encaminhado para A1_EMAIL. 
+A prioridade é o campo A1_X_MAIL, se este não estiver preenchido, será encaminhado para A1_EMAIL.
 
 ![](./assets/cnabreceber/05.png)
 
@@ -3021,9 +3004,9 @@ Na hipótese do endereço de cobrança estar preenchido, é este endereço que s
 
 Ainda no Cadastro de Clientes, é possível configurar se o cliente será considerado para emissão do Boleto Bancário através do campo “Emite Boleto” – <strong>A1_X_EBOL</strong> (presente na aba Adm/Fin).
 
-Se o campo estiver preenchido com N = Não, o cliente é desconsiderado para emissão de boleto bancário. Este procedimento deve ser utilizado para exceções, onde nunca deve ser emitido boleto ao cliente, por exemplo, um cliente que efetua pagamento via depósito bancário. 
+Se o campo estiver preenchido com N = Não, o cliente é desconsiderado para emissão de boleto bancário. Este procedimento deve ser utilizado para exceções, onde nunca deve ser emitido boleto ao cliente, por exemplo, um cliente que efetua pagamento via depósito bancário.
 
-#### 2.	EMISSÃO/IMPRESSÃO do Boleto Bancário
+#### 2. EMISSÃO/IMPRESSÃO do Boleto Bancário
 
 E emissão/impressão do boleto bancário poderá ser realizada nas seguintes rotinas:
 
@@ -3037,12 +3020,12 @@ Para todos os pedidos de vendas faturados na rotina de Prep. Doc. Saída (indife
 
 De acordo com a configuração do parâmetro <strong>MV_X003009</strong>, serão marcados automaticamente os títulos com emissão/vencimento iguais, ou seja, à vista.
 
-O boleto será impresso após a confirmação. 
+O boleto será impresso após a confirmação.
 
 É possível efetuar ainda a reimpressão do boletos bancários, basta selecionar o pedido de venda em questão, em Ações Relacionadas ->Reimpressão Boleto.
 
-<u>Ponto de Entrada disponibilizado:</u> <strong>PE003A01</strong> - Ponto de Entrada chamado na inicialização da tela de seleção de títulos. 
-Permite alterar os dados do portador sugerido. 
+<u>Ponto de Entrada disponibilizado:</u> <strong>PE003A01</strong> - Ponto de Entrada chamado na inicialização da tela de seleção de títulos.
+Permite alterar os dados do portador sugerido.
 
 #### 2.2 Venda Direta
 
@@ -3054,17 +3037,17 @@ Para todas as vendas com forma de pagamento diferente de R$, CC, CD ou CH, será
 
 De acordo com a configuração do parâmetro <strong>MV_X003009</strong>, serão marcados automaticamente os títulos com emissão/vencimento iguais, ou seja, à vista.
 
-O boleto será impresso após a confirmação. 
+O boleto será impresso após a confirmação.
 
-Para os layouts (2,3 e 4) – Impressão em .PDF, pode-se configurar o sistema para que seja gerado apenas 1 arquivo .PDF por Cliente, ou seja, se existirem várias NFs para o mesmo cliente, todos os boletos serão impressos em um único arquivo, ou, efetuar a impressão de um arquivo  .PDF por Nota Fiscal, assim, se o cliente possuir mais de uma NF, serão gerados vários arquivos. 
+Para os layouts (2,3 e 4) – Impressão em .PDF, pode-se configurar o sistema para que seja gerado apenas 1 arquivo .PDF por Cliente, ou seja, se existirem várias NFs para o mesmo cliente, todos os boletos serão impressos em um único arquivo, ou, efetuar a impressão de um arquivo .PDF por Nota Fiscal, assim, se o cliente possuir mais de uma NF, serão gerados vários arquivos.
 
-Configuração do parâmetro <strong>MV_X003016</strong> 
+Configuração do parâmetro <strong>MV_X003016</strong>
 <strong>S</strong> = Sistema gera um único preview em .pdf para impressão e encaminha 1 .pdf por Cliente via e-mail (se configurado para envio do e-mail). Se o cliente possuir 2 notas por exemplo, será encaminhado apenas 1 e-mail.
 <strong>N</strong> = Sistema gera um único preview em .pdf para impressão e encaminha 1 .pdf por Nota Fiscal para o Cliente (via e-mail). Se o cliente possuir 2 notas por exemplo serão encaminhados 2 e-mails
 De acordo com a configuração do parâmetro MV_X003009, serão marcados automaticamente os títulos com emissão/vencimento iguais, ou seja, à vista.
 
-<u>Ponto de Entrada disponibilizado:</u> <strong>PE003A01</strong> - Ponto de Entrada chamado na inicialização da tela de seleção de títulos. 
-Permite alterar os dados do portador sugerido. 
+<u>Ponto de Entrada disponibilizado:</u> <strong>PE003A01</strong> - Ponto de Entrada chamado na inicialização da tela de seleção de títulos.
+Permite alterar os dados do portador sugerido.
 
 #### 2.3 Venda Assistida
 
@@ -3076,25 +3059,25 @@ Para todas as vendas com forma de pagamento diferente de R$, CC, CD ou CH, será
 
 De acordo com a configuração do parâmetro <strong>MV_X003009</strong>, serão marcados automaticamente os títulos com emissão/vencimento iguais, ou seja, à vista.
 
-O boleto será impresso após a confirmação. 
+O boleto será impresso após a confirmação.
 
-<u>Ponto de Entrada disponibilizado:</u> <strong>PE003A01</strong> - Ponto de Entrada chamado na inicialização da tela de seleção de títulos. 
-Permite alterar os dados do portador sugerido. 
+<u>Ponto de Entrada disponibilizado:</u> <strong>PE003A01</strong> - Ponto de Entrada chamado na inicialização da tela de seleção de títulos.
+Permite alterar os dados do portador sugerido.
 
 #### 2.4 Documento de Saída
 
 Verificar parâmetro: <strong>MV_X003010</strong>, <strong>MV_X003009</strong>
 
-Será apresentada a tela com possibilidade de escolha do banco (listando apenas portadores habilitados no Cadastro de Parâmetros de Bancos), e marcação dos títulos que serão gerados os boletos, para todos os títulos gerados pelas notas fiscais de saídas processadas. 
+Será apresentada a tela com possibilidade de escolha do banco (listando apenas portadores habilitados no Cadastro de Parâmetros de Bancos), e marcação dos títulos que serão gerados os boletos, para todos os títulos gerados pelas notas fiscais de saídas processadas.
 
 ![](./assets/cnabreceber/09.png)
 
 De acordo com a configuração do parâmetro <strong>MV_X003009</strong>, serão marcados automaticamente os títulos com emissão/vencimento iguais, ou seja, à vista.
 
-	O boleto será impresso após a confirmação. 
+    O boleto será impresso após a confirmação.
 
-<u>Ponto de Entrada disponibilizado:</u> <strong>PE003A01</strong> - Ponto de Entrada chamado na inicialização da tela de seleção de títulos. 
-Permite alterar os dados do portador sugerido. 
+<u>Ponto de Entrada disponibilizado:</u> <strong>PE003A01</strong> - Ponto de Entrada chamado na inicialização da tela de seleção de títulos.
+Permite alterar os dados do portador sugerido.
 
 Para os layouts (2, 3 e 4) – Impressão em .PDF:
 
@@ -3108,17 +3091,17 @@ O boleto também poderá ser emitido/reimpresso em rotina personalizada (M003A01
 
 ![](./assets/cnabreceber/10.png)
 
-Basta selecionar os títulos e confirmar. 
-Os boletos serão impressos após a confirmação. 
+Basta selecionar os títulos e confirmar.
+Os boletos serão impressos após a confirmação.
 
-Na hipótese de reimpressão de um boleto bancário, <u><strong>o nosso número nunca será recalculado</strong></u>, no entanto o código de barras e a linha digitável sempre serão recalculados. 
+Na hipótese de reimpressão de um boleto bancário, <u><strong>o nosso número nunca será recalculado</strong></u>, no entanto o código de barras e a linha digitável sempre serão recalculados.
 
 Após a impressão do boleto, poderá ser encaminhado um e-mail ao cliente (ver item 4.3).
-Na tela de impressão de forma manual, é possível o usuário escolher se o sistema deverá ou não enviar e-mail ao cliente. Se o usuário escolher “Enviar e-mail” sistema fará as verificações de acordo com o item 4.3. Se escolher “Não enviar e-mail” o boleto não será enviado. 
+Na tela de impressão de forma manual, é possível o usuário escolher se o sistema deverá ou não enviar e-mail ao cliente. Se o usuário escolher “Enviar e-mail” sistema fará as verificações de acordo com o item 4.3. Se escolher “Não enviar e-mail” o boleto não será enviado.
 
 Atentar para parâmetros:
 <strong>MV_X003006</strong>: Habilita o envio de e-mail.
-<strong>MV_X003012</strong>: Layout do boleto (ver item 6) 
+<strong>MV_X003012</strong>: Layout do boleto (ver item 6)
 
 <u><strong>Para Layout Modelo 1 (envio de lista para que o cliente acesse o boleto via link)</strong></u>:
 
@@ -3157,7 +3140,6 @@ Atentar para parâmetros:
 
 <u><strong>Para Layout Modelos 2 e 3 (envio do boleto anexo em .PDF)</strong></u>
 
-
 <div style="border-left: 4px solid #0d729c; padding-left: 16px; margin: 20px 0;">
   <span style="background-color: #0d729c; color: white; padding: 2px 6px; border-radius: 4px;">Impressão de Boleto Cobrança</span><br><br>
 
@@ -3165,21 +3147,22 @@ Atentar para parâmetros:
 <br>
 <br>
 
-Como combinamos, estamos encaminhando arquivo em formato .PDF para emissão dos boletos para pagamento. <br> 
-  <br>
-  <strong>Atenciosamente</strong><br>
-  TOTVS - MATRIZ<br>
-  RUA RECIFE, 1458 - CASCAVEL - PR <br>
-  55 45 40093689
+Como combinamos, estamos encaminhando arquivo em formato .PDF para emissão dos boletos para pagamento. <br>
+<br>
+<strong>Atenciosamente</strong><br>
+TOTVS - MATRIZ<br>
+RUA RECIFE, 1458 - CASCAVEL - PR <br>
+55 45 40093689
+
 </div>
 
-Pontos de Entrada disponibilizados: 
+Pontos de Entrada disponibilizados:
 
-<strong>PE003A01</strong> - Ponto de Entrada chamado na inicialização da tela de seleção de títulos. 
-Permite alterar os dados do portador sugerido. 
+<strong>PE003A01</strong> - Ponto de Entrada chamado na inicialização da tela de seleção de títulos.
+Permite alterar os dados do portador sugerido.
 
-<strong>PE003A04</strong> - Ponto de Entrada chamado antes do envio do e-mail ao cliente. 
-Permite alterar o destinatário do e-mail. 
+<strong>PE003A04</strong> - Ponto de Entrada chamado antes do envio do e-mail ao cliente.
+Permite alterar o destinatário do e-mail.
 
 #### 3. LAYOUTS DISPONÍVEIS PARA IMPRESSÃO DO BOLETO
 
@@ -3191,55 +3174,13 @@ Permite alterar o destinatário do e-mail.
 
 ![](./assets/cnabreceber/12.png)
 
-<u>Ponto de Entrada disponibilizado:</u> <strong>PE003A14</strong> - Ponto de Entrada disponibilizado para que seja possível alterar a nomenclatura do arquivo .pdf gerado. 
+<u>Ponto de Entrada disponibilizado:</u> <strong>PE003A14</strong> - Ponto de Entrada disponibilizado para que seja possível alterar a nomenclatura do arquivo .pdf gerado.
 
 Nomenclatura padrão: Filial + Cliente + Loja + Hora + Minuto
 
 <span style="color:#FF6000"><u><strong>Layout 3: Sem recibo Pagador, envio via e-mail com anexo .PDF:</strong></u></span>
 
-<div style="display: flex; align-items: center; gap: 30px; margin: 25px 0; font-family: Arial, sans-serif; font-size: 13px; flex-wrap: wrap;">
-
-  <!-- Imagem à esquerda -->
-  <div style="flex: 0 0 auto; max-width: 55%;">
-    <img src="assets/cnabreceber/13.png" alt="Exemplo Layout 3" style="max-width: 100%; height: auto; border: 1px solid #ccc; box-shadow: 2px 2px 6px rgba(0,0,0,0.15);">
-  </div>
-
-  <!-- Chave + caixa explicativa à direita -->
-  <div style="flex: 1; min-width: 280px; display: flex; align-items: center;">
-    <!-- Chave (lado esquerdo da caixa) -->
-    <div style="
-      width: 14px;
-      height: 160px;
-      border-top: 3px solid #000;
-      border-bottom: 3px solid #000;
-      border-right: 3px solid #000;
-      border-left: none;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-      margin-right: 12px;
-      background: transparent;
-    "></div>
-
-    <!-- Caixa preta com texto -->
-    <div style="
-      background: #000;
-      color: #fff;
-      padding: 12px 16px;
-      border-radius: 6px;
-      font-size: 13px;
-      line-height: 1.45;
-      width: 260px;
-      box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
-    ">
-      Através do ponto de entrada<br>
-      <strong>PE003A05</strong> é possível alterar<br>
-      o corpo do e-mail.
-    </div>
-  </div>
-
 </div>
-
-
 
 </div>
 </details>
