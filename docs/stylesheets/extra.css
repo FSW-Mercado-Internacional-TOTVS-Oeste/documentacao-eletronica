@@ -444,3 +444,67 @@ background-color: #fff7f7 !important;
     inset: 0;
     z-index: 1;
 }
+
+.tabela-titulos {
+      width: 100%;
+      max-width: 900px;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 20px 0;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.25); /* sombra externa 3D */
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .tabela-titulos th,
+    .tabela-titulos td {
+      padding: 10px 12px;
+      text-align: center;
+      border: 1px solid #999;
+    }
+
+    .tabela-titulos thead th {
+      background-color: #0d729c;          /* azul do cabeçalho */
+      color: white;
+      font-weight: bold;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+      border-bottom: 2px solid #084b6a;   /* linha mais escura embaixo */
+    }
+
+    /* Efeito 3D nas células do corpo */
+    .tabela-titulos tbody td {
+      background-color: #f8f8f8;
+      color: #333;
+      border-top: 1px solid #ddd;
+      border-left: 1px solid #ccc;
+      border-right: 1px solid #aaa;
+      border-bottom: 1px solid #999;
+      box-shadow: inset 1px 1px 2px rgba(255,255,255,0.8), 
+                  inset -1px -1px 2px rgba(0,0,0,0.1);
+    }
+
+    /* Alternar fundo leve nas linhas (opcional, mas ajuda no visual) */
+    .tabela-titulos tbody tr:nth-child(even) td {
+      background-color: #f0f4f7;
+    }
+
+    .tabela-titulos a {
+      color: #0066cc;
+      text-decoration: underline;
+    }
+
+    .tabela-titulos a:hover {
+      color: #003366;
+    }
+
+    /* Ajuste fino para a coluna do título longo */
+    .col-titulo {
+      min-width: 180px;
+    }
+
+    .col-valor {
+      font-weight: bold;
+      color: #c00000; /* vermelho para destacar valor, opcional */
+    }
