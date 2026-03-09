@@ -508,3 +508,60 @@ background-color: #fff7f7 !important;
       font-weight: bold;
       color: #c00000; /* vermelho para destacar valor, opcional */
     }
+
+    /* Tabela compacta para listas de referência simples (ex: meses/códigos) */
+.tabela-compacta {
+  width: auto;
+  max-width: 420px;                 /* ajuste conforme necessário, pode ser 420px ou 500px */
+  margin: 16px;                     /* centraliza na página */
+  margin-left: 0;
+  margin-right: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;                  /* menor que o padrão */
+  border-collapse: collapse;
+  border-spacing: 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+  border-radius: 6px;
+  overflow: hidden;
+  line-height: 1;
+}
+
+/* Cabeçalho compacto */
+.tabela-compacta thead th {
+  background-color: #0d729c;
+  color: white;
+  font-weight: 600;
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 2px solid #084b6a;
+  font-size: 13px;
+}
+
+/* Células de dados mais apertadas */
+.tabela-compacta td {
+  padding: 6px 10px;
+  text-align: left;
+  border: 1px solid #d0d0d000;
+  background-color: #fafafa;
+  color: #222;
+}
+
+/* Linha alternada sutil */
+.tabela-compacta tbody tr:nth-child(even) td {
+  background-color: #dce7f5fa;
+}
+
+/* Coluna Mês um pouco mais larga e alinhada à esquerda */
+.tabela-compacta td:first-child {
+  text-align: left;
+  padding-left: 14px;
+  min-width: 140px;
+  font-weight: 500;
+}
+
+/* Coluna Código mais estreita e em negrito */
+.tabela-compacta td:last-child {
+  min-width: 90px;
+  font-weight: bold;
+  color: #004a92;
+}

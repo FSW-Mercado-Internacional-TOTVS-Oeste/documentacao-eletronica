@@ -3166,9 +3166,13 @@ Permite alterar o destinatário do e-mail.
 
 #### 3. LAYOUTS DISPONÍVEIS PARA IMPRESSÃO DO BOLETO
 
+--------------------------------
+
 <span style="color:#FF6000"><u><strong>Layout 1: Com recibo Pagador, envio via e-mail link (formato .htm)</strong></u></span>
 
 ![](./assets/cnabreceber/11.png)
+
+--------------------------------
 
 <span style="color:#FF6000"><u><strong>Layout 2: Com recibo Pagador, envio via e-mail com anexo .PDF:</strong></u></span>
 
@@ -3178,9 +3182,182 @@ Permite alterar o destinatário do e-mail.
 
 Nomenclatura padrão: Filial + Cliente + Loja + Hora + Minuto
 
+--------------------------------
+
 <span style="color:#FF6000"><u><strong>Layout 3: Sem recibo Pagador, envio via e-mail com anexo .PDF:</strong></u></span>
 
-</div>
+![](./assets/cnabreceber/13.png)
+
+<u>Ponto de Entrada disponibilizado:</u> <strong>PE003A14</strong> - Ponto de Entrada disponibilizado para que seja possível alterar a nomenclatura do arquivo .pdf gerado.<br>
+Nomenclatura padrão: Filial + Cliente + Loja + Hora + Minuto
+
+--------------------------------
+
+<span style="color:#FF6000"><u><strong>Layout 4: Em formado de carnê, até 3 boletos por página.</strong></u></span>
+
+![](./assets/cnabreceber/14.png)
+
+<u>Ponto de Entrada disponibilizado:</u> <strong>PE003A14</strong> - Ponto de Entrada disponibilizado para que seja possível alterar a nomenclatura do arquivo .pdf gerado. <br>
+Nomenclatura padrão: Filial + Cliente + Loja + Hora + Minuto
+
+--------------------------------
+
+<span style="color:#FF6000"><u><strong>Impressão de Marca D’água no corpo do boleto bancário (Layout 1 e Layout 2):</strong></u></span>
+
+![](./assets/cnabreceber/15.png)
+
+Verificar parâmetro:
+<strong>MV_X003015</strong> = nLinhaIni, nColunaIni, caminho+nome_arquivo, nColunaFim, nLinhaFim<br>
+Exemplo de preenchimento: 300,100,\web\marca.png,1800,400<br>
+Se estiver em branco não será impressa.
+
+#### 4. Geração do Borderô a Receber
+
+Após os boletos já impressos, se faz necessário incluir um borderô a receber, para envio do arquivo CNAB ao banco.
+
+Verificar parâmetro:
+
+<strong>MV_X003005</strong> = .T. | Executa filtro na rotina de borderô listando apenas títulos com o portador anteriormente relacionado na impressão do boleto.
+
+<strong>MV_X003005</strong> = .F. | Não efetua filtro nenhum.
+
+Após a geração do borderô basta emitir o arquivo de remessa ao banco. (Comunicação Bancária / Arquivo de Cobranças).
+
+<strong><u>Nomenclatura arquivo de cobrança:</u></strong>
+
+A nomenclatura é sugerida automaticamente, de acordo com manual de configuração dos bancos.
+Para bancos onde não constam informações a este respeito, o padrão adotado pela Totvs/Cascavel será:
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Banco</th>
+      <th>Arquivo de Saída</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>237 - BRADESCO</strong></td>
+      <td><strong>CBDDMM??.REM</strong><br>
+<strong>CB</strong> – Cobrança Bradesco<br>
+<strong>DD</strong> – O Dia geração do arquivo<br>
+<strong>MM</strong> – O Mês da geração do Arquivo<br>
+<strong>??</strong> - variáveis alfanuméricas/Númericas<br>
+<strong>.Rem</strong> – Extensão do arquivo
+Ex.: 01, AB, A1 etc.<br></td>
+      <td><strong>Exemplo:</strong> <strong>CB010501.REM<br></strong> ou <strong>CB0105AB.REM</strong> ou <strong><br>CB0105A1.REM</strong></td>
+    </tr>
+    <tr>
+      <td><strong>756 - SICREDI</strong></td>
+      <td><strong>CCCCCMDD.CRM</strong> (para envio do primeiro arquivo de remessa do dia)<br>
+<strong>CCCCC</strong> = código beneficiário <br>
+<strong>MDD</strong> = cód. do mês e nº do dia da data de geração do arquivo <br>
+<strong>CRM</strong> = Indica que é o 1º arquivo remessa <br><br>
+
+<strong>CCCCCMDD.RMX</strong> (para envio de mais de um arquivo de remessa no mesmo dia)<br>
+<strong>CCCCC</strong> = código beneficiário <br>
+<strong>MDD</strong> = cód. do mês e nº do dia da data de geração do arquivo <br>
+<strong>CRM</strong> = Indica que é o 1º arquivo remessa <br>
+
+<strong>RMX</strong> = Indica que o beneficiário enviou mais de um arquivo remessa na data, onde <strong>RM</strong> = Remessa e <strong>X</strong> = sequencia do arquivo remessa. Iniciará sempre em “2” (segundo arquivo remessa gerado no dia) e terá sequencia de acordo com a quantidade de arquivos remessa gerados pelo beneficiário, podendo ser “3”, “4”, “5”, “6”, “7”, “8”, “9” e “0” (décimo e último arquivo remessa que poderá ser gerado pelo beneficiário).
+
+</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<strong>Nota:</strong> Quando se tratar de arquivo remessa para teste, a extensão deverá ser TST.<br>
+<strong>Exemplo:</strong> CB010501.TST, o retorno será disponibilizado como CB010501.RST.
+
+<table class="tabela-compacta">
+  <thead>
+    <tr>
+      <th>Mês</th>
+      <th>Código</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Janeiro</td>
+      <td>1</td>      
+    </tr>
+    <tr>
+      <td>Fevereiro</td>
+      <td>2</td>      
+    </tr>
+    <tr>
+      <td>Março</td>
+      <td>3</td>      
+    </tr>
+    <tr>
+      <td>Abril</td>
+      <td>4</td>      
+    </tr>
+    <tr>
+      <td>Maio</td>
+      <td>5</td>      
+    </tr>
+    <tr>
+      <td>Junho</td>
+      <td>6</td>      
+    </tr>
+    <tr>
+      <td>Julho</td>
+      <td>7</td>      
+    </tr>
+    <tr>
+      <td>Agosto</td>
+      <td>8</td>      
+    </tr>
+    <tr>
+      <td>Setembro</td>
+      <td>9</td>      
+    </tr>
+    <tr>
+      <td>Outubro</td>
+      <td>O (Letra)</td>      
+    </tr>
+    <tr>
+      <td>Novembro</td>
+      <td>N (Letra)</td>      
+    </tr>
+    <tr>
+      <td>Dezembro</td>
+      <td>D (Letra)</td>      
+    </tr>    
+  </tbody>
+</table>
+
+<strong>Atenção:</strong> É possível alterar a nomenclatura do arquivo de saída através do ponto de entrada <strong>PE003A18</strong>
+
+#### 5. Transferência de Carteira
+
+Ao transferir um título que já possua nosso número (boleto já impresso), para a carteira ‘0’, o nosso número será apagado, garantindo a consistência junto ao agente cobrador (padrão do sistema).
+
+É possível realizar a transferência da carteira 1 para outras carteiras, sem passar para a carteira ‘0’, ou seja, sem perder o nosso número. Para isto a transferência não poderá ser contabilizada. Atentar para o preenchimento do terceiro parâmetro na rotina de transferência contas a receber.
+
+![](./assets/cnabreceber/16.png)
+
+Contab. Transferência = Não, permite a transferência da carteira 01 para várias outras, como por exemplo Descontada.
+
+#### 5. Instrução de Cobrança
+
+Após o envio do arquivo de remessa ao banco, muitas vezes se faz necessário efetuar algum tipo de alteração no título: alteração de data de vencimento, instrução para que o banco cancele o protesto, etc. <br>
+Para isto, ao alterar um título a receber que está relacionado a um borderô, o sistema emite um aviso, solicitando ao usuário se o mesmo deseja incluir instruções de cobrança:
+
+![](./assets/cnabreceber/17.png)
+
+Selecionar SIM se a instrução será posteriormente enviada ao banco, será apresentada a tela:
+
+![](./assets/cnabreceber/18.png)
+
+Usuário deverá informar o código da ocorrência.
+
+IMPORTANTE: deverá ser cadastrada apenas uma ocorrência por título no arquivo de instruções, pois somente a última ocorrência é gravada na tabela SE1, e é está que será enviada.
+
+Após a alteração, basta gerar o arquivo de instruções (Comunicação Bancária / Instr. Cobrança) e enviá-lo ao banco.
 
 </div>
 </details>
