@@ -2910,7 +2910,7 @@ Neste cadastro são definidos detalhes técnicos que posteriormente serão utili
 
 Seu correto preenchimento é de suma importância, abaixo os principais campos que devem ser observados.
 
-![](./assets/cnabreceber/01.png)
+![](./assets/cnabreceber/01.png){.flow-image}
 
 - <strong>OPERAÇÃO</strong>: informe uma identificação para o cadastro, que será apresentado na tela de consulta padrão F3 de seleção do portador (exemplo: BRADESCO COBRANCA).
 - <strong>INSTRUÇÃO PRIMÁRIA</strong>: informe “01” que é o código para REMESSA.
@@ -2969,7 +2969,7 @@ Existe a possibilidade de configurar quais portadores (banco/agencia/conta) est�
 
 Outros campos do cadastro de Parâmetros Bancários:
 
-![](./assets/cnabreceber/02.png)
+![](./assets/cnabreceber/02.png){.flow-image}
 
 - <strong>BCO CORRESP/AGE CORRESP/DV AG.CORRESP/CTA.CORRESP/DV CTA.CORRESP</strong>: Campos para informar o banco correspondente/vinculado ao banco Portador (Código do Banco, Código da Agência, Dígito Verificador da Agência, Número da Conta, DV da Conta).<br>
   Opcional. Exemplo de uso é o banco SICOOB que na opção de Cobrança Registrada utiliza o banco B.BRASIL como correspondente. Neste caso, na impressão dos Boletos e arquivo de remessa do CNAB devem ir algumas informações do banco correspondente ao invés do banco portador
@@ -2986,9 +2986,9 @@ Anexo ao pacote FS99999_003A existe uma tabela pré-cadastrada (seb003a.dtc) que
 
 Na rotina de Cadastro de Clientes, é possível efetuar o relacionamento do cliente com os bancos que poderão ser utilizados para emissão do Boleto Bancário (este relacionamento é opcional). Se existir, somente os bancos relacionados ao cliente poderão ser utilizados.
 
-![](./assets/cnabreceber/03.png)
+![](./assets/cnabreceber/03.png){.flow-image}
 
-![](./assets/cnabreceber/04.png)
+![](./assets/cnabreceber/04.png){.flow-image}
 
 Atentar para configuração do parâmetro <strong>MV_X003011</strong> (0=Desativa; 1=Ativa e não Edita; 2=Ativa e Edita)
 
@@ -2998,7 +2998,7 @@ No cadastro de clientes existem dois campos (envia ou não e-mail, e o endereço
 
 A prioridade é o campo A1_X_MAIL, se este não estiver preenchido, será encaminhado para A1_EMAIL.
 
-![](./assets/cnabreceber/05.png)
+![](./assets/cnabreceber/05.png){.flow-image}
 
 Na hipótese do endereço de cobrança estar preenchido, é este endereço que será impresso no Boleto Bancário.
 
@@ -3016,7 +3016,7 @@ Verificar parâmetro: <strong>MV_X003002</strong>, <strong>MV_X003009</strong>
 
 Para todos os pedidos de vendas faturados na rotina de Prep. Doc. Saída (indiferente da forma/condição de pagamento), será apresentada a tela com possibilidade de escolha do banco (listando apenas portadores habilitados no Cadastro de Parâmetros de Bancos), e marcação dos títulos que serão gerados os boletos.
 
-![](./assets/cnabreceber/06.png)
+![](./assets/cnabreceber/06.png){.flow-image}
 
 De acordo com a configuração do parâmetro <strong>MV_X003009</strong>, serão marcados automaticamente os títulos com emissão/vencimento iguais, ou seja, à vista.
 
@@ -3033,7 +3033,7 @@ Verificar parâmetro: <strong>MV_X003004</strong>, <strong>MV_X003009</strong>
 
 Para todas as vendas com forma de pagamento diferente de R$, CC, CD ou CH, será apresentada a tela com possibilidade de escolha do banco (listando apenas portadores habilitados no Cadastro de Parâmetros de Bancos), e marcação dos títulos que serão gerados os boletos.
 
-![](./assets/cnabreceber/07.png)
+![](./assets/cnabreceber/07.png){.flow-image}
 
 De acordo com a configuração do parâmetro <strong>MV_X003009</strong>, serão marcados automaticamente os títulos com emissão/vencimento iguais, ou seja, à vista.
 
@@ -3055,7 +3055,7 @@ Verificar parâmetro: <strong>MV_X003003</strong>, <strong>MV_X003009</strong>
 
 Para todas as vendas com forma de pagamento diferente de R$, CC, CD ou CH, será apresentada a tela com possibilidade de escolha do banco (listando apenas portadores habilitados no Cadastro de Parâmetros de Bancos), e marcação dos títulos que serão gerados os boletos.
 
-![](./assets/cnabreceber/08.png)
+![](./assets/cnabreceber/08.png){.flow-image}
 
 De acordo com a configuração do parâmetro <strong>MV_X003009</strong>, serão marcados automaticamente os títulos com emissão/vencimento iguais, ou seja, à vista.
 
@@ -3070,7 +3070,7 @@ Verificar parâmetro: <strong>MV_X003010</strong>, <strong>MV_X003009</strong>
 
 Será apresentada a tela com possibilidade de escolha do banco (listando apenas portadores habilitados no Cadastro de Parâmetros de Bancos), e marcação dos títulos que serão gerados os boletos, para todos os títulos gerados pelas notas fiscais de saídas processadas.
 
-![](./assets/cnabreceber/09.png)
+![](./assets/cnabreceber/09.png){.flow-image}
 
 De acordo com a configuração do parâmetro <strong>MV_X003009</strong>, serão marcados automaticamente os títulos com emissão/vencimento iguais, ou seja, à vista.
 
@@ -3089,7 +3089,7 @@ Configuração do parâmetro <strong>MV_X003016</strong>
 
 O boleto também poderá ser emitido/reimpresso em rotina personalizada (M003A01).
 
-![](./assets/cnabreceber/10.png)
+![](./assets/cnabreceber/10.png){.flow-image}
 
 Basta selecionar os títulos e confirmar.
 Os boletos serão impressos após a confirmação.
@@ -3170,13 +3170,13 @@ Permite alterar o destinatário do e-mail.
 
 <span style="color:#FF6000"><u><strong>Layout 1: Com recibo Pagador, envio via e-mail link (formato .htm)</strong></u></span>
 
-![](./assets/cnabreceber/11.png)
+![](./assets/cnabreceber/11.png){.flow-image}
 
 --------------------------------
 
 <span style="color:#FF6000"><u><strong>Layout 2: Com recibo Pagador, envio via e-mail com anexo .PDF:</strong></u></span>
 
-![](./assets/cnabreceber/12.png)
+![](./assets/cnabreceber/12.png){.flow-image}
 
 <u>Ponto de Entrada disponibilizado:</u> <strong>PE003A14</strong> - Ponto de Entrada disponibilizado para que seja possível alterar a nomenclatura do arquivo .pdf gerado.
 
@@ -3186,7 +3186,9 @@ Nomenclatura padrão: Filial + Cliente + Loja + Hora + Minuto
 
 <span style="color:#FF6000"><u><strong>Layout 3: Sem recibo Pagador, envio via e-mail com anexo .PDF:</strong></u></span>
 
-![](./assets/cnabreceber/13.png)
+![](./assets/cnabreceber/13.png){.flow-image}
+
+<U><strong>Nota:</strong></u> Através do ponto de entrada <strong>PE003A05</strong> é possível alterar o corpo do e-mail.
 
 <u>Ponto de Entrada disponibilizado:</u> <strong>PE003A14</strong> - Ponto de Entrada disponibilizado para que seja possível alterar a nomenclatura do arquivo .pdf gerado.<br>
 Nomenclatura padrão: Filial + Cliente + Loja + Hora + Minuto
@@ -3195,7 +3197,7 @@ Nomenclatura padrão: Filial + Cliente + Loja + Hora + Minuto
 
 <span style="color:#FF6000"><u><strong>Layout 4: Em formado de carnê, até 3 boletos por página.</strong></u></span>
 
-![](./assets/cnabreceber/14.png)
+![](./assets/cnabreceber/14.png){.flow-image}
 
 <u>Ponto de Entrada disponibilizado:</u> <strong>PE003A14</strong> - Ponto de Entrada disponibilizado para que seja possível alterar a nomenclatura do arquivo .pdf gerado. <br>
 Nomenclatura padrão: Filial + Cliente + Loja + Hora + Minuto
@@ -3204,7 +3206,7 @@ Nomenclatura padrão: Filial + Cliente + Loja + Hora + Minuto
 
 <span style="color:#FF6000"><u><strong>Impressão de Marca D’água no corpo do boleto bancário (Layout 1 e Layout 2):</strong></u></span>
 
-![](./assets/cnabreceber/15.png)
+![](./assets/cnabreceber/15.png){.flow-image}
 
 Verificar parâmetro:
 <strong>MV_X003015</strong> = nLinhaIni, nColunaIni, caminho+nome_arquivo, nColunaFim, nLinhaFim<br>
@@ -3363,4 +3365,3 @@ Após a alteração, basta gerar o arquivo de instruções (Comunicação Bancá
 </details>
 
 </div>
-```
