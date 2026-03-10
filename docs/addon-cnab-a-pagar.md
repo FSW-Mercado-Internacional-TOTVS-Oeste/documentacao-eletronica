@@ -2062,15 +2062,13 @@ Informe 'S' se o titular de recebimento do titulo (Fornecedor) é uma filial, ou
 
 ### 12. Manual de operação
 
-#### 1. Cadastros
+#### 1. Parâmetros de Bancos
 
-Neste cadastro são definidos detalhes técnicos que posteriormente serão utilizados para formatação e emissão do arquivo de remessa ao banco.
+Neste cadastro são definidos detalhes técnicos que posteriormente serão utilizados para formatação e emissão do arquivo de remessa ao banco. 
 
-Seu correto preenchimento é de suma importância, abaixo os principais campos que devem ser observados.
+Seu correto preenchimento é de suma importância, abaixo os principais campos que devem ser observados. 
 
-![](./assets/cnabapagar/01.png)
-
-<strong>SUB CONTA</strong>: Por convenção a Totvs Cascavel utiliza a Sub Conta = PAG para CNAB a Pagar.
+<strong>SUB CONTA</strong>: Por convenção a Totvs Cascavel utiliza a Sub Conta = PAG para CNAB a Pagar. 
 
 <strong>EXTENSÃO</strong>: é a extensão que será gerado o arquivo de remessa. Consultar manual técnico de cada banco.
 
@@ -2078,26 +2076,248 @@ Seu correto preenchimento é de suma importância, abaixo os principais campos q
 
 <strong>NR. BYTES</strong>: informe a quantidade de posições da remessa/retorno layout: 240/400/500 de acordo com cada banco.
 
-<strong>FORMATO DATA</strong>: informar o tipo da data que o banco trabalha no arquivo de retorno. Consultar manual técnico de cada banco.
-
-Formato da data no retorno:
-
+<strong>FORMATO DATA</strong>: informar o tipo da data que o banco trabalha no arquivo de retorno. Consultar manual técnico de cada banco. <br>
+Formato da data no retorno:<br>
 1-ddmmaa, 2=mmddaa, 3=aammdd, 4=ddmmaaaa,5=aaaammdd,6=mmddaaaa.
 
-<strong>DIR. REMESSA</strong>: informe o caminho (diretório) onde serão gerados os arquivos de remessa. Exemplo: D:\CNAB\REMESSA\BANCO\.
+<strong>DIR. REMESSA</strong>:informe o caminho (diretório) onde serão gerados os arquivos de remessa. Exemplo: D:\CNAB\REMESSA\BANCO\. <br>
+Na hipótese de ser um caminho na rede, o mesmo deverá estar mapeado na unidade local. <br>
+Este caminho será automaticamente sugerido na rotina de geração de remessa. <br>
 
-Na hipótese de ser um caminho na rede, o mesmo deverá estar mapeado na unidade local.
+<strong>CONF. REMESSA</strong>: informe o nome do arquivo de configuração de remessa. <br>
+Exemplo: banco240.2PE
 
-Este caminho será automaticamente sugerido na rotina de geração de remessa.
+<strong>CONF. RETORNO</strong>: informe o nome do arquivo de configuração de retorno. <br>
+Exemplo: banco240.2PR
 
-<strong>CONF. REMESSA</strong>: informe o nome do arquivo de configuração de remessa. Exemplo: banco240.2PE
+#### 1.2. Ocorrências CNAB
 
-<strong>CONF. RETORNO</strong>: informe o nome do arquivo de configuração de retorno. Exemplo: banco240.2PR
+O cadastro de ocorrências define os registros dos códigos atribuídos pelos próprios bancos a fim de identificar os resultados da leitura dos arquivos.
+
+Devem ser cadastradas de acordo com o manual de cada banco. 
+
+Anexo ao pacote FS99999_003B existe uma tabela pré-cadastrada (seb003b.dtc) que poderá auxiliar no cadastramento. De qualquer forma, é importante a revisão das ocorrências de acordo com o manual de cada banco. 
 
 
+#### 1.3. Cadastros de Fornecedores
+
+No cadastro de fornecedores, atentar para o preenchimento correto dos campos:
+
+![](./assets/cnabapagar/01.png){.flow-image}
+
+<strong>BANCO</strong>: informe o código do Banco.
+
+<strong>COD.AGENCIA</strong>: informe o código da Agência.
+
+<strong>CTA.CORRENTE</strong>: informe o número da conta, sem o dígito verificador.
+
+<strong>DV CONTA</strong>: informe o dígito verificador da conta.
+
+<strong>TP.CTA.FOR</strong>: informe o tipo de conta, Corrente ou Poupança.
+
+<strong>TIPO PAGTO</strong>: informe o tipo de pagamento padrão para este fornecedor. <br>
+Esta opção será sugerida durante a inclusão de Documentos de Entrada. 
+
+<u>Depósito</u>: Utilizar para as formas de pagamento: Depósito Bancário, TED, DOC. <br>
+O modelo será classificado automaticamente na inclusão de um título a pagar ou nota fiscal de entrada. 
+
+<strong><u>PARÂMETROS ENVOLVIDOS:</u></strong>
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Conteúdo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>MV_X003B01</strong></td>
+      <td>Numérico</td>      
+      <td>Valor mínimo para geração de TED.</td>  
+      <td>500</td>  
+    </tr>
+    <tr>
+      <td><strong>MV_X003B02</strong></td>
+      <td>Numérico</td>  
+      <td>Valor máximo para geração de DOC.</td>  
+      <td>4999.99</td>      
+    </tr>
+    <tr>
+      <td><strong>MV_X003B03</strong></td>
+      <td>Caracter</td>  
+      <td>Data para pagamento efetivo do Titulo.<br>
+        1=Data do Vencimento Real (E2_VENCREA)<br>
+        2=Data da Emissão do Borderô (EA_DATABOR)<br>
+        3=Data da geração do Arquivo (DDATABASE)
+      </td>  
+      <td>1</td>      
+    </tr>        
+  </tbody>
+</table>
+
+#### 2. Inclusão Contas a Pagar - Manual
+
+#### 2.1. Pagamento via (DOC/TED/Depósito)
+
+Durante a inclusão de um título a Pagar de forma Manual (FINA050), ao selecionar o Fornecedor, será sugerido automaticamente os dados bancários cadastrados no Fornecedor.
+
+![](./assets/cnabapagar/02.png){.flow-image}
+
+#### 2.2. Pagamento via Boleto Bancário
+
+Durante a inclusão de um título a Pagar de forma Manual (FINA050), deve-se atentar para o preenchimento do campo referente ao código de barras ou linha digitável. 
+
+Para utilização de Leitor de Código de Barras, atentar para sua configuração, pois o leitor pode ser configurado para retornar o código de barras efetivo (44 caracteres) ou a linha digitável (47/48 caracteres). Portanto, dependendo da configuração do leitor de Código de Barras, deve-se verificar qual campo será preenchido. 
+
+Durante o preenchimento da Linha Digitável, o campo Código de Barras será preenchido automaticamente. 
 
 
+![](./assets/cnabapagar/03.png){.flow-image}
 
+#### 2.3 Alterando Dados do Pagamento
+
+Após a inclusão do título, se houver a necessidade de alteração nos dados para pagamento, (banco/agência/conta/código de barras), através da rotina Funções Contas a Pagar ou Contas a Pagar -> Ações Relacionadas -> Dados CNAB Pagar as alterações poderão ser realizadas. 
+
+<strong>PE003B02</strong> – Possibilidade de inclusão de novos campos para visualização e alteração.
+
+#### 3. Nota Fiscal de Entrada
+
+Durante a inclusão de uma Nota Fiscal de Entrada que possua títulos a pagar, será apresentada uma tela no qual o usuário poderá configurar/escolher de que forma se fará o pagamento ao Fornecedor, para cada uma das parcelas geradas.
+
+![](./assets/cnabapagar/04.png){.flow-image}
+
+Através da configuração do parâmetro <strong>MV_X003B04</strong> é possível determinar se os dados bancários (Banco/Agencia/Conta/DV/Tipo de Conta) poderão ser alterados neste momento. Importante frisar que somente estes títulos serão afetados, ou seja, esta informação não será replicada no cadastro do fornecedor. 
+
+Através da configuração do parâmetro <strong>MV_X003B05</strong> é possível tornar obrigatória a Tela e as informações do tipo de pagamento. 
+
+#### 4. Geração do Borderô a Pagar (FINA241)
+
+Após os títulos incluídos, e liberados (se utilizar o controle de alçadas), o próximo passo será a geração dos borderôs de pagamento. 
+
+É imprescindível a utilização da rotina <strong>FINA241</strong> – Borderô de Pagamentos Impostos. <br>
+(<span style="color:#FF6000"><u><strong>não utilizar a rotina FINA240</strong></u></span>), para que os impostos via retenção (se configurados para geração na baixa dos títulos), <u>sejam gerados no momento da inclusão do borderô</u>. Mesmo que sua configuração esteja para geração dos títulos na emissão, poderá ser utilizada a rotina FINA241 para emissão dos borderôs de pagamentos. 
+
+Em Funções Contas a Pagar utilizar:
+
+![](./assets/cnabapagar/05.png){.flow-image}
+
+![](./assets/cnabapagar/06.png){.flow-image}
+
+Para cada Modelo de Pagamento deverá ser gerado um borderô. 
+
+Informar o modelo e tipo de pagamento, o sistema fará automaticamente, o filtro, apresentando somente títulos classificados para a forma e modelo escolhidos. 
+
+Os modelos atendidos pelo ADD-ON CNAB a Pagar para cada Banco estão listados no Boletim Técnico <strong>FS99999_003B</strong>. 
+
+De forma genérica são eles:
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Segmento</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Segmento A</strong><br>
+      - <strong>01</strong> Crédito em Conta Corrrente<br>
+      - <strong>05</strong> Crédito em Conta Poupança<br>
+      - <strong>10</strong> Ordem de Pagamento, sem aviso ao favorecido.
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Segmento B</strong><br>
+      - <strong>03</strong> DOC C<br>
+      - <strong>41</strong> TED     
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Segmento J</strong><br>
+      - <strong>30</strong> Boletos em cobrança / no próprio banco<br>
+      - <strong>31</strong> Boletos em cobrança / outro banco      
+      </td>
+    </tr>
+    <tr>
+      <td><strong>Segmento O</strong><br>
+      - <strong>13</strong> Pagamento de concessionárias (Água/Luz/Telefone)
+      </td>
+    </tr>     
+  </tbody>
+</table>
+
+!!!warning "IMPORTANTE – Este pacote não contempla:"
+    a) Segmento N: Pagamento de Tributos (DARF, GPS, DARJ, IPVA, IPTU, DPVAT, GR, etc).<br>
+    b) Pagamento de títulos em outra moeda diferente de R$.<br>
+    c) DDA - Débito Direto Autorizado<br>
+    d) Segmento J-52: Pagamento de Boletos com código de Barras e valor superior a R$ 250.000,00<br>
+    e) Exclusão de títulos enviados anteriormente
+
+#### 5. Geração do Arquivo Remessa
+
+Com os borderôs já incluídos, basta efetuar a geração do arquivo de remessa. 
+
+Ao selecionar o Código do Banco nos parâmetros, o sistema fará o preenchimento dos demais campos, de acordo com o cadastro de Parâmetros de Bancos. 
+
+![](./assets/cnabapagar/07.png){.flow-image}
+
+Atentar para o correto preenchimento do parâmetro Arq. de Saida ?
+
+<strong><u>Nomenclatura arquivo de cobrança:</u></strong>
+
+A nomenclatura é sugerida automaticamente, de acordo com manual de configuração dos bancos. 
+Para bancos onde não constam informações a este respeito, o padrão adotado pela Totvs/Cascavel será:
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Banco</th>
+      <th>Arquivo de Saída</th>
+      <th>Exemplo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>104 - CAIXA ECONÔMICA FEDERAL</strong></td>
+      <td><strong>ACC.AAAAAA.SIACC2.CEF</strong><br>
+        <strong>AAC</strong> – é fixo e identifica o sistema que irá processar o arquivo<br>
+        <strong>AAAAAA</strong> – deve ser preenchido com o apelido do contratante na VAN.<br>
+        <strong>SIACC2</strong> – é fixo e identifica que está sendo enviado um arquivo no padrão 240 da FEBRABAN.<br>
+        <strong>??</strong> - variáveis alfanuméricas/Númericas<br>
+        <strong>.Rem</strong> – Extensão do arquivo
+        Ex.: 01, AB, A1 etc.<br></td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>237 - BRADESCO</strong></td>
+      <td><strong>PGDDMMX.REM </strong><br>
+        <strong>PG</strong> = Fixo <br>
+        <strong>DD</strong> = Dia da geração do arquivo<br>
+        <strong>MM</strong> = Mês da geração do arquivo<br>
+        <strong>X</strong> = Sequencial<br>
+        </td>
+      <td>Exemplo: <strong>PG250601.REM</strong></td>
+    </tr>
+    <tr>
+      <td><strong>756 - SICREDI</strong></td>
+      <td><strong>CCCDDMMSS.CRM </strong> (para envio do primeiro arquivo de remessa do dia) <br>
+        <strong>CCC</strong> = Código beneficiário<br>
+        <strong>DD</strong> = Dia da geração do arquivo<br>
+        <strong>MM</strong> = Mês da geração do arquivo<br>
+        <strong>SS</strong> = Sequência do arquivo. Caso, a empresa conveniada envia mais de um arquivo remessa ao dia essa posição deverá vir preenchida com a quantidade de arquivos já enviados naquela data.<br>
+        </td>
+      <td>-</td>
+    </tr>    
+  </tbody>
+</table>
+
+Após a geração do arquivo de remessa, basta via Internet Bankingde cada Banco, transmitir o arquivo para pagamento. 
+
+ATENÇÃO aos prazos de envio, que variam de Banco para Banco. 
+
+!!!warning "ATENÇÃO aos prazos de envio, que variam de Banco para Banco."
 
 </div>
 </details>
