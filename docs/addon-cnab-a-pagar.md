@@ -2315,8 +2315,6 @@ Para bancos onde não constam informações a este respeito, o padrão adotado p
 
 Após a geração do arquivo de remessa, basta via Internet Bankingde cada Banco, transmitir o arquivo para pagamento. 
 
-ATENÇÃO aos prazos de envio, que variam de Banco para Banco. 
-
 !!!warning "ATENÇÃO aos prazos de envio, que variam de Banco para Banco."
 
 </div>
