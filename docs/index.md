@@ -5,11 +5,9 @@ hide:
   - toc
 ---
 
-# Pagina em Construção {.home-hero}
+# Documentação Eletrônica {.home-hero}
 
 <div class="grid cards" markdown>
-
-## Documentação Eletrônica
 
 </div>
 
@@ -37,6 +35,6 @@ hide:
 <div class="home-hero-contact">
   <div class="home-hero-contact__inner">
     <p class="home-hero-contact__title">Como podemos ajudar?</p>
-    <a href="suporte.md" class="home-hero-contact__btn">Entre em contato e fale conosco!</a>
+    <a href="/documentacao-eletronica/suporte/" class="home-hero-contact__btn">Entre em contato e fale conosco!</a>
   </div>
 </div>

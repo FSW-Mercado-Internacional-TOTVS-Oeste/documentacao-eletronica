@@ -28,7 +28,8 @@ nav:
       - CNAB A Receber: addon-cnab-a-receber.md
       - CNAB A Pagar: addon-cnab-a-pagar.md
       - CNAB Folha: addon-cnab-folha.md
-      - CNAB Extrato Bancario: addon-cnab-extrato-bancario.md      
+      - CNAB Extrato Bancario: addon-cnab-extrato-bancario.md   
+  - Suporte: suporte.md         
 
 markdown_extensions:
   - admonition
