@@ -12,19 +12,19 @@ hide:
 ## Projeto FS99_001 {.home-hero}
 <div class="grid cards" markdown>
 
--   [__Alçadas - Regras__]()
+-   [__Alçadas - Regras__](addon-alcadas-regras.md)
     
     Rotina customizada para Controle de Alçadas com aprovação via Workflow, integrando processos básicos do ERP.
 
--   [__Alçadas com Workflow – Pedido de Venda__]()
+-   [__Alçadas com Workflow – Pedido de Venda__](addon-alcadas-pedido-venda.md)
     
     Rotina customizada de Controle de Alçadas com Workflow, integrada ao bloqueio por crédito em Pedidos de Venda.
 
--   [__Alçadas – Pedidos de Compras__]()
+-   [__Alçadas – Pedidos de Compras__](addon-alcadas-pedido-compras.md)
     
     Rotina customizada de Controle de Alçadas com Workflow, integrada aos processos do módulo Compras.
 
--   [__Alçadas – Contas a Pagar (Título / Borderô)__]()
+-   [__Alçadas – Contas a Pagar (Título / Borderô)__](addon-alcadas-contas-pagar.md)
     
     Rotina customizada de Controle de Alçadas com Workflow, integrada aos processos de Títulos a Pagar e Borderô a Pagar do módulo Financeiro.
 
@@ -60,7 +60,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   [__Addon Importação de XML de Terceiros__]()
+-   [__Addon Importação de XML de Terceiros__](addon-xml-terceiro.md)
     
     Addon para gerenciamento de arquivos XML de NF-e e CT-e emitidos por terceiros.
 
@@ -72,7 +72,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   [__Addon Comissões - Faturamento__]()
+-   [__Addon Comissões - Faturamento__](addon-comissoes-faturamento.md)
     
     Addon tem como objetivo flexibilizar as regras para composição das comissões de venda. 
 
@@ -83,7 +83,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   [__ADDON de Leite__]()
+-   [__ADDON de Leite__](addon-leite.md)
     
     Addon tem como objetivo atender os processos de recebimento de leite para Laticícios em geral.
 
@@ -94,7 +94,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   [__Processo de Workflow de Alçadas Cadastrais__]()
+-   [__Processo de Workflow de Alçadas Cadastrais__](addon-alcadas-workflow-cadastrais.md)
     
     Controle de alçadas cadastrais via Workflow com e-mail automático.
 

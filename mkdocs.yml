@@ -23,12 +23,26 @@ theme:
     - content.tabs.link
 
 nav:
-  - Início: index.md
+  - Inicio: index.md
   - Addons:
+    - Projeto FS99_001:
+      - Alçadas - Regras: addon-alcadas-regras.md
+      - Alçadas com Workflow - Pedido de Venda: addon-alcadas-pedido-venda.md
+      - Alçadas - Pedidos de Compras: addon-alcadas-pedido-compras.md
+      - Alçadas - Contas a Pagar: addon-alcadas-contas-pagar.md   
+    - Projeto FS99_003:
       - CNAB A Receber: addon-cnab-a-receber.md
       - CNAB A Pagar: addon-cnab-a-pagar.md
       - CNAB Folha: addon-cnab-folha.md
-      - CNAB Extrato Bancario: addon-cnab-extrato-bancario.md   
+      - CNAB Extrato Bancario: addon-cnab-extrato-bancario.md 
+    - Projeto FS99_004:
+      - Addon Importação de XML: addon-xml-terceiro.md
+    - Projeto FS99_006:
+      - Addon Comissões e Faturamento: addon-comissoes-faturamento.md
+    - Projeto FS99_007:  
+      - Addon de Leite: addon-leite.md
+    - Projeto FS99_009:  
+      - Addon Processo de Workflow de Alçadas Cadastrais: addon-alcadas-workflow-cadastrais.md
   - Suporte: suporte.md         
 
 markdown_extensions:
