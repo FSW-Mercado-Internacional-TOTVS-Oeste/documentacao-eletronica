@@ -1,4 +1,4 @@
-# CNAB a Receber
+# CNAB a Receber {.home-hero}
 
 <div class="confluence-card" markdown="1">
 

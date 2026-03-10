@@ -1,4 +1,4 @@
-# CNAB A PAGAR
+# CNAB A PAGAR {.home-hero}
 
 <div class="confluence-card" markdown="1">
 

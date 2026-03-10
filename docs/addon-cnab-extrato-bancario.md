@@ -1,4 +1,4 @@
-# CNAB EXTRATO BANCARIO
+# CNAB EXTRATO BANCARIO {.home-hero}
 
 <div class="confluence-card" markdown="1">
 
@@ -441,6 +441,7 @@ Atualizações -> Movimento Bancario -> Conciliacao Automatica
 Efetuar a configuração dos parâmetros da rotina.
 
 <strong><u>Protheus Versão 11:</u></strong>
+
 Ao selecionar o banco, o nome do arquivo de configuração será sugerido automaticamente. De acordo com o Cadastro de Parâmetros do Banco. 
 
 ![](./assets/cnabextratobancario/01.png){.flow-image}
