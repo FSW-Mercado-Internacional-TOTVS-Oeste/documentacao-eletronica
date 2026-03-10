@@ -12,21 +12,21 @@ hide:
 ## Projeto FS99_001 {.home-hero}
 <div class="grid cards" markdown>
 
--   [__Controle de alçadas - Regras__]()
+-   [__Alçadas - Regras__]()
     
-    Gestão eficiente
+    Rotina customizada para Controle de Alçadas com aprovação via Workflow, integrando processos básicos do ERP.
 
--   [__Controle de alçadas com Workflow – Pedido de Venda__]()
+-   [__Alçadas com Workflow – Pedido de Venda__]()
     
-    Gestão eficiente
+    Rotina customizada de Controle de Alçadas com Workflow, integrada ao bloqueio por crédito em Pedidos de Venda.
 
--   [__Alçadas – Solicitações de Compras / Pedidos de Compras__]()
+-   [__Alçadas – Pedidos de Compras__]()
     
-    Gestão eficiente
+    Rotina customizada de Controle de Alçadas com Workflow, integrada aos processos do módulo Compras.
 
 -   [__Alçadas – Contas a Pagar (Título / Borderô)__]()
     
-    Gestão eficiente
+    Rotina customizada de Controle de Alçadas com Workflow, integrada aos processos de Títulos a Pagar e Borderô a Pagar do módulo Financeiro.
 
 </div>
 
@@ -62,7 +62,7 @@ hide:
 
 -   [__Addon Importação de XML de Terceiros__]()
     
-    Gestão eficiente
+    Addon para gerenciamento de arquivos XML de NF-e e CT-e emitidos por terceiros.
 
 </div>
 
@@ -74,7 +74,7 @@ hide:
 
 -   [__Addon Comissões - Faturamento__]()
     
-    Gestão eficiente
+    Addon tem como objetivo flexibilizar as regras para composição das comissões de venda. 
 
 </div>
 <hr>
@@ -85,7 +85,7 @@ hide:
 
 -   [__ADDON de Leite__]()
     
-    Gestão eficiente
+    Addon tem como objetivo atender os processos de recebimento de leite para Laticícios em geral.
 
 </div>
 <hr>
@@ -96,7 +96,7 @@ hide:
 
 -   [__Processo de Workflow de Alçadas Cadastrais__]()
     
-    Gestão eficiente
+    Controle de alçadas cadastrais via Workflow com e-mail automático.
 
 </div>
 
