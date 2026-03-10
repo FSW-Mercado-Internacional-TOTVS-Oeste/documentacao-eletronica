@@ -3364,4 +3364,10 @@ Após a alteração, basta gerar o arquivo de instruções (Comunicação Bancá
 </div>
 </details>
 
+<hr>
+<div style="text-align: center; margin-top: 20px;">
+    <a href="/documentacao-eletronica/" class="md-button" style="text-decoration: none;">← Voltar para a Página Inicial</a>
+</div>
+<hr>
+
 </div>

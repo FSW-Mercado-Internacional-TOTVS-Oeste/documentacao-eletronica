@@ -565,3 +565,25 @@ background-color: #fff7f7 !important;
   font-weight: bold;
   color: #004a92;
 }
+
+.md-nav__primary > .md-nav__list > .md-nav__item {
+    display: none;
+}
+
+/* 2. Garante que o item "Inicio" e "Suporte" sempre apareçam (opcional) */
+.md-nav__primary > .md-nav__list > .md-nav__item:first-child,
+.md-nav__primary > .md-nav__list > .md-nav__item:last-child {
+    display: block;
+}
+
+/* 3. Mostra APENAS o projeto que está ativo ou que contém a página aberta */
+.md-nav__primary > .md-nav__list > .md-nav__item--active {
+    display: block;
+}
+
+/* Ajuste visual: Remove o título da seção para não duplicar com o nome do projeto */
+.md-nav__item--active > .md-nav__link {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--md-primary-fg-color);
+}
