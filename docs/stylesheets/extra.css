@@ -587,3 +587,209 @@ background-color: #fff7f7 !important;
     margin-bottom: 5px;
     color: var(--md-primary-fg-color);
 }
+
+/* ── Wrapper do ponto de entrada ── */
+  .pe-card {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #e0e4ef;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,74,146,.07);
+  }
+
+  /* ── Cabeçalho do card ── */
+  .pe-card__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #004a92 0%, #0068cc 100%);
+    color: #fff;
+  }
+
+  .pe-card__badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 4px;
+    padding: 3px 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .pe-card__name {
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Consolas', 'Courier New', monospace;
+    letter-spacing: .5px;
+  }
+
+  .pe-card__source {
+    margin-left: auto;
+    font-size: 11px;
+    opacity: .75;
+    font-family: 'Consolas', monospace;
+    white-space: nowrap;
+  }
+
+  /* ── Tabela de metadados ── */
+  .pe-meta {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+
+  .pe-meta tr + tr td,
+  .pe-meta tr + tr th {
+    border-top: 1px solid #eef0f5;
+  }
+
+  .pe-meta th {
+    width: 140px;
+    padding: 10px 16px 10px 20px;
+    font-weight: 600;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: #5e6e8a;
+    background: #f8f9fc;
+    border-left: 3px solid #004a92;
+    vertical-align: top;
+    white-space: nowrap;
+  }
+
+  .pe-meta td {
+    padding: 10px 20px;
+    color: #172b4d;
+    line-height: 1.55;
+  }
+
+  /* ── Sintaxe com fundo destacado ── */
+  .pe-meta td code,
+  .pe-syntax {
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+    background: #f0f4ff;
+    border: 1px solid #d0daef;
+    border-radius: 5px;
+    padding: 6px 12px;
+    display: inline-block;
+    color: #003580;
+  }
+
+  /* ── Separador de seção interna ── */
+  .pe-section {
+    padding: 0 20px 16px;
+    border-top: 1px solid #eef0f5;
+  }
+
+  .pe-section__title {
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #8a97b0;
+    margin: 14px 0 8px;
+  }
+
+  /* ── Tabela de parâmetros ── */
+  .pe-params {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    border-radius: 7px;
+    overflow: hidden;
+    border: 1px solid #e0e4ef;
+  }
+
+  .pe-params thead th {
+    background: #f0f4ff;
+    color: #004a92;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    padding: 8px 14px;
+    text-align: left;
+    border-bottom: 2px solid #c8d6ef;
+  }
+
+  .pe-params tbody td {
+    padding: 9px 14px;
+    border-top: 1px solid #eef0f5;
+    vertical-align: top;
+  }
+
+  .pe-params tbody tr:hover td {
+    background: #f8f9fc;
+  }
+
+  .pe-params .param-name {
+    font-family: 'Consolas', monospace;
+    font-weight: 700;
+    color: #004a92;
+    white-space: nowrap;
+  }
+
+  .pe-params .param-type {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    background: #fff3e8;
+    color: #cc4e00;
+    border: 1px solid #ffd0ad;
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+
+  /* ── Bloco de código ── */
+  .pe-code-wrap {
+    background: #1a2035;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .pe-code-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: #111828;
+  }
+
+  .pe-code-bar span {
+    width: 11px; height: 11px;
+    border-radius: 50%;
+  }
+  .pe-code-bar span:nth-child(1) { background: #ff5f57; }
+  .pe-code-bar span:nth-child(2) { background: #febc2e; }
+  .pe-code-bar span:nth-child(3) { background: #28c840; }
+
+  .pe-code-label {
+    margin-left: auto;
+    font-size: 10px;
+    font-family: 'Consolas', monospace;
+    color: #5a6a8a;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .pe-code-wrap pre {
+    margin: 0;
+    padding: 16px 20px;
+    overflow-x: auto;
+    color: #cdd3e0;
+    font-family: 'Consolas', 'Courier New', monospace;
+  }
+
+  .pe-code-wrap .kw  { color: #79b8ff; }
+  .pe-code-wrap .fn  { color: #b392f0; }
+  .pe-code-wrap .cm  { color: #4c5f7a; font-style: italic; }
+  .pe-code-wrap .st  { color: #9ecbff; }
+  .pe-code-wrap .va  { color: #e3e9f3; }

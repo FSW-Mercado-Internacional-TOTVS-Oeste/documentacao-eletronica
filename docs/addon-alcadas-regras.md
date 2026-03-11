@@ -4729,415 +4729,137 @@ Indica a origem da Aprovação:<br>
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">11.</span> Campos padrões (SE2 - Contas a Pagar)</span>
+  <span class="summary-title"><span class="summary-number">11.</span> Pontos de Entrada Especificos</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### 11. Campos padrões (SE2 - Contas a Pagar)
+### 11. Pontos de Entrada Específicos
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E2_X_TPGTO (inclusão)**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">PE</span> **M001AAP**</span>
 </summary>
-
 <div class="content-body" markdown="1">
 
 <table class="banks-table">
   <tbody>
     <tr>
+      <th>Programa Fonte</th>
+      <td>M001A01.PRW</td>
+      <th>Retorno</th>
+      <td>Nenhum</td>
+    </tr>
+    <tr>
+      <th>Sintaxe</th>
+      <td colspan="3">M001AAP ( &lt;ParamIxB&gt; ) --&gt;Nil</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="3">Ponto de entrada na rotina de aprovação de alçadas, após a aprovação final do documento em alçadas.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros**
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
       <th>Tipo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ParamIxB</strong></td>
       <td>Caracter</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Tipo Pagto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Tipo de Pagamento Padrao</td>
+      <td>Nome do processo da alçadas (<strong>ZX1_PROCES</strong>)</td>
     </tr>
   </tbody>
 </table>
 
-#### **Help**
+#### **Exemplo de implementação**
 
-<div class="help-box" markdown="1">
-Tipo de Pagamento, utilizado para CNAB a Pagar.
-</div>
+```advpl
+User Function M001AAP()
 
-#### **Configurações adicionais**
+Local aArea   := GetArea()
+Local cRotina := PARAMIXB
 
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>D=DOC;T=TED;O=Ordem de Pagamento;P=Chave PIX;Q=QR CODE PIX</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+  //ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+  //³ Personalizações do cliente                  ³
+  //ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+
+  If cRotina == "MATA120"
+    …
+  EndIf
+
+  RestArea(aArea)
+Return
+```
 
 </div>
 </details>
 
+<div class="pe-card">
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E2_X_TPCTA (inclusão)**</span>
-</summary>
+  <!-- Cabeçalho -->
+  <div class="pe-card__header">
+    <span class="pe-card__badge">Ponto de Entrada</span>
+    <span class="pe-card__name">M001AAP</span>
+    <span class="pe-card__source">M001A01.PRW</span>
+  </div>
 
-<div class="content-body" markdown="1">
-
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>Caracter</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Tipo de Conta</td>
-    </tr>
+  <!-- Metadados -->
+  <table class="pe-meta">
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Tipo de Conta</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-
-<div class="help-box" markdown="1">
-Tipo de Conta (Poupança/Corrente)
-</div>
-
-#### **Configurações adicionais**
-
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td></td>
+      <td>Ponto de entrada na rotina de aprovação de alçadas, após a aprovação final do documento em alçadas.</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
-      <td></td>
+      <th>Sintaxe</th>
+      <td><code>M001AAP ( &lt;ParamIxB&gt; ) --&gt;Nil</code></td>
     </tr>
     <tr>
-      <th>Val. Usuário</th>
-      <td></td>
+      <th>Retorno</th>
+      <td>Nenhum</td>
     </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Conta Corrente;2=Conta Poupanca</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+  </table>
 
-</div>
-</details>
+  <!-- Parâmetros -->
+  <div class="pe-section">
+    <div class="pe-section__title">Parâmetros</div>
+    <table class="pe-params">
+      <thead>
+        <tr>
+          <th>Parâmetro</th>
+          <th>Tipo</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="param-name">ParamIxB</td>
+          <td><span class="param-type">Caracter</span></td>
+          <td>Nome do processo da alçadas (<strong>ZX1_PROCES</strong>)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E2_X_MSTIT (inclusão)**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>Caracter</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td></td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Mesmo Tit.</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Mesmo Titular</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-
-<div class="help-box" markdown="1">
-Informe 'S' se o titular de recebimento do titulo (Fornecedor) é uma filial, ou seja, mesmo titular. Utilizado para CNAB a Pagar, pois o mesmo possui distinção de Mod. e Forma de Pagamentos para o mesmo titular.
-</div>
-
-#### **Configurações adicionais**
-
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>Retirar a consulta padrão</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Nao</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
-</details>
-
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E2_LINDIG (alteração)**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td></td>
-      <th>Tamanho</th>
-      <td>48</td>
-      <th>Decimal</th>
-      <td></td>
-      <th>Formato</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td></td>
-      <th>Propriedade</th>
-      <td></td>
-      <th>Obrigatório</th>
-      <td></td>
-      <th>Browse</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7"></td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7"></td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-
-<div class="help-box" markdown="1">
+  <!-- Código -->
+  <div class="pe-section">
+    <div class="pe-section__title">Exemplo de Implementação</div>
+    <div class="pe-code-wrap">
+      <div class="pe-code-bar">
+        <span></span><span></span><span></span>
+        <span class="pe-code-label">AdvPL</span>
+      </div>      
+    </div>
+  </div>
 
 </div>
 
-#### **Configurações adicionais**
-
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
-</details>
-
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E2_FCTADV (alteração)**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td></td>
-      <th>Tamanho</th>
-      <td>2</td>
-      <th>Decimal</th>
-      <td></td>
-      <th>Formato</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td></td>
-      <th>Propriedade</th>
-      <td></td>
-      <th>Obrigatório</th>
-      <td></td>
-      <th>Browse</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7"></td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7"></td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-
-<div class="help-box" markdown="1">
-
-</div>
-
-#### **Configurações adicionais**
-
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td></td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
-</details>
 
 </div>
 </details>
