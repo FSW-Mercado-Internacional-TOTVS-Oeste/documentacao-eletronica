@@ -4735,6 +4735,412 @@ Indica a origem da Aprovação:<br>
 
 ### 11. Pontos de Entrada Específicos
 
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001AAP**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+<table class="pe-table-modern">  
+  <tbody>
+  <tr>
+    <td>Descrição</td>
+    <td>Ponto de entrada na rotina de aprovação de alçadas, após a aprovação final do documento em alçadas.</td>
+  </tr>
+  <tr>
+    <td>Programa Fonte</td>
+    <td>M001A01.PRW</td>
+  </tr>  
+  <tr>
+    <td>Sintaxe</td>
+    <td><code>M001AAP ( &lt;ParamIxB&gt; ) --> Nil</code></td>
+  </tr>
+  <tr>
+    <td>Parâmetros</td>
+    <td>ParamIxB – Tipo: Caracter – Descrição: Nome do processo da alçadas (ZX1_PROCES)</td>
+  </tr>
+  <tr>
+    <td>Retorno</td>
+    <td>Nenhum</td>
+  </tr>
+  <tr>
+  <td>Exemplo</td>
+  <td>
+    ````advpl
+    User Function M001AAP()
+
+    Local aArea:= GetArea()
+    Local cRotina := PARAMIXB
+
+    //ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+    //³ Personalizações do cliente     ³
+    //ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+    If cRotina == “MATA120”
+    …
+    EndIf
+
+    RestArea(aArea)
+
+    Return
+    ````
+  </td>
+  </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001ARP**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+<table class="pe-table-modern">  
+  <tr>
+    <td>Descrição</td>
+    <td>Ponto de entrada na rotina de aprovação de alçadas, após a reprovação final do documento em alçadas.</td>
+  </tr>
+  <tr>
+    <td>Programa Fonte</td>
+    <td>M001A01.PRW</td>
+  </tr>  
+  <tr>
+    <td>Sintaxe</td>
+    <td><code>M001ARP ( &lt;ParamIxB&gt; ) --> Nil</code></td>
+  </tr>
+  <tr>
+    <td>Parâmetros</td>
+    <td>ParamIxB – Tipo: Caracter – Descrição: Nome do processo da alçadas (ZX1_PROCES)</td>
+  </tr>
+  <tr>
+    <td>Retorno</td>
+    <td>Nenhum</td>
+  </tr>
+  <tr>
+  <td>Exemplo</td>
+  <td>
+    ````advpl
+    User Function M001ARP()
+
+    Local aArea:= GetArea()
+    Local cRotina := PARAMIXB
+
+    //ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+    //³ Personalizações do cliente     ³
+    //ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+    If cRotina == “MATA120”
+    …
+    EndIf
+
+    RestArea(aArea)
+
+    Return    
+    ````
+  </td>
+  </tr>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M1A5CPOS**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+<table class="pe-table-modern">  
+  <tr>
+    <td>Descrição</td>
+    <td>Ponto de entrada na rotina de M001A05 (Verbas por Aprovador) para permitir adicionar campos à tela de cadastro. OBS: Deve ser usado em conjunto com o ponto de entrada M1A5TELA.</td>
+  </tr>
+  <tr>
+    <td>Programa Fonte</td>
+    <td>M001A05.PRW</td>
+  </tr>  
+  <tr>
+    <td>Sintaxe</td>
+    <td><code>M1A5CPOS ( &lt;ParamIxB&gt; ) --> Nil</code></td>
+  </tr>
+  <tr>
+    <td>Parâmetros</td>
+    <td>Nenhum</td>
+  </tr>
+  <tr>
+    <td>Retorno</td>
+    <td>Nenhum</td>
+  </tr>
+  <tr>
+  <td>Exemplo</td>
+  <td>
+    ````advpl
+    User Function M1A5CPOS(  )
+      Local _aCabec   := {}
+      Local _aGrid    := {}
+      Local _aRet     := {}
+
+      // Array _aCabec: array para adicionar os campos que aparecerão no cabeçalho.
+      // Contém duas posições, a primeira é para definição da variável e a segunda
+      // é o id do campo
+      aAdd(_aCabec,{"cTESTE","ZX4_TESTE"})
+      //aAdd(_aCabec,{"cTESTE3","ZX4_TESTE3"})
+   
+      // Array _aGrid: array para adicionar os campos que aparecerão no grid.
+      // contém apenas uma posição, com o id do campo
+      aAdd(_aGrid,{"ZX4_TESTE2"})
+      // Array _aRet: compila os dados dos arrays _aCabec e _aGrid em um só, o qual
+      // será o retorno deste PE. Sempre adicionar primeiro o _aCabec e depois o _aGrid.
+      // É obrigatório haver dois retornos no array _aRet, mesmo que um deles esteja em branco
+      aAdd(_aRet,_aCabec)
+      aAdd(_aRet,_aGrid)
+
+    Return ( _aRet )   
+    ````
+  </td>
+  </tr>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M1A5TELA**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+<table class="pe-table-modern">  
+  <tr>
+    <td>Descrição</td>
+    <td>Ponto de entrada na rotina de M001A05 (Verbas por Aprovador) para permitir adicionar campos à tela de cadastro. OBS: Deve ser usado em conjunto com o ponto de entrada M1A5CPOS.</td>
+  </tr>
+  <tr>
+    <td>Programa Fonte</td>
+    <td>M001A05.PRW</td>
+  </tr>  
+  <tr>
+    <td>Sintaxe</td>
+    <td><code>M1A5TELA ( &lt;ParamIxB&gt; ) --> Nil</code></td>
+  </tr>
+  <tr>
+    <td>Parâmetros</td>
+    <td>Nenhum</td>
+  </tr>
+  <tr>
+    <td>Retorno</td>
+    <td>Nenhum</td>
+  </tr>
+  <tr>
+  <td>Exemplo</td>
+  <td>
+    ````advpl
+    User Function M1A5TELA()
+
+      // Informações sobre posições dos campos:
+      // Os títulos dos campos ficam nas colunas (pos. x) 010 e 150
+      // As Fields ficam nas colunas (pos. x) 060 e 200
+      // As linhas (pos. y) somam de 15 em 15, iniciando a partir da posição 055
+      // Não esquecer de somar a variável nPixP12 na linha (pos. y)
+      Local _nLin := 055 + nPixP12
+
+      @ _nLin,010 Say   Posicione("SX3",2,'ZX4_TESTE',"X3_TITULO") OF oDlg PIXEL SIZE 080,009 COLOR CLR_BLUE
+      @ _nLin,060 MsGet cTESTE Size 120,010 PIXEL OF oDlg WHEN lInclui .OR. lAltera
+
+      /* 
+      @ _nLin,150 Say   Posicione("SX3",2,'ZX4_TESTE2',"X3_TITULO") OF oDlg PIXEL SIZE 080,009 COLOR CLR_BLUE
+      @ _nLin,200 MsGet cTESTE2 Size 120,010 PIXEL OF oDlg WHEN lInclui
+
+      _nLin += 15
+      @ _nLin,010 Say   Posicione("SX3",2,'ZX4_TESTE3',"X3_TITULO") OF oDlg PIXEL SIZE 080,009 COLOR CLR_BLUE
+      @ _nLin,060 MsGet cTESTE3 Size 120,010 PIXEL OF oDlg  F3 "SB1"  
+
+      @ _nLin,150 Say   Posicione("SX3",2,'ZX4_TESTE4',"X3_TITULO") OF oDlg PIXEL SIZE 080,009 COLOR CLR_BLUE
+      @ _nLin,200 MsGet cTESTE4 Size 120,010 PIXEL OF oDlg VALID (U_VALID()) 
+
+      _nLin += 15
+    */
+    
+    Return    
+    ````
+  </td>
+  </tr>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001REG**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+<table class="pe-table-modern">  
+  <tr>
+    <td>Descrição</td>
+    <td>Descrição	Ponto de entrada na rotina de inclusão de movimento de alçada. Utilizado para personalizar busca de aprovador, quando a regra é do tipo PERSONALIZADA. Deve retornar o código do novo aprovador.
+</td>
+  </tr>
+  <tr>
+    <td>Programa Fonte</td>
+    <td>M001A01.PRW</td>
+  </tr>  
+  <tr>
+    <td>Sintaxe</td>
+    <td><code>M001AAP ( &lt;ParamIxB&gt; ) --> cCodAp</code></td>
+  </tr>
+  <tr>
+    <td>Parâmetros</td>
+    <td>ParamIxB – Tipo: Carracter – Descrição: Código da rotina configurada na regra</td>
+  </tr>
+  <tr>
+    <td>Retorno</td>
+    <td>Nenhum</td>
+  </tr>
+  <tr>
+  <td>Exemplo</td>
+  <td>
+    ````advpl
+    User Function M001REG()
+
+      Local aArea     := GetArea()
+      Local cRotina   := PARAMIXB
+      Local cAprovador:= “”
+
+      //ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+      //³ Personalizações do cliente     ³
+      //ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+    If cRotina == “MATA120”
+       cAprovador := ‘000002’   
+    EndIf
+
+    RestArea(aArea)
+
+    Return(cAprovador)   
+    ````
+  </td>
+  </tr>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001MNU**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+<table class="pe-table-modern">  
+  <tr>
+    <td>Descrição</td>
+    <td>Ponto de entrada que permite e inclusão de funções na rotina de aprovação de alçadas. Variável aRotina é Private.
+</td>
+  </tr>
+  <tr>
+    <td>Programa Fonte</td>
+    <td>M001A01.PRW</td>
+  </tr>  
+  <tr>
+    <td>Sintaxe</td>
+    <td><code>M001MNU ( &lt;ParamIxB&gt; ) --> Nil</code></td>
+  </tr>
+  <tr>
+    <td>Parâmetros</td>
+    <td>Nenhum</td>
+  </tr>
+  <tr>
+    <td>Retorno</td>
+    <td>Nenhum</td>
+  </tr>
+  <tr>
+  <td>Exemplo</td>
+  <td>
+    ````advpl
+    User Function M001MNU()
+
+    Local aArea:= GetArea()
+
+    AADD(aRotina,{"&SeuMenu","U_XXXXXXX" ,0,2})
+
+    RestArea(aArea)
+
+    Return 
+    ````
+  </td>
+  </tr>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001INC**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+<table class="pe-table-modern">  
+  <tr>
+    <td>Descrição</td>
+    <td>Ponto de entrada para gravações adicionais após inclusão de movimentos de alçadas. Tabela de movimentos de alçadas está em edição.</td>
+  </tr>
+  <tr>
+    <td>Programa Fonte</td>
+    <td>M001A01.PRW</td>
+  </tr>  
+  <tr>
+    <td>Sintaxe</td>
+    <td><code>M001INC ( &lt;ParamIxB&gt; ) --> Nil</code></td>
+  </tr>
+  <tr>
+    <td>Parâmetros</td>
+    <td>Nenhum</td>
+  </tr>
+  <tr>
+    <td>Retorno</td>
+    <td>Nenhum</td>
+  </tr>
+  <tr>
+  <td>Exemplo</td>
+  <td>
+    ````advpl
+    Exemplo Implementação	User Function M001IND()
+
+    Local aArea:= GetArea()
+    Local cRotina := PARAMIXB
+
+    //ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+    //³ Personalizações do cliente     ³
+    //ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
+    If cRotina == “MATA120”
+
+        (_001T03)->&_001T03FOR := ‘0101’
+        ???->??_??? := ???
+
+
+    EndIf
+
+    RestArea(aArea)
+
+    Return
+    ````
+  </td>
+  </tr>
+</table>
+
+</div>
+</details>
+
 </div>
 </details>
 
@@ -4748,6 +5154,8 @@ Indica a origem da Aprovação:<br>
 
 ### 12. Manual de operação
 
+
+
 </div>
 </details>
 
@@ -4757,5 +5165,3 @@ Indica a origem da Aprovação:<br>
   <a href="/documentacao-eletronica/" class="md-button" style="text-decoration: none;">← Voltar para a Página Inicial</a>
 </div>
 <hr>
-
-</div>

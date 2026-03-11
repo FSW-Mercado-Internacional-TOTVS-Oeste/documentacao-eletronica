@@ -793,3 +793,36 @@ background-color: #fff7f7 !important;
   .pe-code-wrap .cm  { color: #4c5f7a; font-style: italic; }
   .pe-code-wrap .st  { color: #9ecbff; }
   .pe-code-wrap .va  { color: #e3e9f3; }
+
+  /* Classe para Tabela de Pontos de Entrada - Modern */
+.pe-table-modern {
+    width: 100%;
+    border-spacing: 0;
+    margin: 20px 0;
+    border-radius: 6px;
+    border: 1px solid #004a8e; /* Azul TOTVS aproximado */
+    overflow: hidden;
+}
+
+.pe-table-modern th {
+    background-color: #004a8e;
+    color: white;
+    padding: 10px 15px;
+    text-align: left;
+    font-size: 0.85em;
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+.pe-table-modern td {
+    background-color: #ffffff;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.95em;
+}
+
+.pe-table-modern tr td:first-child {
+    font-weight: bold;
+    color: #004a8e;
+    background-color: #f9f9f9;
+    width: 20%;
+}
