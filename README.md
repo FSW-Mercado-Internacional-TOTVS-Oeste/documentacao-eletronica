@@ -21,6 +21,9 @@ Ao baixar o projeto pela primeira vez, configure o ambiente virtual para evitar 
 # Criar ambiente virtual
 python -m venv .venv
 
+# Caso powershell bloqueie a execução de scripts, execute:
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
 # Ativar ambiente
 .\.venv\Scripts\activate
 
@@ -58,6 +61,9 @@ Acesse `http://127.0.0.1:8000` no seu navegador.
 ```
 ### Como realizar um commit
 No terminal, execute:
+
+git config --global user.name "Seu Nome"
+git config --global user.email "seu.email@exemplo.com"
 
 git add .
 git commit -m "Comentario do commit"
