@@ -5154,7 +5154,7 @@ Indica a origem da Aprovação:<br>
 
 ### 12. Manual de operação
 
-#### 1. Inclusão
+#### 1. Cadastro
 
 Passo a seguir são para a inclusão de uma nova regra de alçada.
 
@@ -5206,17 +5206,48 @@ Para Aprovar ou Reprovar um Documento, clicamos no botão "Liberar" no inferior 
 - <strong>Aprovador:</strong> Informe o indice de busca para posicionamento no campo a verificar o aprovador do processo.<br>
 - <strong>Processo:</strong> Informar o campo a ser verificado para selecionar o aprovador, quando selecionado o Tipo de Busca = Entidade.<br>
 - <strong>Status:</strong> Stauts do movimento:<br>
-<strong>1</strong> - Aguardando Aprovacao<br>
-<strong>2</strong> - Aguardando Aprov. Nivel Anterior<br>
-<strong>3</strong> - Aprovado<br>
-<strong>4</strong> - Transferido p/ outro Aprovador<br>
-<strong>5</strong> - Reprovado<br>
-<strong>6</strong> - Nivel Anterior Reprovado<br>
+1 - Aguardando Aprovacao<br>
+2 - Aguardando Aprov. Nivel Anterior<br>
+3 - Aprovado<br>
+4 - Transferido p/ outro Aprovador<br>
+5 - Reprovado<br>
+6 - Nivel Anterior Reprovado<br>
 - <strong>Observações:</strong> Help Informe o nome do processo (rdmake) que será responsável por enviar WorkFlow para o controle de alcadas.<br>
 
 Para visualização do Documento antes de Aprovar ou Reprovar, podemos clicar sobre o botão Visual. Docto.
 
 ![](./assets/alcadasregras/09_aprovacao_visualizar_documento.png){.flow-image}
+
+Exemplo de email de liberação de documento.
+
+![](./assets/alcadasregras/10_aprovacao_email_aprovado.png){.flow-image}
+
+#### 3. Ausencia Temporária
+
+Quando um aprovador está ausente, é possível configurar um substituto para assumir suas responsabilidades. Isso garante que os processos de aprovação não fiquem paralisados durante férias, licenças ou ausências planejadas.
+
+Para configurar um substituto, utilizamos a tela de Ausência Temporária, acessamos através de Incluir:
+
+![](./assets/alcadasregras/12_ausencia_incluir.png){.flow-image}
+
+Na tela de Ausência Temporária, preenchemos os campos obrigatórios:
+
+![](./assets/alcadasregras/13_ausencia_cadastro.png){.flow-image}
+
+- <strong>Codigo:</strong> Codigo.<br>
+- <strong>Aprovador:</strong> Codigo do Aprovador que esta sendo substituído temporariamente.<br>
+- <strong>Nome:</strong> Nome do Aprovador que esta sendo substituído temporariamente.<br>
+- <strong>Dt. Saida:</strong> Data de inicio da ausência.<br>
+- <strong>Dt. Retorno:</strong> Data de Retorno.<br>
+- <strong>Substituto:</strong> Codigo do usuario que será substituto.<br>
+- <strong>Nome:</strong> Nome do Usuario substituto.<br>
+
+A partir desse momento, todos os documentos que estivessem aguardando aprovação do aprovador original serão automaticamente redirecionados para o substituto, garantindo a continuidade dos processos sem interrupções.
+
+
+
+
+
 
 
 </div>
