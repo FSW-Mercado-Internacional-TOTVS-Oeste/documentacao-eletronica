@@ -5197,7 +5197,7 @@ A legenda de cada status pode ser acessadas em Açoes Relacionadas > Legendas:
 
 ![](./assets/alcadasregras/07_aprovacao_legendas.png){.flow-image}
 
-Para Aprovar ou Reprovar um Documento, clicamos no botão "Liberar" no inferior da tela de aprovação. Nessa tela adicionamos uma "Observação" e clicamos no botão desejado.
+Para Aprovar ou Reprovar um Documento, clicamos no botão "Liberar" no inferior da tela de aprovação. Nessa tela adicionamos uma "Observação" e clicamos no botão desejado (Aprovar Docto para Aprovar ou Reprovar Docto para Reprovar).
 
 ![](./assets/alcadasregras/08_aprovacao_aprovar_documento.png){.flow-image}
 
@@ -5214,7 +5214,9 @@ Para Aprovar ou Reprovar um Documento, clicamos no botão "Liberar" no inferior 
 <strong>6</strong> - Nivel Anterior Reprovado<br>
 - <strong>Observações:</strong> Help Informe o nome do processo (rdmake) que será responsável por enviar WorkFlow para o controle de alcadas.<br>
 
-Para
+Para visualização do Documento antes de Aprovar ou Reprovar, podemos clicar sobre o botão Visual. Docto.
+
+![](./assets/alcadasregras/09_aprovacao_visualizar_documento.png){.flow-image}
 
 
 </div>
