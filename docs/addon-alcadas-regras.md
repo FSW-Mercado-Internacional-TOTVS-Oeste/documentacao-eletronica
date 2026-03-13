@@ -663,6 +663,87 @@ Informe os destinatarios do Workflow. Para mais de um, utilize (;).
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX0_STATUS**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>06</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>N</td>
+      <th>Browse</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Status Aprov</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Status Aprovacao</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Stauts do movimento:<br>
+<strong>1</strong> - Aguardando Aprovacao<br>
+<strong>2</strong> - Aguardando Aprov. Nivel Anterior<br>
+<strong>3</strong> - Aprovado<br>
+<strong>4</strong> - Transferido p/ outro Aprovador<br>
+<strong>5</strong> - Reprovado<br>
+<strong>6</strong> - Nivel Anterior Reprovado
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
 <span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_PROCES**</span>
 </summary>
 <div class="content-body" markdown="1">
@@ -3067,87 +3148,6 @@ Numero do documento que gerou o controle de alcadas.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX0_STATUS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Status Aprov</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Status Aprovacao</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Stauts do movimento:<br>
-<strong>1</strong> - Aguardando Aprovacao<br>
-<strong>2</strong> - Aguardando Aprov. Nivel Anterior<br>
-<strong>3</strong> - Aprovado<br>
-<strong>4</strong> - Transferido p/ outro Aprovador<br>
-<strong>5</strong> - Reprovado<br>
-<strong>6</strong> - Nivel Anterior Reprovado
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
 <span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_DESCRI**</span>
 </summary>
 <div class="content-body" markdown="1">
@@ -5154,6 +5154,67 @@ Indica a origem da Aprovação:<br>
 
 ### 12. Manual de operação
 
+#### 1. Inclusão
+
+Passo a seguir são para a inclusão de uma nova regra de alçada.
+
+![](./assets/alcadasregras/02_cadastro_dados_preenchidos.png){.flow-image}
+
+- <strong>Processo:</strong> Informe o codigo do processo (nome da funcao) referente a Alçada.<br>
+- <strong>Descrição:</strong> Descricao do Processo.<br>
+- <strong>Worklow Aviso:</strong> Informe o nome do processo (rdmake) que será responsavel por enviar WorkFlow de aviso da liberacao controle de alcadas.<br>
+- <strong>Worklow Alias:</strong> (Buscar informação).<br>
+- <strong>Regra Ativa?:</strong> Informe se a regra esta ativa <strong>S</strong>=Sim, <strong>N</strong>=Não.<br>
+
+![](./assets/alcadasregras/03_cadastro_tabela.png){.flow-image}
+
+- <strong>Sequencia:</strong> Sequencia<br>
+- <strong>Tp. Liberação:</strong> Help Informe o tipo de liberacao que deseja para esta regra de Alcadas:<br>
+  N = Nivel - Sistema respeitara os níveis configurados, encaminhando para o proximonivel somente após aprovação do nível anterior.<br>
+  U = Usuario - A liberacao do usuário pode ocorrer individualmente, sem considerar outros aprovadores constantes na regra.<br>
+- <strong>Nivel:</strong> Informe o nivel (2 digitos).<br>
+- <strong>Tp. Busca:</strong> Help Informe o tipo de busca:<br>
+  E = Entidade - O usuario poderá configurar qualquer tabela do sistema para verificar o aprovador do processo.<br>
+  U = Usuario - Configuracao de usuário "fixo" como aprovador.<br>
+- <strong>Aprovador:</strong> Informe o codigo do usuario que seraresponsavel pela aprovação.<br>
+- <strong>Nome:</strong> Nome do Aprovador.<br>
+- <strong>Indice Alias:</strong> Informe o indice de busca para posicionamento no campo a verificar o aprovador do processo.<br>
+- <strong>Campo:</strong> Informar o campo a ser verificado para selecionar o aprovador, quando selecionado o Tipo de Busca = Entidade.<br>
+- <strong>Expressao:</strong> Podera ser utilizada para criacao de regras diferentes para um mesmo processo. (Utilizar sempre a tabela posicionada no cabecalho do processo.)<br>
+- <strong>Proc. WF:</strong> Help Informe o nome do processo (rdmake) que será responsável por enviar WorkFlow para o controle de alcadas.<br>
+- <strong>Alias:</strong> Sigla dos arquivos relacionados no processo. Ex: SA1, SB1, SD2, etc...<br>
+- <strong>Observacoes:</strong> Observação.<br>
+
+![](./assets/alcadasregras/04_cadastro_dado_adicionado.png){.flow-image}
+
+#### 2. Aprovação de Documento
+
+Para aprovar um documento, na tela inicial do protheus, no grupo de "Alçadas", clique no botão "Aprovamentos", escolha a forma de visualização do filtro e clique em "OK" assim será possivel visualizar na tela de Aprovações se há algum documento que precisa de atenção.
+
+![](./assets/alcadasregras/08_aprovacao_visualizacao.png){.flow-image}
+
+A legenda de cada status pode ser acessadas em Açoes Relacionadas > Legendas:
+
+![](./assets/alcadasregras/07_aprovacao_legendas.png){.flow-image}
+
+Para Aprovar ou Reprovar um Documento, clicamos no botão "Liberar" no inferior da tela de aprovação. Nessa tela adicionamos uma "Observação" e clicamos no botão desejado.
+
+![](./assets/alcadasregras/08_aprovacao_aprovar_documento.png){.flow-image}
+
+- <strong>Numero Doc.:</strong> Informe o codigo do usuario que seraresponsavel pela aprovação.<br>
+- <strong>Emissao:</strong> Nome do Aprovador.<br>
+- <strong>Aprovador:</strong> Informe o indice de busca para posicionamento no campo a verificar o aprovador do processo.<br>
+- <strong>Processo:</strong> Informar o campo a ser verificado para selecionar o aprovador, quando selecionado o Tipo de Busca = Entidade.<br>
+- <strong>Status:</strong> Stauts do movimento:<br>
+<strong>1</strong> - Aguardando Aprovacao<br>
+<strong>2</strong> - Aguardando Aprov. Nivel Anterior<br>
+<strong>3</strong> - Aprovado<br>
+<strong>4</strong> - Transferido p/ outro Aprovador<br>
+<strong>5</strong> - Reprovado<br>
+<strong>6</strong> - Nivel Anterior Reprovado<br>
+- <strong>Observações:</strong> Help Informe o nome do processo (rdmake) que será responsável por enviar WorkFlow para o controle de alcadas.<br>
+
+Para
 
 
 </div>
