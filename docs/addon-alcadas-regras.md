@@ -5197,14 +5197,14 @@ A legenda de cada status pode ser acessadas em Açoes Relacionadas > Legendas:
 
 ![](./assets/alcadasregras/07_aprovacao_legendas.png){.flow-image}
 
-Para Aprovar ou Reprovar um Documento, clicamos no botão "Liberar" no inferior da tela de aprovação. Nessa tela adicionamos uma "Observação" e clicamos no botão desejado (Aprovar Docto para Aprovar ou Reprovar Docto para Reprovar).
+Para Aprovar ou Reprovar um Documento, clicamos no botão "Liberar" no canto inferior da tela de aprovação. Nessa tela adicionamos uma "Observação" e clicamos no botão desejado (<strong>Aprovar Docto</strong> para Aprovar ou <strong>Reprovar Docto</strong> para Reprovar).
 
 ![](./assets/alcadasregras/08_aprovacao_aprovar_documento.png){.flow-image}
 
-- <strong>Numero Doc.:</strong> Informe o codigo do usuario que seraresponsavel pela aprovação.<br>
-- <strong>Emissao:</strong> Nome do Aprovador.<br>
-- <strong>Aprovador:</strong> Informe o indice de busca para posicionamento no campo a verificar o aprovador do processo.<br>
-- <strong>Processo:</strong> Informar o campo a ser verificado para selecionar o aprovador, quando selecionado o Tipo de Busca = Entidade.<br>
+- <strong>Numero Doc.:</strong> O código do documento que está sendo aprovado.<br>
+- <strong>Emissao:</strong> A data de emissão do documento.<br>
+- <strong>Aprovador:</strong> O nome do usuário que está realizando a aprovação.<br>
+- <strong>Processo:</strong> O nome do processo que está sendo aprovado.<br>
 - <strong>Status:</strong> Stauts do movimento:<br>
 1 - Aguardando Aprovacao<br>
 2 - Aguardando Aprov. Nivel Anterior<br>
@@ -5212,13 +5212,13 @@ Para Aprovar ou Reprovar um Documento, clicamos no botão "Liberar" no inferior 
 4 - Transferido p/ outro Aprovador<br>
 5 - Reprovado<br>
 6 - Nivel Anterior Reprovado<br>
-- <strong>Observações:</strong> Help Informe o nome do processo (rdmake) que será responsável por enviar WorkFlow para o controle de alcadas.<br>
+- <strong>Observações:</strong> Observações adicionadas durante a aprovação ou reprovação do documento.<br>
 
 Para visualização do Documento antes de Aprovar ou Reprovar, podemos clicar sobre o botão Visual. Docto.
 
 ![](./assets/alcadasregras/09_aprovacao_visualizar_documento.png){.flow-image}
 
-Exemplo de email de liberação de documento.
+<strong><u>Exemplo de email de liberação de documento.</u></strong>
 
 ![](./assets/alcadasregras/10_aprovacao_email_aprovado.png){.flow-image}
 
@@ -5244,9 +5244,11 @@ Na tela de Ausência Temporária, preenchemos os campos obrigatórios:
 
 A partir desse momento, todos os documentos que estivessem aguardando aprovação do aprovador original serão automaticamente redirecionados para o substituto, garantindo a continuidade dos processos sem interrupções.
 
+![](./assets/alcadasregras/14_ausencia_item_incluido.png){.flow-image}
 
+#### 4. Transfêrencias
 
-
+![](./assets/alcadasregras/16_transferencia_transferir.png){.flow-image}
 
 
 
