@@ -464,7 +464,7 @@ ext200.rec = extrato de 200 posições <br>
 
 <hr>
 <div style="text-align: center; margin-top: 20px;">
-    <a href="/documentacao-eletronica/" class="md-button" style="text-decoration: none;">← Voltar para a Página Inicial</a>
+    <a href="/" class="md-button" style="text-decoration: none;">← Voltar para a Página Inicial</a>
 </div>
 <hr>
 

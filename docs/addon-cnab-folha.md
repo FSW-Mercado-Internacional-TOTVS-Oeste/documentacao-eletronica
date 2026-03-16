@@ -832,7 +832,7 @@ Dúvidas, entrar em contato com o gerente do banco para maiores informações so
 
 <hr>
 <div style="text-align: center; margin-top: 20px;">
-    <a href="/documentacao-eletronica/" class="md-button" style="text-decoration: none;">← Voltar para a Página Inicial</a>
+    <a href="/" class="md-button" style="text-decoration: none;">← Voltar para a Página Inicial</a>
 </div>
 <hr>
 

@@ -18,7 +18,7 @@ hide:
 </div>
 
 <div style="text-align: center; margin-top: 20px;">
-    <a href="/documentacao-eletronica/" class="md-button" style="text-decoration: none;">← Voltar para a Página Inicial</a>
+    <a href="/" class="md-button" style="text-decoration: none;">← Voltar para a Página Inicial</a>
 </div>
 
 <hr>
@@ -26,7 +26,7 @@ hide:
 <div class="home-hero-contact">
   <div class="home-hero-contact__inner">
     <p class="home-hero-contact__title">Como podemos ajudar?</p>
-    <a href="/documentacao-eletronica/suporte/" class="home-hero-contact__btn">Entre em contato e fale conosco!</a>
+    <a href="/suporte/" class="home-hero-contact__btn">Entre em contato e fale conosco!</a>
   </div>
 </div>
 
