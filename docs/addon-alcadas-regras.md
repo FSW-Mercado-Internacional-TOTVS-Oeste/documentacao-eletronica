@@ -4634,91 +4634,28 @@ Indica a origem da Aprovação:<br>
 <table class="banks-table">
   <thead>
     <tr>
-      <th>Indice</th>
-      <th>Ordem</th>
-      <th>Chave</th>
+      <th>Tipo</th>
+      <th>Nome</th>
       <th>Descrição</th>
-      <th>NickName</th>      
+      <th>Colunas</th>
+      <th>Retorno</th>      
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>ZX0</strong></td>
-      <td>1</td>
-      <td>ZX0_FILIAL+ZX0_PROCES</td>
-      <td>Funcao</td>
-      <td></td>      
+      <td><strong>US - Consulta Usuários</strong></td>
+      <td>USRZX1</td>
+      <td>UsuarioAlcadas</td>
+      <td>ID, FULLNAME</td>
+      <td>Nome Completo</td>      
     </tr>    
     <tr>
-      <td><strong>ZX1</strong></td>
-      <td>1</td>
-      <td>ZX1_FILIAL+ZX1_PROCES+ZX1_SEQ</td>
-      <td>Processo + Sequencia</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZX1</strong></td>
-      <td>2</td>
-      <td>Chave	ZX1_FILIAL+ZX1_PROCES+ZX1_NIVEL</td>
-      <td>Processo + Nivel</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZX1</strong></td>
-      <td>3</td>
-      <td>ZX1_FILIAL+ZX1_PROCES+ZX1_STATUS</td>
-      <td>Processo + Regra Ativa?</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZX1</strong></td>
-      <td>4</td>
-      <td>Chave	ZX1_FILIAL+ZX1_IDUSER</td>
-      <td>Aprovador</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZX2</strong></td>
-      <td>1</td>
-      <td>ZX2_FILIAL+ZX2_COD</td>
-      <td>Codigo</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZX2</strong></td>
-      <td>2</td>
-      <td>ZX2_FILIAL+ZX2_APROV</td>
-      <td>Aprovador</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZX2</strong></td>
-      <td>3</td>
-      <td>ZX2_FILIAL+ZX2_SUBST</td>
-      <td>Substituto</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZXA</strong></td>
-      <td>1</td>
-      <td>ZXA_FILIAL+ZXA_COD+ZXA_SEQ+ZXA_NIVEL</td>
-      <td>Codigo + Sequencia + Nivel</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZXA</strong></td>
-      <td>2</td>
-      <td>Chave	ZXA_FILIAL+ZXA_COD+ZXA_IDUSER</td>
-      <td>Codigo + Aprovador</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZXA</strong></td>
-      <td>3</td>
-      <td>Chave	ZXA_FILIAL+ZXA_COD+ZXA_NIVEL+ZXA_SEQ</td>
-      <td>Codigo + NivelAprov. + Sequencia</td>
-      <td></td>      
-    </tr>  
+      <td><strong>DB</strong></td>
+      <td>ZX0</td>
+      <td>Destinatarios WF</td>
+      <td>ZX0_PROCES, ZX0_DESCRI, ZX0_DEST</td>
+      <td>ZX0->ZX0_PROCES</td>      
+    </tr>      
   </tbody>
 </table>
 
@@ -5187,8 +5124,10 @@ Passo a seguir são para a inclusão de uma nova regra de alçada.
 - <strong>Processo:</strong> Informe o codigo do processo (nome da funcao) referente a Alçada.<br>
 - <strong>Descrição:</strong> Descricao do Processo.<br>
 - <strong>Worklow Aviso:</strong> Informe o nome do processo (rdmake) que será responsavel por enviar WorkFlow de aviso da liberacao controle de alcadas.<br>
-- <strong>Worklow Alias:</strong> (Buscar informação).<br>
+- <strong>Worklow Alias:</strong> Sigla dos arquivos relacionados no processo.<br>
 - <strong>Regra Ativa?:</strong> Informe se a regra esta ativa <strong>S</strong>=Sim, <strong>N</strong>=Não.<br>
+
+<strong>Campos da Tabela:</strong><br>
 
 ![](./assets/alcadasregras/03_cadastro_tabela.png){.flow-image}
 
@@ -5209,11 +5148,13 @@ Passo a seguir são para a inclusão de uma nova regra de alçada.
 - <strong>Alias:</strong> Sigla dos arquivos relacionados no processo. Ex: SA1, SB1, SD2, etc...<br>
 - <strong>Observacoes:</strong> Observação.<br>
 
+<strong>Após confirmado:</strong> O sistema irá salvar a regra de alçada.<br>
+
 ![](./assets/alcadasregras/04_cadastro_dado_adicionado.png){.flow-image}
 
 #### 2. Aprovação de Documento
 
-Para aprovar um documento, na tela inicial do protheus, no grupo de "Alçadas", clique no botão "Aprovamentos", escolha a forma de visualização do filtro e clique em "OK" assim será possivel visualizar na tela de Aprovações se há algum documento que precisa de atenção.
+Para aprovar um documento, na tela inicial do protheus, no grupo de "Alçadas", clique no botão "Aprovamentos", escolha a forma de visualização do filtro e clique em "OK" assim será possivel visualizar na tela de Aprovações se há algum documento que precise de atenção.
 
 ![](./assets/alcadasregras/08_aprovacao_visualizacao.png){.flow-image}
 
@@ -5238,7 +5179,7 @@ Para Aprovar ou Reprovar um Documento, clicamos no botão "Liberar" no canto inf
 6 - Nivel Anterior Reprovado<br>
 - <strong>Observações:</strong> Observações adicionadas durante a aprovação ou reprovação do documento.<br>
 
-Para visualização do Documento antes de Aprovar ou Reprovar, podemos clicar sobre o botão Visual. Docto.
+Se precisar visualizar o Documento antes de Aprovar ou Reprovar, podemos clicar sobre o botão <strong>"Visual. Docto."</strong>
 
 ![](./assets/alcadasregras/09_aprovacao_visualizar_documento.png){.flow-image}
 
@@ -5272,34 +5213,31 @@ A partir desse momento, todos os documentos que estiverem aguardando aprovação
 
 #### 4. Transfêrencias
 
-![](./assets/alcadasregras/16_transferencia_transferir.png){.flow-image}
+Para transferir um documento de um aprovador para outro, utilizamos a tela de Transferência, acessamos através de Ações Relacionadas > Trasnferencia:
 
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">Editor AdvPL</span>
-    <span class="filename">PE0003B03.prw</span>
-  </div>
-  <pre><code>
-<span class="kw">User Function</span> <span class="fn">PE0003B03</span>()
-    <span class="kw">Local</span> <span class="var">aRet</span>     := <span class="var">PARAMIXB</span>[1]
-    <span class="kw">Local</span> <span class="var">aHed</span>     := <span class="var">PARAMIXB</span>[2]
-    <span class="kw">Local</span> <span class="var">aHead</span>    := {}
-    <span class="kw">Local</span> <span class="var">nPosPrf</span>  := <span class="fn">aScan</span>(<span class="var">aHead</span>, { |<span class="var">X</span>| <span class="fn">ALLTRIM</span>(<span class="var">X</span>[2]) == <span class="string">"E2_PREFIXO"</span> })
-    <span class="kw">Local</span> <span class="var">nI</span>       := 0
+![](./assets/alcadasregras/17_transferencia_novo_aprovador.png){.flow-image}
 
-    <span class="kw">For</span> <span class="var">nI</span> := 1 <span class="kw">to</span> <span class="fn">len</span>(<span class="var">aRet</span>)
-        <span class="kw">If</span> <span class="var">aRet</span>[<span class="var">nI</span>,<span class="var">nPosPrf</span>] == <span class="string">'TST'</span>
-            <span class="kw">If</span> <span class="var">aRet</span>[<span class="var">nI</span>,<span class="var">nPosPrf</span>+<span class="number">1</span>] == <span class="string">''</span>
-                <span class="var">aRet</span>[<span class="var">nI</span>,<span class="var">nPosPrf</span>+<span class="number">1</span>] := <span class="string">'xxx'</span>
-            <span class="kw">EndIf</span>
-        <span class="kw">EndIf</span>
-    <span class="kw">Next</span> <span class="var">nI</span>
+- <strong>Aprovador Ausente:</strong> Codigo do aprovador que está ausente.<br>
+- <strong>Novo Aprovador:</strong> Codigo do novo aprovador.<br>
 
-<span class="kw">Return</span>(<span class="var">aRet</span>)
-  </code></pre>
-</div>
+Na tabela, selecionamos o documento que será transferido, clicando e marcando a caixa de seleção no começo da linha:
 
+![](./assets/alcadasregras/21_trasnferencia_tabela.png){.flow-image}
 
+Uma notificação com o documento será enviado para o aprovador através do email:
+
+![](./assets/alcadasregras/18_transferencia_email.png){.flow-image}
+
+Clicando em "Processo" no texto "Favor acessar o processo de workflow referente à liberação pedido de venda", visualizamos a tela de liberação de Pedido de Compra, podendo ser aprovado diretamente por ela:
+
+![](./assets/alcadasregras/19_transferencia_liberacao_compra.png){.flow-image}
+
+- <strong>Aprovado/Reprovado:</strong> Selecione o desejado.<br>
+- <strong>Observação:</strong> Informe uma observação.<br>
+
+Pelo sistema, através do grupo de "Alçadas" podemos clicar sobre "Aprovações". Para liberar um documento pendente podemos clicar sobre o botão "Liberar" e/ou consultar as Aprovações de Documentos pelo botão "Cons. Aprov.":
+
+![](./assets/alcadasregras/20_trasnferencia_visualiza_outro_aprovador.png){.flow-image}
 
 </div>
 </details>
