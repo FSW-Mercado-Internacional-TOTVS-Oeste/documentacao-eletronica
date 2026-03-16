@@ -4767,23 +4767,25 @@ Indica a origem da Aprovação:<br>
   <tr>
   <td>Exemplo</td>
   <td>
-    ````advpl
-    User Function M001AAP()
-
-    Local aArea:= GetArea()
-    Local cRotina := PARAMIXB
-
-    //ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-    //³ Personalizações do cliente     ³
-    //ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-    If cRotina == “MATA120”
-    …
-    EndIf
-
-    RestArea(aArea)
-
-    Return
-    ````
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">M001AAP.PRW</span>
+  </div>
+  <pre><code>
+<span class="uf">User Function</span> <span class="fn">M001AAP</span>()
+    <span class="kw">Local</span> <span class="var">aArea</span>   <span class="symbol">:=</span> <span class="fn">GetArea</span>()
+    <span class="kw">Local</span> <span class="var">cRotina</span> <span class="symbol">:=</span> <span class="var">PARAMIXB</span>
+    <span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
+    <span class="comment">//³ Personalizações do cliente                                     ³</span>
+    <span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
+    <span class="kw">If</span> <span class="var">cRotina</span> <span class="symbol">==</span> <span class="string">"MATA120"</span>
+        <span class="comment">// … seu código personalizado aqui …</span>
+    <span class="kw">EndIf</span>
+    <span class="fn">RestArea</span>(<span class="var">aArea</span>)
+<span class="kw">Return</span>
+  </code></pre>
+</div>
   </td>
   </tr>
   </tbody>
@@ -4823,23 +4825,25 @@ Indica a origem da Aprovação:<br>
   <tr>
   <td>Exemplo</td>
   <td>
-    ````advpl
-    User Function M001ARP()
-
-    Local aArea:= GetArea()
-    Local cRotina := PARAMIXB
-
-    //ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-    //³ Personalizações do cliente     ³
-    //ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-    If cRotina == “MATA120”
-    …
-    EndIf
-
-    RestArea(aArea)
-
-    Return    
-    ````
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">M001ARP.PRW</span>
+  </div>
+  <pre><code>
+<span class="uf">User Function</span> <span class="fn">M001ARP</span>()
+    <span class="kw">Local</span> <span class="var">aArea</span>   <span class="symbol">:=</span> <span class="fn">GetArea</span>()
+    <span class="kw">Local</span> <span class="var">cRotina</span> <span class="symbol">:=</span> <span class="var">PARAMIXB</span>
+    <span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
+    <span class="comment">//³ Personalizações do cliente                                     ³</span>
+    <span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
+    <span class="kw">If</span> <span class="var">cRotina</span> <span class="symbol">==</span> <span class="string">"MATA120"</span>
+        <span class="comment">…</span>
+    <span class="kw">EndIf</span>
+    <span class="fn">RestArea</span>(<span class="var">aArea</span>)
+<span class="kw">Return</span>
+  </code></pre>
+</div>
   </td>
   </tr>
 </table>
@@ -4877,30 +4881,38 @@ Indica a origem da Aprovação:<br>
   </tr>
   <tr>
   <td>Exemplo</td>
-  <td>
-    ````advpl
-    User Function M1A5CPOS(  )
-      Local _aCabec   := {}
-      Local _aGrid    := {}
-      Local _aRet     := {}
-
+  <td> 
+  <div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">M1A5CPOS.PRW</span>
+  </div>
+  <pre><code>   
+    <span class="uf">User Function</span> <span class="fn">User Function M1A5CPOS()</span>
+      <span class="kw">Local</span> <span class="var">_aCabec</span> <span class="var"> := </span><span class="symbol">{}</span>
+      <span class="kw">Local</span> <span class="var">_aGrid</span> <span class="var"> := </span><span class="symbol">{}</span>
+      <span class="kw">Local</span> <span class="var">_aRet</span> <span class="var"> := </span><span class="symbol">{}</span>
+    <span class="comment">
       // Array _aCabec: array para adicionar os campos que aparecerão no cabeçalho.
       // Contém duas posições, a primeira é para definição da variável e a segunda
       // é o id do campo
-      aAdd(_aCabec,{"cTESTE","ZX4_TESTE"})
-      //aAdd(_aCabec,{"cTESTE3","ZX4_TESTE3"})
-   
+    </span>
+      <span class="fn">aAdd</span><span class="symbol">(</span><span class="var">_aCabec</span><span class="symbol">,</span><span class="symbol">{</span><span class="var">"cTESTE"</span><span class="symbol">,</span><span class="var">"ZX4_TESTE"</span><span class="symbol">})</span>
+    <span class="comment">
+      //aAdd(_aCabec,{"cTESTE3","ZX4_TESTE3"})   
       // Array _aGrid: array para adicionar os campos que aparecerão no grid.
       // contém apenas uma posição, com o id do campo
-      aAdd(_aGrid,{"ZX4_TESTE2"})
+    </span>
+      <span class="fn">aAdd</span><span class="symbol">(</span><span class="var">_aGrid</span><span class="symbol">,</span><span class="symbol">{</span><span class="var">"ZX4_TESTE2"</span><span class="symbol">})</span>
+    <span class="comment">
       // Array _aRet: compila os dados dos arrays _aCabec e _aGrid em um só, o qual
       // será o retorno deste PE. Sempre adicionar primeiro o _aCabec e depois o _aGrid.
       // É obrigatório haver dois retornos no array _aRet, mesmo que um deles esteja em branco
-      aAdd(_aRet,_aCabec)
-      aAdd(_aRet,_aGrid)
-
-    Return ( _aRet )   
-    ````
+    </span>
+      <span class="fn">aAdd</span><span class="symbol">(</span><span class="var">_aRet</span><span class="symbol">,</span><span class="var">_aCabec</span><span class="symbol">)</span>
+      <span class="fn">aAdd</span><span class="symbol">(</span><span class="var">_aRet</span><span class="symbol">,</span><span class="var">_aGrid</span><span class="symbol">)    
+      </span>
+    <span class="kw">Return</span> </span><span class="symbol">(</span> <span class="var">_aRet</span> </span><span class="symbol">)</span>    
   </td>
   </tr>
 </table>
@@ -4939,20 +4951,25 @@ Indica a origem da Aprovação:<br>
   <tr>
   <td>Exemplo</td>
   <td>
-    ````advpl
-    User Function M1A5TELA()
-
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">M1A5TELA.PRW</span>
+  </div>
+  <pre><code>  
+  <span class="uf">User Function</span> <span class="fn">M1A5TELA()</span>
+  <span class="comment">
       // Informações sobre posições dos campos:
       // Os títulos dos campos ficam nas colunas (pos. x) 010 e 150
       // As Fields ficam nas colunas (pos. x) 060 e 200
       // As linhas (pos. y) somam de 15 em 15, iniciando a partir da posição 055
       // Não esquecer de somar a variável nPixP12 na linha (pos. y)
-      Local _nLin := 055 + nPixP12
-
-      @ _nLin,010 Say   Posicione("SX3",2,'ZX4_TESTE',"X3_TITULO") OF oDlg PIXEL SIZE 080,009 COLOR CLR_BLUE
-      @ _nLin,060 MsGet cTESTE Size 120,010 PIXEL OF oDlg WHEN lInclui .OR. lAltera
-
-      /* 
+  </span>
+      <span class="kw">Local</span> <span class="var">_nLin</span><span class="symbol"> := </span><span class="number">055</span> + <span class="var">nPixP12</span>  
+      @ <span class="var">_nLin</span>,<span class="number">010</span> <span class="fn">Say</span>   <span class="fn">Posicione</span>(<span class="string">"SX3"</span>,2,<span class="string">'ZX4_TESTE'</span>,<span class="string">"X3_TITULO"</span>) <span class="kw">OF</span> <span class="var">oDlg</span> <span class="fn">PIXEL</span> <span class="fn">SIZE</span> <span class="number">080</span>,<span class="number">009</span> <span class="fn">COLOR</span> <span class="var">CLR_BLUE</span><br>
+      @ <span class="var">_nLin</span>,<span class="number">060</span> <span class="fn">MsGet</span> <span class="var">cTESTE</span> <span class="fn">Size</span> <span class="number">120</span>,<span class="number">010</span> <span class="fn">PIXEL</span> <span class="kw">OF</span> <span class="var">oDlg</span> <span class="fn">WHEN</span> <span class="var">lInclui</span> .OR. <span class="var">lAltera</span>
+  <span class="comment">
+      /*
       @ _nLin,150 Say   Posicione("SX3",2,'ZX4_TESTE2',"X3_TITULO") OF oDlg PIXEL SIZE 080,009 COLOR CLR_BLUE
       @ _nLin,200 MsGet cTESTE2 Size 120,010 PIXEL OF oDlg WHEN lInclui
 
@@ -4964,10 +4981,8 @@ Indica a origem da Aprovação:<br>
       @ _nLin,200 MsGet cTESTE4 Size 120,010 PIXEL OF oDlg VALID (U_VALID()) 
 
       _nLin += 15
-    */
-    
-    Return    
-    ````
+      */
+  </span>    
   </td>
   </tr>
 </table>
@@ -5007,24 +5022,29 @@ Indica a origem da Aprovação:<br>
   <tr>
   <td>Exemplo</td>
   <td>
-    ````advpl
-    User Function M001REG()
-
-      Local aArea     := GetArea()
-      Local cRotina   := PARAMIXB
-      Local cAprovador:= “”
-
-      //ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-      //³ Personalizações do cliente     ³
-      //ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-    If cRotina == “MATA120”
-       cAprovador := ‘000002’   
-    EndIf
-
-    RestArea(aArea)
-
-    Return(cAprovador)   
-    ````
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">M001REG.PRW</span>
+  </div>
+  <pre><code>
+<span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
+<span class="comment">//³ Personalizações do cliente                                     ³</span>
+<span class="comment">//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
+<span class="uf">User Function</span> <span class="fn">M001REG</span>()
+    <span class="kw">Local</span> <span class="var">aArea</span>      <span class="symbol">:=</span> <span class="fn">GetArea</span>()
+    <span class="kw">Local</span> <span class="var">cRotina</span>    <span class="symbol">:=</span> <span class="var">PARAMIXB</span>
+    <span class="kw">Local</span> <span class="var">cAprovador</span> <span class="symbol">:=</span> <span class="string">""</span>
+    <span class="comment">//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
+    <span class="comment">//³ Personalizações do cliente                                     ³</span>
+    <span class="comment">//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
+    <span class="kw">If</span> <span class="var">cRotina</span> <span class="symbol">==</span> <span class="string">"MATA120"</span>
+        <span class="var">cAprovador</span> <span class="symbol">:=</span> <span class="string">'000002'</span>
+    <span class="kw">EndIf</span>
+    <span class="fn">RestArea</span>(<span class="var">aArea</span>)
+<span class="kw">Return</span>(<span class="var">cAprovador</span>)
+  </code></pre>
+</div>    
   </td>
   </tr>
 </table>
@@ -5064,17 +5084,21 @@ Indica a origem da Aprovação:<br>
   <tr>
   <td>Exemplo</td>
   <td>
-    ````advpl
-    User Function M001MNU()
-
-    Local aArea:= GetArea()
-
-    AADD(aRotina,{"&SeuMenu","U_XXXXXXX" ,0,2})
-
-    RestArea(aArea)
-
-    Return 
-    ````
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">M001MNU.PRW</span>
+  </div>
+  <pre><code>
+<span class="comment">// Adiciona item personalizado no menu do sistema</span><br>
+<span class="uf">User Function</span> <span class="fn">M001MNU</span>()
+    <span class="kw">Local</span> <span class="var">aArea</span> <span class="symbol">:=</span> <span class="fn">GetArea</span>()
+    <span class="comment">// Inclui a opção "&SeuMenu" chamando a função U_XXXXXXX</span>
+    <span class="fn">AADD</span>(<span class="var">aRotina</span>, {<span class="string">"&SeuMenu"</span>, <span class="string">"U_XXXXXXX"</span>, 0, 2})
+    <span class="fn">RestArea</span>(<span class="var">aArea</span>)
+<span class="kw">Return</span>
+  </code></pre>
+</div>
   </td>
   </tr>
 </table>
@@ -5113,27 +5137,27 @@ Indica a origem da Aprovação:<br>
   <tr>
   <td>Exemplo</td>
   <td>
-    ````advpl
-    Exemplo Implementação	User Function M001IND()
-
-    Local aArea:= GetArea()
-    Local cRotina := PARAMIXB
-
-    //ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-    //³ Personalizações do cliente     ³
-    //ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ
-    If cRotina == “MATA120”
-
-        (_001T03)->&_001T03FOR := ‘0101’
-        ???->??_??? := ???
-
-
-    EndIf
-
-    RestArea(aArea)
-
-    Return
-    ````
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">M001INC.PRW</span>
+  </div>
+  <pre><code>
+<span class="comment">//Exemplo Implementação	User Function M001IND()</span><br>
+<span class="uf">User Function</span> <span class="fn">M001IND()</span>()
+    <span class="kw">Local</span> <span class="var">aArea</span><span class="symbol"> := </span> <span class="fn">GetArea</span>()
+    <span class="kw">Local</span> <span class="var">cRotina</span>  <span class="symbol">:=</span> <span class="var">PARAMIXB</span>
+    <span class="comment">//</span> <span class="comment">ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
+    <span class="comment">//</span> <span class="comment">³ Personalizações do cliente     ³</span>
+    <span class="comment">//</span> <span class="comment">ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
+    <span class="kw">If</span> <span class="var">cRotina</span></span><span class="symbol"> == </span><span class="string">"MATA120"</span>
+        (_001T03)</span><span class="symbol">-></span>&_001T03FOR <span class="symbol">:=</span> <span class="string">"0101"</span>
+    <span class="kw">EndIf</span>
+    <span class="kw">Local</span> <span class="var">nI</span></span><span class="symbol"> := </span> 0      
+<span class="kw">RestArea</span>(<span class="var">aArea</span>)
+<span class="kw">Return</span>(<span class="var">aRet</span>)
+  </code></pre>
+</div>
   </td>
   </tr>
 </table>
@@ -5234,21 +5258,46 @@ Na tela de Ausência Temporária, preenchemos os campos obrigatórios:
 
 ![](./assets/alcadasregras/13_ausencia_cadastro.png){.flow-image}
 
-- <strong>Codigo:</strong> Codigo.<br>
+- <strong>Codigo:</strong> Codigo do registro.<br>
 - <strong>Aprovador:</strong> Codigo do Aprovador que esta sendo substituído temporariamente.<br>
 - <strong>Nome:</strong> Nome do Aprovador que esta sendo substituído temporariamente.<br>
 - <strong>Dt. Saida:</strong> Data de inicio da ausência.<br>
 - <strong>Dt. Retorno:</strong> Data de Retorno.<br>
-- <strong>Substituto:</strong> Codigo do usuario que será substituto.<br>
+- <strong>Substituto:</strong> Codigo do Usuário que será substituto.<br>
 - <strong>Nome:</strong> Nome do Usuario substituto.<br>
 
-A partir desse momento, todos os documentos que estivessem aguardando aprovação do aprovador original serão automaticamente redirecionados para o substituto, garantindo a continuidade dos processos sem interrupções.
+A partir desse momento, todos os documentos que estiverem aguardando aprovação do aprovador original serão automaticamente redirecionados para o substituto, garantindo a continuidade dos processos sem interrupções.
 
 ![](./assets/alcadasregras/14_ausencia_item_incluido.png){.flow-image}
 
 #### 4. Transfêrencias
 
 ![](./assets/alcadasregras/16_transferencia_transferir.png){.flow-image}
+
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Editor AdvPL</span>
+    <span class="filename">PE0003B03.prw</span>
+  </div>
+  <pre><code>
+<span class="kw">User Function</span> <span class="fn">PE0003B03</span>()
+    <span class="kw">Local</span> <span class="var">aRet</span>     := <span class="var">PARAMIXB</span>[1]
+    <span class="kw">Local</span> <span class="var">aHed</span>     := <span class="var">PARAMIXB</span>[2]
+    <span class="kw">Local</span> <span class="var">aHead</span>    := {}
+    <span class="kw">Local</span> <span class="var">nPosPrf</span>  := <span class="fn">aScan</span>(<span class="var">aHead</span>, { |<span class="var">X</span>| <span class="fn">ALLTRIM</span>(<span class="var">X</span>[2]) == <span class="string">"E2_PREFIXO"</span> })
+    <span class="kw">Local</span> <span class="var">nI</span>       := 0
+
+    <span class="kw">For</span> <span class="var">nI</span> := 1 <span class="kw">to</span> <span class="fn">len</span>(<span class="var">aRet</span>)
+        <span class="kw">If</span> <span class="var">aRet</span>[<span class="var">nI</span>,<span class="var">nPosPrf</span>] == <span class="string">'TST'</span>
+            <span class="kw">If</span> <span class="var">aRet</span>[<span class="var">nI</span>,<span class="var">nPosPrf</span>+<span class="number">1</span>] == <span class="string">''</span>
+                <span class="var">aRet</span>[<span class="var">nI</span>,<span class="var">nPosPrf</span>+<span class="number">1</span>] := <span class="string">'xxx'</span>
+            <span class="kw">EndIf</span>
+        <span class="kw">EndIf</span>
+    <span class="kw">Next</span> <span class="var">nI</span>
+
+<span class="kw">Return</span>(<span class="var">aRet</span>)
+  </code></pre>
+</div>
 
 
 

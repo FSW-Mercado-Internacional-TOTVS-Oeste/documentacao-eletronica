@@ -826,3 +826,64 @@ background-color: #fff7f7 !important;
     background-color: #f9f9f9;
     width: 20%;
 }
+
+
+
+/*##################################################################*/
+/*##################################################################*/
+/*####################  Seção de teste de componente  ##############*/
+/*##################################################################*/
+/*##################################################################*/
+
+
+.advpl-editor {
+      width: 100%;
+      max-width: 820px;
+      margin: 0 auto 40px;
+      background: #fdfdfd;                /* fundo branco */
+      border: 1px solid #c0c0c0;          /* borda cinza*/
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      overflow: hidden;
+      font-family: 'Consolas', 'Courier New', 'Lucida Console', monospace;
+      font-size: 13.5px;
+      line-height: 1.58;
+    }
+
+    .advpl-editor .header {
+      background: #e8e8e8;
+      padding: 6px 12px;
+      font-size: 12px;
+      color: #444;
+      border-bottom: 1px solid #d0d0d0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .advpl-editor .header .title {
+      font-weight: bold;
+    }
+
+    .advpl-editor .header .filename {
+      color: #0066cc;
+    }
+
+    .advpl-editor pre {
+      margin: 0;
+      padding: 14px 18px;
+      background: transparent;
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    /* Cores de sintaxe - mais próximas do editor AdvPL/TOTVS clássico */
+    .advpl-editor .uf       { color: #ff2ba6; font-weight: bold; }      /* azul escuro forte - User Functionn */
+    .advpl-editor .kw       { color: #0000c0; font-weight: bold; }      /* azul escuro forte - If, For, Local, Function */    
+    .advpl-editor .fn       { color: #006400; }                         /* verde escuro - aScan, Len, AllTrim */
+    .advpl-editor .string   { color: #a31515; }                         /* vermelho escuro - strings */
+    .advpl-editor .comment  { color: #636d63; font-style: italic; }     /* verde - comentários */
+    .advpl-editor .operator { color: #000000; }                         /* preto normal */
+    .advpl-editor .number   { color: #000000; }                         /* preto */
+    .advpl-editor .var      { color: #000000; }                         /* preto - variáveis */
+    .advpl-editor .symbol   { color: #800080; }                         /* roxo - := == => */
