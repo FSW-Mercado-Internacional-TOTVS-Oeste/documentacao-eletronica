@@ -49,13 +49,22 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
   - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
   - attr_list
   - md_in_html
   - toc:      
       permalink: false      
       toc_depth: 3
 
+extra_javascript:
+  - js/advpl_format.js
+
 extra_css:
   - stylesheets/extra.css
+  
