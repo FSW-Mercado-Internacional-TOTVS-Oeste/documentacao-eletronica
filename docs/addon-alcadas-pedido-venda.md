@@ -4511,6 +4511,7 @@ Indica a origem da Aprovação:<br>
 #### **Help**
 <div class="help-box" markdown="1">
 Identificador do Controle de Alcadas.
+</div>
 
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -4587,6 +4588,7 @@ Identificador do Controle de Alcadas.
 #### **Help**
 <div class="help-box" markdown="1">
 Numero/Codigo do Documento com integracao no Controle de Alcadas.
+</div>
 
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -4669,7 +4671,7 @@ Status do movimento de alçada:<br>
 <strong>4</strong> - Transferido p/ outro Aprovador<br>
 <strong>5</strong> - Reprovado<br>
 <strong>6</strong> - Nivel Anterior Reprovado
-
+</div>
 
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -4746,6 +4748,7 @@ Status do movimento de alçada:<br>
 #### **Help**
 <div class="help-box" markdown="1">
 Codigo do Usuario Solicitante.
+</div>
 
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -4822,6 +4825,7 @@ Codigo do Usuario Solicitante.
 #### **Help**
 <div class="help-box" markdown="1">
 Informe a Justificativa para solicitar a liberacao do documento.
+</div>
 
 #### **Configurações adicionais**
 <table class="banks-table">
