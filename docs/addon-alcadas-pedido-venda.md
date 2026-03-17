@@ -4879,112 +4879,27 @@ Informe a Justificativa para solicitar a liberacao do documento.
   </thead>
   <tbody>
     <tr>
-      <td><strong>MV_X001000</strong></td>
-      <td>Lógico</td>
-      <td>Habilita ADD-ON de Alcadas com Link de aprovacao</td>
-      <td>.T.</td>
+      <td><strong>MV_XALC001</strong></td>
+      <td>Caracter</td>
+      <td>Habilita Controle de Alcadas customizado.<br> Informe: <strong>S</strong>=Habilita; <strong>N</strong>=Desabilita
+</td>
+      <td>S</td>
     </tr>
     <tr>
-      <td><strong>MV_X001001</strong></td>
-      <td>Lógico</td>
-      <td>Descrição	Ativa controle de alcadas para Pedido de Venda</td>
-      <td>.F.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X001002</strong></td>
-      <td>Lógico</td>
-      <td>Descrição	Ativa controle de alcadas para Solicitação de Compras</td>
-      <td>.F.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X001003</strong></td>
-      <td>Lógico</td>
-      <td>Descrição	Ativa controle de alcadas para Pedido de Compras</td>
-      <td>.F.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X001004</strong></td>
-      <td>Lógico</td>
-      <td>Descrição	Valida saldo do superior antes de transferir</td>
-      <td>.F.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X001005</strong></td>
-      <td>Lógico</td>
-      <td>Descrição	Controla/Analisa movimentos consumo por Verba em modo Compartilhado (Filiais)</td>
-      <td>.T. (Verdadeiro para controlar em modo Compartilhado)</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X001006</strong></td>
-      <td>Lógico</td>
-      <td>Gera controle de Alçadas em Pedidos de Compras originados pelo módulo Gestão de Contratos</td>
-      <td>.T.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X001007</strong></td>
-      <td>Lógico</td>
-      <td>Ativa controle de alcadas para Contas a Pagar</td>
-      <td>.T.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X001008</strong></td>
-      <td>Lógico</td>
-      <td>Descrição	Tipo de Alcadas de Contas a Pagar:<br><strong>1</strong> - Titulo Avulso;<br><strong>2</strong> - Bordero;<br><strong>3</strong> - Ambos</td>
-      <td>3</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X001009</strong></td>
-      <td>Lógico</td>
-      <td>Descrição	Efetua controle de alçadas por saldo de aprovador.</td>
-      <td>.F.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X001010</strong></td>
+      <td><strong>MV_XALC002</strong></td>
       <td>Caracter</td>
-      <td>Cores para o Workflow. Primeira posição cor de fundo da tabela, Segunda posição cor da Fonte em Hexadecimal,  Exemplo: #0C72B0;#FFFFFF</td>
-      <td>#0C72B0;#FFFFFF</td>
+      <td>URL do Workflow para utilizacao nos retornos de Workflow via Link.<br>
+Ex: https://dominio.com.br 
+</td>
+      <td></td>
     </tr>   
     <tr>
-      <td><strong>MV_X001011</strong></td>
-      <td>Númerico</td>
-      <td>Ativa a liberacao de Tit. a Pagar automática se o parâmetro <strong>MV_CTLIPAG</strong> estiver habilidato.<br>
-        <strong>1</strong> = Verifica usuario no parametro MV_X001012.<br>
-        <strong>2</strong> = Libera para todos os usuarios. <br>
-        <strong>3</strong> = Nao utiliza a liberação automática.<br>
-        Observação: somente será feita a liberação do C.P., se todos os itens da nota fiscal de entrada possuam pedido de compras com aprovação de alçadas e de acordo com os parâmetros <strong>MV_CTLIPAG</strong>, <strong>MV_X001011</strong>, <strong>MV_X001012</strong>.</td>
-      <td>3</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X001012</strong></td>
+      <td><strong>MV_XALCPV</strong></td>
       <td>Caracter</td>
-      <td>De acordo com parametro MV_X001011 (1), verifica para quais aprovadores será realizada a liberação automática do Contas a Pagar.</td>
-      <td>-</td>
+      <td>Controla Alçadas no Pedido de Vendas. <br> Informe: <strong>S</strong>=Habilita; <strong>N</strong>=Desabilita</td>
+      <td>S</td>
     </tr>   
-    <tr>
-      <td><strong>MV_X001013</strong></td>
-      <td>Caracter</td>
-      <td>Na utilização de Regras por Entidade, informe qualentidade para SC/PC. <br><strong>G</strong> = Grupo <br><strong>C</strong> = Centro de Custo<br>
-      Exemplo: C/C (Centro de Custo para ambos)</td>
-      <td>G/G</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_WFBRWSR</strong></td>
-      <td>Caracter</td>
-      <td>URL da raiz Browser para WF link</td>
-      <td>Ex.: http://200.195.136.59:8089/0101 </td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X_URLWS</strong></td>
-      <td>Caracter</td>
-      <td>URL da raiz dos webservices</td>
-      <td>Ex.: http://192.168.1.121:8080/ws/  </td>
-    </tr>   
-  </tbody>
-</table>
-
-!!! warning "Importante:"
-    Se o parâmetro MV_X_URLWS for configurado para utilização via DNS (Ex.: www.dominio.com.br) não se deve acessar o endereço via IP. Caso isso ocorra, o WebService não poderá ser acessado. Isto acontece devido à SameOriginPolicy (‘Politica de mesma origem’), implementada por segurança na maioria dos navegadores, a qual visa garantir maior segurança ao servidor, e impedir acessos não autorizados.
-
+    
 </div>
 </details>
 
@@ -5012,83 +4927,74 @@ Informe a Justificativa para solicitar a liberacao do documento.
   </thead>
   <tbody>
     <tr>
-      <td><strong>ZX1_TPBUSC</strong></td>
+      <td><strong>Z01_TPBUSC</strong></td>
       <td>001</td>
-      <td>ZX1_ALIAS</td>
+      <td>Z01_ALIAS</td>
       <td>1 = Primário</td>
       <td>-</td>
       <td>N</td>      
-      <td>M->ZX1_TPBUSC='U'</td>
+      <td>MM->Z01_TPBUSC='U'</td>
     </tr>
     <tr>
-      <td><strong>ZX1_TPBUSC</strong></td>
+      <td><strong>Z01_TPBUSC</strong></td>
       <td>002</td>
-      <td>ZX1_INDICE</td>
+      <td>Z01_INDICE</td>
       <td>1 = Primário</td>
       <td>-</td>
       <td>N</td>      
-      <td>M->ZX1_TPBUSC='U'</td>
+      <td>M->Z01_TPBUSC='U'</td>
     </tr>   
     <tr>
-      <td><strong>ZX1_TPBUSC</strong></td>
+      <td><strong>Z01_TPBUSC</strong></td>
       <td>003</td>
-      <td>ZX1_CAMPO</td>
+      <td>Z01_CAMPO</td>
       <td>1 = Primário</td>
       <td>-</td>
       <td>N</td>      
-      <td>M->ZX1_TPBUSC='U'</td>
+      <td>M->Z01_TPBUSC='U'</td>
     </tr>   
     <tr>
-      <td><strong>ZX1_TPBUSC</strong></td>
+      <td><strong>Z01_TPBUSC</strong></td>
       <td>004</td>
-      <td>ZX1_IDUSER</td>
+      <td>Z01_IDUSER</td>
       <td>1 = Primário</td>
       <td>-</td>
       <td>N</td>      
-      <td>M->ZX1_TPBUSC="E"</td>
+      <td>M->Z01_TPBUSC="E"</td>
     </tr>   
     <tr>
-      <td><strong>ZX1_TPBUSC</strong></td>
-      <td>001</td>
-      <td>ZX1_NMUSER</td>
+      <td><strong>Z01_TPBUSC</strong></td>
+      <td>005</td>
+      <td>Z01_NMUSER</td>
       <td>1 = Primário</td>
       <td>-</td>
       <td>N</td>      
-      <td>M->ZX1_TPBUSC="E"</td>
+      <td>M->Z01_TPBUSC="E"</td>
     </tr>   
     <tr>
-      <td><strong>ZX1_TPLIB</strong></td>
+      <td><strong>Z01_TPLIB</strong></td>
       <td>001</td>
-      <td>ZX1_NIVEL</td>
+      <td>Z01_NIVEL</td>
       <td>1 = Primário</td>
       <td>01</td>
       <td>N</td>      
-      <td>M->ZX1_TPLIB='D'</td>
-    </tr>   
+      <td>M->Z01_TPLIB='D'</td>
+    </tr>    
     <tr>
-      <td><strong>ZX1_IDUSER</strong></td>
+      <td><strong>Z02_APROV</strong></td>
       <td>001</td>
-      <td>ZX1_NMUSER</td>
+      <td>Z02_NOME</td>
       <td>1 = Primário</td>
-      <td>U_M999B01("USERINFO", M->ZX1_IDUSER)[1][4]</td>
+      <td>U_FSP00101("USR",M->Z02_APROV)</td>
       <td>N</td>      
       <td>-</td>
     </tr>   
     <tr>
-      <td><strong>ZX2_APROV</strong></td>
+      <td><strong>Z02_SUBST</strong></td>
       <td>001</td>
-      <td>ZX2_NOME</td>
+      <td>Z02_SUBNOM</td>
       <td>1 = Primário</td>
-      <td>U_M999B01("USERINFO", M->ZX2_APROV)[1][4]</td>
-      <td>N</td>      
-      <td>-</td>
-    </tr>   
-    <tr>
-      <td><strong>ZX2_SUBST</strong></td>
-      <td>001</td>
-      <td>ZX2_SUBNOM</td>
-      <td>1 = Primário</td>
-      <td>U_M999B01("USERINFO", M->ZX2_SUBST)[1][4]</td>
+      <td>U_FSP00101("USR",M->Z02_SUBST)</td>
       <td>N</td>      
       <td>-</td>
     </tr>   
@@ -5120,82 +5026,89 @@ Informe a Justificativa para solicitar a liberacao do documento.
   </thead>
   <tbody>
     <tr>
-      <td><strong>ZX0</strong></td>
+      <td><strong>Z00</strong></td>
       <td>1</td>
-      <td>ZX0_FILIAL+ZX0_PROCES</td>
+      <td>Z00_FILIAL+Z00_PROCES</td>
       <td>Funcao</td>
       <td></td>      
     </tr>    
     <tr>
-      <td><strong>ZX1</strong></td>
+      <td><strong>Z01</strong></td>
       <td>1</td>
-      <td>ZX1_FILIAL+ZX1_PROCES+ZX1_SEQ</td>
+      <td>Z01_FILIAL+Z01_PROCES+Z01_SEQ</td>
       <td>Processo + Sequencia</td>
       <td></td>      
     </tr>  
     <tr>
-      <td><strong>ZX1</strong></td>
+      <td><strong>Z01</strong></td>
       <td>2</td>
-      <td>Chave	ZX1_FILIAL+ZX1_PROCES+ZX1_NIVEL</td>
+      <td>Chave	Z01_FILIAL+Z01_PROCES+Z01_NIVEL</td>
       <td>Processo + Nivel</td>
       <td></td>      
     </tr>  
     <tr>
-      <td><strong>ZX1</strong></td>
+      <td><strong>Z01</strong></td>
       <td>3</td>
-      <td>ZX1_FILIAL+ZX1_PROCES+ZX1_STATUS</td>
+      <td>Z01_FILIAL+Z01_PROCES+Z01_STATUS</td>
       <td>Processo + Regra Ativa?</td>
       <td></td>      
     </tr>  
     <tr>
-      <td><strong>ZX1</strong></td>
+      <td><strong>Z01</strong></td>
       <td>4</td>
-      <td>Chave	ZX1_FILIAL+ZX1_IDUSER</td>
+      <td>Chave	Z01_FILIAL+Z01_IDUSER</td>
       <td>Aprovador</td>
       <td></td>      
     </tr>  
     <tr>
-      <td><strong>ZX2</strong></td>
+      <td><strong>Z02</strong></td>
       <td>1</td>
-      <td>ZX2_FILIAL+ZX2_COD</td>
+      <td>Z02_FILIAL+Z02_COD</td>
       <td>Codigo</td>
       <td></td>      
     </tr>  
     <tr>
-      <td><strong>ZX2</strong></td>
+      <td><strong>Z02</strong></td>
       <td>2</td>
-      <td>ZX2_FILIAL+ZX2_APROV</td>
+      <td>Z02_FILIAL+Z02_APROV</td>
       <td>Aprovador</td>
       <td></td>      
     </tr>  
     <tr>
-      <td><strong>ZX2</strong></td>
+      <td><strong>Z02</strong></td>
       <td>3</td>
-      <td>ZX2_FILIAL+ZX2_SUBST</td>
+      <td>Z02_FILIAL+Z02_SUBST</td>
       <td>Substituto</td>
       <td></td>      
     </tr>  
     <tr>
-      <td><strong>ZXA</strong></td>
+      <td><strong>ZA0</strong></td>
       <td>1</td>
-      <td>ZXA_FILIAL+ZXA_COD+ZXA_SEQ+ZXA_NIVEL</td>
+      <td>ZA0_FILIAL+ZA0_COD+ZA0_SEQ+ZA0_NIVEL</td>
       <td>Codigo + Sequencia + Nivel</td>
       <td></td>      
     </tr>  
     <tr>
-      <td><strong>ZXA</strong></td>
+      <td><strong>Z03</strong></td>
       <td>2</td>
-      <td>Chave	ZXA_FILIAL+ZXA_COD+ZXA_IDUSER</td>
+      <td>Z03_FILIAL+Z03_COD+Z03_IDUSER</td>
       <td>Codigo + Aprovador</td>
       <td></td>      
     </tr>  
     <tr>
-      <td><strong>ZXA</strong></td>
+      <td><strong>ZA0</strong></td>
       <td>3</td>
-      <td>Chave	ZXA_FILIAL+ZXA_COD+ZXA_NIVEL+ZXA_SEQ</td>
+      <td>ZA0_FILIAL+ZA0_COD+ZA0_NIVEL+ZA0_SEQ</td>
       <td>Codigo + NivelAprov. + Sequencia</td>
       <td></td>      
-    </tr>  
+    </tr> 
+    <tr>
+      <td><strong>SC5</strong></td>
+      <td>Proxima Disponível</td>
+      <td>C5_FILIAL+C5_X_IDAL</td>
+      <td>IDALC</td>
+      <td>SC5ALC</td>      
+    </tr>   
   </tbody>
 </table>
 
@@ -5225,17 +5138,17 @@ Informe a Justificativa para solicitar a liberacao do documento.
   <tbody>
     <tr>
       <td><strong>US - Consulta Usuários</strong></td>
-      <td>USRZX1</td>
+      <td>USRZ01</td>
       <td>UsuarioAlcadas</td>
       <td>ID, FULLNAME</td>
       <td>Nome Completo</td>      
     </tr>    
     <tr>
       <td><strong>DB</strong></td>
-      <td>ZX0</td>
+      <td>Z00</td>
       <td>Destinatarios WF</td>
-      <td>ZX0_PROCES, ZX0_DESCRI, ZX0_DEST</td>
-      <td>ZX0->ZX0_PROCES</td>      
+      <td>Z00_PROCES, Z00_DESCRI, Z00_DEST</td>
+      <td>Z00->Z00_PROCES</td>      
     </tr>      
   </tbody>
 </table>
