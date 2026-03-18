@@ -18,9 +18,12 @@ Ou pelo redirecionamento do GitLab:
 Certifique-se de ter o Python 3.11+ e o git instalado em sua máquina.
 
 ### 2. Configuração do Ambiente Local
-Ao baixar o projeto pela primeira vez, configure o ambiente virtual para evitar conflitos:
+Ao baixar o projeto pela primeira vez, configure o ambiente virtual para evitar conflitos, no Terminal digite os seguintes comandos:
 
 ```
+# Baixa o projeto no diretório atual, recomendado criar uma pasta específica para o projeto:
+git clone https://gitlab.com/fsw-mi-totvsoeste/documentacao-eletronica.git
+
 # Criar ambiente virtual
 python -m venv .venv
 
