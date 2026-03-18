@@ -1,4 +1,12 @@
-# Alçadas - Regras {.home-hero}
+# Alçadas - Workflow Pedido de Venda {.home-hero}
+
+<div class="grid cards" markdown>
+
+-   __Conteúdo em Desenvolvimento__
+    
+    Esta seção do manual técnico está passando por revisões de conformidade e formatação. Os modelos de dados e procedimentos operacionais estão sendo validados para garantir a precisão das instruções técnicas. O conteúdo completo estará disponível em breve.
+
+</div>
 
 <!--############################################### 01 #######################################################-->
 
@@ -93,11 +101,26 @@
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">03.</span> Rotinas personalizadas específicas do Pacote</span>
+  <span class="summary-title"><span class="summary-number">03.</span> Fluxo Operacional</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### 3. Rotinas personalizadas específicas do Pacote
+### 3. Fluxo Operacional
+
+![Fluxo Operacional](./assets/alcadaswfcadastrais/fluxograma.png){.flow-image}
+
+</div>
+</details>
+
+<!--############################################### 04 #######################################################-->
+
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">04.</span> Rotinas personalizadas específicas do Pacote</span>
+</summary>
+<div class="content-body" markdown="1">
+
+### 4. Rotinas personalizadas específicas do Pacote
 
 #### Funções personalizadas contidas no pacote:
 
@@ -154,15 +177,15 @@
 </div>
 </details>
 
-<!--############################################### 04 #######################################################-->
+<!--############################################### 05 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">04.</span> Pontos de Entradas Disponiveis para Desenvolvimento</span>
+  <span class="summary-title"><span class="summary-number">05.</span> Pontos de Entradas Disponiveis para Desenvolvimento</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### 4. Pontos de Entradas Disponiveis para Desenvolvimento
+### 5. Pontos de Entradas Disponiveis para Desenvolvimento
 
 <table class="banks-table">
   <thead>
@@ -319,15 +342,15 @@ Return(lRet)
 </div>
 </details>
 
-<!--############################################### 05 #######################################################-->
+<!--############################################### 06 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">05.</span> Tabelas (SX2) </span>
+  <span class="summary-title"><span class="summary-number">06.</span> Tabelas (SX2) </span>
 </summary>
 <div class="content-body" markdown="1">
 
-### 5. Tabelas (SX2) 
+### 6. Tabelas (SX2) 
 
 <table class="banks-table">
   <thead>
@@ -375,15 +398,15 @@ Return(lRet)
 </div>
 </details>
 
-<!--############################################### 06 #######################################################-->
+<!--############################################### 07 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">06.</span> Campos (SX3)</span>
+  <span class="summary-title"><span class="summary-number">07.</span> Campos (SX3)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### 6. Campos (SX3)
+### 7. Campos (SX3)
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -4862,15 +4885,15 @@ Informe a Justificativa para solicitar a liberacao do documento.
 </div>
 </details>
 
-<!--############################################### 07 #######################################################-->
+<!--############################################### 08 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">07.</span> Parâmetros (SX6)</span>
+  <span class="summary-title"><span class="summary-number">08.</span> Parâmetros (SX6)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### 7. Parâmetros (SX6)
+### 8. Parâmetros (SX6)
 
 <table class="banks-table">
   <thead>
@@ -4907,15 +4930,15 @@ Ex: https://dominio.com.br
 </div>
 </details>
 
-<!--############################################### 08 #######################################################-->
+<!--############################################### 09 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">08.</span> Gatilhos (SX7)</span>
+  <span class="summary-title"><span class="summary-number">09.</span> Gatilhos (SX7)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### 8. Gatilhos (SX7)
+### 9. Gatilhos (SX7)
 
 <table class="banks-table">
   <thead>
@@ -5008,15 +5031,15 @@ Ex: https://dominio.com.br
 </div>
 </details>
 
-<!--############################################### 09 #######################################################-->
+<!--############################################### 10 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">09.</span> Índices (SIX)</span>
+  <span class="summary-title"><span class="summary-number">10.</span> Índices (SIX)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### 9. Índices (SIX)
+### 10. Índices (SIX)
 
 <table class="banks-table">
   <thead>
@@ -5119,15 +5142,15 @@ Ex: https://dominio.com.br
 </div>
 </details>
 
-<!--############################################### 10 #######################################################-->
+<!--############################################### 11 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">10.</span> Consulta Padrão (SXB)</span>
+  <span class="summary-title"><span class="summary-number">11.</span> Consulta Padrão (SXB)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### 10. Consulta Padrão (SXB)
+### 11. Consulta Padrão (SXB)
 
 <table class="banks-table">
   <thead>
@@ -5160,448 +5183,6 @@ Ex: https://dominio.com.br
 </div>
 </details>
 
-<!--############################################### 11 #######################################################-->
-
-<details class="custom-expand" markdown="1">
-<summary markdown="1">
-  <span class="summary-title"><span class="summary-number">11.</span> Pontos de Entrada Especificos</span>
-</summary>
-<div class="content-body" markdown="1">
-
-### 11. Pontos de Entrada Específicos
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001AAP**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tbody>
-  <tr>
-    <td>Descrição</td>
-    <td>Ponto de entrada na rotina de aprovação de alçadas, após a aprovação final do documento em alçadas.</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A01.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M001AAP ( &lt;ParamIxB&gt; ) --> Nil</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>ParamIxB – Tipo: Caracter – Descrição: Nome do processo da alçadas (ZX1_PROCES)</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M001AAP.PRW</span>
-  </div>
-  <pre><code>
-<span class="uf">User Function</span> <span class="fn">M001AAP</span>()
-    <span class="kw">Local</span> <span class="var">aArea</span>   <span class="symbol">:=</span> <span class="fn">GetArea</span>()
-    <span class="kw">Local</span> <span class="var">cRotina</span> <span class="symbol">:=</span> <span class="var">PARAMIXB</span>
-    <span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="comment">//³ Personalizações do cliente                                     ³</span>
-    <span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="kw">If</span> <span class="var">cRotina</span> <span class="symbol">==</span> <span class="string">"MATA120"</span>
-        <span class="comment">// … seu código personalizado aqui …</span>
-    <span class="kw">EndIf</span>
-    <span class="fn">RestArea</span>(<span class="var">aArea</span>)
-<span class="kw">Return</span>
-  </code></pre>
-</div>
-  </td>
-  </tr>
-  </tbody>
-</table>
-
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001ARP**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tr>
-    <td>Descrição</td>
-    <td>Ponto de entrada na rotina de aprovação de alçadas, após a reprovação final do documento em alçadas.</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A01.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M001ARP ( &lt;ParamIxB&gt; ) --> Nil</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>ParamIxB – Tipo: Caracter – Descrição: Nome do processo da alçadas (ZX1_PROCES)</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M001ARP.PRW</span>
-  </div>
-  <pre><code>
-<span class="uf">User Function</span> <span class="fn">M001ARP</span>()
-    <span class="kw">Local</span> <span class="var">aArea</span>   <span class="symbol">:=</span> <span class="fn">GetArea</span>()
-    <span class="kw">Local</span> <span class="var">cRotina</span> <span class="symbol">:=</span> <span class="var">PARAMIXB</span>
-    <span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="comment">//³ Personalizações do cliente                                     ³</span>
-    <span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="kw">If</span> <span class="var">cRotina</span> <span class="symbol">==</span> <span class="string">"MATA120"</span>
-        <span class="comment">…</span>
-    <span class="kw">EndIf</span>
-    <span class="fn">RestArea</span>(<span class="var">aArea</span>)
-<span class="kw">Return</span>
-  </code></pre>
-</div>
-  </td>
-  </tr>
-</table>
-
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M1A5CPOS**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tr>
-    <td>Descrição</td>
-    <td>Ponto de entrada na rotina de M001A05 (Verbas por Aprovador) para permitir adicionar campos à tela de cadastro. OBS: Deve ser usado em conjunto com o ponto de entrada M1A5TELA.</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A05.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M1A5CPOS ( &lt;ParamIxB&gt; ) --> Nil</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td> 
-  <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M1A5CPOS.PRW</span>
-  </div>
-  <pre><code>   
-    <span class="uf">User Function</span> <span class="fn">User Function M1A5CPOS()</span>
-      <span class="kw">Local</span> <span class="var">_aCabec</span> <span class="var"> := </span><span class="symbol">{}</span>
-      <span class="kw">Local</span> <span class="var">_aGrid</span> <span class="var"> := </span><span class="symbol">{}</span>
-      <span class="kw">Local</span> <span class="var">_aRet</span> <span class="var"> := </span><span class="symbol">{}</span>
-    <span class="comment">
-      // Array _aCabec: array para adicionar os campos que aparecerão no cabeçalho.
-      // Contém duas posições, a primeira é para definição da variável e a segunda
-      // é o id do campo
-    </span>
-      <span class="fn">aAdd</span><span class="symbol">(</span><span class="var">_aCabec</span><span class="symbol">,</span><span class="symbol">{</span><span class="var">"cTESTE"</span><span class="symbol">,</span><span class="var">"ZX4_TESTE"</span><span class="symbol">})</span>
-    <span class="comment">
-      //aAdd(_aCabec,{"cTESTE3","ZX4_TESTE3"})   
-      // Array _aGrid: array para adicionar os campos que aparecerão no grid.
-      // contém apenas uma posição, com o id do campo
-    </span>
-      <span class="fn">aAdd</span><span class="symbol">(</span><span class="var">_aGrid</span><span class="symbol">,</span><span class="symbol">{</span><span class="var">"ZX4_TESTE2"</span><span class="symbol">})</span>
-    <span class="comment">
-      // Array _aRet: compila os dados dos arrays _aCabec e _aGrid em um só, o qual
-      // será o retorno deste PE. Sempre adicionar primeiro o _aCabec e depois o _aGrid.
-      // É obrigatório haver dois retornos no array _aRet, mesmo que um deles esteja em branco
-    </span>
-      <span class="fn">aAdd</span><span class="symbol">(</span><span class="var">_aRet</span><span class="symbol">,</span><span class="var">_aCabec</span><span class="symbol">)</span>
-      <span class="fn">aAdd</span><span class="symbol">(</span><span class="var">_aRet</span><span class="symbol">,</span><span class="var">_aGrid</span><span class="symbol">)    
-      </span>
-    <span class="kw">Return</span> </span><span class="symbol">(</span> <span class="var">_aRet</span> </span><span class="symbol">)</span>    
-  </td>
-  </tr>
-</table>
-
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M1A5TELA**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tr>
-    <td>Descrição</td>
-    <td>Ponto de entrada na rotina de M001A05 (Verbas por Aprovador) para permitir adicionar campos à tela de cadastro. OBS: Deve ser usado em conjunto com o ponto de entrada M1A5CPOS.</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A05.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M1A5TELA ( &lt;ParamIxB&gt; ) --> Nil</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M1A5TELA.PRW</span>
-  </div>
-  <pre><code>  
-  <span class="uf">User Function</span> <span class="fn">M1A5TELA()</span>
-  <span class="comment">
-      // Informações sobre posições dos campos:
-      // Os títulos dos campos ficam nas colunas (pos. x) 010 e 150
-      // As Fields ficam nas colunas (pos. x) 060 e 200
-      // As linhas (pos. y) somam de 15 em 15, iniciando a partir da posição 055
-      // Não esquecer de somar a variável nPixP12 na linha (pos. y)
-  </span>
-      <span class="kw">Local</span> <span class="var">_nLin</span><span class="symbol"> := </span><span class="number">055</span> + <span class="var">nPixP12</span>  
-      @ <span class="var">_nLin</span>,<span class="number">010</span> <span class="fn">Say</span>   <span class="fn">Posicione</span>(<span class="string">"SX3"</span>,2,<span class="string">'ZX4_TESTE'</span>,<span class="string">"X3_TITULO"</span>) <span class="kw">OF</span> <span class="var">oDlg</span> <span class="fn">PIXEL</span> <span class="fn">SIZE</span> <span class="number">080</span>,<span class="number">009</span> <span class="fn">COLOR</span> <span class="var">CLR_BLUE</span><br>
-      @ <span class="var">_nLin</span>,<span class="number">060</span> <span class="fn">MsGet</span> <span class="var">cTESTE</span> <span class="fn">Size</span> <span class="number">120</span>,<span class="number">010</span> <span class="fn">PIXEL</span> <span class="kw">OF</span> <span class="var">oDlg</span> <span class="fn">WHEN</span> <span class="var">lInclui</span> .OR. <span class="var">lAltera</span>
-  <span class="comment">
-      /*
-      @ _nLin,150 Say   Posicione("SX3",2,'ZX4_TESTE2',"X3_TITULO") OF oDlg PIXEL SIZE 080,009 COLOR CLR_BLUE
-      @ _nLin,200 MsGet cTESTE2 Size 120,010 PIXEL OF oDlg WHEN lInclui
-
-      _nLin += 15
-      @ _nLin,010 Say   Posicione("SX3",2,'ZX4_TESTE3',"X3_TITULO") OF oDlg PIXEL SIZE 080,009 COLOR CLR_BLUE
-      @ _nLin,060 MsGet cTESTE3 Size 120,010 PIXEL OF oDlg  F3 "SB1"  
-
-      @ _nLin,150 Say   Posicione("SX3",2,'ZX4_TESTE4',"X3_TITULO") OF oDlg PIXEL SIZE 080,009 COLOR CLR_BLUE
-      @ _nLin,200 MsGet cTESTE4 Size 120,010 PIXEL OF oDlg VALID (U_VALID()) 
-
-      _nLin += 15
-      */
-  </span>    
-  </td>
-  </tr>
-</table>
-
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001REG**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tr>
-    <td>Descrição</td>
-    <td>Descrição	Ponto de entrada na rotina de inclusão de movimento de alçada. Utilizado para personalizar busca de aprovador, quando a regra é do tipo PERSONALIZADA. Deve retornar o código do novo aprovador.
-</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A01.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M001AAP ( &lt;ParamIxB&gt; ) --> cCodAp</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>ParamIxB – Tipo: Carracter – Descrição: Código da rotina configurada na regra</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M001REG.PRW</span>
-  </div>
-  <pre><code>
-<span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-<span class="comment">//³ Personalizações do cliente                                     ³</span>
-<span class="comment">//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-<span class="uf">User Function</span> <span class="fn">M001REG</span>()
-    <span class="kw">Local</span> <span class="var">aArea</span>      <span class="symbol">:=</span> <span class="fn">GetArea</span>()
-    <span class="kw">Local</span> <span class="var">cRotina</span>    <span class="symbol">:=</span> <span class="var">PARAMIXB</span>
-    <span class="kw">Local</span> <span class="var">cAprovador</span> <span class="symbol">:=</span> <span class="string">""</span>
-    <span class="comment">//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="comment">//³ Personalizações do cliente                                     ³</span>
-    <span class="comment">//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="kw">If</span> <span class="var">cRotina</span> <span class="symbol">==</span> <span class="string">"MATA120"</span>
-        <span class="var">cAprovador</span> <span class="symbol">:=</span> <span class="string">'000002'</span>
-    <span class="kw">EndIf</span>
-    <span class="fn">RestArea</span>(<span class="var">aArea</span>)
-<span class="kw">Return</span>(<span class="var">cAprovador</span>)
-  </code></pre>
-</div>    
-  </td>
-  </tr>
-</table>
-
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001MNU**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tr>
-    <td>Descrição</td>
-    <td>Ponto de entrada que permite e inclusão de funções na rotina de aprovação de alçadas. Variável aRotina é Private.
-</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A01.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M001MNU ( &lt;ParamIxB&gt; ) --> Nil</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M001MNU.PRW</span>
-  </div>
-  <pre><code>
-<span class="comment">// Adiciona item personalizado no menu do sistema</span><br>
-<span class="uf">User Function</span> <span class="fn">M001MNU</span>()
-    <span class="kw">Local</span> <span class="var">aArea</span> <span class="symbol">:=</span> <span class="fn">GetArea</span>()
-    <span class="comment">// Inclui a opção "&SeuMenu" chamando a função U_XXXXXXX</span>
-    <span class="fn">AADD</span>(<span class="var">aRotina</span>, {<span class="string">"&SeuMenu"</span>, <span class="string">"U_XXXXXXX"</span>, 0, 2})
-    <span class="fn">RestArea</span>(<span class="var">aArea</span>)
-<span class="kw">Return</span>
-  </code></pre>
-</div>
-  </td>
-  </tr>
-</table>
-
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001INC**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tr>
-    <td>Descrição</td>
-    <td>Ponto de entrada para gravações adicionais após inclusão de movimentos de alçadas. Tabela de movimentos de alçadas está em edição.</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A01.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M001INC ( &lt;ParamIxB&gt; ) --> Nil</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M001INC.PRW</span>
-  </div>
-  <pre><code>
-<span class="comment">//Exemplo Implementação	User Function M001IND()</span><br>
-<span class="uf">User Function</span> <span class="fn">M001IND()</span>()
-    <span class="kw">Local</span> <span class="var">aArea</span><span class="symbol"> := </span> <span class="fn">GetArea</span>()
-    <span class="kw">Local</span> <span class="var">cRotina</span>  <span class="symbol">:=</span> <span class="var">PARAMIXB</span>
-    <span class="comment">//</span> <span class="comment">ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="comment">//</span> <span class="comment">³ Personalizações do cliente     ³</span>
-    <span class="comment">//</span> <span class="comment">ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="kw">If</span> <span class="var">cRotina</span></span><span class="symbol"> == </span><span class="string">"MATA120"</span>
-        (_001T03)</span><span class="symbol">-></span>&_001T03FOR <span class="symbol">:=</span> <span class="string">"0101"</span>
-    <span class="kw">EndIf</span>
-    <span class="kw">Local</span> <span class="var">nI</span></span><span class="symbol"> := </span> 0      
-<span class="kw">RestArea</span>(<span class="var">aArea</span>)
-<span class="kw">Return</span>(<span class="var">aRet</span>)
-  </code></pre>
-</div>
-  </td>
-  </tr>
-</table>
-
-</div>
-</details>
-
-</div>
-</details>
 
 <!--############################################### 12 #######################################################-->
 
