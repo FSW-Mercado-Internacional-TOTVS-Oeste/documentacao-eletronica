@@ -5,6 +5,9 @@ Este repositório contém os arquivos fontes do manual de documentação eletrô
 
 ## 🌐 Link de Acesso
 O manual publicado pode ser acessado em:
+[https://fsw-mi-addons.totvscascavel.com.br/](https://fsw-mi-addons.totvscascavel.com.br/)
+
+Ou pelo redirecionamento do GitLab:
 [https://fsw-mi-totvsoeste.gitlab.io/documentacao-eletronica/](https://fsw-mi-totvsoeste.gitlab.io/documentacao-eletronica/)
 
 ---
@@ -12,7 +15,7 @@ O manual publicado pode ser acessado em:
 ## 🚀 Como Contribuir
 
 ### 1. Pré-requisitos
-Certifique-se de ter o Python 3.11+ instalado em sua máquina.
+Certifique-se de ter o Python 3.11+ e o git instalado em sua máquina.
 
 ### 2. Configuração do Ambiente Local
 Ao baixar o projeto pela primeira vez, configure o ambiente virtual para evitar conflitos:
@@ -43,6 +46,24 @@ Acesse `http://127.0.0.1:8000` no seu navegador.
 
 ---
 
+### 4. Para realizar o Commit das alterações
+
+Antes de fazer o commit, configure seu nome e email no git:
+
+```
+git config --global user.name "Seu Nome" # Substitua pelo seu nome
+git config --global user.email "seu.email@totvs.com" # Substitua pelo seu email TOTVS
+
+```
+
+Após configurar o nome e email, sempre que for commitar uma alteração, execute:
+
+```
+git add .
+git commit -m "Comentario do commit"
+git push origin main
+```
+
 ## 🛠 Estrutura do Projeto
 
 * **docs/**: Contém os arquivos `.md` que compõem o conteúdo do manual.
@@ -54,18 +75,5 @@ Acesse `http://127.0.0.1:8000` no seu navegador.
 
 ## ⚠️ Observações Importantes
 
-* **Pipeline**: O arquivo `.gitlab-ci.yml` deve sempre terminar com uma linha vazia para evitar erros de leitura do GitLab Runner.
 * **Deploy**: O deploy é automático para a branch `main`. Qualquer `push` aprovado atualizará o site em alguns minutos.
 * **Arquivos Ignorados**: Pastas como `.venv/`, `site/` e arquivos de trava como `uv.lock` não devem ser enviados ao repositório para manter a estrutura limpa.
-
-```
-### Como realizar um commit
-No terminal, execute:
-
-git config --global user.name "Seu Nome"
-git config --global user.email "seu.email@exemplo.com"
-
-git add .
-git commit -m "Comentario do commit"
-git push origin main
-```
