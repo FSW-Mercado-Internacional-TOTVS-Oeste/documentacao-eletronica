@@ -83,4 +83,3 @@ git push origin main
 
 * **Deploy**: O deploy é automático para a branch `main`. Qualquer `push` atualizará o site em alguns minutos.
 * **Arquivos Ignorados**: Pastas como `.venv/`, `site/` ou arquivos como `.python-version`, `.main.py` e `pyproject.toml` não devem ser enviados ao repositório. Use o arquivo `.gitignore` para ignorar esses arquivos.
-....
