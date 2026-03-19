@@ -5194,129 +5194,52 @@ Ex: https://dominio.com.br
 
 ### 12. Manual de operação
 
-#### 1. Cadastro
+#### 1. Cadastro de Pedido de venda
 
-Passo a seguir são para a inclusão de uma nova regra de alçada.
+##### Consulta do Status do Pedido no ERP
 
-![](./assets/alcadasregras/02_cadastro_dados_preenchidos.png){.flow-image}
+    Caminho: Faturamento > Atualizações > Pedidos > Pedidos de Venda.
 
-- <strong>Processo:</strong> Informe o codigo do processo (nome da funcao) referente a Alçada.<br>
-- <strong>Descrição:</strong> Descricao do Processo.<br>
-- <strong>Worklow Aviso:</strong> Informe o nome do processo (rdmake) que será responsavel por enviar WorkFlow de aviso da liberacao controle de alcadas.<br>
-- <strong>Worklow Alias:</strong> Sigla dos arquivos relacionados no processo.<br>
-- <strong>Regra Ativa?:</strong> Informe se a regra esta ativa <strong>S</strong>=Sim, <strong>N</strong>=Não.<br>
+    Ação: Selecionar o pedido desejado (Ex: Pedido 000026).
 
-<strong>Campos da Tabela:</strong><br>
+    Verificação de Legenda: Ao clicar em Ações Relacionadas > Legenda, observa-se que o pedido está com o indicativo Traço Vermelho, indicando "Pedido de Venda com Bloqueio de Alçada".
 
-![](./assets/alcadasregras/03_cadastro_tabela.png){.flow-image}
+    ![](./assets/alcadaswfcadastrais/01_legenda_pedido_venda.png){.flow-image}
 
-- <strong>Sequencia:</strong> Sequencia<br>
-- <strong>Tp. Liberação:</strong> Help Informe o tipo de liberacao que deseja para esta regra de Alcadas:<br>
-  N = Nivel - Sistema respeitara os níveis configurados, encaminhando para o proximonivel somente após aprovação do nível anterior.<br>
-  U = Usuario - A liberacao do usuário pode ocorrer individualmente, sem considerar outros aprovadores constantes na regra.<br>
-- <strong>Nivel:</strong> Informe o nivel (2 digitos).<br>
-- <strong>Tp. Busca:</strong> Help Informe o tipo de busca:<br>
-  E = Entidade - O usuario poderá configurar qualquer tabela do sistema para verificar o aprovador do processo.<br>
-  U = Usuario - Configuracao de usuário "fixo" como aprovador.<br>
-- <strong>Aprovador:</strong> Informe o codigo do usuario que seraresponsavel pela aprovação.<br>
-- <strong>Nome:</strong> Nome do Aprovador.<br>
-- <strong>Indice Alias:</strong> Informe o indice de busca para posicionamento no campo a verificar o aprovador do processo.<br>
-- <strong>Campo:</strong> Informar o campo a ser verificado para selecionar o aprovador, quando selecionado o Tipo de Busca = Entidade.<br>
-- <strong>Expressao:</strong> Podera ser utilizada para criacao de regras diferentes para um mesmo processo. (Utilizar sempre a tabela posicionada no cabecalho do processo.)<br>
-- <strong>Proc. WF:</strong> Help Informe o nome do processo (rdmake) que será responsável por enviar WorkFlow para o controle de alcadas.<br>
-- <strong>Alias:</strong> Sigla dos arquivos relacionados no processo. Ex: SA1, SB1, SD2, etc...<br>
-- <strong>Observacoes:</strong> Observação.<br>
+    Histórico de Aprovação: Em Ações Relacionadas > Cons. Alçadas, é possível visualizar que o documento está com o status "Aguardando Aprovação" para o usuário APROVADOR 01.
 
-<strong>Após confirmado:</strong> O sistema irá salvar a regra de alçada.<br>
+##### Recebimento e Acesso ao Workflow (E-mail)
 
-![](./assets/alcadasregras/04_cadastro_dado_adicionado.png){.flow-image}
+    Ação: O aprovador recebe um e-mail com o assunto: "Liberar Pedido de Venda: [Número do Pedido]".
 
-#### 2. Aprovação de Documento
+    Interface: O corpo do e-mail contém os dados básicos do pedido e um link "Favor acessar o processo de workflow referente à liberação do pedido de venda [numero do pedido]", com o texto "Processo" sublinhado e vinculado a uma URL.
 
-Para aprovar um documento, na tela inicial do protheus, no grupo de "Alçadas", clique no botão "Aprovamentos", escolha a forma de visualização do filtro e clique em "OK" assim será possivel visualizar na tela de Aprovações se há algum documento que precise de atenção.
+    Ação: Clique no link "Processo" para abrir a interface de decisão no navegador.
 
-![](./assets/alcadasregras/08_aprovacao_visualizacao.png){.flow-image}
+    
 
-A legenda de cada status pode ser acessadas em Açoes Relacionadas > Legendas:
+##### Execução da Aprovação/Rejeição (Web)
 
-![](./assets/alcadasregras/07_aprovacao_legendas.png){.flow-image}
+    Interface "Liberação de Pedido de Venda": Apresenta dados do cabeçalho (Cliente, Valor, Condição de Pagamento), itens do pedido, posição financeira do cliente e observações do solicitante.
 
-Para Aprovar ou Reprovar um Documento, clicamos no botão "Liberar" no canto inferior da tela de aprovação. Nessa tela adicionamos uma "Observação" e clicamos no botão desejado (<strong>Aprovar Docto</strong> para Aprovar ou <strong>Reprovar Docto</strong> para Reprovar).
+    Ação de Decisão:
 
-![](./assets/alcadasregras/08_aprovacao_aprovar_documento.png){.flow-image}
+        No rodapé da página, selecione a opção "Aprovado" (ou "Reprovado", se aplicável).
 
-- <strong>Numero Doc.:</strong> O código do documento que está sendo aprovado.<br>
-- <strong>Emissao:</strong> A data de emissão do documento.<br>
-- <strong>Aprovador:</strong> O nome do usuário que está realizando a aprovação.<br>
-- <strong>Processo:</strong> O nome do processo que está sendo aprovado.<br>
-- <strong>Status:</strong> Stauts do movimento:<br>
-1 - Aguardando Aprovacao<br>
-2 - Aguardando Aprov. Nivel Anterior<br>
-3 - Aprovado<br>
-4 - Transferido p/ outro Aprovador<br>
-5 - Reprovado<br>
-6 - Nivel Anterior Reprovado<br>
-- <strong>Observações:</strong> Observações adicionadas durante a aprovação ou reprovação do documento.<br>
+        No campo Observação, digite a justificativa ou nota (Ex: LIBERADO).
 
-Se precisar visualizar o Documento antes de Aprovar ou Reprovar, podemos clicar sobre o botão <strong>"Visual. Docto."</strong>
+        Clique no botão "Enviar".
 
-![](./assets/alcadasregras/09_aprovacao_visualizar_documento.png){.flow-image}
+    Confirmação: O navegador exibirá a mensagem: "Resposta enviada para o servidor".
 
-<strong><u>Exemplo de email de liberação de documento.</u></strong>
+##### Validação da Liberação no ERP
 
-![](./assets/alcadasregras/10_aprovacao_email_aprovado.png){.flow-image}
+    Ação: Retorne à tela de Pedidos de Venda no Protheus.
 
-#### 3. Ausencia Temporária
+    Resultado: O status do pedido mudará para a cor verde (Círculo Verde), indicando "Pedido de Venda Encerrado/Liberado".
 
-Quando um aprovador está ausente, é possível configurar um substituto para assumir suas responsabilidades. Isso garante que os processos de aprovação não fiquem paralisados durante férias, licenças ou ausências planejadas.
+    Auditoria: Ao consultar novamente em Ações Relacionadas > Workflow, o status aparecerá como "APROVADO", com a data, hora e a observação digitada no passo anterior.
 
-Para configurar um substituto, utilizamos a tela de Ausência Temporária, acessamos através de Incluir:
-
-![](./assets/alcadasregras/12_ausencia_incluir.png){.flow-image}
-
-Na tela de Ausência Temporária, preenchemos os campos obrigatórios:
-
-![](./assets/alcadasregras/13_ausencia_cadastro.png){.flow-image}
-
-- <strong>Codigo:</strong> Codigo do registro.<br>
-- <strong>Aprovador:</strong> Codigo do Aprovador que esta sendo substituído temporariamente.<br>
-- <strong>Nome:</strong> Nome do Aprovador que esta sendo substituído temporariamente.<br>
-- <strong>Dt. Saida:</strong> Data de inicio da ausência.<br>
-- <strong>Dt. Retorno:</strong> Data de Retorno.<br>
-- <strong>Substituto:</strong> Codigo do Usuário que será substituto.<br>
-- <strong>Nome:</strong> Nome do Usuario substituto.<br>
-
-A partir desse momento, todos os documentos que estiverem aguardando aprovação do aprovador original serão automaticamente redirecionados para o substituto, garantindo a continuidade dos processos sem interrupções.
-
-![](./assets/alcadasregras/14_ausencia_item_incluido.png){.flow-image}
-
-#### 4. Transfêrencias
-
-Para transferir um documento de um aprovador para outro, utilizamos a tela de Transferência, acessamos através de Ações Relacionadas > Trasnferencia:
-
-![](./assets/alcadasregras/17_transferencia_novo_aprovador.png){.flow-image}
-
-- <strong>Aprovador Ausente:</strong> Codigo do aprovador que está ausente.<br>
-- <strong>Novo Aprovador:</strong> Codigo do novo aprovador.<br>
-
-Na tabela, selecionamos o documento que será transferido, clicando e marcando a caixa de seleção no começo da linha:
-
-![](./assets/alcadasregras/21_trasnferencia_tabela.png){.flow-image}
-
-Uma notificação com o documento será enviado para o aprovador através do email:
-
-![](./assets/alcadasregras/18_transferencia_email.png){.flow-image}
-
-Clicando em "Processo" no texto "Favor acessar o processo de workflow referente à liberação pedido de venda", visualizamos a tela de liberação de Pedido de Compra, podendo ser aprovado diretamente por ela:
-
-![](./assets/alcadasregras/19_transferencia_liberacao_compra.png){.flow-image}
-
-- <strong>Aprovado/Reprovado:</strong> Selecione o desejado.<br>
-- <strong>Observação:</strong> Informe uma observação.<br>
-
-Pelo sistema, através do grupo de "Alçadas" podemos clicar sobre "Aprovações". Para liberar um documento pendente podemos clicar sobre o botão "Liberar" e/ou consultar as Aprovações de Documentos pelo botão "Cons. Aprov.":
-
-![](./assets/alcadasregras/20_trasnferencia_visualiza_outro_aprovador.png){.flow-image}
 
 </div>
 </details>
