@@ -70,6 +70,9 @@ git push origin main
 ## 🛠 Estrutura do Projeto
 
 * **docs/**: Contém os arquivos `.md` que compõem o conteúdo do manual.
+* **docs/assets**: Contém as imagens que compõem o conteúdo do manual.
+* **docs/stylesheets**: Contém o arquivo CSS que contém as configurações de estilo do manual.
+* **docs/js**: Contém os scripts em js do manual.
 * **mkdocs.yml**: Arquivo de configuração principal (menu, tema e plugins).
 * **.gitlab-ci.yml**: Script de automação que realiza o build e deploy do site.
 * **requirements.txt**: Lista de bibliotecas necessárias para o projeto.
@@ -78,5 +81,5 @@ git push origin main
 
 ## ⚠️ Observações Importantes
 
-* **Deploy**: O deploy é automático para a branch `main`. Qualquer `push` aprovado atualizará o site em alguns minutos.
-* **Arquivos Ignorados**: Pastas como `.venv/`, `site/` e arquivos de trava como `uv.lock` não devem ser enviados ao repositório para manter a estrutura limpa.
+* **Deploy**: O deploy é automático para a branch `main`. Qualquer `push` atualizará o site em alguns minutos.
+* **Arquivos Ignorados**: Pastas como `.venv/`, `site/` ou arquivos como `.python-version`, `.main.py` e `pyproject.toml` não devem ser enviados ao repositório. Use o arquivo `.gitignore` para ignorar esses arquivos.
