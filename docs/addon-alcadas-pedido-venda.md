@@ -5196,50 +5196,44 @@ Ex: https://dominio.com.br
 
 #### 1. Cadastro de Pedido de venda
 
-##### Consulta do Status do Pedido no ERP
+#### Consulta do Status do Pedido no ERP
 
-    Caminho: Faturamento > Atualizações > Pedidos > Pedidos de Venda.
+<strong>Caminho:</strong> Faturamento > Atualizações > Pedidos > Pedidos de Venda.<br>
+<strong>Ação:</strong> Selecionar o pedido desejado (Ex: Pedido 000026).<br>
 
-    Ação: Selecionar o pedido desejado (Ex: Pedido 000026).
+<strong>Verificação de Legenda:</strong> Ao clicar em Ações Relacionadas > Legenda, observa-se que o pedido está com o indicativo <strong>Traço Vermelho</strong>, indicando "Pedido de Venda com Bloqueio de Alçada".<br>
 
-    Verificação de Legenda: Ao clicar em Ações Relacionadas > Legenda, observa-se que o pedido está com o indicativo Traço Vermelho, indicando "Pedido de Venda com Bloqueio de Alçada".
+<strong>Histórico de Aprovação:</strong> Em Ações Relacionadas > Cons. Alçadas, é possível visualizar que o documento está com o status "Aguardando Aprovação" para o usuário APROVADOR 01.<br>
 
-    ![](./assets/alcadaswfcadastrais/01_legenda_pedido_venda.png){.flow-image}
+![](./assets/alcadaswfcadastrais/01_legenda_pedido_venda.png){.flow-image}
 
-    Histórico de Aprovação: Em Ações Relacionadas > Cons. Alçadas, é possível visualizar que o documento está com o status "Aguardando Aprovação" para o usuário APROVADOR 01.
+#### Recebimento e Acesso ao Workflow (E-mail)
 
-##### Recebimento e Acesso ao Workflow (E-mail)
+<strong>Ação:</strong> O aprovador recebe um e-mail com o assunto: "Liberar Pedido de Venda: [Número do Pedido]".<br>
+<strong>Interface:</strong> O corpo do e-mail contém os dados básicos do pedido e um link "Favor acessar o processo de workflow referente à liberação do pedido de venda [numero do pedido]", com o texto "Processo" sublinhado e vinculado a uma URL.<br>
 
-    Ação: O aprovador recebe um e-mail com o assunto: "Liberar Pedido de Venda: [Número do Pedido]".
-
-    Interface: O corpo do e-mail contém os dados básicos do pedido e um link "Favor acessar o processo de workflow referente à liberação do pedido de venda [numero do pedido]", com o texto "Processo" sublinhado e vinculado a uma URL.
-
-    Ação: Clique no link "Processo" para abrir a interface de decisão no navegador.
-
+<strong>Ação:</strong> Clique no link "Processo" para abrir a interface de decisão no navegador.<br>
+![](./assets/alcadaswfcadastrais/02_email_pedido_venda.png){.flow-image}
     
 
-##### Execução da Aprovação/Rejeição (Web)
+#### Execução da Aprovação/Rejeição (Web)
 
-    Interface "Liberação de Pedido de Venda": Apresenta dados do cabeçalho (Cliente, Valor, Condição de Pagamento), itens do pedido, posição financeira do cliente e observações do solicitante.
+Interface "Liberação de Pedido de Venda": Apresenta dados do cabeçalho (Cliente, Valor, Condição de Pagamento), itens do pedido, posição financeira do cliente e observações do solicitante.
 
-    Ação de Decisão:
+Ação de Decisão:
+    No rodapé da página, selecione a opção "Aprovado" (ou "Reprovado", se aplicável).
+    No campo Observação, digite a justificativa ou nota (Ex: LIBERADO).
+    Clique no botão "Enviar".
 
-        No rodapé da página, selecione a opção "Aprovado" (ou "Reprovado", se aplicável).
+Confirmação: O navegador exibirá a mensagem: "Resposta enviada para o servidor".
+![](./assets/alcadaswfcadastrais/03_liberacao_pedido_venda.png){.flow-image}
 
-        No campo Observação, digite a justificativa ou nota (Ex: LIBERADO).
+#### Validação da Liberação no ERP
 
-        Clique no botão "Enviar".
+Ação: Retorne à tela de Pedidos de Venda no Protheus.
+Resultado: O status do pedido mudará para a cor verde (Círculo Verde), indicando "Pedido de Venda Encerrado/Liberado".
 
-    Confirmação: O navegador exibirá a mensagem: "Resposta enviada para o servidor".
-
-##### Validação da Liberação no ERP
-
-    Ação: Retorne à tela de Pedidos de Venda no Protheus.
-
-    Resultado: O status do pedido mudará para a cor verde (Círculo Verde), indicando "Pedido de Venda Encerrado/Liberado".
-
-    Auditoria: Ao consultar novamente em Ações Relacionadas > Workflow, o status aparecerá como "APROVADO", com a data, hora e a observação digitada no passo anterior.
-
+Auditoria: Ao consultar novamente em Ações Relacionadas > Workflow, o status aparecerá como "APROVADO", com a data, hora e a observação digitada no passo anterior.
 
 </div>
 </details>
