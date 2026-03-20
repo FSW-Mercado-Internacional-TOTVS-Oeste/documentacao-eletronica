@@ -17,6 +17,9 @@ Ou pelo redirecionamento do GitLab:
 ### 1. Pré-requisitos
 Certifique-se de ter o Python 3.11+ e o git instalado em sua máquina.
 
+Python: https://www.python.org/downloads/
+Git: https://git-scm.com/install/windows
+
 ### 2. Configuração do Ambiente Local
 Ao baixar o projeto pela primeira vez, configure o ambiente virtual para evitar conflitos, no Terminal digite os seguintes comandos:
 
@@ -111,8 +114,3 @@ git rebase --continue
 
 * **Deploy**: O deploy é automático para a branch `main`. Qualquer `push` atualizará o site em alguns minutos.
 * **Arquivos Ignorados**: Pastas como `.venv/`, `site/` ou arquivos como `.python-version`, `.main.py` e `pyproject.toml` não devem ser enviados ao repositório. Use o arquivo `.gitignore` para ignorar esses arquivos.
-
-
-132132132132
-
-
