@@ -51,23 +51,47 @@ Acesse `http://127.0.0.1:8000` no seu navegador.
 
 ### 4. Para realizar o Commit das alterações
 
-Antes de fazer o commit, configure seu nome e email no git:
-
 ```
-git config --global user.name "Seu Nome" # Substitua pelo seu nome
-git config --global user.email "seu.email@totvs.com" # Substitua pelo seu email TOTVS
+# 1. Configure seu nome e email (apenas na primeira vez)
+git config --global user.name "Seu Nome"
+git config --global user.email "seu.email@totvs.com"
 
-```
+# 2. SEMPRE sincronize antes de começar ou antes de enviar
+# O --rebase mantém o histórico limpo e organizado
+git pull --rebase origin main
 
-Após configurar o nome e email, sempre que for commitar uma alteração, execute:
-
-```
+# 3. Adicione suas alterações
 git add .
-git commit -m "Comentario do commit"
+
+# 4. Salve localmente
+git commit -m "Explicação sucinta da melhoria ou correção"
+
+# 5. Envie para o servidor
 git push origin main
 ```
 
-## 🛠 Estrutura do Projeto
+## 🛠️ Resolução de Conflitos (Caso ocorra)
+
+Se ao dar um git pull --rebase o terminal avisar sobre "CONFLICT", não se preocupe: suas alterações não foram perdidas. Isso apenas significa que você e outro colega editaram a mesma linha do manual.
+
+### Como resolver:
+
+1. Abra o arquivo no VS Code: As linhas conflitantes estarão destacadas em colorido.
+
+2. Escolha a opção desejada: * Accept Current Change: Mantém o que você escreveu.
+
+        Accept Incoming Change: Mantém o que já estava no servidor.
+
+        Accept Both Changes: Mantém os dois textos (um abaixo do outro).
+
+3. Salve o arquivo e finalize no terminal:
+
+```
+git add .
+git rebase --continue
+```
+
+## Estrutura do Projeto
 
 * **docs/**: Contém os arquivos `.md` que compõem o conteúdo do manual.
 * **docs/assets**: Contém as imagens que compõem o conteúdo do manual.
