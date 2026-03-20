@@ -78,11 +78,15 @@ Se ao dar um git pull --rebase o terminal avisar sobre "CONFLICT", não se preoc
 
 1. Abra o arquivo no VS Code: As linhas conflitantes estarão destacadas em colorido.
 
-2. Escolha a opção desejada: * Accept Current Change: Mantém o que você escreveu.
+2. Escolha a opção desejada: 
 
-        Accept Incoming Change: Mantém o que já estava no servidor.
+```
+- Accept Current Change: Mantém o que você escreveu.
 
-        Accept Both Changes: Mantém os dois textos (um abaixo do outro).
+- Accept Incoming Change: Mantém o que já estava no servidor.
+
+- Accept Both Changes: Mantém os dois textos (um abaixo do outro).
+```
 
 3. Salve o arquivo e finalize no terminal:
 
