@@ -45,10 +45,10 @@ pip install -r requirements.txt
 
 Para editar e ver as mudanças antes de subir para o servidor, use o comando:
 ```
-mkdocs serve
+mkdocs serve --livereload
 
 ```
-Acesse `http://127.0.0.1:8000` no seu navegador.
+Acesse `http://127.0.0.1:8000` no seu navegador. Agora, qualquer alteração que seja feita nos documentos .md, quando forem salvas, de forma automatica será atualizada na pagina sem a necessidade de reiniciar o servidor a cada alteração.
 
 ---
 
