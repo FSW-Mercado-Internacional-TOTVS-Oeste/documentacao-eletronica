@@ -5197,36 +5197,36 @@ Ex: https://dominio.com.br
 #### 1 Inclusão
 #### 1.1 Acesso à Rotina e Inclusão
 
-Caminho: Faturamento > Atualizações > Pedidos > Pedidos de Venda.<br>
-Ação: Clique no botão "Incluir" para iniciar a digitação do novo pedido.
+<strong>Caminho</strong>: Faturamento > Atualizações > Pedidos > Pedidos de Venda.<br>
+<strong>Ação</strong>: Clique no botão "Incluir" para iniciar a digitação do novo pedido.
 
 ![](./assets/alcadaswfcadastrais/01_Inclusao_pedido_venda.png){.flow-image}
 
 #### 1.2 Preenchimento dos Dados do Pedido
 
-Cabeçalho: Selecione o Cliente (Ex: 000002 - Cliente Risco E) e a Condição de Pagamento (Ex: 002 - 30 dias).
+<strong>Cabeçalho</strong>: Selecione o Cliente (Ex: 000002 - Cliente Risco E) e a Condição de Pagamento (Ex: 002 - 30 dias).
 
 ![](./assets/alcadaswfcadastrais/02_selecao_cliente_risco.png){.flow-image}
 
-Itens: Insira o produto (Ex: PRODUTO VENDA 1) e a quantidade desejada.<br>
-Ação: Clique em "Confirmar" para salvar o registro.
+<strong>Itens</strong>: Insira o produto (Ex: PRODUTO VENDA 1) e a quantidade desejada.<br>
+<strong>Ação</strong>: Clique em "Confirmar" para salvar o registro.
 
 ![](./assets/alcadaswfcadastrais/05_pedido_completo.png){.flow-image}
 
 
 #### 1.3 Solicitação de Liberação (Justificativa)
 
-Interface: Devido às regras de negócio (neste caso, "Cliente Risco E"), o sistema não libera o pedido automaticamente e abre a janela "Observações do Solicitante".<br>
-Ação: Digite a justificativa para a liberação (Ex: FAVOR LIBERAR ESTE PEDIDO. OBRIGADO.).<br>
-Ação: Clique em "Ok" para concluir a gravação.
+<strong>Interface</strong>: Devido às regras de negócio (neste caso, "Cliente Risco E"), o sistema não libera o pedido automaticamente e abre a janela "Observações do Solicitante".<br>
+<strong>Ação</strong>: Digite a justificativa para a liberação (Ex: FAVOR LIBERAR ESTE PEDIDO. OBRIGADO.).<br>
+<strong>Ação</strong>: Clique em "Ok" para concluir a gravação.
 
 ![](./assets/alcadaswfcadastrais/03_observacao_cliente_risco.png){.flow-image}
 
 #### 1.4 Verificação do Status de Bloqueio
 
-Análise Visual: Na tela principal de Pedidos de Venda, o pedido recém-criado (Ex: 000026) aparecerá com a legenda "Traço Vermelho".<br>
-Legenda: Ao consultar Ações Relacionadas > Legenda, confirma-se que a traço vermelho indica "Pedido de Venda com Bloqueio de Alçada".<br>
-Resultado: O pedido está agora aguardando a análise do aprovador via workflow para prosseguir para o faturamento.
+<strong>Análise Visual</strong>: Na tela principal de Pedidos de Venda, o pedido recém-criado (Ex: 000026) aparecerá com a legenda "Traço Vermelho".<br>
+<strong>Legenda</strong>: Ao consultar Ações Relacionadas > Legenda, confirma-se que a traço vermelho indica "Pedido de Venda com Bloqueio de Alçada".<br>
+<strong>Resultado</strong>: O pedido está agora aguardando a análise do aprovador via workflow para prosseguir para o faturamento.
 
 ![](./assets/alcadaswfcadastrais/06_legenda.png){.flow-image}
 
@@ -5237,37 +5237,35 @@ Resultado: O pedido está agora aguardando a análise do aprovador via workflow 
 
 #### Consulta do Status do Pedido no ERP
 
-Caminho: Faturamento > Atualizações > Pedidos > Pedidos de Venda.
-Ação: Selecionar o pedido desejado (Ex: Pedido 000026).
-Verificação de Legenda: Ao clicar em Ações Relacionadas > Legenda, observa-se que o pedido está com o "Traço vermelho", indicando "Pedido de Venda com Bloqueio de Alçada".
-Histórico de Aprovação: Em Ações Relacionadas > Workflow > Consultar, é possível visualizar que o documento está com o status "Aguardando Aprovação" para o usuário APROVADOR 01.
-
-![](./assets/alcadaswfcadastrais/07_legenda_aprovacao.png){.flow-image}
+<strong>Caminho</strong>: Faturamento > Atualizações > Pedidos > Pedidos de Venda.<br>
+<strong>Ação</strong>: Selecionar o pedido desejado (Ex: Pedido 000026).<br>
+<strong>Verificação de Legenda</strong>: Ao clicar em Ações Relacionadas > Legenda, observa-se que o pedido está com o "Traço vermelho", indicando "Pedido de Venda com Bloqueio de Alçada".<br>
+<strong>Histórico de Aprovação</strong>: Em Ações Relacionadas > Workflow > Consultar, é possível visualizar que o documento está com o status "Aguardando Aprovação" para o usuário APROVADOR 01.<br>
 
 ![](./assets/alcadaswfcadastrais/08_consulta_aprovacao_documentos.png){.flow-image}
 
 #### Recebimento e Acesso ao Workflow (E-mail)
 
-Ação: O aprovador recebe um e-mail no Outlook com o assunto: "Liberar Pedido de Venda: [Número do Pedido]".
-Interface: O corpo do e-mail contém os dados básicos do pedido e um link/botão chamado "Processo".
-Ação: Clique no link "Processo" para abrir a interface de decisão no navegador.
+<strong>Ação</strong>: O aprovador recebe um e-mail no Outlook com o assunto: "Liberar Pedido de Venda: [Número do Pedido]".
+<strong>Interface</strong>: O corpo do e-mail contém os dados básicos do pedido e um link/botão chamado "Processo".
+<strong>Ação</strong>: Clique no link "Processo" para abrir a interface de decisão no navegador.
 
 #### Execução da Aprovação/Rejeição (Web)
 
-Interface "Liberação de Pedido de Venda": Apresenta dados do cabeçalho (Cliente, Valor, Condição de Pagamento), itens do pedido, posição financeira do cliente e observações do solicitante.
+<strong>Interface</strong>: "Liberação de Pedido de Venda": Apresenta dados do cabeçalho (Cliente, Valor, Condição de Pagamento), itens do pedido, posição financeira do cliente e observações do solicitante.
 
-Ação de Decisão:
-    No rodapé da página, selecione a opção "Aprovado" (ou "Reprovado", se aplicável).
-    No campo Observação, digite a justificativa ou nota (Ex: LIBERADO).
-    Clique no botão "Enviar".
+<strong>Ação de Decisão</strong>:<br>
+<strong>No rodapé da página</strong>, selecione a opção "Aprovado" (ou "Reprovado", se aplicável).<br>
+<strong>No campo Observação</strong>, digite a justificativa ou nota (Ex: LIBERADO).<br>
+<strong>Clique no botão</strong> "Enviar".<br>
 
-Confirmação: O navegador exibirá a mensagem: "Resposta enviada para o servidor".
+<strong>Confirmação</strong>: O navegador exibirá a mensagem: "Resposta enviada para o servidor".
 
 #### Validação da Liberação no ERP
 
-Ação: Retorne à tela de Pedidos de Venda no Protheus.
-Resultado: O status do pedido mudará para a cor verde (Círculo Verde), indicando "Pedido de Venda Encerrado/Liberado".
-Auditoria: Ao consultar novamente em Ações Relacionadas > Workflow, o status aparecerá como "APROVADO", com a data, hora e a observação digitada no passo anterior.
+<strong>Ação</strong>: Retorne à tela de Pedidos de Venda no Protheus.
+<strong>Resultado</strong>: O status do pedido mudará para a cor verde (Círculo Verde), indicando "Pedido de Venda Encerrado/Liberado".
+<strong>Auditoria</strong>: Ao consultar novamente em Ações Relacionadas > Workflow, o status aparecerá como "APROVADO", com a data, hora e a observação digitada no passo anterior.
 
 </div>
 </details>
