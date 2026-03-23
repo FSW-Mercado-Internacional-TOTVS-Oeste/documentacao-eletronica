@@ -5244,7 +5244,7 @@ Histórico de Aprovação: Em Ações Relacionadas > Workflow > Consultar, é po
 
 ![](./assets/alcadaswfcadastrais/07_legenda_aprovacao.png){.flow-image}
 
-![](./assets/alcadaswfcadastrais/07_legenda_aprovacao.png){.flow-image}
+![](./assets/alcadaswfcadastrais/08_consulta_aprovacao_documentos.png){.flow-image}
 
 #### Recebimento e Acesso ao Workflow (E-mail)
 
