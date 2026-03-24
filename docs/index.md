@@ -16,15 +16,15 @@ hide:
     
     Rotina customizada para Controle de Alçadas com aprovação via Workflow, integrando processos básicos do ERP.
 
--   [__Alçadas com Workflow – Pedido de Venda__](addon-alcadas-pedido-venda.md)
+-   [__Alçadas - Workflow Pedido de Venda__](addon-alcadas-pedido-venda.md)
     
     Rotina customizada de Controle de Alçadas com Workflow, integrada ao bloqueio por crédito em Pedidos de Venda.
 
--   [__Alçadas – Pedidos de Compras__](addon-alcadas-pedido-compras.md)
+-   [__Alçadas - Workflow Pedidos de Compras__](addon-alcadas-pedido-compras.md)
     
     Rotina customizada de Controle de Alçadas com Workflow, integrada aos processos do módulo Compras.
 
--   [__Alçadas – Contas a Pagar (Título / Borderô)__](addon-alcadas-contas-pagar.md)
+-   [__Alçadas - Workflow Contas a Pagar (Título / Borderô)__](addon-alcadas-contas-pagar.md)
     
     Rotina customizada de Controle de Alçadas com Workflow, integrada aos processos de Títulos a Pagar e Borderô a Pagar do módulo Financeiro.
 
@@ -36,19 +36,19 @@ hide:
 
 <div class="grid cards" markdown>
 
--   [__CNAB a Receber__](addon-cnab-a-receber.md)
+-   [__CNAB - A Receber__](addon-cnab-a-receber.md)
     
     Gestão eficiente de arquivos de remessa e retorno para cobrança bancária automatizada.
 
--   [__CNAB a Pagar__](addon-cnab-a-pagar.md)
+-   [__CNAB - A Pagar__](addon-cnab-a-pagar.md)
     
     Controle total de pagamentos a fornecedores e tributos via integração bancária.
 
--   [__CNAB Folha__](addon-cnab-folha.md)
+-   [__CNAB - Folha__](addon-cnab-folha.md)
     
     Processamento seguro de arquivos de pagamento de salários e benefícios.
 
--   [__CNAB Extrato__](addon-cnab-extrato-bancario.md)
+-   [__CNAB - Extrato__](addon-cnab-extrato-bancario.md)
     
     Conciliação bancária ágil com importação automática de extratos multifuncionais.
 
@@ -60,7 +60,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   [__Addon Importação de XML de Terceiros__](addon-xml-terceiro.md)
+-   [__Addon - Importação de XML de Terceiros__](addon-xml-terceiro.md)
     
     Addon para gerenciamento de arquivos XML de NF-e e CT-e emitidos por terceiros.
 
@@ -72,7 +72,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   [__Addon Comissões - Faturamento__](addon-comissoes-faturamento.md)
+-   [__Addon - Comissões - Faturamento__](addon-comissoes-faturamento.md)
     
     Addon tem como objetivo flexibilizar as regras para composição das comissões de venda. 
 
@@ -83,7 +83,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   [__ADDON de Leite__](addon-leite.md)
+-   [__Addon - Leite__](addon-leite.md)
     
     Addon tem como objetivo atender os processos de recebimento de leite para Laticícios em geral.
 
@@ -94,7 +94,7 @@ hide:
 
 <div class="grid cards" markdown>
 
--   [__Processo de Workflow de Alçadas Cadastrais__](addon-alcadas-workflow-cadastrais.md)
+-   [__Addon - Processo de Workflow de Alçadas Cadastrais__](addon-alcadas-workflow-cadastrais.md)
     
     Controle de alçadas cadastrais via Workflow com e-mail automático.
 

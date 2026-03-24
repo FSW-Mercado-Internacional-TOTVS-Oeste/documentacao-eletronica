@@ -62,7 +62,7 @@
       <tr>
       <td>Atualizações</td>
       <td>Alçadas</td>
-      <td>AprovaçÕes</td>
+      <td>Aprovações</td>
       <td>M001A03</td>
       <td>CONFIGURADOR</td>
       <td>03</td>
