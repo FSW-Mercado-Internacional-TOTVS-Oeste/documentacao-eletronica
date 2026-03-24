@@ -1,13 +1,5 @@
 # Alçadas - Workflow Pedido de Venda {.home-hero}
 
-<div class="grid cards" markdown>
-
--   __Conteúdo em Desenvolvimento__
-    
-    Esta seção do manual técnico está passando por revisões de conformidade e formatação. Os modelos de dados e procedimentos operacionais estão sendo validados para garantir a precisão das instruções técnicas. O conteúdo completo estará disponível em breve.
-
-</div>
-
 <!--############################################### 01 #######################################################-->
 
 <div class="confluence-card" markdown="1">
@@ -5211,7 +5203,7 @@ Ex: https://dominio.com.br
 <strong>Itens</strong>: Insira o produto (Ex: PRODUTO VENDA 1) e a quantidade desejada.<br>
 <strong>Ação</strong>: Clique em "Confirmar" para salvar o registro.
 
-![](./assets/alcadaswfcadastrais/05_pedido_completo.png){.flow-image}
+
 
 
 #### 1.3 Solicitação de Liberação (Justificativa)
@@ -5235,7 +5227,7 @@ Ex: https://dominio.com.br
 
 #### 2. Aprovação via Workflow
 
-#### Consulta do Status do Pedido no ERP
+#### 2.1 Consulta do Status do Pedido no ERP
 
 <strong>Caminho</strong>: Faturamento > Atualizações > Pedidos > Pedidos de Venda.<br>
 <strong>Ação</strong>: Selecionar o pedido desejado (Ex: Pedido 000026).<br>
@@ -5244,28 +5236,38 @@ Ex: https://dominio.com.br
 
 ![](./assets/alcadaswfcadastrais/08_consulta_aprovacao_documentos.png){.flow-image}
 
-#### Recebimento e Acesso ao Workflow (E-mail)
+#### 2.2 Recebimento e Acesso ao Workflow (E-mail)
 
-<strong>Ação</strong>: O aprovador recebe um e-mail no Outlook com o assunto: "Liberar Pedido de Venda: [Número do Pedido]".
-<strong>Interface</strong>: O corpo do e-mail contém os dados básicos do pedido e um link/botão chamado "Processo".
-<strong>Ação</strong>: Clique no link "Processo" para abrir a interface de decisão no navegador.
+<strong>Ação</strong>: O aprovador recebe um e-mail com o assunto: "Liberar Pedido de Venda: [Número do Pedido]".<br>
+<strong>Interface</strong>: O corpo do e-mail contém os dados básicos do pedido e um link/botão chamado "Processo".<br>
+<strong>Ação</strong>: Clique no link "Processo" para abrir a interface de decisão no navegador.<br>
 
-#### Execução da Aprovação/Rejeição (Web)
+![](./assets/alcadaswfcadastrais/09_email_aguardando_lberacao.png){.flow-image}
+
+#### 2.3 Execução da Aprovação/Rejeição (Web)
 
 <strong>Interface</strong>: "Liberação de Pedido de Venda": Apresenta dados do cabeçalho (Cliente, Valor, Condição de Pagamento), itens do pedido, posição financeira do cliente e observações do solicitante.
 
+![](./assets/alcadaswfcadastrais/10_liberacao_pedido_venda.png){.flow-image}
+
 <strong>Ação de Decisão</strong>:<br>
-<strong>No rodapé da página</strong>, selecione a opção "Aprovado" (ou "Reprovado", se aplicável).<br>
+<strong>No final da página</strong>, selecione a opção "Aprovado" (ou "Reprovado", se aplicável).<br>
 <strong>No campo Observação</strong>, digite a justificativa ou nota (Ex: LIBERADO).<br>
 <strong>Clique no botão</strong> "Enviar".<br>
 
+![](./assets/alcadaswfcadastrais/11_resposta_enviada.png){.flow-image}
+
 <strong>Confirmação</strong>: O navegador exibirá a mensagem: "Resposta enviada para o servidor".
 
-#### Validação da Liberação no ERP
+#### 2.4 Validação da Liberação no ERP
 
-<strong>Ação</strong>: Retorne à tela de Pedidos de Venda no Protheus.
-<strong>Resultado</strong>: O status do pedido mudará para a cor verde (Círculo Verde), indicando "Pedido de Venda Encerrado/Liberado".
-<strong>Auditoria</strong>: Ao consultar novamente em Ações Relacionadas > Workflow, o status aparecerá como "APROVADO", com a data, hora e a observação digitada no passo anterior.
+<strong>Ação</strong>: Retorne à tela de Pedidos de Venda no Protheus.<br>
+<strong>Resultado</strong>: O status do pedido mudará para a cor amarelo (Círculo Amarelo), indicando "Pedido de Venda Liberado".<br>
+<strong>Auditoria</strong>: Ao consultar novamente em Ações Relacionadas > Workflow, o status aparecerá como "APROVADO", com a data, hora e a observação digitada no passo anterior.<br>
+
+![](./assets/alcadaswfcadastrais/12_pedido_venda_liberado.png){.flow-image}
+
+![](./assets/alcadaswfcadastrais/13_pedido_venda_liberado_consulta.png){.flow-image}
 
 </div>
 </details>
