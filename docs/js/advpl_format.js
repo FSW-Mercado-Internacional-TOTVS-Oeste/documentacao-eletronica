@@ -1,5 +1,4 @@
 /* advpl_format.js */
-/*------------Codigo gerado com auxilio de IA------------*/
 
 (function () {
   console.log("Iniciando formatador ADVPL...");
@@ -23,9 +22,7 @@
       .replace(/"/g, "&quot;");
   }
 
-  // ── Tokenizador ──────────────────────────────────────────────────────────
-  // Divide uma linha em tokens ANTES de qualquer transformação HTML.
-  // Isso garante que o escape e a coloração nunca se misturam.
+  // ── Tokenizador ──────────────────────────────────────────────────────────  
   function tokenizar(linha) {
     const tokens = [];
     let i = 0;
@@ -123,7 +120,7 @@
     return tokens;
   }
 
-  // ── Renderiza lista de tokens em HTML seguro ─────────────────────────────
+  // ── Renderiza lista de tokens em HTML ─────────────────────────────
   function renderizar(tokens) {
     return tokens
       .map(({ tipo, valor }) => {

@@ -99,7 +99,18 @@ hide:
     Controle de alçadas cadastrais via Workflow com e-mail automático.
 
 </div>
+<hr>
 
+## Projeto FS99_704 {.home-hero}
+
+<div class="grid cards" markdown>
+
+-   [__Addon - Acelerador__](addon-acelerador.md)
+    
+    Este Acelerador disponibiliza modelos de consultas padrão para Produtos, Fornecedores e Clientes.
+
+</div>
+<hr>
 
 <div class="home-hero-contact">
   <div class="home-hero-contact__inner">
