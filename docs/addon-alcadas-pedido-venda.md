@@ -10,7 +10,7 @@
 </summary>
 <div class="content-body" markdown="1">
 
-### 1. Visão Geral
+### <span style="display: none;">1. Visão Geral</span>
 
 #### Implantação de controle de alçadas com workflow, integrado ao processo de pedido de venda com bloqueio por crédito..
 
@@ -32,7 +32,7 @@
 </summary>
 <div class="content-body" markdown="1">
 
-### 2. Menu
+### <span style="display: none;">2. Menu</span>
 
 <table class="banks-table">
   <thead>
@@ -97,7 +97,7 @@
 </summary>
 <div class="content-body" markdown="1">
 
-### 3. Fluxo Operacional
+### <span style="display: none;">3. Fluxo Operacional</span>
 
 ![Fluxo Operacional](./assets/alcadaswfcadastrais/fluxograma.png){.flow-image}
 
@@ -112,7 +112,7 @@
 </summary>
 <div class="content-body" markdown="1">
 
-### 4. Rotinas personalizadas específicas do Pacote
+### <span style="display: none;">4. Rotinas personalizadas específicas do Pacote</span>
 
 #### Funções personalizadas contidas no pacote:
 
@@ -177,7 +177,7 @@
 </summary>
 <div class="content-body" markdown="1">
 
-### 5. Pontos de Entradas Disponiveis para Desenvolvimento
+### <span style="display: none;">5. Pontos de Entradas Disponiveis para Desenvolvimento</span>
 
 <table class="banks-table">
   <thead>
@@ -342,7 +342,7 @@ Return(lRet)
 </summary>
 <div class="content-body" markdown="1">
 
-### 6. Tabelas (SX2) 
+### <span style="display: none;">6. Tabelas (SX2)</span>
 
 <table class="banks-table">
   <thead>
@@ -398,7 +398,7 @@ Return(lRet)
 </summary>
 <div class="content-body" markdown="1">
 
-### 7. Campos (SX3)
+### <span style="display: none;">7. Campos (SX3)</span>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -4885,7 +4885,7 @@ Informe a Justificativa para solicitar a liberacao do documento.
 </summary>
 <div class="content-body" markdown="1">
 
-### 8. Parâmetros (SX6)
+### <span style="display: none;">8. Parâmetros (SX6)</span>
 
 <table class="banks-table">
   <thead>
@@ -4930,7 +4930,7 @@ Ex: https://dominio.com.br
 </summary>
 <div class="content-body" markdown="1">
 
-### 9. Gatilhos (SX7)
+### <span style="display: none;">9. Gatilhos (SX7)</span>
 
 <table class="banks-table">
   <thead>
@@ -5031,7 +5031,7 @@ Ex: https://dominio.com.br
 </summary>
 <div class="content-body" markdown="1">
 
-### 10. Índices (SIX)
+### <span style="display: none;">10. Índices (SIX)</span>
 
 <table class="banks-table">
   <thead>
@@ -5142,7 +5142,7 @@ Ex: https://dominio.com.br
 </summary>
 <div class="content-body" markdown="1">
 
-### 11. Consulta Padrão (SXB)
+### <span style="display: none;">11. Consulta Padrão (SXB)</span>
 
 <table class="banks-table">
   <thead>
@@ -5184,7 +5184,7 @@ Ex: https://dominio.com.br
 </summary>
 <div class="content-body" markdown="1">
 
-### 12. Manual de operação
+### <span style="display: none;">12. Manual de operação</span>
 
 #### 1 Inclusão
 #### 1.1 Acesso à Rotina e Inclusão

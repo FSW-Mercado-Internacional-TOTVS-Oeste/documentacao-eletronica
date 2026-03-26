@@ -8,7 +8,7 @@
 </summary>
 <div class="content-body" markdown="1">
 
-### 1. Visão Geral
+### <span style="display: none;">1. Visão Geral</span>
 
 #### Otimizar o Processo de emissão de boletos para cobrança
 
@@ -31,7 +31,7 @@ Esta automação utiliza o processo de Workflow via link, podendo encaminhar ao 
 </summary>
 <div class="content-body" markdown="1">
 
-### 2. Bancos Contemplados
+### <span style="display: none;">2. Bancos Contemplados</span>
 
 #### Bancos suportados para emissão de boletos e CNAB
 
@@ -156,7 +156,7 @@ Esta automação utiliza o processo de Workflow via link, podendo encaminhar ao 
 </summary>
 <div class="content-body" markdown="1">
 
-### 3. Fluxo Operacional Básico
+### <span style="display: none;">3. Fluxo Operacional Básico</span>
 
 #### Representação visual do fluxo operacional básico do produto
 
@@ -171,7 +171,7 @@ Esta automação utiliza o processo de Workflow via link, podendo encaminhar ao 
 </summary>
 <div class="content-body" markdown="1">
 
-### 4. Rotinas do Pacote
+### <span style="display: none;">4. Rotinas do Pacote</span>
 
 #### Principais rotinas e funções incluídas no pacote
 
@@ -231,7 +231,7 @@ Esta automação utiliza o processo de Workflow via link, podendo encaminhar ao 
 </summary>
 <div class="content-body" markdown="1">
 
-### 5. Parâmetros
+### <span style="display: none;">5. Parâmetros</span>
 
 #### Parâmetros configuráveis do pacote
 
@@ -403,7 +403,7 @@ Esta automação utiliza o processo de Workflow via link, podendo encaminhar ao 
 </summary>
 <div class="content-body" markdown="1">
 
-### 6. Pontos de Entrada Padrão X Compatibilização ADD-ON
+### <span style="display: none;">6. Pontos de Entrada Padrão X Compatibilização ADD-ON</span>
 
 #### Pontos de entrada padrão utilizados no ADD-ON e exemplos de compatibilização
 
@@ -596,7 +596,7 @@ Esta automação utiliza o processo de Workflow via link, podendo encaminhar ao 
 </summary>
 <div class="content-body" markdown="1">
 
-### 7. Pontos de entrada específicos ADDON
+### <span style="display: none;">7. Pontos de entrada específicos ADDON</span>
 
 <table class="banks-table">
   <thead>
@@ -1088,7 +1088,7 @@ Permite alterar os dados da empresa emitente. <br><br><strong>Programa Fonte:</s
 </summary>
 <div class="content-body" markdown="1">
 
-### 8. Campos personalizados (SEE – Parâmetros de Banco)
+### <span style="display: none;">8. Campos personalizados (SEE – Parâmetros de Banco)</span>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -2539,7 +2539,7 @@ Informe a quantidade de dias para que os títulos em aberto sofram baixa/devolu�
 </summary>
 <div class="content-body" markdown="1">
 
-### 9. Campos padrões (SEE - Parâmetros de Banco)
+### <span style="display: none;">9. Campos padrões (SEE - Parâmetros de Banco)</span>
 
 #### Campos padrões do SEE - Parâmetros de Banco
 
@@ -2586,7 +2586,7 @@ Informe a quantidade de dias para que os títulos em aberto sofram baixa/devolu�
 </summary>
 <div class="content-body" markdown="1">
 
-### 10. Campos personalizados (SA1 - Cadastro de Clientes)
+### <span style="display: none;">10. Campos personalizados (SA1 - Cadastro de Clientes)</span>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -2837,7 +2837,7 @@ Informe 'S' para que seja enviado um e-mail ao cliente (A1_X_MAIL) com os boleto
 </summary>
 <div class="content-body" markdown="1">
 
-### 11. Campos padrões (SE1 - Contas a Receber)
+### <span style="display: none;">11. Campos padrões (SE1 - Contas a Receber)</span>
 
 <table class="banks-table">
   <thead>
@@ -2876,7 +2876,7 @@ Informe 'S' para que seja enviado um e-mail ao cliente (A1_X_MAIL) com os boleto
 </summary>
 <div class="content-body" markdown="1">
 
-### 12. Manual de operação
+### <span style="display: none;">12. Manual de operação</span>
 
 #### 1. Parâmetros de banco
 

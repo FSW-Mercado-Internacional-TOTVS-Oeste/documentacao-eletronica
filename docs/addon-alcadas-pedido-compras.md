@@ -10,7 +10,7 @@
 </summary>
 <div class="content-body" markdown="1">
 
-### 1. Visão Geral
+### <span style="display: none;">1. Visão Geral</span>
 
 #### Sistema customizado para gestão de aprovações integradas ao módulo de Compras.
 
@@ -37,7 +37,7 @@
 </summary>
 <div class="content-body" markdown="1">
 
-### 2. Menu
+### <span style="display: none;">2. Menu</span>
 
 !!! tip "Ver manual do Addon [**Alçadas - Regras**](/addon-alcadas-regras/#2-menu) na seção "2. Menu"." 
 
@@ -53,7 +53,7 @@
 </summary>
 <div class="content-body" markdown="1">
 
-### 3. Fluxo Operacional
+### <span style="display: none;">3. Fluxo Operacional</span>
 
 ![Fluxo Operacional](./assets/alcadaswfpedidocompra/01_fluxograma.png){.flow-image}
 <hr>
@@ -71,7 +71,7 @@
 </summary>
 <div class="content-body" markdown="1">
 
-### 4. Rotinas personalizadas específicas do Pacote
+### <span style="display: none;">4. Rotinas personalizadas específicas do Pacote</span>
 
 #### Funções personalizadas contidas no pacote:
 
@@ -137,7 +137,7 @@
 </summary>
 <div class="content-body" markdown="1">
 
-### 5. Pontos de Entradas Disponiveis para Desenvolvimento
+### <span style="display: none;">5. Pontos de Entradas Disponiveis para Desenvolvimento</span>
 
 <table class="banks-table">
   <thead>
@@ -581,7 +581,7 @@ Return
 </summary>
 <div class="content-body" markdown="1">
 
-### 6. Tabelas (SX2) 
+### <span style="display: none;">6. Tabelas (SX2) </span>
 
 !!! tip "Ver manual do Addon [**Alçadas - Regras**](/addon-alcadas-regras/#6-campos-sx3) na seção "6. Tabelas (SX2)"." 
 
@@ -596,7 +596,7 @@ Return
 </summary>
 <div class="content-body" markdown="1">
 
-### 7. Campos (SX3)
+### <span style="display: none;">7. Campos (SX3)</span>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -1231,7 +1231,7 @@ Codigo do Usuario Solicitante
 </summary>
 <div class="content-body" markdown="1">
 
-### 8. Parâmetros (SX6)
+### <span style="display: none;">8. Parâmetros (SX6)</span>
 
 !!! tip "Ver manual do Addon [**Alçadas - Regras**](/addon-alcadas-regras/#7-parametros-sx6) na seção "7. Parametros"." 
     
@@ -1246,7 +1246,7 @@ Codigo do Usuario Solicitante
 </summary>
 <div class="content-body" markdown="1">
 
-### 9. Gatilhos (SX7)
+### <span style="display: none;">9. Gatilhos (SX7)</span>
 
 !!! tip "Ver manual do Addon [**Alçadas - Regras**](/addon-alcadas-regras/#8-gatilhos-sx7) na seção "8. Gatilhos"." 
 
@@ -1261,7 +1261,7 @@ Codigo do Usuario Solicitante
 </summary>
 <div class="content-body" markdown="1">
 
-### 10. Índices (SIX)
+### <span style="display: none;">10. Índices (SIX)</span>
 
 <table class="banks-table">
   <thead>
@@ -1301,7 +1301,7 @@ Codigo do Usuario Solicitante
 </summary>
 <div class="content-body" markdown="1">
 
-### 11. Consulta Padrão (SXB)
+### <span style="display: none;">11. Consulta Padrão (SXB)</span>
 
 !!! tip "Ver manual do Addon [**Alçadas - Regras**](/addon-alcadas-regras/#10-consulta-padrao-sxb) na seção "10. Consulta Padrão (SXB)"." 
 
@@ -1317,7 +1317,7 @@ Codigo do Usuario Solicitante
 </summary>
 <div class="content-body" markdown="1">
 
-### 12. Manual de operação
+### <span style="display: none;">12. Manual de operação</span>
 
 #### 1. Cadastros
 
