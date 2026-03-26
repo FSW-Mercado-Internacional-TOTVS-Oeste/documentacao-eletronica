@@ -44,7 +44,7 @@ nav:
   - Projeto FS99_009:  
     - Addon - Processo de Workflow de Alçadas Cadastrais: addon-alcadas-workflow-cadastrais.md
   - Projeto FS99_704:  
-    - Addon - Aceleradores: addon-acelerador.md    
+    - Addon - Acelerador: addon-acelerador.md    
   - Suporte: suporte.md         
 
 markdown_extensions:
