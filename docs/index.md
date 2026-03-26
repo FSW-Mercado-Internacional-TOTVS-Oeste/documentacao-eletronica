@@ -112,6 +112,17 @@ hide:
 </div>
 <hr>
 
+## Projeto FS99_013A {.home-hero}
+
+<div class="grid cards" markdown>
+
+-   [__Addon - Rotina de Expedição - Faturamento__](addon-rotina-expedicao.md)
+    
+    Este ADD-ON tem por objetivo aperfeiçoar o Processo de Expedição de mercadorias.
+
+</div>
+<hr>
+
 <div class="home-hero-contact">
   <div class="home-hero-contact__inner">
     <p class="home-hero-contact__title">Como podemos ajudar?</p>
