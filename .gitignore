@@ -5,3 +5,4 @@ main.py
 .venv/
 site/
 .obsidian
+.vscode

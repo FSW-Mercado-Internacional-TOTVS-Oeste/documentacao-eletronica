@@ -362,19 +362,18 @@ Return()
 <span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A01**</span>
 </summary>
 <div class="content-body" markdown="1">
-<table class="pe-table-modern">  
+<table class="pe-table-modern">  
 <tbody>
 <tr>
 <td>Descrição</td>
 <td>Ponto de Entrada que permite a manipulação da quantidade a ser expedida.<br>
 Executado logo após a leitura ou informação do código do produto. <br>
-Não é invocado para produtos pesáveis (código da etiqueta iniciada em ‘2’)
-</td>
+Não é invocado para produtos pesáveis (código da etiqueta iniciada em ‘2’)</td>
 </tr>
 <tr>
 <td>Programa Fonte</td>
 <td>M013A01</td>
-</tr>  
+</tr>  
 <tr>
 <td>Sintaxe</td>
 <td>
@@ -395,50 +394,6 @@ PARAMIXB[1][2] = Leitura efetuado no Get
 </div>
 <pre><code>
 User Function PE013A01()
-  Local cCodPro := PARAMIXB
-  Local nQtde  := 1
-  If cCodPro = 'XXXXX' 
-    nQtde := 2
-  EndIf
-Return(nQtde)
-</code></pre>
-</div>          
-</td>          
-</tr>       
-</tbody>
-</table>
-</div>
-</details>
-
-
-<table class="banks-table">
-  <thead>
-    <tr>
-      <th>Nome</th>    
-      <th>Descrição</th>
-      <th>Programa Fonte</th>
-      <th>Sintaxe</th>
-      <th>Exemplo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>PE013A01</td>
-      <td>Ponto de Entrada que permite a manipulação da quantidade a ser expedida. <br>
-          Executado logo após a leitura ou informação do código do produto. <br>
-          Não é invocado para produtos pesáveis (código da etiqueta iniciada em ‘2’)</td>
-      <td><strong>M013A01</strong></td>
-      <td>Modifica a quantidade a ser expedida<br>
-          PARAMIXB[1][1] = Código atual do produto<br>
-          PARAMIXB[1][2] = Leitura efetuado no Get</td>
-      <td>
-  <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">PE013A01</span>
-  </div>
-  <pre><code>
-User Function PE013A01()
 
 Local cCodPro := PARAMIXB
 Local nQtde  := 1
@@ -448,25 +403,50 @@ If cCodPro = ‘XXXXX’
 EndIf
 
 Return(nQtde)
-  </code></pre>
-      </td>  
-    </tr>
+</code></pre>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
 
-    <tr>
-      <td>PE013A02</td>
-      <td>Ponto de Entrada chamado após a leitura da etiqueta. <br>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A02**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de Entrada chamado após a leitura da etiqueta. <br>
 Permite a manipulação do código do produto.<br>
 PARAMIXB[1][1] = Código atual do produto<br>
-PARAMIXB[1][2] = Leitura efetuado no Get </td>
-      <td>M013A01</td>
-      <td>PE013A02(PARAMIXB) --> cCodPro</td>
-      <td>
+PARAMIXB[1][2] = Leitura efetuado no Get</td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>M013A01</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+<td>
+<code>
+PE013A02(PARAMIXB) --> cCodPro
+</code>
+</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
 <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">PE013A02</span>
-  </div>
-  <pre><code>
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">PE013A02</span>
+</div>
+<pre><code>
 User Function PE013A02()
 
 Local cCodPro := PARAMIXB[1][1]
@@ -478,25 +458,50 @@ Endif
 
 Return(cCodPro)
 </code></pre>
-      </td>  
-    </tr>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
 
-    <tr>
-      <td>PE013A03</td>
-      <td>Ponto de Entrada antes do Faturamento do Pedido de Vendas. <br>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A03**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de Entrada antes do Faturamento do Pedido de Vendas. <br>
 Permite manipular dados do Pedido de Vendas. <br>
 PARAMIXB[1] = Número do Pedido de Vendas<br>
 PARAMIXB[2] = Número do Volume</td>
-      <td>M013A01</td>
-      <td>Alteração no Pedido de Vendas, antes do seu faturamento. <br>
-PE013A03(PARAMIXB) --> lRet continua o faturamento.</td>
-      <td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>M013A01</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+<td>
+<code>
+Alteração no Pedido de Vendas, antes do seu faturamento. <br>
+PE013A03(PARAMIXB) --> lRet continua o faturamento.
+</code>
+</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
 <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">PE013A03</span>
-  </div>
-  <pre><code>
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">PE013A03</span>
+</div>
+<pre><code>
 User Function PE013A03()
 
 Local cPedido := PARAMIXB[1]
@@ -513,44 +518,94 @@ endif
 
 Return(lRet)
 </code></pre>
-      </td>  
-    </tr>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
 
-    <tr>
-      <td>PE013A04</td>
-      <td>Ponto de Entrada quer permite a inclusão de novas opções no menu da rotina de Expedição.</td>
-      <td>M013A01</td>
-      <td>Inclusão de menu<br>
-PE013A04() --> nil</td>
-      <td>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A04**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de Entrada quer permite a inclusão de novas opções no menu da rotina de Expedição.</td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>M013A01</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+<td>
+<code>
+Inclusão de menu<br>
+PE013A04() --> nil
+</code>
+</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
 <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">PE013A04</span>
-  </div>
-  <pre><code>
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">PE013A04</span>
+</div>
+<pre><code>
 User Function PE013A04()
 aadd( aRotina,{"Exemplo menu" , "U_TESTE()", 0 , 1 ,0,NIL} ) 
 
 Return()
 </code></pre>
-      </td>  
-    </tr>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
 
-    <tr>
-      <td>PE013A06</td>
-      <td>Ponto de Entrada que permite alterar o código a ser impresso na coluna (código) no Relatório R013A04 – Volumes. <br>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A06**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de Entrada que permite alterar o código a ser impresso na coluna (código) no Relatório R013A04 – Volumes. <br>
 PARAMIXB – Código do Produto</td>
-      <td>R013A04</td>
-      <td>Manipula código a ser impresso<br>
-PE013A06(PARAMIXB) --> cCodigo</td>
-      <td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>R013A04</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+<td>
+<code>
+Manipula código a ser impresso<br>
+PE013A06(PARAMIXB) --> cCodigo
+</code>
+</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
 <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">PE013A06</span>
-  </div>
-  <pre><code>
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">PE013A06</span>
+</div>
+<pre><code>
 User Function PE013A06()
 
 Local cCodigo := PARAMIXB
@@ -564,24 +619,49 @@ Endif
 
 Return(cCodigo)
 </code></pre>
-      </td>  
-    </tr>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
 
-    <tr>
-      <td>PE013A07</td>
-      <td>Ponto de Entrada após o fechamento do Volume. Permite por exemplo, criar um relatório personalizado de Volumes, impressão de uma etiqueta, etc. <br>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A07**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de Entrada após o fechamento do Volume. Permite por exemplo, criar um relatório personalizado de Volumes, impressão de uma etiqueta, etc. <br>
 Se existir, não faz a chamada do relatório padrão R013A04<br>
 PARAMIXB = Número do Volume que está sendo fechado</td>
-      <td>M013A01</td>
-      <td>Permite execução de novo relatório no fechamento do volume<br>
-PE013A07(PARAMIXB) --> nil</td>
-      <td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>M013A01</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+<td>
+<code>
+Permite execução de novo relatório no fechamento do volume<br>
+PE013A07(PARAMIXB) --> nil
+</code>
+</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
 <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">PE013A07</span>
-  </div>
-  <pre><code>
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">PE013A07</span>
+</div>
+<pre><code>
 User Function PE013A07()
 
 Local nVolume := PARAMIXB[1]
@@ -590,22 +670,47 @@ U_RELTESTE(nVolume)
 
 Return()
 </code></pre>
-      </td>  
-    </tr>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
 
-    <tr>
-      <td>PE013A08</td>
-      <td>Ponto de Entrada após emissão do relatório de Fechamento de Volumes Expedição R013A04.<br>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A08**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de Entrada após emissão do relatório de Fechamento de Volumes Expedição R013A04.<br>
 PARAMIXB = Número do Volume que está sendo fechado</td>
-      <td>M013A01</td>
-      <td>PE013A08(PARAMIXB) --> nil</td>
-      <td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>M013A01</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+<td>
+<code>
+PE013A08(PARAMIXB) --> nil
+</code>
+</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
 <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">PE013A08</span>
-  </div>
-  <pre><code>
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">PE013A08</span>
+</div>
+<pre><code>
 User Function PE013A08()
 
 Local nVolume := PARAMIXB[1]
@@ -614,12 +719,24 @@ U_CRFAT01(nVolume)
 
 Return()
 </code></pre>
-      </td>  
-    </tr>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
 
-    <tr>
-      <td>PE013A09</td>
-      <td>Ponto de Entrada na rotina RETNUMVL responsável por efetuar o controle da numeração de volumes. <br>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A09**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de Entrada na rotina RETNUMVL responsável por efetuar o controle da numeração de volumes. <br>
 PARAMIXB[1] = Código do Carregamento<br>
 PARAMIXB[2] = Tipo:<br>
 LAST = Último volume calculado (chamada na alteração)<br>
@@ -629,16 +746,29 @@ NEXT = Próximmo volume calculado<br>
 PARAMIXB[3] = Número do Volume Atual<br>
 PARAMIXB[4] = Objeto Get Dados 1<br>
 PARAMIXB[5] = Objeto Get Dados 2</td>
-      <td>M013A01</td>
-      <td>Permite execução de rotinas após emissão do relatório<br>
-PE013A09(PARAMIXB) --> nRet (volume)</td>
-      <td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>M013A01</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+<td>
+<code>
+Permite execução de rotinas após emissão do relatório<br>
+PE013A09(PARAMIXB) --> nRet (volume)
+</code>
+</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
 <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">PE013A09</span>
-  </div>
-  <pre><code>
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">PE013A09</span>
+</div>
+<pre><code>
 User Function PE013A09()
 
 local cCod     := PARAMIXB[1]
@@ -653,24 +783,49 @@ endif
 
 Return(nRet)
 </code></pre>
-      </td>  
-    </tr>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
 
-    <tr>
-      <td>PE013A10</td>
-      <td>Ponto de Entrada após as validações do sistema na leitura da etiqueta. Permite validações personalizadas do cliente. <br>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A10**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de Entrada após as validações do sistema na leitura da etiqueta. Permite validações personalizadas do cliente. <br>
 PARAMIXB[1] = posição atual do GetDados1<br>
 PARAMIXB[2] = Objeto Get Dados 1<br>
 PARAMIXB[3] = Objeto Get Dados 2</td>
-      <td>M013A01</td>
-      <td>PE013A10(PARAMIXB) --> lRet</td>
-      <td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>M013A01</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+<td>
+<code>
+PE013A10(PARAMIXB) --> lRet
+</code>
+</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
 <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">PE013A10</span>
-  </div>
-  <pre><code>
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">PE013A10</span>
+</div>
+<pre><code>
 User Function PE013A10()
 
 local nPosAux  := PARAMIXB[1] //Posição Atual que será atualizada no Grid1
@@ -682,27 +837,52 @@ local lRet     := .T.
 
 Return(lRet)
 </code></pre>
-      </td>  
-    </tr>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
 
-    <tr>
-      <td>PE013A11</td>
-      <td>Ponto de Entrada quer permite a alteração das cores do Grid. <br>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A11**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de Entrada quer permite a alteração das cores do Grid. <br>
 PARAMIXB[1] = cOpc<br><br>
 cOpc:<br>
 - PENDENTE<br>
 - CARREGADOMAIOR<br>
 - CARREGADOK<br><br>
 Retorno : nColor exemplo RGB( 64, 224, 208 ) - VERDE</td>
-      <td>M013A01</td>
-      <td>PE013A11(cOpc) --> nColor</td>
-      <td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>M013A01</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+<td>
+<code>
+PE013A11(cOpc) --> nColor
+</code>
+</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
 <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">PE013A11</span>
-  </div>
-  <pre><code>
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">PE013A11</span>
+</div>
+<pre><code>
 User Function PE013A11()
 
 Local nColorRet := RGB( 255, 255, 255 ) //Branco
@@ -719,12 +899,24 @@ EndCase
 
 return nColorRet
 </code></pre>
-      </td>  
-    </tr>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
 
-    <tr>
-      <td>PE013A12</td>
-      <td>Ponto de Entrada que permite a alteração na posição dos campos no GRID1. <br><br>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A12**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de Entrada que permite a alteração na posição dos campos no GRID1. <br><br>
 Opção no PARAMIXB[2] = CAB<br>
 PARAMIXB[1] = aCmpBrw1 <br>
 PARAMIXB[2] = CAB<br><br>
@@ -735,16 +927,30 @@ PARAMIXB[3] = cAliasQry (query com os registros do primeiro grid)<br>
 PARAMIXB[4] = cAliasQry1 (query com os registro do segundo grid)<br><br>
 Retorno:<br>
 Para CAB – deve retornar um Array com a posição dos campos<br>
-Para ACOLS - Null</td>
-      <td>M013A01</td>
-      <td>PE013A12() --> xRet</td>
-      <td>
+Para ACOLS - Null<br><br>
+Observação: Neste exemplo o A1_NOME ficou na primeira posição do GRID1.</td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>M013A01</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+<td>
+<code>
+PE013A12() --> xRet
+</code>
+</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
 <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">PE013A12</span>
-  </div>
-  <pre><code>
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">PE013A12</span>
+</div>
+<pre><code>
 User Function PE013A10()
 
 Local xRetBrw 
@@ -783,23 +989,48 @@ Endif
     
 return xRetBrw
 </code></pre>
-      </td>  
-    </tr>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
 
-    <tr>
-      <td>PE013A13</td>
-      <td>Ponto de Entrada na Alteração e Visualização da Expedição, após o cálculo e atualização dos GRIDS em relação a quantidade já expedida. <br>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A13**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de Entrada na Alteração e Visualização da Expedição, após o cálculo e atualização dos GRIDS em relação a quantidade já expedida. <br>
 PARAMIXB[1] = Objeto Get Dados 1<br>
 PARAMIXB[2] = Objeto Get Dados 2</td>
-      <td>M013A01</td>
-      <td>PE013A13() --> Nenhum</td>
-      <td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>M013A01</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+<td>
+<code>
+PE013A13() --> Nenhum
+</code>
+</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
 <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">PE013A13</span>
-  </div>
-  <pre><code>
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">PE013A13</span>
+</div>
+<pre><code>
 User Function PE013A13()
 
 local oGetAux1 := PARAMIXB[2]  
@@ -810,10 +1041,17 @@ local oGetAux2 := PARAMIXB[3]
 
 Return()
 </code></pre>
-      </td>  
-    </tr>
-  </tbody>
+</div>          
+</td>          
+</tr>      
+</tbody>
 </table>
+</div>
+</details>
+
+
+
+
 
 </div>
 </details>
