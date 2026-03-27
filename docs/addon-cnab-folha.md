@@ -1,3 +1,9 @@
+---
+template: main.html
+hide:  
+  - toc
+---
+
 # CNAB FOLHA {.home-hero}
 
 <div class="confluence-card" markdown="1">
