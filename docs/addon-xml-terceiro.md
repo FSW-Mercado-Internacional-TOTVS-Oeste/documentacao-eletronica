@@ -6,6 +6,14 @@ hide:
 
 # XML de Terceiros {.home-hero}
 
+<div class="grid cards" markdown>
+
+-   __Conteúdo em Desenvolvimento__
+    
+    Esta seção do manual técnico está passando por revisões de conformidade e formatação. Os modelos de dados e procedimentos operacionais estão sendo validados para garantir a precisão das instruções técnicas. O conteúdo completo estará disponível em breve.
+
+</div>
+
 <!--############################################### 01 #######################################################-->
 
 <div class="confluence-card" markdown="1">
@@ -15,7 +23,8 @@ hide:
   <span class="summary-title"><span class="summary-number">01.</span> Visão Geral</span>
 </summary>
 <div class="content-body" markdown="1">
-### 1. Visão Geral
+
+### <span style="display: none;">1. Visão Geral</span>
 
 #### Tem por objetivo, efetuar o gerenciamento em torno dos arquivos XML emitidos por terceiros pertinentes à documentos fiscais do tipo: Notas Fiscais Eletrônicas - NFe e Conhecimento de Transporte Eletrônico - CTe
 
@@ -38,7 +47,7 @@ hide:
 </summary>
 <div class="content-body" markdown="1">
 
-### 2. Menu
+### <span style="display: none;">2. Menu</span>
 
 <table class="banks-table">
   <thead>
@@ -106,7 +115,7 @@ hide:
 </summary>
 <div class="content-body" markdown="1">
 
-### 3. Rotinas personalizadas específicas do Pacote
+### <span style="display: none;">3. Rotinas personalizadas específicas do Pacote</span>
 
 #### Funções personalizadas contidas no pacote:
 
@@ -153,7 +162,7 @@ hide:
 </summary>
 <div class="content-body" markdown="1">
 
-### 4. Pontos de Entradas Disponiveis para Desenvolvimento
+### <span style="display: none;">4. Pontos de Entradas Disponiveis para Desenvolvimento</span>  
 
 <table class="banks-table">
   <thead>
@@ -241,7 +250,7 @@ hide:
 </summary>
 <div class="content-body" markdown="1">
 
-### 5. Tabelas (SX2) 
+### <span style="display: none;">5. Tabelas (SX2)</span> 
 
 <table class="banks-table">
   <thead>
@@ -297,7 +306,7 @@ hide:
 </summary>
 <div class="content-body" markdown="1">
 
-### 6. Campos (SX3)
+### <span style="display: none;">6. Campos (SX3)</span>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -4321,7 +4330,7 @@ Indica a origem da Aprovação:<br>
 </summary>
 <div class="content-body" markdown="1">
 
-### 7. Parâmetros (SX6)
+### <span style="display: none;">7. Parâmetros (SX6)</span>
 
 <table class="banks-table">
   <thead>
@@ -4451,7 +4460,7 @@ Indica a origem da Aprovação:<br>
 </summary>
 <div class="content-body" markdown="1">
 
-### 8. Gatilhos (SX7)
+### <span style="display: none;">8. Gatilhos (SX7)</span>
 
 <table class="banks-table">
   <thead>
@@ -4561,7 +4570,7 @@ Indica a origem da Aprovação:<br>
 </summary>
 <div class="content-body" markdown="1">
 
-### 9. Índices (SIX)
+### <span style="display: none;">9. Índices (SIX)</span>
 
 <table class="banks-table">
   <thead>
@@ -4665,7 +4674,7 @@ Indica a origem da Aprovação:<br>
 </summary>
 <div class="content-body" markdown="1">
 
-### 10. Consulta Padrão (SXB)
+### <span style="display: none;">10. Consulta Padrão (SXB)</span>
 
 <table class="banks-table">
   <thead>
@@ -4706,7 +4715,7 @@ Indica a origem da Aprovação:<br>
 </summary>
 <div class="content-body" markdown="1">
 
-### 11. Pontos de Entrada Específicos
+### <span style="display: none;">11. Pontos de Entrada Específicos</spam>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -5149,7 +5158,7 @@ Indica a origem da Aprovação:<br>
 </summary>
 <div class="content-body" markdown="1">
 
-### 12. Manual de operação
+### <span style="display: none;">12. Manual de operação</span>
 
 #### 1. Cadastro
 
