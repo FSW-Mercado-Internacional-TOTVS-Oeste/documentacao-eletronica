@@ -121,25 +121,18 @@
       <td>Rotina para cadastro de usuários X permissões.</td>
     </tr>
     <tr>
-      <td><strong>M001A02</strong></td>
-      <td>Rotina para cadastro de regra de alçadas.</td>
+      <td><strong>C004A03</strong></td>
+      <td>Rotina para cadastro de tags.</td>
     </tr>
     <tr>
-      <td><strong>M001A03</strong></td>
-      <td>Rotina para aprovações de alçadas.</td>
+      <td><strong>M004A01</strong></td>
+      <td>Rotina de XML Terceiros recebidos.</td>
     </tr>
     <tr>
-      <td><strong>M001A04</strong></td>
-      <td>Rotina para cadastro de ausência temporária</td>
+      <td><strong>R004A01</strong></td>
+      <td>Relatório de Listagem XML Recebidos</td>
     </tr>
     <tr>
-      <td><strong>M001A05</strong></td>
-      <td>Rotina para cadastro de Verbas por Aprovador</td>
-    </tr>
-    <tr>
-      <td><strong>UPD0A01</strong></td>
-      <td>Rotina para aplicação do pacote e compatibilização dos SX’s</td>
-    </tr>
   </tbody>
 </table>
 
@@ -167,44 +160,67 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>M001AAP</strong></td>
-      <td>P.E. após gerar aprovação alçada – após transação.</td>
-      <td><strong>1)</strong> CÓDIGO DO PROCESSO (ZX1->ZX1_PROCES) – SINTAXE: PARAMIXB<br>
-          <strong>Tabela Posicionada: ZX1</strong></td>
-      <td>Nenhum</td>
+      <td><strong>PE004A01</strong></td>
+      <td>Ponto de entrada na  na tela de Processamento de XML Recebidos – na sessão de geração do documento fiscal na análise dos itens/produtos do documento fiscal – validação no click AVANÇAR. Esta chamada é realizada após todas validações do ADD-ON referente aos itens/produtos.</td>
+      <td><strong>1)</strong>Vetor aHeader dos itens do documento<br>
+      <strong>2)</strong>Vetor aCols dos itens do documento</td>
+          <td>Booleano (.T./.F.) valida avanço do processo.</td>
     </tr>
     <tr>
-      <td><strong>M001ARP</strong></td>
-      <td>P.E. após reprovação alçada – após transação.</td>
-      <td>1)</strong> CÓDIGO DO PROCESSO (ZX1->ZX1_PROCES) – SINTAXE: PARAMIXB<br>
-      <strong>Tabela Posicionada: ZX1</strong></td>
-      <td>Nenhum</td>
+      <td><strong>PE004A02</strong></td>
+      <td>Ponto de entrada na  na tela de seleção de Itens do Pedido de Compra x item do documento fiscal, na validação do botão CONFIRMAR.</td>
+      <td><strong>1)</strong>Vetor aHeader dos pedidos<br>
+      <strong>2)</strong>Vetor aCols dos pedidos</td>
+          <td>Booleano (.T./.F.) valida avanço do processo.</td>
     </tr>
     <tr>
-      <td><strong>M001TR1</strong></td>
-      <td>P.E. de validação – após mensagem de confirmação da transferência do documento – processo de aprovação MANUAL – porém antes da transação.
-      <strong>P.E. não se aplica no processamento via Workflow.</strong></td>
-      <td><strong>1)</strong> CÓDIGO DO PROCESSO (ZXA->ZXA_PROCES) – SINTAXE: PARAMIXB[1]<br>
-          <strong>2)</strong> CÓDIGO DO DOCUMENTO (ZXA->ZXA_DOC) – SINTAXE: PARAMIXB[2]<br>
-          <strong>3)</strong> STATUS DOCUMENTO (ZXA->ZXA_STATUS) – SINTAXE: PARAMIXB[3]<br>
-          <strong>4)</strong> USUARIO SUPERIOR – SINTAXE: PARAMIXB[4]<br>
-          <strong>Tabela Posicionada: ZXA</strong></td>
-      <td>.T./.F.<br>
-      CASO .T. CONTINUA GRAVAÇÃO DA TRANSFERENCIA<br> 
-      CASO .F. CANCELA PROCESSAMENTO.</td>
+      <td><strong>PE004A03</strong></td>
+      <td>Ponto de entrada para validação no botão Finalizar antes de iniciar a gravação do documento fiscal.</td>
+      <td>N/A</td>
+          <td>Booleano (.T./.F.) valida avanço do processo.</td>
     </tr>
     <tr>
-      <td><strong>M1A5CPOS</strong></td>
-      <td>P.E. durante a montagem da tela de Verbas por Aprovador (M001A05) para adicionar campos do cliente à tela. Deve ser utilizado em conjunto com o PE M1A5TELA.</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
+      <td><strong>PE004A04</strong></td>
+      <td>Executa ponto de entrada para complementar as regras de carga\vinculo do produto interno com o produto da NFe</td>
+      <td>N/A</td>
+          <td>N/A</td>
     </tr>
     <tr>
-      <td><strong>M1A5TELA</strong></td>
-      <td>P.E. durante a montagem da tela de Verbas por Aprovador (M001A05) para posicionar os campos do cabeçalho na tela modelo2. Deve ser utilizado em conjunto com o PE M1A5CPOS.</td>
-      <td>Nenhum</td>
-      <td>Nenhum</td>
+    <td><strong>PE004A05</strong></td>
+      <td>Substituiu regras padrões de replicação da TE</td>
+      <td>N/A</td>
+          <td>N/A</td>
     </tr>    
+    <tr>
+      <td><strong>PE004A06</strong></td>
+      <td>Ponto de entrada antes da gravação do registro na tabela de<br>arquivos XML (ZA1), permindo manipualção na filial a ser gravada.</td>
+      <td><strong>1)</strong>Filial atual a ser gravada<br>
+      <strong>2)</strong>Tipo do Documento (1=NFe,2=Cte)<br>
+      <strong>3)</strong>Objeto oXML</td>
+          <td>Filial a ser gravada.</td>
+    </tr>
+    <tr>
+      <td><strong>PE004A07</strong></td>
+      <td>Ponto de entrada antes da gravação do registro na tabela de<br>arquivos XML (ZA1), permindo efetuar validação e se necessário <br>não gravar o registro.</td>
+      <td><strong>1)</strong>Filial atual a ser gravada<br>
+      <strong>2)</strong>Tipo do Documento (1=NFe,2=Cte)<br>
+      <strong>3)</strong>Objeto oXML</td>
+          <td>Lógico.</td>
+    </tr>
+    <tr>
+      <td><strong>PE004A08</strong></td>
+      <td>Ponto de entrada após a gravação do registro na tabela de<br>arquivos XML (ZA1)</td>
+      <td><strong>1)</strong>Filial atual a ser gravada<br>
+      <strong>2)</strong>Tipo do Documento (1=NFe,2=Cte)<br>
+      <strong>3)</strong>Objeto oXML</td>
+          <td>Nenhum.</td>
+    </tr>
+     <tr>
+      <td><strong>PE004A09</strong></td>
+      <td>Ponto de entrada antes da exclusão do registro na tabela de arquivos XML (ZA1)</td>
+      <td>Nenhum.</td>
+          <td>Lógico.</td>
+    </tr>
   </tbody>
 </table>
 
@@ -233,29 +249,29 @@
   </thead>
   <tbody>
     <tr>
-      <td><strong>ZX0</strong></td>
-      <td>DESTINATARIOS WF</td>
+      <td><strong>Z04</strong></td>
+      <td>CONTAS DE E-MAILS</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
     </tr>
     <tr>
-      <td><strong>ZX1</strong></td>
-      <td>REGRAS DE ALCADAS</td>
+      <td><strong>Z05</strong></td>
+      <td>USUÁRIOS X PERMISSÕES</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
     </tr>
     <tr>
-      <td><strong>ZX2</strong></td>
-      <td>ALCADAS - AUSENCIA TEMPORARIA</td>
+      <td><strong>Z06</strong></td>
+      <td>TAGS</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
     </tr>
     <tr>
-      <td><strong>ZX3</strong></td>
-      <td>MOVIMENTOS ALCADAS</td>
+      <td><strong>ZA1</strong></td>
+      <td>XML RECEBIDOS</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
@@ -279,7 +295,7 @@
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX0_PROCES**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_FILIAL**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -288,9 +304,9 @@
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>02</td>
+      <td>01</td>
       <th>Tamanho</th>
-      <td>8</td>
+      <td>2</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -302,242 +318,17 @@
       <th>Propriedade</th>
       <td>Alterar</td>
       <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Funcao</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Funcao</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Informe a funcao de WorkFlow.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>INCLUI</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>ExistChav("ZX0")</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX0_DESCRI**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>03</td>
-      <th>Tamanho</th>
-      <td>100</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Descricao</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Descricao</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Informe a descricao da Funcao.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX0_DEST**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>04</td>
-      <th>Tamanho</th>
-      <td>200</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Destinat.</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Destinatarios</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Informe os destinatarios do Workflow. Para mais de um, utilize (;).
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX0_USERGI**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>-</td>
-      <th>Ordem</th>
-      <td>05</td>
-      <th>Tamanho</th>
-      <td>-</td>
-      <th>Decimal</th>
-      <td>-</td>
-      <th>Formato</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>-</td>
-      <th>Propriedade</th>
-      <td>-</td>
-      <th>Obrigatório</th>
       <td>-</td>
       <th>Browse</th>
       <td>-</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">LOG de Inclusão</td>
+      <td colspan="7">Filial</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">-</td>
+      <td colspan="7">Filial do Sistema</td>
     </tr>
   </tbody>
 </table>
@@ -579,163 +370,7 @@ Informe os destinatarios do Workflow. Para mais de um, utilize (;).
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX0_USERGA**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>-</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>-</td>
-      <th>Decimal</th>
-      <td>-</td>
-      <th>Formato</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>-</td>
-      <th>Propriedade</th>
-      <td>-</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">LOG de Alteração</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">-</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX0_STATUS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Status Aprov</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Status Aprovacao</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Stauts do movimento:<br>
-<strong>1</strong> - Aguardando Aprovacao<br>
-<strong>2</strong> - Aguardando Aprov. Nivel Anterior<br>
-<strong>3</strong> - Aprovado<br>
-<strong>4</strong> - Transferido p/ outro Aprovador<br>
-<strong>5</strong> - Reprovado<br>
-<strong>6</strong> - Nivel Anterior Reprovado
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_PROCES**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_CODIGO**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -745,460 +380,6 @@ Stauts do movimento:<br>
       <td>C</td>
       <th>Ordem</th>
       <td>02</td>
-      <th>Tamanho</th>
-      <td>8</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Processo</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Codigo do Processo</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Informe o codigo do processo (nome da funcao) referente a Alçada.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_DESCRI**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>03</td>
-      <th>Tamanho</th>
-      <td>40</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Descricao</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Descricao do Processo</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Descricao do Processo
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_SEQ**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>04</td>
-      <th>Tamanho</th>
-      <td>2</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>99</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Sequencia</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Sequencia</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Sequencia
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_TPLIB**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>05</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Tp.Liberacao</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Tipo de Liberacao</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Help	Informe o tipo de liberacao que deseja para esta regra de Alcadas:<br>
-<strong>N</strong> = Nivel - Sistema respeitara os níveis configurados, encaminhando para o proximonivel somente após aprovação do nível anterior.<br>
-<strong>U</strong> = Usuario - A liberacao do usuário pode ocorrer individualmente, sem considerar outros aprovadores constantes na regra.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>N=Nivel; U=Usuario; D=Documento</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_NIVEL**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>2</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Nivel</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Nivel</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Informe o nivel (2digitos).
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>aCols[n][nPosTPL] = 'N'</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_TPBUSC**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>07</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Tp. Busca</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Tipo de Busca</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Help	Informe o tipo de busca:
-<strong>E</strong> = Entidade - O usuario poderá configurar qualquer tabela do sistema para verificar o aprovador do processo.<br>
-<strong>U</strong> = Usuario - Configuracao de usuário "fixo" como aprovador.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>E=Entidade; U=Usuario</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_IDUSER**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>08</td>
       <th>Tamanho</th>
       <td>6</td>
       <th>Decimal</th>
@@ -1210,44 +391,123 @@ Help	Informe o tipo de busca:
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>Visualizar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>S</td>
       <th>Browse</th>
-      <td>N</td>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Aprovador</td>
+      <td colspan="7">Código</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Id do Aprovador</td>
+      <td colspan="7">Código de Identificação</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Informe o codigo do usuario que seraresponsavel pela aprovação.
+Código de identificação da conta de e-mail.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
-      <td>USRZX1 (USUARIO ALCADAS)</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>Modo Edição</th>
-      <td>aCols[n][nPosTPB]='U'</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>Val. Usuário</th>
-      <td>UsrExist(M->ZX1_IDUSER)</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>E=Entidade; U=Usuario</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>GETSX8NUM("Z04", "Z04_CODIGO")</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_DESC**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>03</td>
+      <th>Tamanho</th>
+      <td>30</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+       <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Descrição</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Descrição do E-mail</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Descrição\identificação a respeito da conta de e-mail..
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
     </tr>
     <tr>
       <th>Inicializador</th>
@@ -1264,7 +524,392 @@ Informe o codigo do usuario que seraresponsavel pela aprovação.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_NMUSER**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_USER**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>04</td>
+      <th>Tamanho</th>
+      <td>15</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Usuário</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Login do E-mail</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Login do usuário da conta de e-mail.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_PASS**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>05</td>
+      <th>Tamanho</th>
+      <td>15</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">-</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">-</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+-
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_SMTP**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>06</td>
+      <th>Tamanho</th>
+      <td>50</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Smtp</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Servidor Smtp</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Endereço Servidor Smtp
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_PSMTP**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>07</td>
+      <th>Tamanho</th>
+      <td>4</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@ 9999</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Porta</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Porta Smtp</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Porta de conexão smtp.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_RECBTO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>08</td>
+      <th>Tamanho</th>
+      <td>01</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Recebimento</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Protocolo de Recebimento</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Define o protocolo utilizado para o recebimento de e-mails.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>U_C004AENV()</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>I= Imap; P= Pop</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>"P"</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_IMAP**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -1275,7 +920,7 @@ Informe o codigo do usuario que seraresponsavel pela aprovação.
       <th>Ordem</th>
       <td>09</td>
       <th>Tamanho</th>
-      <td>20</td>
+      <td>50</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -1285,25 +930,27 @@ Informe o codigo do usuario que seraresponsavel pela aprovação.
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>Alterar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>-</td>
       <th>Browse</th>
-      <td>N</td>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Nome</td>
+      <td colspan="7">Imap</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Nome</td>
+      <td colspan="7">Servidor Imap</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Nome do Aprovador.
+Endereço do servidor Imap.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -1339,22 +986,22 @@ Nome do Aprovador.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_INDICE**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_PIMAP**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
       <th>Tipo</th>
-      <td>N</td>
+      <td>C</td>
       <th>Ordem</th>
       <td>10</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>04</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
-      <td>9</td>
+      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
@@ -1362,23 +1009,25 @@ Nome do Aprovador.
       <th>Propriedade</th>
       <td>Alterar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>-</td>
       <th>Browse</th>
-      <td>N</td>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Indice Alias</td>
+      <td colspan="7">Porta</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Indice Alias</td>
+      <td colspan="7">Porta Imap</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Informe o indice de busca para posicionamento no campo a verificar o aprovador do processo.
+Porta de conexão Imap.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -1389,7 +1038,7 @@ Informe o indice de busca para posicionamento no campo a verificar o aprovador d
     </tr>
     <tr>
       <th>Modo Edição</th>
-      <td>aCols[n][nPosTPB]='E'</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>Val. Usuário</th>
@@ -1414,7 +1063,7 @@ Informe o indice de busca para posicionamento no campo a verificar o aprovador d
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_CAMPO**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_POP**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -1425,7 +1074,7 @@ Informe o indice de busca para posicionamento no campo a verificar o aprovador d
       <th>Ordem</th>
       <td>11</td>
       <th>Tamanho</th>
-      <td>10</td>
+      <td>50</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -1437,23 +1086,25 @@ Informe o indice de busca para posicionamento no campo a verificar o aprovador d
       <th>Propriedade</th>
       <td>Alterar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>-</td>
       <th>Browse</th>
-      <td>N</td>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Campo</td>
+      <td colspan="7">Pop</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Campo</td>
+      <td colspan="7">Servidor Pop</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Informar o campo a ser verificado para selecionar o aprovador, quando selecionado o Tipo de Busca = Entidade.
+Endereço do servidor Pop.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -1464,11 +1115,11 @@ Informar o campo a ser verificado para selecionar o aprovador, quando selecionad
     </tr>
     <tr>
       <th>Modo Edição</th>
-      <td>aCols[n][nPosTPB]='E'</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>Val. Usuário</th>
-      <td>EXISTCPO("SX3",M->ZX1_CAMPO,2)</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>Lista Opções</th>
@@ -1477,6 +1128,394 @@ Informar o campo a ser verificado para selecionar o aprovador, quando selecionad
     <tr>
       <th>Inicializador</th>
       <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_PPOP**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>12</td>
+      <th>Tamanho</th>
+      <td>4</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@ 9999</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Porta</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Porta Pop</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Porta de conexão Pop.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_TIMOUT**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>N</td>
+      <th>Ordem</th>
+      <td>13</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@E 99</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Timeout</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Timeout da Conta</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Informe o intervalo de tempo da conta de e-mail.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_SSL**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>14</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Utiliza SSL</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Utiliza SSL</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Determina se o servidor utiliza SSL.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>S=Sim;N=Não;</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_TLS**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>15</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Utiliza TLS</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Utiliza TLS</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Determina se o servidor utiliza TLS.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_TPIMP**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>16</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>-</td>
+       <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Importação</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Utiliza Tipo de Importação</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Define a regra de importação dos e-mails que será considerada para integração<br> 
+da conta de e-mail.<br> 
+<strong>1-</strong> Somente serão importados os arquivos XML onde o CNPJ do destinatário dos<br>mesmos for igual à filial logada.
+<strong>2-</strong>Serão importados todos os arquivos XML onde o CNPJ do destinatário seja<br> igual ao CNPJ de qualquer empresa\filial existente no ambiente.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>1=Filial Logada; 2=Todas as Filiais;</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>"1"</td>
     </tr>
     <tr>
       <th>Ini. Browse</th>
