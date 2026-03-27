@@ -1506,8 +1506,8 @@ Determina se o servidor utiliza TLS.
 <div class="help-box" markdown="1">
 Define a regra de importação dos e-mails que será considerada para integração<br> 
 da conta de e-mail.<br> 
-<strong>1-</strong> Somente serão importados os arquivos XML onde o CNPJ do destinatário dos<br>mesmos for igual à filial logada.
-<strong>2-</strong>Serão importados todos os arquivos XML onde o CNPJ do destinatário seja<br> igual ao CNPJ de qualquer empresa\filial existente no ambiente.
+<strong>1-</strong> Somente serão importados os arquivos XML onde o CNPJ do destinatário dos mesmos for igual à filial logada.<br>
+<strong>2-</strong>Serão importados todos os arquivos XML onde o CNPJ do destinatário seja<  igual ao CNPJ de qualquer empresa\filial existente no ambiente.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -1543,7 +1543,7 @@ da conta de e-mail.<br>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_EXP**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_EPROC**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -1552,232 +1552,7 @@ da conta de e-mail.<br>
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>12</td>
-      <th>Tamanho</th>
-      <td>200</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Expressao</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Expressao</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Podera ser utilizada para criacao de regras diferentes para um mesmo processo. (Utilizar sempre a tabela posicionada no cabecalho do processo.)
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_PROCWF**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>13</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Proc. WF</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Processo WorkFlow</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Help	Informe o nome do processo (rdmake) que será responsável por enviar WorkFlow para o controle de alcadas.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>ZX0</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>Vazio().OR.ExistCPO("ZX0")</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_ALIAS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>14</td>
-      <th>Tamanho</th>
-      <td>3</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Alias</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Entidade (Alias)</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Sigla dos arquivos relacionados no processo. Ex: SA1, SB1, SD2, etc...
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>SX21 (Tabelas Sistema)</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>Vazio().OR.ExistCpo("SX2")</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_STATUS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>15</td>
+      <td>17</td>
       <th>Tamanho</th>
       <td>1</td>
       <th>Decimal</th>
@@ -1793,21 +1568,23 @@ Sigla dos arquivos relacionados no processo. Ex: SA1, SB1, SD2, etc...
       <th>Obrigatório</th>
       <td>S</td>
       <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
       <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Regra Ativa?</td>
+      <td colspan="7">Processados</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Regra Ativa?</td>
+      <td colspan="7">E-mails Processados</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Informe se a regra esta ativa S=Sim, N=Nao.
+Determina à ação que deverá ser realizada com os e-mails processados que possuem arquivo XML de documentos fiscais que foram importados.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -1826,11 +1603,11 @@ Informe se a regra esta ativa S=Sim, N=Nao.
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>S=Sim; N=Não</td>
+      <td>1=Excluir;2=Manter;</td>
     </tr>
     <tr>
       <th>Inicializador</th>
-      <td>S</td>
+      <td>"2"</td>
     </tr>
     <tr>
       <th>Ini. Browse</th>
@@ -1843,7 +1620,7 @@ Informe se a regra esta ativa S=Sim, N=Nao.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_WFAVIS**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_EIGNOR**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -1851,164 +1628,14 @@ Informe se a regra esta ativa S=Sim, N=Nao.
     <tr>
       <th>Tipo</th>
       <td>C</td>
-      <th>Ordem</th>
-      <td>16</td>
-      <th>Tamanho</th>
-      <td>8</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">WF Aviso</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">WorkFlow Aviso</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de aviso da liberacao controle de alcadas.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>ZX0</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_WFALIA**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>17</td>
-      <th>Tamanho</th>
-      <td>3</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Alias WF</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Alias WF</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>SX21 (Tabelas Sistema)</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>Vazio().OR.ExistCpo("SX2")</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_OBS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>MEMO</td>
       <th>Ordem</th>
       <td>18</td>
       <th>Tamanho</th>
-      <td>-</td>
+      <td>1</td>
       <th>Decimal</th>
-      <td>-</td>
+      <td>0</td>
       <th>Formato</th>
-      <td>-</td>
+      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
@@ -2016,23 +1643,25 @@ Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de a
       <th>Propriedade</th>
       <td>Alterar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>S</td>
       <th>Browse</th>
-      <td>N</td>
+      <td>-</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Observacoes</td>
+      <td colspan="7">Ignorados</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Observacoes</td>
+      <td colspan="7">E-mails Ignorados</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
--
+Determina à ação que deverá ser realizada com os e-mails recebidos que não possuem arquivo XML de documentos fiscais e com isto foram ignorados.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2051,11 +1680,11 @@ Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de a
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>-</td>
+      <td>1=Excluir;2=Manter;</td>
     </tr>
     <tr>
       <th>Inicializador</th>
-      <td>-</td>
+      <td>"2"</td>
     </tr>
     <tr>
       <th>Ini. Browse</th>
@@ -2068,46 +1697,48 @@ Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de a
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_USERGI**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_MSBLQL**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
       <th>Tipo</th>
-      <td>-</td>
+      <td>C</td>
       <th>Ordem</th>
       <td>19</td>
       <th>Tamanho</th>
-      <td>-</td>
+      <td>1</td>
       <th>Decimal</th>
-      <td>-</td>
+      <td>0</td>
       <th>Formato</th>
-      <td>-</td>
+      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
-      <td>-</td>
+      <td>Real</td>
       <th>Propriedade</th>
-      <td>-</td>
+      <td>Alterar</td>
       <th>Obrigatório</th>
       <td>-</td>
       <th>Browse</th>
       <td>-</td>
+      <th>Usado</th>
+      <td>-</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">LOG de Inclusão</td>
+      <td colspan="7">Bloqueado?</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">-</td>
+      <td colspan="7">Registro bloqueado</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
--
+Determina se a conta de e-mail esta bloqueada.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2126,11 +1757,11 @@ Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de a
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>-</td>
+      <td>1=Sim;2=Não;</td>
     </tr>
     <tr>
       <th>Inicializador</th>
-      <td>-</td>
+      <td>"2"</td>
     </tr>
     <tr>
       <th>Ini. Browse</th>
@@ -2143,40 +1774,42 @@ Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de a
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX1_USERGA**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_FILIAL**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
       <th>Tipo</th>
-      <td>-</td>
+      <td>C</td>
       <th>Ordem</th>
-      <td>20</td>
+      <td>01</td>
       <th>Tamanho</th>
-      <td>-</td>
+      <td>2</td>
       <th>Decimal</th>
-      <td>-</td>
+      <td>0</td>
       <th>Formato</th>
-      <td>-</td>
+      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
-      <td>-</td>
+      <td>Real</td>
       <th>Propriedade</th>
-      <td>-</td>
+      <td>Alterar</td>
       <th>Obrigatório</th>
       <td>-</td>
       <th>Browse</th>
       <td>-</td>
+      <th>Usado</th>
+      <td>-</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">LOG de Alteração</td>
+      <td colspan="7">Filial</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">-</td>
+      <td colspan="7">Filial do Sistema</td>
     </tr>
   </tbody>
 </table>
@@ -2218,7 +1851,7 @@ Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de a
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX2_COD**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_ID**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -2239,25 +1872,104 @@ Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de a
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>Alterar</td>
       <th>Obrigatório</th>
       <td>S</td>
       <th>Browse</th>
+      <td>-</td>
+       <th>Usado</th>
       <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Codigo</td>
+      <td colspan="7">ID Usuário</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Codigo</td>
+      <td colspan="7">ID Usuário no Ambiente</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
--
+Código de identificação do usuário no ambiente.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>Usuários</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>U_X004A02("X004A0201")</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_LOGIN**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>03</td>
+      <th>Tamanho</th>
+      <td>15</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Login</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Login do Usuário</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Login do usuário no ambiente.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2272,7 +1984,7 @@ Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de a
     </tr>
     <tr>
       <th>Val. Usuário</th>
-      <td>ExistChav("ZX2")</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>Lista Opções</th>
@@ -2280,7 +1992,7 @@ Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de a
     </tr>
     <tr>
       <th>Inicializador</th>
-      <td>GETSXENUM("ZX2","ZX2_COD")</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>Ini. Browse</th>
@@ -2293,7 +2005,315 @@ Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de a
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX2_APROV**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_NOME**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>04</td>
+      <th>Tamanho</th>
+      <td>30</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Nome</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Nome do Usuário</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Nome completo do usuário.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_EMAIL**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>05</td>
+      <th>Tamanho</th>
+      <td>30</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+      <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">E-mail</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">E-mail do Usuário.</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+E-mail do usuário.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_FUNCAO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>06</td>
+      <th>Tamanho</th>
+      <td>20</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+      <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Função</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Função do Usuário.</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Função do usuário junto a empresa.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_DEPTO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>07</td>
+      <th>Tamanho</th>
+      <td>20</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+      <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Departamento</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Departamento do Usuário</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Departamento no qual o usuário esta inserido\vinculado.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG01**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
