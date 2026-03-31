@@ -2322,9 +2322,9 @@ Departamento no qual o usuário esta inserido\vinculado.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>03</td>
+      <td>08</td>
       <th>Tamanho</th>
-      <td>6</td>
+      <td>1</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -2339,27 +2339,29 @@ Departamento no qual o usuário esta inserido\vinculado.
       <td>S</td>
       <th>Browse</th>
       <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Aprovador</td>
+      <td colspan="7">Permissões</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Codigo do Aprovador</td>
+      <td colspan="7">Permissões</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Codigo do Aprovador que esta sendo substituído temporariamente.
+Determina se o usuário possui acesso ao cadastro de Usuários X Permissões.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
-      <td>USR (Usuários)</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>Modo Edição</th>
@@ -2367,11 +2369,11 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
     </tr>
     <tr>
       <th>Val. Usuário</th>
-      <td>UsrExist(M->ZX2_APROV) .AND. (M->ZX2_APROV # M->ZX2_SUBST)</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>-</td>
+      <td>S=Sim;N=Não;</td>
     </tr>
     <tr>
       <th>Inicializador</th>
@@ -2388,7 +2390,7 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX2_NOME**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG02**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -2397,9 +2399,9 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>04</td>
+      <td>09</td>
       <th>Tamanho</th>
-      <td>40</td>
+      <td>1</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -2409,25 +2411,27 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>Alterar</td>
       <th>Obrigatório</th>
       <td>S</td>
       <th>Browse</th>
       <td>S</td>
+       <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Nome</td>
+      <td colspan="7">Contas de E-mail</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Nome do Aprovador</td>
+      <td colspan="7">Contas de E-mail</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
--
+Determina se o usuário possui acesso ao cadastro de Conta de E-mail.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2446,7 +2450,7 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>-</td>
+      <td>S=Sim;N=Não;</td>
     </tr>
     <tr>
       <th>Inicializador</th>
@@ -2463,22 +2467,22 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX2_DTSAID**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG03**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
       <th>Tipo</th>
-      <td>DATA</td>
+      <td>C</td>
       <th>Ordem</th>
-      <td>05</td>
+      <td>10</td>
       <th>Tamanho</th>
-      <td>8</td>
+      <td>1</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
-      <td>-</td>
+      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
@@ -2489,20 +2493,22 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
       <td>S</td>
       <th>Browse</th>
       <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Dt. Saida</td>
+      <td colspan="7">Importa XML</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Data Saida</td>
+      <td colspan="7">Possibilita Importar XML</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
--
+Determina se o usuário possui acesso à importar XML.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2521,7 +2527,7 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>-</td>
+      <td>M=Manual;E=Email;T=Todos;</td>
     </tr>
     <tr>
       <th>Inicializador</th>
@@ -2538,82 +2544,7 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX2_DTRET**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>DATA</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>8</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Dt. Retorno</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Data de Retorno</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>M->ZX2_DTRET >= M->ZX2_DTSAID</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX2_SUBST**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG04**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -2622,9 +2553,9 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>07</td>
+      <td>11</td>
       <th>Tamanho</th>
-      <td>6</td>
+      <td>1</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -2639,20 +2570,99 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
       <td>S</td>
       <th>Browse</th>
       <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Substituto</td>
+      <td colspan="7">Exporta XML</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Codigo Substituto</td>
+      <td colspan="7">Possibilita Exportar XML</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
--
+Determina se o usuário possui acesso à exportar XML.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>S=Sim;N=Não;</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG05**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>12</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Exclui XML</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Possibilita Excluir XML</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Determina se o usuário possui acesso à excluir XML.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2667,7 +2677,7 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
     </tr>
     <tr>
       <th>Val. Usuário</th>
-      <td>UsrExist(M->ZX2_SUBST) .AND. (M->ZX2_SUBST # M->ZX2_APROV)</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>Lista Opções</th>
@@ -2688,7 +2698,7 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX2_SUBNOM**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG06**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -2697,9 +2707,9 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>08</td>
+      <td>13</td>
       <th>Tamanho</th>
-      <td>40</td>
+      <td>1</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -2709,25 +2719,27 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>Alterar</td>
       <th>Obrigatório</th>
       <td>S</td>
       <th>Browse</th>
       <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Nome</td>
+      <td colspan="7">Processa XML</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Nome Substituto</td>
+      <td colspan="7">Possibilita Processar XML</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
--
+Determina se o usuário possui acesso à processar XML.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2746,7 +2758,7 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>-</td>
+      <td>S=Sim;N=Não;</td>
     </tr>
     <tr>
       <th>Inicializador</th>
@@ -2763,46 +2775,48 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX2_USERGI**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG07**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
       <th>Tipo</th>
-      <td>-</td>
+      <td>C</td>
       <th>Ordem</th>
-      <td>09</td>
+      <td>14</td>
       <th>Tamanho</th>
-      <td>-</td>
+      <td>1</td>
       <th>Decimal</th>
-      <td>-</td>
+      <td>0</td>
       <th>Formato</th>
-      <td>-</td>
+      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
-      <td>-</td>
+      <td>Real</td>
       <th>Propriedade</th>
-      <td>-</td>
+      <td>Alterar</td>
       <th>Obrigatório</th>
-      <td>-</td>
+      <td>S</td>
       <th>Browse</th>
       <td>-</td>
+       <th>Usado/th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">LOG de Inclusão</td>
+      <td colspan="7">Fornecedor</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">-</td>
+      <td colspan="7">Inclui Fornecedor</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
--
+Determina se o usuário possui acesso à incluir fornecedor.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2821,7 +2835,7 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>-</td>
+      <td>S=Sim;N=Não;</td>
     </tr>
     <tr>
       <th>Inicializador</th>
@@ -2838,46 +2852,48 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZX2_USERGA**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG08**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
       <th>Tipo</th>
-      <td>-</td>
+      <td>C</td>
       <th>Ordem</th>
-      <td>10</td>
+      <td>15</td>
       <th>Tamanho</th>
-      <td>-</td>
+      <td>1</td>
       <th>Decimal</th>
-      <td>-</td>
+      <td>0</td>
       <th>Formato</th>
-      <td>-</td>
+      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
-      <td>-</td>
+      <td>Real</td>
       <th>Propriedade</th>
-      <td>-</td>
+      <td>Alterar</td>
       <th>Obrigatório</th>
-      <td>-</td>
+      <td>S</td>
       <th>Browse</th>
-      <td>-</td>
+      <td>s</td>
+      <th>Usado</th>
+      <td>s</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">LOG de Alteração</td>
+      <td colspan="7">Produto</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">-</td>
+      <td colspan="7">Inclui Produto</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
--
+Determina se o usuário possui acesso à incluir produto.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2913,7 +2929,315 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_COD**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG09**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>16</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+       <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Prod X For</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Produto X Fornecedor</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Determina se a amarração de Produto X Fornecedor será salva
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>S=Sim;N=Não;</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG10**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>17</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Gerar Doc.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Gerar Documento</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Determina qual o tipo de documento o usuário poderá gerar sobre as NFe.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>P=Pre Nota;D=Documento Entrada;I=Informado no Momento;</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG11**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>18</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Valida XML</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Validar XML</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Determina se deve validar o XML da NFe junto ao Sefaz antes do processamento
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>S=Sim;N=Não;</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_FILIAL**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>01</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+      <th>Browse</th>
+      <td>-</td>
+       <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Filial</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Filial do Sistema.</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+NFilial do sistema.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_TIPO**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -2924,7 +3248,7 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
       <th>Ordem</th>
       <td>02</td>
       <th>Tamanho</th>
-      <td>10</td>
+      <td>1</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -2939,20 +3263,22 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
       <td>S</td>
       <th>Browse</th>
       <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Codigo</td>
+      <td colspan="7">Tipo</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Codigo</td>
+      <td colspan="7">Tipo da Tag</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Codigo do movimento de alçadas
+Tipo\aplicação da Tag.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2971,7 +3297,7 @@ Codigo do movimento de alçadas
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>-</td>
+      <td>1=Carga;2=Validação;</td>
     </tr>
     <tr>
       <th>Inicializador</th>
@@ -2988,7 +3314,7 @@ Codigo do movimento de alçadas
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_SEQ**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_DOC**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -2999,7 +3325,7 @@ Codigo do movimento de alçadas
       <th>Ordem</th>
       <td>03</td>
       <th>Tamanho</th>
-      <td>2</td>
+      <td>1</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -3014,20 +3340,22 @@ Codigo do movimento de alçadas
       <td>S</td>
       <th>Browse</th>
       <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Sequencia</td>
+      <td colspan="7">Documento</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Sequencia</td>
+      <td colspan="7">Documento Referente a Tag.</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Sequencia da movimentoção/transferência
+Determina para qual documento se aplica a definição de Tag.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -3046,7 +3374,7 @@ Sequencia da movimentoção/transferência
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>-</td>
+      <td>1=Nfe;2=Cte;</td>
     </tr>
     <tr>
       <th>Inicializador</th>
@@ -3063,7 +3391,7 @@ Sequencia da movimentoção/transferência
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_DESC**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_VERSAO**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -3074,82 +3402,7 @@ Sequencia da movimentoção/transferência
       <th>Ordem</th>
       <td>04</td>
       <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Virtual</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Desc. Proc.</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Descricao Processo</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Descrição dos processos referentes aos movimentos de alçadas
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>RetField("ZX1",1,xFilial("ZX1")+ZXA->ZXA_PROCES,"ZX1->ZX1_DESCRI")</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_DOC**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>05</td>
-      <th>Tamanho</th>
-      <td>10</td>
+      <td>1</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -3159,25 +3412,27 @@ Descrição dos processos referentes aos movimentos de alçadas
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>Alterar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>S</td>
       <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
       <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Num. Doc.</td>
+      <td colspan="7">Versão</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Numero do Documento</td>
+      <td colspan="7">Versão do Documento</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Numero do documento que gerou o controle de alcadas.
+Informe à versão do documento referente à tag.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -3196,7 +3451,7 @@ Numero do documento que gerou o controle de alcadas.
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>-</td>
+      <td>1=2.0;3=3.10;Z=Todas;</td>
     </tr>
     <tr>
       <th>Inicializador</th>
@@ -3213,7 +3468,7 @@ Numero do documento que gerou o controle de alcadas.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_DESCRI**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_DESC**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -3222,7 +3477,7 @@ Numero do documento que gerou o controle de alcadas.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>07</td>
+      <td>06</td>
       <th>Tamanho</th>
       <td>30</td>
       <th>Decimal</th>
@@ -3239,20 +3494,22 @@ Numero do documento que gerou o controle de alcadas.
       <td>S</td>
       <th>Browse</th>
       <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Desc. Status</td>
+      <td colspan="7">Descrição</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Descricao Status</td>
+      <td colspan="7">Descrição da Tag</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Descrição dos status de movimentação de transferência
+Descrição\informações da tag.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -3288,7 +3545,7 @@ Descrição dos status de movimentação de transferência
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_IDUSER**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_RAIZ**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -3297,9 +3554,9 @@ Descrição dos status de movimentação de transferência
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>08</td>
+      <td>06</td>
       <th>Tamanho</th>
-      <td>6</td>
+      <td>50</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -3314,95 +3571,22 @@ Descrição dos status de movimentação de transferência
       <td>S</td>
       <th>Browse</th>
       <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Aprovador</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Aprovador</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Usuario aprovador dos movimentos de transferencia
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_NUSER**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>09</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
+      <th>Usado</th>
       <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Nome Aprov.</td>
+      <td colspan="7">Raiz</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Nome Aprovador</td>
+      <td colspan="7">Raiz da Tag</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Nome do Usuario Aprovador dos movimentos de transferência
+Raiz de localização da tag dentro da estrutura do arquivo XML do documento.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -3438,157 +3622,7 @@ Nome do Usuario Aprovador dos movimentos de transferência
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_NIVEL**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>10</td>
-      <th>Tamanho</th>
-      <td>2</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">NivelAprov.</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">NivelAprovacao</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Help	Determina o nivel de aprovaçao, o sistema usara nivel de aprovação quando houver no minimo uma regra com dois níveis.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_DATAE**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>DATA</td>
-      <th>Ordem</th>
-      <td>11</td>
-      <th>Tamanho</th>
-      <td>8</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Data Emissao</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Data Emissao</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Data de Emissão dos movimentos de alçadas
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_DATAM**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_NIVEL**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
