@@ -5564,26 +5564,135 @@ Informe a Justificativa para solicitar a liberacao do documento.
   </thead>
   <tbody>
     <tr>
-      <td><strong>MV_XALC001</strong></td>
+      <td><strong>MV_X013T01</strong></td>
       <td>Caracter</td>
-      <td>Habilita Controle de Alcadas customizado.<br> Informe: <strong>S</strong>=Habilita; <strong>N</strong>=Desabilita
-</td>
-      <td>S</td>
+      <td>Tabela 01 Cabecalho Expedição.</td>
+      <td>ZA2</td>
     </tr>
     <tr>
-      <td><strong>MV_XALC002</strong></td>
+      <td><strong>MV_X013T02</strong></td>
       <td>Caracter</td>
-      <td>URL do Workflow para utilizacao nos retornos de Workflow via Link.<br>
-Ex: https://dominio.com.br 
-</td>
-      <td></td>
-    </tr>   
+      <td>Tabela 02 Itens Expedição.</td>
+      <td>ZA3</td>
+    </tr>
     <tr>
-      <td><strong>MV_XALCPV</strong></td>
+      <td><strong>MV_X013T03</strong></td>
       <td>Caracter</td>
-      <td>Controla Alçadas no Pedido de Vendas. <br> Informe: <strong>S</strong>=Habilita; <strong>N</strong>=Desabilita</td>
-      <td>S</td>
-    </tr>   
+      <td>Rest. Carga - Pedidos Excluídos.</td>
+      <td>ZA4</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013001</strong></td>
+      <td></td>
+      <td>Não utilizado. Manter para fins de compatibilidade.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013002</strong></td>
+      <td></td>
+      <td>Não utilizado. Manter para fins de compatibilidade.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013003</strong></td>
+      <td>Caracter</td>
+      <td>Usuario com permissao para alterar lote expedição e Liberar Faturamento.</td>
+      <td>Administrador</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013004</strong></td>
+      <td>Lógico</td>
+      <td>Alterar quantidade do Ped. Vendas de acordo com a quantidade expedida.</td>
+      <td>.T.</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013005</strong></td>
+      <td>Lógico</td>
+      <td>Fatura pedidos no encerramento da expedição.</td>
+      <td>.T.</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013006</strong></td>
+      <td>Caracter</td>
+      <td>Serie da Nota Fiscal emitida pela Expedicao.</td>
+      <td>001</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013007</strong></td>
+      <td>Numérico</td>
+      <td>% de tolerancia possivel a maior da quantidade total do Pedido de Vendas.</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013008</strong></td>
+      <td>Numérico</td>
+      <td>% de tolerancia possivel a menor da quantidade total do Pedido de Vendas.</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013009</strong></td>
+      <td>Caracter</td>
+      <td>Intervalo para identificar produto na etiqueta. Primeira posição = posição inicial, segunda posição = quantidade de caracteres.</td>
+      <td>1,6</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013010</strong></td>
+      <td>Caracter</td>
+      <td>Intervalo para identifcar numero do lote na etiqueta. Primeira posição = posição inicial, segunda posição = quantidade de caracteres.</td>
+      <td>7,1</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013011</strong></td>
+      <td>Caracter</td>
+      <td>Intervalo para identifcar o armazém do lote na etiqueta. Primeira posição = posição inicial, segunda posição = quantidade de caracteres.</td>
+      <td>11,3</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013012</strong></td>
+      <td>Caracter</td>
+      <td>Libera para expedicao com bloqueios de 1 Credito / 2 Estoque</td>
+      <td>SS</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013013</strong></td>
+      <td>Caracter</td>
+      <td>Numero sequencial da pre-separacao.</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013014</strong></td>
+      <td>Caracter</td>
+      <td>Busca endereco do produto do Pedido Vendas SC6 ou tabela endereco CBJ</td>
+      <td>CBJ</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013015</strong></td>
+      <td>Lógico</td>
+      <td>Ativa tela de selecao do portador para emissão de boleto bancario no final da expedição ao efetivar o faturamento efetivar o faturamento. (ADDOn CNAB Receber)</td>
+      <td>.T.</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013016</strong></td>
+      <td>Lógico</td>
+      <td>Ativa Transmissao automatica da NFe após o faturamento da exepdicao (encerramento).</td>
+      <td>.F.</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013017</strong></td>
+      <td>Numérico</td>
+      <td>Informe qual é o padrão da etiqueta para leitura na Expedição: <br>
+1=(Etiquetas separadas para Produto e Lote), <br>
+2=(Mesma etiqueta Produto e Lote)</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X013018</strong></td>
+      <td>Caracter</td>
+      <td>Intervalo para identificar a quantidade (peso) para produtos pesáveis (etiquetas que iniciam com “2”.</td>
+      <td>25,1</td>
+    </tr>
+  </tbody>
+</table>
     
 </div>
 </details>
