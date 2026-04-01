@@ -25,7 +25,6 @@
 - Extensibilidade através de pontos de entrada;
 
 </div>
-</div>
 </details>
 
 <!--############################################### 02 #######################################################-->
@@ -521,7 +520,7 @@ Return (aRet)
 </summary>
 <div class="content-body" markdown="1">
 
-## 6. Tabelas (SX2) 
+### <span style="display: none;">6. Tabelas (SX2)</span>
 
 <table class="banks-table">
   <thead>
@@ -584,7 +583,7 @@ Return (aRet)
 </summary>
 <div class="content-body" markdown="1">
 
-## 7. Campos (SX3)
+### <span style="display: none;">7. Campos (SX3)</span>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -4264,7 +4263,7 @@ Parâmetro.
 </summary>
 <div class="content-body" markdown="1">
 
-### 8. Parâmetros (SX6)
+### <span style="display: none;">8. Parâmetros (SX6)</span>
 
 <table class="banks-table">
   <thead>
@@ -4300,7 +4299,7 @@ Parâmetro.
 </summary>
 <div class="content-body" markdown="1">
 
-### 9. Manual de operação
+### <span style="display: none;">9. Manual de operação</span>
 
 #### 1. Parâmetros (C006A01):
 
