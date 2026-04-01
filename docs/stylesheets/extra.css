@@ -57,7 +57,7 @@ body:not(:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="inde
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 10px 0 20px 0;
     border-radius: 8px;
-    border: 1px solid #e0e0e0;
+    border: none;
     overflow: hidden;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -69,70 +69,194 @@ body:not(:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="inde
     box-shadow: none !important;
     background-color: transparent !important;
     margin: 0 !important;
-    border-left: 6px solid #595959 !important; /* Sua barra cinza */
-    border-bottom: 1px solid #e0e0e0 !important;
+    border-left: none !important; /* Remove a barra cinza antiga */
+    border-bottom: none !important; /* Remove a borda antiga */
+    
+    /* Design Moderno */
+    border-radius: 12px !important;
+    border: 1px solid #e8eaed !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+    overflow: hidden !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin-bottom: 20px !important;
+}
+
+.md-typeset details.custom-expand:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+    transform: translateY(-1px) !important;
 }
 
 .md-typeset details.custom-expand[open] {
     padding-bottom: 0 !important;
 }
 
-/* Header (Summary) */
+/* Header (Summary) - Design Moderno */
 .md-typeset details.custom-expand summary {
     list-style: none;
     padding: 18px 20px !important;
     cursor: pointer;
-    background-color: #fafbfc !important;
-    display: flex !important;
+    background: #ffffff !important;
+    color: #172b4d !important;
+    margin: 0 !important;
+    display: flex;
     align-items: center;
-    outline: none;
-    transition: background 0.2s;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+    border-bottom: 1px solid transparent !important;
 }
 
 .md-typeset details.custom-expand summary:hover { 
-    background-color: #f4f5f7 !important; 
+    background: #f8f9fa !important;
+    color: #1a73e8 !important;
 }
 
-/* Esconde a seta padrão do Material */
-.md-typeset details.custom-expand summary::after,
+.md-typeset details.custom-expand[open] > summary {
+    border-bottom: 2px solid #e8eaed !important;
+    background: #f8f9fa !important;
+}
+
+/* Ícone de expandir/recolher para custom-expand */
+.md-typeset details.custom-expand summary::after {
+    content: '▶' !important;
+    font-size: 14px !important;
+    color: #5f6368 !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin-left: 10px !important;
+    margin-right: 8px !important;
+    margin-top: 10px !important;
+    opacity: 0.8 !important;
+}
+
+.md-typeset details.custom-expand[open] > summary::after {
+    transform: rotate(90deg) !important;
+    opacity: 1 !important;
+}
+
+.md-typeset details.custom-expand summary:hover::after {
+    color: #1a73e8 !important;
+}
+
+/* Garante que o ícone personalizado funcione */
+.md-typeset details.custom-expand summary::-webkit-details-marker {
+    display: none !important;
+}
+
+.md-typeset details.custom-expand summary::marker {
+    display: none !important;
+}
+
+/* Remove todos os ícones indesejados do summary */
 .md-typeset details.custom-expand summary::before {
     display: none !important;
+    content: none !important;
 }
 
-/* Títulos e Números */
-.md-typeset .summary-title {
-    font-size: 22px !important;
-    font-weight: 600 !important;
-    color: #172b4d !important;
-    margin: 0 !important;
-    display: flex;
-    align-items: center;
+.md-typeset details.custom-expand summary::after {
+    /* Mantém apenas o nosso ícone ▶ */
+    content: '▶' !important;
+    font-size: 14px !important;
+    color: #5f6368 !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin-left: auto !important;
+    margin-right: 8px !important;
+    opacity: 0.8 !important;
 }
 
-.md-typeset .summary-title-sub {
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    color: #172b4d !important;
-    margin: 0 !important;
-    display: flex;
-    align-items: center;
+/* Remove ícones de edição ou outros do Material Theme */
+.md-typeset summary .headerlink,
+.md-typeset summary [data-md-component="icon"],
+.md-typeset summary .md-icon,
+.md-typeset summary svg,
+.md-typeset summary i.md-icon {
+    display: none !important;
 }
 
-.md-typeset summary h3 {
-    display: inline-block !important; 
-    margin: 0 !important;
-    padding: 0 !important;
-    border: none !important; 
-    font-size: 22px !important;
-    font-weight: 600 !important;
-    color: #172b4d !important;
-    line-height: 1.2 !important;
-}
-
-.md-typeset summary h3::after, 
-.md-typeset summary h3::before {
+/* Remove qualquer conteúdo antes/depois que não seja nosso ícone */
+.md-typeset summary:not(.custom-expand summary)::before,
+.md-typeset summary:not(.custom-expand summary)::after {
     display: none !important;
     content: none !important;
+}
+
+/* Animação de entrada para conteúdo */
+@keyframes slideDownCustom {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.md-typeset details.custom-expand[open] .content-body {
+    animation: slideDownCustom 0.3s ease-out !important;
+}
+
+/* Melhorias no conteúdo do custom-expand */
+.md-typeset details.custom-expand .content-body {
+    padding: 24px 30px !important;
+    background: #ffffff !important;
+    line-height: 1.6 !important;
+    color: #37474f !important;
+}
+
+/* Estilos para títulos dentro do custom-expand */
+.md-typeset details.custom-expand .content-body h3 {
+    font-size: 18px !important;
+    color: #0747a6 !important;
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
+    border-bottom: none !important;
+    font-weight: 600 !important;
+}
+
+.md-typeset details.custom-expand .content-body h4 {
+    color: #1a73e8 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin: 20px 0 12px 0 !important;
+    padding-bottom: 8px !important;
+    border-bottom: 2px solid #e8eaed !important;
+}
+
+/* Listas dentro do custom-expand */
+.md-typeset details.custom-expand .content-body ul {
+    padding-left: 20px !important;
+    margin: 12px 0 !important;
+}
+
+.md-typeset details.custom-expand .content-body li {
+    margin-bottom: 8px !important;
+    color: #37474f !important;
+    line-height: 1.6 !important;
+}
+
+.md-typeset details.custom-expand .content-body li::marker {
+    color: #1a73e8 !important;
+}
+
+/* Responsividade para custom-expand */
+@media (max-width: 768px) {
+    .md-typeset details.custom-expand summary {
+        padding: 16px 18px !important;
+        font-size: 15px !important;
+    }
+    
+    .md-typeset details.custom-expand .content-body {
+        padding: 20px 24px !important;
+    }
+    
+    .md-typeset details.custom-expand .content-body h3 {
+        font-size: 16px !important;
+    }
+    
+    .md-typeset details.custom-expand .content-body h4 {
+        font-size: 15px !important;
+    }
+    /* content: none !important; */
 }
 
 /* Esconde o ícone de "âncora" (link) que aparece ao passar o mouse no título */
@@ -334,16 +458,160 @@ background-color: #fff7f7 !important;
     margin-bottom: 8px !important;
 }
 
-/* Espaçamento entre os campos (expansões internas) */
+/* Espaçamento entre os campos (expansões internas) - Design Moderno */
 .field-expand {
-    margin-bottom: 15px !important;
-    border: 1px solid #f0f0f0 !important;
-    border-radius: 4px;
+    margin-bottom: 20px !important;
+    border: 1px solid #e8eaed !important;
+    border-radius: 12px !important;
+    background: #ffffff !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+    overflow: hidden !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
-/* Esconde o botão do repositório GitLab no cabeçalho */
-.md-header__source {
+.field-expand:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Header do field-expand - Design Moderno */
+.field-expand > summary {
+    list-style: none !important;
+    padding: 16px 20px !important;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%) !important;
+    border-bottom: 1px solid #e8eaed !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    font-weight: 600 !important;
+    color: #2c3e50 !important;
+    font-size: 15px !important;
+    transition: all 0.2s ease !important;
+    position: relative !important;
+}
+
+.field-expand > summary:hover {
+    background: linear-gradient(135deg, #f1f3f4 0%, #fafbfc 100%) !important;
+    color: #1a73e8 !important;
+}
+
+/* Ícone de expandir/recolher */
+.field-expand > summary::after {
+    content: '▶' !important;
+    font-size: 12px !important;
+    color: #5f6368 !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    margin-left: auto !important;
+    margin-right: 8px !important;
+}
+
+.field-expand[open] > summary::after {
+    transform: rotate(90deg) !important;
+}
+
+/* Esconde a seta padrão do browser */
+.field-expand > summary::-webkit-details-marker {
     display: none !important;
+}
+
+.field-expand > summary::marker {
+    display: none !important;
+}
+
+/* Conteúdo do field-expand */
+.field-expand[open] > summary {
+    border-bottom: 2px solid #e8eaed !important;
+}
+
+.field-expand .content-body {
+    padding: 20px 24px !important;
+    background: #ffffff !important;
+    line-height: 1.6 !important;
+    color: #37474f !important;
+}
+
+/* Tabelas dentro do field-expand */
+.field-expand .banks-table {
+    margin: 0 !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
+}
+
+.field-expand .banks-table th {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%) !important;
+    color: #495057 !important;
+    font-weight: 600 !important;
+    border-bottom: 2px solid #dee2e6 !important;
+}
+
+.field-expand .banks-table td {
+    border-bottom: 1px solid #f1f3f4 !important;
+    padding: 12px 16px !important;
+}
+
+.field-expand .banks-table tbody tr:hover td {
+    background: #f8f9fa !important;
+}
+
+/* Seções Help e Configurações */
+.field-expand h4 {
+    color: #1a73e8 !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    margin: 24px 0 12px 0 !important;
+    padding-bottom: 8px !important;
+    border-bottom: 2px solid #e8eaed !important;
+}
+
+.field-expand .help-box {
+    background: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 100%) !important;
+    border: 1px solid #bbdefb !important;
+    border-left: 4px solid #2196f3 !important;
+    border-radius: 8px !important;
+    padding: 16px 20px !important;
+    margin: 12px 0 20px 0 !important;
+    color: #1565c0 !important;
+    font-size: 14px !important;
+    box-shadow: 0 2px 4px rgba(33, 150, 243, 0.1) !important;
+}
+
+/* Animação de entrada */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.field-expand[open] .content-body {
+    animation: slideDown 0.3s ease-out !important;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .field-expand > summary {
+        padding: 14px 16px !important;
+        font-size: 14px !important;
+    }
+    
+    .field-expand .content-body {
+        padding: 16px 20px !important;
+    }
+    
+    .field-expand .banks-table {
+        font-size: 12px !important;
+    }
+    
+    .field-expand .banks-table th,
+    .field-expand .banks-table td {
+        padding: 8px 12px !important;
+    }
 }
 
 /* Esconde o botão de edição da página */
@@ -353,6 +621,59 @@ background-color: #fff7f7 !important;
 
 /* Esconde o rodapé "Made with Material for MkDocs" */
 .md-footer-meta {
+    display: none !important;
+}
+
+/* Mantém o menu lateral sempre visível em telas grandes */
+@media (min-width: 1220px) {
+    .md-sidebar--primary {
+        transform: none !important;
+        visibility: visible !important;
+        position: fixed !important;
+        z-index: 10 !important;
+    }
+    
+    .md-sidebar--primary[hidden] {
+        transform: none !important;
+        visibility: visible !important;
+    }
+    
+    /* Garante que o conteúdo não se sobreponha ao menu */
+    .md-content {
+        margin-left: 12.1rem !important;
+        margin-right: 12.1rem !important;
+    }
+    
+    /* Ajusta o container principal para acomodar o menu fixo */
+    .md-main__inner {
+        padding-left: 12.1rem !important;
+    }
+}
+
+/* Botão para toggle do menu em telas grandes */
+@media (min-width: 1220px) {
+    .md-nav__toggle {
+        display: none !important;
+    }
+    
+    .md-nav__title {
+        pointer-events: none !important;
+        cursor: default !important;
+    }
+}
+
+/* Esconde completamente o componente do GitLab */
+.md-source__repository {
+    display: none !important;
+}
+
+/* Esconde ícone do GitLab */
+.md-source__icon {
+    display: none !important;
+}
+
+/* Esconde o contador de estrelas do GitLab */
+.md-source__facts {
     display: none !important;
 }
 

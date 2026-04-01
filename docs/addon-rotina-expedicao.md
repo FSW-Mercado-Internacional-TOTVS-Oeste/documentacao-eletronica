@@ -6,13 +6,7 @@ hide:
 
 # Addon - Rotina de Expedição - Faturamento {.home-hero}
 
-<div class="grid cards" markdown>
-
--   __Conteúdo em Desenvolvimento__
-    
-    Esta seção do manual técnico está passando por revisões de conformidade e formatação. Os modelos de dados e procedimentos operacionais estão sendo validados para garantir a precisão das instruções técnicas. O conteúdo completo estará disponível em breve.
-
-</div>
+!!! warning "Esta seção do manual técnico está passando por revisões de conformidade e formatação. Os modelos de dados e procedimentos operacionais estão sendo validados para garantir a precisão das instruções técnicas. O conteúdo completo estará disponível em breve."
 
 <!--############################################### 01 #######################################################-->
 
@@ -359,7 +353,7 @@ Return()
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A01**</span>
+	<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **PE013A01**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="pe-table-modern">  
