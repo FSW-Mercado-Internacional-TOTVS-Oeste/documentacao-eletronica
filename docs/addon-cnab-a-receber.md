@@ -2630,9 +2630,6 @@ Informe a quantidade de dias para que os títulos em aberto sofram baixa/devolu�
 </div>
 </details>
 
-</div>
-</details>
-
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
   <span class="summary-title"><span class="summary-number">09.</span> Campos padrões (SEE - Parâmetros de Banco)</span>
