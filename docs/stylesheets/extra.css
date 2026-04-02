@@ -22,7 +22,37 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
     background-position: bottom center !important;
     background-size: contain !important; 
     background-attachment: scroll !important;
-    background-color: #ffffff !important; 
+    background-color: #ffffff !important;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-main {
+    min-height: 100vh;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-main__inner {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-content {
+    max-width: 1900px;
+    margin: 0 auto;
+    flex-grow: 1;
+    background: none;
+    padding-top: 0;
+}
+
+body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-container {
+    padding: 0;
+}
+
+body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-container__inner {
+    padding: 0;
 }
 
 body:not(:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"])) {
@@ -287,12 +317,12 @@ background-color: #fff7f7 !important;
 
 .md-main__inner {
     max-width: 100% !important;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: -18px;
+    margin-right: 0px;
 }
 
 .md-content {
-    max-width: 1200px;
+    max-width: 1900px;
     margin: 0 auto;
     flex-grow: 1;
     background: none;
