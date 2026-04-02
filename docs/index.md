@@ -143,27 +143,35 @@ hide:
         </a>
       </div>
     </section>
-    <!-- FS99_004, FS99_006, FS99_007, FS99_009 — grid 2x2 -->
+    <!-- FS99_004 -->
     <section class="fs-project">
       <div class="fs-project__header">
-        <div class="fs-project__tag">Projetos Adicionais</div>
-        <h2 class="fs-project__title">Módulos Especializados</h2>
-        <p class="fs-project__desc">Add-ons focados em processos específicos de negócio e automações verticais.</p>
+        <div class="fs-project__tag">FS99_004</div>
+        <h2 class="fs-project__title">XML</h2>
+        <p class="fs-project__desc">Destina-se ao gerenciamento de XMLs de NF-e e CT-e recebidos de terceiros.</p>
       </div>
-      <div class="fs-cards fs-cards--wide">
-        <a href="addon-xml-terceiro" class="fs-card fs-card--accent">
-          <div class="fs-card__project-badge">FS99_004</div>
+      <div class="fs-cards">
+        <a href="addon-xml-terceiro" class="fs-card">
           <div class="fs-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
           </div>
           <div class="fs-card__body">
             <h3 class="fs-card__title">Importação de XML</h3>
-            <p class="fs-card__text">Gerenciamento de arquivos XML de NF-e e CT-e emitidos por terceiros.</p>
+            <p class="fs-card__text">Realiza a gestão de documentos fiscais eletrônicos (NF-e e CT-e) de terceiros.</p>
           </div>
           <div class="fs-card__arrow">→</div>
-        </a>
-        <a href="addon-comissoes-faturamento" class="fs-card fs-card--accent">
-          <div class="fs-card__project-badge">FS99_006</div>
+        </a>       
+      </div>
+    </section>
+    <!-- FS99_006 -->
+    <section class="fs-project">
+      <div class="fs-project__header">
+        <div class="fs-project__tag">FS99_006</div>
+        <h2 class="fs-project__title">Comissões</h2>
+        <p class="fs-project__desc">O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
+      </div>
+      <div class="fs-cards">
+        <a href="addon-comissoes-faturamento" class="fs-card">
           <div class="fs-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
           </div>
@@ -172,20 +180,38 @@ hide:
             <p class="fs-card__text">Flexibiliza as regras para composição das comissões de venda.</p>
           </div>
           <div class="fs-card__arrow">→</div>
-        </a>
-        <a href="addon-leite" class="fs-card fs-card--accent">
-          <div class="fs-card__project-badge">FS99_007</div>
+        </a>       
+      </div>
+    </section>
+     <!-- FS99_007 -->
+    <section class="fs-project">
+      <div class="fs-project__header">
+        <div class="fs-project__tag">FS99_007</div>
+        <h2 class="fs-project__title">Laticínios</h2>
+        <p class="fs-project__desc">O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
+      </div>
+      <div class="fs-cards">
+        <a href="addon-leite" class="fs-card">
           <div class="fs-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
           </div>
           <div class="fs-card__body">
             <h3 class="fs-card__title">Addon — Leite</h3>
-            <p class="fs-card__text">Atende processos de recebimento de leite para Laticínios em geral.</p>
+            <p class="fs-card__text">Gerencia o ciclo completo de produção e comercialização de leite.</p>
           </div>
           <div class="fs-card__arrow">→</div>
-        </a>
-        <a href="addon-alcadas-workflow-cadastrais" class="fs-card fs-card--accent">
-          <div class="fs-card__project-badge">FS99_009</div>
+        </a>       
+      </div>
+    </section>
+     <!-- FS99_009 -->
+    <section class="fs-project">
+      <div class="fs-project__header">
+        <div class="fs-project__tag">FS99_009</div>
+        <h2 class="fs-project__title">Workflow Cadastral</h2>
+        <p class="fs-project__desc">O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
+      </div>
+      <div class="fs-cards">
+        <a href="addon-alcadas-workflow-cadastrais" class="fs-card">
           <div class="fs-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           </div>
@@ -194,9 +220,18 @@ hide:
             <p class="fs-card__text">Controle de alçadas cadastrais via Workflow com e-mail automático.</p>
           </div>
           <div class="fs-card__arrow">→</div>
-        </a>
-        <a href="addon-acelerador" class="fs-card fs-card--accent">
-          <div class="fs-card__project-badge">FS99_704</div>
+        </a>       
+      </div>
+    </section>
+    <!-- FS99_704 -->
+    <section class="fs-project">
+      <div class="fs-project__header">
+        <div class="fs-project__tag">FS99_704</div>
+        <h2 class="fs-project__title">Aceleradores</h2>
+        <p class="fs-project__desc">O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
+      </div>
+      <div class="fs-cards">
+        <a href="addon-acelerador" class="fs-card">
           <div class="fs-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
@@ -205,20 +240,30 @@ hide:
             <p class="fs-card__text">Modelos de consultas padrão para Produtos, Fornecedores e Clientes.</p>
           </div>
           <div class="fs-card__arrow">→</div>
-        </a>
-        <a href="addon-rotina-expedicao" class="fs-card fs-card--accent">
-          <div class="fs-card__project-badge">FS99_013A</div>
+        </a>       
+      </div>
+    </section>
+    <!-- FS99_013A -->
+    <section class="fs-project">
+      <div class="fs-project__header">
+        <div class="fs-project__tag">FS99_013A</div>
+        <h2 class="fs-project__title">Expedição</h2>
+        <p class="fs-project__desc">O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
+      </div>
+      <div class="fs-cards">
+        <a href="addon-rotina-expedicao" class="fs-card">
           <div class="fs-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
           </div>
           <div class="fs-card__body">
-            <h3 class="fs-card__title">Rotina de Expedição — Faturamento</h3>
-            <p class="fs-card__text">Aperfeiçoa o Processo de Expedição de mercadorias com automação integrada.</p>
+            <h3 class="fs-card__title">Rotina de Expedição - Faturamento</h3>
+            <p class="fs-card__text">Este ADD-ON tem por objetivo aperfeiçoar o Processo de Expedição de mercadorias.</p>
           </div>
           <div class="fs-card__arrow">→</div>
-        </a>
+        </a>       
       </div>
     </section>
+    
 
   </div><!-- /fs-projects -->
 

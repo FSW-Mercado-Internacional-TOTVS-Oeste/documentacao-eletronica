@@ -6,13 +6,7 @@ hide:
 
 # XML de Terceiros {.home-hero}
 
-<div class="grid cards" markdown>
-
--   __Conteúdo em Desenvolvimento__
-    
-    Esta seção do manual técnico está passando por revisões de conformidade e formatação. Os modelos de dados e procedimentos operacionais estão sendo validados para garantir a precisão das instruções técnicas. O conteúdo completo estará disponível em breve.
-
-</div>
+!!! warning "Esta seção do manual técnico está passando por revisões de conformidade e formatação. Os modelos de dados e procedimentos operacionais estão sendo validados para garantir a precisão das instruções técnicas. O conteúdo completo estará disponível em breve."
 
 <!--############################################### 01 #######################################################-->
 
