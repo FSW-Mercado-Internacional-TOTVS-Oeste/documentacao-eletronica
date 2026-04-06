@@ -29,7 +29,7 @@ hide:
         </div>
         <div class="fs-hero__stat-div"></div>
         <div class="fs-hero__stat">
-          <span class="fs-hero__stat-num">12</span>
+          <span class="fs-hero__stat-num">14</span>
           <span class="fs-hero__stat-label">Módulos</span>
         </div>
         <div class="fs-hero__stat-div"></div>
@@ -90,9 +90,9 @@ hide:
             <p class="fs-card__text">Alçadas integradas a Títulos a Pagar e Borderô a Pagar do módulo Financeiro.</p>
           </div>
           <div class="fs-card__arrow">→</div>
-        </a>
-      </div>
-    </section>
+        </a>        
+      </div>        
+    </section>    
     <!-- FS99_003 -->
     <section class="fs-project">
       <div class="fs-project__header">
@@ -141,7 +141,7 @@ hide:
           </div>
           <div class="fs-card__arrow">→</div>
         </a>
-      </div>
+      </div>      
     </section>
     <!-- FS99_004 -->
     <section class="fs-project">
@@ -202,7 +202,7 @@ hide:
           <div class="fs-card__arrow">→</div>
         </a>       
       </div>
-    </section>
+    </section>    
      <!-- FS99_009 -->
     <section class="fs-project">
       <div class="fs-project__header">
@@ -263,7 +263,6 @@ hide:
         </a>       
       </div>
     </section>
-    
 
   </div><!-- /fs-projects -->
 
