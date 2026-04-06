@@ -6,14 +6,6 @@ hide:
 
 # XML de Terceiros {.home-hero}
 
-<div class="grid cards" markdown>
-
--   __Conteúdo em Desenvolvimento__
-    
-    Esta seção do manual técnico está passando por revisões de conformidade e formatação. Os modelos de dados e procedimentos operacionais estão sendo validados para garantir a precisão das instruções técnicas. O conteúdo completo estará disponível em breve.
-
-</div>
-
 <!--############################################### 01 #######################################################-->
 
 <div class="confluence-card" markdown="1">
@@ -294,10 +286,8 @@ hide:
     
   </tbody>
 </table>
-
 </div>
 </details>
-
 <!--############################################### 06 #######################################################-->
 
 <details class="custom-expand" markdown="1">
@@ -3629,15 +3619,15 @@ Raiz de localização da tag dentro da estrutura do arquivo XML do documento.
   <tbody>
     <tr>
       <th>Tipo</th>
-      <td>DATA</td>
+      <td>C</td>
       <th>Ordem</th>
-      <td>12</td>
+      <td>07</td>
       <th>Tamanho</th>
-      <td>8</td>
+      <td>30</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
-      <td>-</td>
+      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
@@ -3645,23 +3635,25 @@ Raiz de localização da tag dentro da estrutura do arquivo XML do documento.
       <th>Propriedade</th>
       <td>Alterar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>S</td>
       <th>Browse</th>
-      <td>N</td>
+      <td>S</td>
+       <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Data Movim.</td>
+      <td colspan="7">Nivel 1</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Data Movimentacao</td>
+      <td colspan="7">Nivel 1 da Tag</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Data do movimento de transferência
+Nível 1 da Tag no XML do documento fiscal.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -3697,7 +3689,392 @@ Data do movimento de transferência
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_HORAM**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_TAG**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>08</td>
+      <th>Tamanho</th>
+      <td>15</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Tag</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Tag de Dados</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Nome da tag presente no arquivo XML do documento fiscal.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_ALIAS**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>09</td>
+      <th>Tamanho</th>
+      <td>3</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Alias</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Alias de Destino</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Informe o nome do alias de destino do conteúdo existente na tag junto ao XML.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_CAMPO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>10</td>
+      <th>Tamanho</th>
+      <td>10</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Campo</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Campo de Destino</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Campo presente no alias de destino no qual será encaminhado o conteúdo da tag.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_WHEN**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>12</td>
+      <th>Tamanho</th>
+      <td>30</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+       <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Modo Edição</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Modo Edição Tag\Campo</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Regras de validação do modo de edição do campo de destino do conteúdo da tag na interface de processamento do XML.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_VALID**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>11</td>
+      <th>Tamanho</th>
+      <td>30</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Validação</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Validação da Tag\Campo.</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Validação da Tag\Campo executada na interface de processamento.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_VLDUSR**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -3708,11 +4085,11 @@ Data do movimento de transferência
       <th>Ordem</th>
       <td>13</td>
       <th>Tamanho</th>
-      <td>5</td>
+      <td>30</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
-      <td>99:99</td>
+      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
@@ -3720,23 +4097,26 @@ Data do movimento de transferência
       <th>Propriedade</th>
       <td>Alterar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>S</td>
       <th>Browse</th>
-      <td>N</td>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Hora Movim.</td>
+      <td colspan="7">Vld. Usuário</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Hora Movimentacao</td>
+      <td colspan="7">Validação de Usuário
+</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Horário de Movimentação dos movimentos de transferência
+Validação de usuário que será executada na edição da tag junto à interface de processamento do XML Terceiros.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -3772,7 +4152,84 @@ Horário de Movimentação dos movimentos de transferência
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_OBS**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_ORIGEM**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>13</td>
+      <th>Tamanho</th>
+      <td>C</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Origem</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Origem da Tag</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Origem da tag existente no ADD-ON de XML Terceiros.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>P=Padrão;E=Específica;</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_ID**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -3783,81 +4240,6 @@ Horário de Movimentação dos movimentos de transferência
       <th>Ordem</th>
       <td>14</td>
       <th>Tamanho</th>
-      <td>100</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Observacao</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Observacao</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Help	Campo destinado a observações referentes aos movimentos de transferências
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_IDOLD**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>15</td>
-      <th>Tamanho</th>
       <td>6</td>
       <th>Decimal</th>
       <td>0</td>
@@ -3868,25 +4250,27 @@ Help	Campo destinado a observações referentes aos movimentos de transferência
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>Visualizar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>S</td>
       <th>Browse</th>
-      <td>N</td>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Id Anterior</td>
+      <td colspan="7">ID da Tag</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Id Anterior (Transf.)</td>
+      <td colspan="7">Código do ID da Tag</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Usuário Aprovador anterior aos movimentos de transferências
+Código de identificação único da tag.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -3922,7 +4306,1162 @@ Usuário Aprovador anterior aos movimentos de transferências
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_PROCES**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_FILIAL**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>01</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Filial</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Código da Filial</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Código da filial
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_TIPO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>02</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Tipo</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Tipo do Documento</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Tipo do documento fiscal referente ao XML.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>1=NFe;2=Cte;</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_CHAVE**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>03</td>
+      <th>Tamanho</th>
+      <td>44</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Chave</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Chave da NFe\Cte</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Chave de acesso à NFe\Cte;
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_VERSAO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>04</td>
+      <th>Tamanho</th>
+      <td>03</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Versão</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Versão da NFe\Cte</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Versão da NFe\Cte;
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_XML**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>M</td>
+      <th>Ordem</th>
+      <td>05</td>
+      <th>Tamanho</th>
+      <td>10</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">XML</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Xml Original</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+XML original do documento fiscal.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DTEMIS**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>06</td>
+      <th>Tamanho</th>
+      <td>08</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Data Emissão</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Data de Emissão</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Data de emissão do documento fiscal.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_HREMIS**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>07</td>
+      <th>Tamanho</th>
+      <td>05</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Hora Emissão</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Hora de Emissão</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Horário de emissão do documento fiscal.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DTREC**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>D</td>
+      <th>Ordem</th>
+      <td>08</td>
+      <th>Tamanho</th>
+      <td>08</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Data Recbto</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Data de Recebimento</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Data de recebimento do XML da Nfe\Cte.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_HRREC**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>09</td>
+      <th>Tamanho</th>
+      <td>05</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@R !!:!!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Hora Recbto</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Hora Recebimento</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Hora do recebimento do XML da NFe\Cte.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_MODREC**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>10</td>
+      <th>Tamanho</th>
+      <td>01</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Modo Recbto</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Modo de Recebimento</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Modo de recebimento do XML da NFe\Cte.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>M=MANUAL; A=AUTOMATICO;</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_EMAIL**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>11</td>
+      <th>Tamanho</th>
+      <td>30</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Email Recbto</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">E-mail de Recebimento</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+E-mail pelo qual foi recebido o arquivo XML.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_XMLCAN**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>M</td>
+      <th>Ordem</th>
+      <td>12</td>
+      <th>Tamanho</th>
+      <td>10</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">XML Canc</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Xml Cancelamento</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+XML de cancelamento do documento fiscal.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DTECAN**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>D</td>
+      <th>Ordem</th>
+      <td>13</td>
+      <th>Tamanho</th>
+      <td>08</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Data Canc.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Data Cancelamento</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Data de cancelamento do documento fiscal.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_HRECAN**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>14</td>
+      <th>Tamanho</th>
+      <td>05</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@R !!:!!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Hora Canc.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Hora de Cancelamento</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Horário de cancelamento do documento fiscal.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DTRCAN**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>D</td>
+      <th>Ordem</th>
+      <td>15</td>
+      <th>Tamanho</th>
+      <td>08</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Data Recbto</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Data de Recebimento</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Data de recebimento do cancelamento XML da Nfe\Cte.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_HRRCAN**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -3933,35 +5472,37 @@ Usuário Aprovador anterior aos movimentos de transferências
       <th>Ordem</th>
       <td>16</td>
       <th>Tamanho</th>
-      <td>8</td>
+      <td>05</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
-      <td>@!</td>
+      <td>@R !!:!!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>Visualizar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>S</td>
       <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
       <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Cod. Regra</td>
+      <td colspan="7">Hora Recbto</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Codigo Regra Alcada</td>
+      <td colspan="7">Hora Recebimento</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Codigo da Regra dos movimentos alçadas/transferencias
+Hora do recebimento do cancelamento XML da NFe\Cte.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -3997,7 +5538,7 @@ Codigo da Regra dos movimentos alçadas/transferencias
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_SOLICT**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_MODCAN**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -4008,7 +5549,7 @@ Codigo da Regra dos movimentos alçadas/transferencias
       <th>Ordem</th>
       <td>17</td>
       <th>Tamanho</th>
-      <td>6</td>
+      <td>01</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -4018,25 +5559,27 @@ Codigo da Regra dos movimentos alçadas/transferencias
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>Visualizar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>S</td>
       <th>Browse</th>
-      <td>N</td>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Solicitante</td>
+      <td colspan="7">Modo Recbto</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Cod. Usuario Solicitante</td>
+      <td colspan="7">Modo de Recebimento</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Codigo do Usuario solicitante referentes aos movimentos de alçadas
+Modo de recebimento do cancelamento XML da NFe\Cte.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -4055,7 +5598,7 @@ Codigo do Usuario solicitante referentes aos movimentos de alçadas
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>-</td>
+      <td>M=MANUAL; A=AUTOMATICO;</td>
     </tr>
     <tr>
       <th>Inicializador</th>
@@ -4072,7 +5615,7 @@ Codigo do Usuario solicitante referentes aos movimentos de alçadas
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_CODAUS**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_EMAILC**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -4083,7 +5626,7 @@ Codigo do Usuario solicitante referentes aos movimentos de alçadas
       <th>Ordem</th>
       <td>18</td>
       <th>Tamanho</th>
-      <td>6</td>
+      <td>30</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -4095,23 +5638,25 @@ Codigo do Usuario solicitante referentes aos movimentos de alçadas
       <th>Propriedade</th>
       <td>Visualizar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>-</td>
       <th>Browse</th>
-      <td>N</td>
+      <td>S</td>
+      <th>Usado</th>
+      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Cod.Aus.Temp</td>
+      <td colspan="7">Email Recbto</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Cod. AusenciaTemporaria</td>
+      <td colspan="7">E-mail de Recebimento</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
--
+E-mail pelo qual foi recebido o arquivo XML de cancelamento do documento.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -4147,7 +5692,7 @@ Codigo do Usuario solicitante referentes aos movimentos de alçadas
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_TPLIB**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DOC**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -4158,7 +5703,7 @@ Codigo do Usuario solicitante referentes aos movimentos de alçadas
       <th>Ordem</th>
       <td>19</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>09</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -4170,23 +5715,25 @@ Codigo do Usuario solicitante referentes aos movimentos de alçadas
       <th>Propriedade</th>
       <td>Visualizar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>-</td>
       <th>Browse</th>
-      <td>N</td>
+      <td>-</td>
+      <th>Usado</th>
+      <td>-</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Tp.Liberacao</td>
+      <td colspan="7">Documento</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Tipo de Liberacao</td>
+      <td colspan="7">Número do Documento</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
--
+Número do documento\nota fiscal o qual se refere o XML.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -4222,7 +5769,7 @@ Codigo do Usuario solicitante referentes aos movimentos de alçadas
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_LINKWF**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_SERIE**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -4233,7 +5780,7 @@ Codigo do Usuario solicitante referentes aos movimentos de alçadas
       <th>Ordem</th>
       <td>20</td>
       <th>Tamanho</th>
-      <td>50</td>
+      <td>03</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -4245,23 +5792,25 @@ Codigo do Usuario solicitante referentes aos movimentos de alçadas
       <th>Propriedade</th>
       <td>Visualizar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>-</td>
       <th>Browse</th>
-      <td>N</td>
+      <td>-</td>
+      <th>Usado</th>
+      <td>-</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Link Html WF</td>
+      <td colspan="7">Série</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Arquivo HTML Link do WF</td>
+      <td colspan="7">Série do Documento</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Informe o nome do arquivo html gerado pelo processo de worfklow quesera utilizado no Link WF
+Série do documento\nota fiscal o qual se refere o XML.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -4297,7 +5846,7 @@ Informe o nome do arquivo html gerado pelo processo de worfklow quesera utilizad
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZXA_ORIGAP**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_CLIFOR**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -4308,7 +5857,7 @@ Informe o nome do arquivo html gerado pelo processo de worfklow quesera utilizad
       <th>Ordem</th>
       <td>21</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>06</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -4320,26 +5869,25 @@ Informe o nome do arquivo html gerado pelo processo de worfklow quesera utilizad
       <th>Propriedade</th>
       <td>Visualizar</td>
       <th>Obrigatório</th>
-      <td>N</td>
+      <td>-</td>
       <th>Browse</th>
-      <td>N</td>
+      <td>-</td>
+      <th>Usado</th>
+      <td>-</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Origem Aprov</td>
+      <td colspan="7">Código</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Origem da Aprovacao</td>
+      <td colspan="7">Código do cliente\fornecedor.</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Indica a origem da Aprovação:<br>
-<strong>1</strong> - Manual pelo Sistema/ERP<br>
-<strong>2</strong> - Link do Workflow
-
+Código do cliente\fornecedor no ambiente referente ao documento fiscal.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -4358,7 +5906,7 @@ Indica a origem da Aprovação:<br>
     </tr>
     <tr>
       <th>Lista Opções</th>
-      <td>1=Sistema; 2=Workflow</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>Inicializador</th>
@@ -4373,6 +5921,236 @@ Indica a origem da Aprovação:<br>
 </div>
 </details>
 
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_LOJA**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>22</td>
+      <th>Tamanho</th>
+      <td>02</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+      <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Loja</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Loja do cliente\fornecedor.</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Loja do cliente\fornecedor no ambiente referente ao documento fiscal.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_CGC**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>23</td>
+      <th>Tamanho</th>
+      <td>14</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@R 99.999.999/9999-99</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+      <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">CNPJ</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">CNPJ Cliente\Fornecedor</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+CNPJ do cliente\fornecedor vinculado ao documento fiscal.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_STATUS**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>24</td>
+      <th>Tamanho</th>
+      <td>01</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+      <th>Browse</th>
+      <td>-</td>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Status</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Status do XML</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Status do registro do XML de Terceiros.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
 </div>
 </details>
 
@@ -4397,814 +6175,152 @@ Indica a origem da Aprovação:<br>
   </thead>
   <tbody>
     <tr>
-      <td><strong>MV_X001000</strong></td>
+      <td><strong>MV_X004000</strong></td>
       <td>Lógico</td>
-      <td>Habilita ADD-ON de Alcadas com Link de aprovacao</td>
+      <td>Determina se o ADD-ON de XML recebidos de terceiros está disponível para a empresa\filial.</td>
       <td>.T.</td>
     </tr>
     <tr>
-      <td><strong>MV_X001001</strong></td>
-      <td>Lógico</td>
-      <td>Descrição	Ativa controle de alcadas para Pedido de Venda</td>
-      <td>.F.</td>
+      <td><strong>MV_X004001</strong></td>
+      <td>Caracter</td>
+      <td>Alias utilizado para a rotina de cadastro de conta de e-mail. ADD-ON XML Terceiros.</td>
+      <td>Z04</td>
     </tr>   
     <tr>
-      <td><strong>MV_X001002</strong></td>
-      <td>Lógico</td>
-      <td>Descrição	Ativa controle de alcadas para Solicitação de Compras</td>
-      <td>.F.</td>
+      <td><strong>MV_X004002</strong></td>
+      <td>Caracter</td>
+      <td>Alias utilizado para a rotina de cadastro de usuários x permissões. ADD-ON XML Terceiros.</td>
+      <td>Z05</td>
     </tr>   
     <tr>
-      <td><strong>MV_X001003</strong></td>
-      <td>Lógico</td>
-      <td>Descrição	Ativa controle de alcadas para Pedido de Compras</td>
-      <td>.F.</td>
+      <td><strong>MV_X004003</strong></td>
+      <td>Caracter</td>
+      <td>Alias utilizado para a rotina de cadastro de tags.</td>
+      <td>Z06</td>
     </tr>   
     <tr>
-      <td><strong>MV_X001004</strong></td>
-      <td>Lógico</td>
-      <td>Descrição	Valida saldo do superior antes de transferir</td>
-      <td>.F.</td>
+      <td><strong>MV_X004004</strong></td>
+      <td>Caracter</td>
+      <td>Alias utilizado para a rotina de XML recebidos.</td>
+      <td>ZA1</td>
     </tr>   
     <tr>
-      <td><strong>MV_X001005</strong></td>
-      <td>Lógico</td>
-      <td>Descrição	Controla/Analisa movimentos consumo por Verba em modo Compartilhado (Filiais)</td>
-      <td>.T. (Verdadeiro para controlar em modo Compartilhado)</td>
+      <td><strong>MV_X004005</strong></td>
+      <td>Caracter</td>
+      <td>Nome do campo da tabela SD1 referente à descrição dos produtos.</td>
+      <td>D1_X_DESC</td>
     </tr>   
     <tr>
-      <td><strong>MV_X001006</strong></td>
-      <td>Lógico</td>
-      <td>Gera controle de Alçadas em Pedidos de Compras originados pelo módulo Gestão de Contratos</td>
-      <td>.T.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X001007</strong></td>
-      <td>Lógico</td>
-      <td>Ativa controle de alcadas para Contas a Pagar</td>
-      <td>.T.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X001008</strong></td>
-      <td>Lógico</td>
-      <td>Descrição	Tipo de Alcadas de Contas a Pagar:<br><strong>1</strong> - Titulo Avulso;<br><strong>2</strong> - Bordero;<br><strong>3</strong> - Ambos</td>
+      <td><strong>MV_X004006</strong></td>
+      <td>Caracter</td>
+      <td>Determina se deve adicionar zeros à esquerda no número do documento (1), série (2) ou ambos (3)no processamento do XML Terceiros.</td>
       <td>3</td>
     </tr>   
     <tr>
-      <td><strong>MV_X001009</strong></td>
+      <td><strong>MMV_X004007</strong></td>
       <td>Lógico</td>
-      <td>Descrição	Efetua controle de alçadas por saldo de aprovador.</td>
-      <td>.F.</td>
+      <td>Determina se deve carregar à natureza financeira vinculada ao cadastro do cliente\fornecedor para o processamento do XML Terceiros.</td>
+      <td>.T.</td>
     </tr>   
     <tr>
-      <td><strong>MV_X001010</strong></td>
+      <td><strong>MV_X004008</strong></td>
       <td>Caracter</td>
-      <td>Cores para o Workflow. Primeira posição cor de fundo da tabela, Segunda posição cor da Fonte em Hexadecimal,  Exemplo: #0C72B0;#FFFFFF</td>
-      <td>#0C72B0;#FFFFFF</td>
+      <td>Determina se deve carregar à conta contábil (1)centro de custos (2) ou ambos (3) do cadastro do produto ao item do XML Terceiros.</td>
+      <td>3</td>
     </tr>   
     <tr>
-      <td><strong>MV_X001011</strong></td>
+      <td><strong>MV_X004009</strong></td>
+      <td>Lógico</td>
+      <td>Determina se considera à condição de pagamento dos pedidos de compra no processamento XML Terceiros.</td>
+      <td>.T.</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004010</strong></td>
+      <td>Numérico</td>
+      <td>Determina o percentual de tolerância da quantidade F x saldo Pedido de Compras.
+       <br>Para desativar, informar 999.   </td>
+ <td>999</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004011</strong></td>
       <td>Númerico</td>
-      <td>Ativa a liberacao de Tit. a Pagar automática se o parâmetro <strong>MV_CTLIPAG</strong> estiver habilidato.<br>
-        <strong>1</strong> = Verifica usuario no parametro MV_X001012.<br>
-        <strong>2</strong> = Libera para todos os usuarios. <br>
-        <strong>3</strong> = Nao utiliza a liberação automática.<br>
-        Observação: somente será feita a liberação do C.P., se todos os itens da nota fiscal de entrada possuam pedido de compras com aprovação de alçadas e de acordo com os parâmetros <strong>MV_CTLIPAG</strong>, <strong>MV_X001011</strong>, <strong>MV_X001012</strong>.</td>
-      <td>3</td>
+      <td>ADetermina o percentual de tolerância do valor unitário NF x Pedido de Compras (a maior)<br>
+      Para desativar, informar 999.   </td>
+      <td>999</td>
     </tr>   
     <tr>
-      <td><strong>MV_X001012</strong></td>
+      <td><strong>MV_X004012</strong></td>
+      <td>Numérico</td>
+      <td>Determina o percentual de tolerância no valor total da NF e valor total do XML. (a maior ou menor) <br>
+      Para desativar, informar 999.</td>
+      <td>999</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004013</strong></td>
+      <td>Lógico</td>
+      <td>Preenchimento do Valor Unitário na Pré-Nota/NF
+      <br><strong>.T.</strong> =  Considera o valor do xml.<br><strong>.F. </strong> = Considera o valor do Pedido de Compras (padrão)</td>
+      <td>.F.</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004014</strong></td>
+      <td>Lógico</td>
+      <td>Considera regras personalizadas para garantir que o valor do ICMS e ICMS ST do XML seja aplicado no Documento de Entrada.
+      <br><strong>.T.</strong> = Considera as regras.<br><strong>.F. </strong> = Não considera as regras</td>
+      <td>.F.</td>    
+    </tr>   
+    </tr>   
+    <tr>
+      <td><strong>MV_X004015</strong></td>
       <td>Caracter</td>
-      <td>De acordo com parametro MV_X001011 (1), verifica para quais aprovadores será realizada a liberação automática do Contas a Pagar.</td>
-      <td>-</td>
+      <td>Efetua a importação de arquivo .xml CTe que possua uma Nota Referenciada já incluída por outro Cte.
+      <br><strong>S</strong> = Sim<br><strong>N </strong> = Não</td>
+      <td>S</td>    
     </tr>   
     <tr>
-      <td><strong>MV_X001013</strong></td>
+      <td><strong>MV_X004016</strong></td>
+      <td>Lógico</td>
+      <td>Exibe mensagem na importação XML de divergência de CNPJ de importação diferente do XML.</td>
+      <td>.T.</td>    
+    </tr>   
+     <tr>
+      <td><strong>MV_X004017</strong></td>
       <td>Caracter</td>
-      <td>Na utilização de Regras por Entidade, informe qualentidade para SC/PC. <br><strong>G</strong> = Grupo <br><strong>C</strong> = Centro de Custo<br>
-      Exemplo: C/C (Centro de Custo para ambos)</td>
-      <td>G/G</td>
+      <td>Filtra pedidos de compras para consumir na importação, considerando Filial de Inclusão Pedido de Compras ou Filial de Entrega.
+      <br><strong>I</strong> = Inclusão <br><strong>E </strong> = Entrega</td>
+      <td>Default = I</td>    
     </tr>   
     <tr>
-      <td><strong>MV_WFBRWSR</strong></td>
+      <td><strong>MV_XMLDIR</strong></td>
       <td>Caracter</td>
-      <td>URL da raiz Browser para WF link</td>
-      <td>Ex.: http://200.195.136.59:8089/0101 </td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X_URLWS</strong></td>
+      <td>Diretório dos XMLs para importação manual via SIGAGFE.</td>
+      <td>\XML\SIGAGFE\CTE\</td>    
+    </tr> 
+     <tr>
+      <td><strong>MV_RESTNFE</strong></td>
       <td>Caracter</td>
-      <td>URL da raiz dos webservices</td>
-      <td>Ex.: http://192.168.1.121:8080/ws/  </td>
-    </tr>   
-  </tbody>
-</table>
-
-!!! warning "Importante:"
-    Se o parâmetro MV_X_URLWS for configurado para utilização via DNS (Ex.: www.dominio.com.br) não se deve acessar o endereço via IP. Caso isso ocorra, o WebService não poderá ser acessado. Isto acontece devido à SameOriginPolicy (‘Politica de mesma origem’), implementada por segurança na maioria dos navegadores, a qual visa garantir maior segurança ao servidor, e impedir acessos não autorizados.
-
-</div>
-</details>
-
-<!--############################################### 08 #######################################################-->
-
-<details class="custom-expand" markdown="1">
-<summary markdown="1">
-  <span class="summary-title"><span class="summary-number">08.</span> Gatilhos (SX7)</span>
-</summary>
-<div class="content-body" markdown="1">
-
-### <span style="display: none;">8. Gatilhos (SX7)</span>
-
-<table class="banks-table">
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Sequencia</th>
-      <th>Contra Dom.</th>
-      <th>Tipo</th>
-      <th>Regra</th>
-      <th>Posiciona</th>      
-      <th>Condicao</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>ZX1_TPBUSC</strong></td>
-      <td>001</td>
-      <td>ZX1_ALIAS</td>
-      <td>1 = Primário</td>
-      <td>-</td>
-      <td>N</td>      
-      <td>M->ZX1_TPBUSC='U'</td>
-    </tr>
-    <tr>
-      <td><strong>ZX1_TPBUSC</strong></td>
-      <td>002</td>
-      <td>ZX1_INDICE</td>
-      <td>1 = Primário</td>
-      <td>-</td>
-      <td>N</td>      
-      <td>M->ZX1_TPBUSC='U'</td>
-    </tr>   
-    <tr>
-      <td><strong>ZX1_TPBUSC</strong></td>
-      <td>003</td>
-      <td>ZX1_CAMPO</td>
-      <td>1 = Primário</td>
-      <td>-</td>
-      <td>N</td>      
-      <td>M->ZX1_TPBUSC='U'</td>
-    </tr>   
-    <tr>
-      <td><strong>ZX1_TPBUSC</strong></td>
-      <td>004</td>
-      <td>ZX1_IDUSER</td>
-      <td>1 = Primário</td>
-      <td>-</td>
-      <td>N</td>      
-      <td>M->ZX1_TPBUSC="E"</td>
-    </tr>   
-    <tr>
-      <td><strong>ZX1_TPBUSC</strong></td>
-      <td>001</td>
-      <td>ZX1_NMUSER</td>
-      <td>1 = Primário</td>
-      <td>-</td>
-      <td>N</td>      
-      <td>M->ZX1_TPBUSC="E"</td>
-    </tr>   
-    <tr>
-      <td><strong>ZX1_TPLIB</strong></td>
-      <td>001</td>
-      <td>ZX1_NIVEL</td>
-      <td>1 = Primário</td>
-      <td>01</td>
-      <td>N</td>      
-      <td>M->ZX1_TPLIB='D'</td>
-    </tr>   
-    <tr>
-      <td><strong>ZX1_IDUSER</strong></td>
-      <td>001</td>
-      <td>ZX1_NMUSER</td>
-      <td>1 = Primário</td>
-      <td>U_M999B01("USERINFO", M->ZX1_IDUSER)[1][4]</td>
-      <td>N</td>      
-      <td>-</td>
-    </tr>   
-    <tr>
-      <td><strong>ZX2_APROV</strong></td>
-      <td>001</td>
-      <td>ZX2_NOME</td>
-      <td>1 = Primário</td>
-      <td>U_M999B01("USERINFO", M->ZX2_APROV)[1][4]</td>
-      <td>N</td>      
-      <td>-</td>
-    </tr>   
-    <tr>
-      <td><strong>ZX2_SUBST</strong></td>
-      <td>001</td>
-      <td>ZX2_SUBNOM</td>
-      <td>1 = Primário</td>
-      <td>U_M999B01("USERINFO", M->ZX2_SUBST)[1][4]</td>
-      <td>N</td>      
-      <td>-</td>
-    </tr>   
-  </tbody>
-</table>
-
-</div>
-</details>
-
-<!--############################################### 09 #######################################################-->
-
-<details class="custom-expand" markdown="1">
-<summary markdown="1">
-  <span class="summary-title"><span class="summary-number">09.</span> Índices (SIX)</span>
-</summary>
-<div class="content-body" markdown="1">
-
-### <span style="display: none;">9. Índices (SIX)</span>
-
-<table class="banks-table">
-  <thead>
-    <tr>
-      <th>Indice</th>
-      <th>Ordem</th>
-      <th>Chave</th>
-      <th>Descrição</th>
-      <th>NickName</th>      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>ZX0</strong></td>
-      <td>1</td>
-      <td>ZX0_FILIAL+ZX0_PROCES</td>
-      <td>Funcao</td>
-      <td></td>      
+      <td>Indica se restringe o uso de pedidos bloqueados pelo controle de alçadas do recebimento de materiais.</td>
+      <td>N</td>    
     </tr>    
     <tr>
-      <td><strong>ZX1</strong></td>
-      <td>1</td>
-      <td>ZX1_FILIAL+ZX1_PROCES+ZX1_SEQ</td>
-      <td>Processo + Sequencia</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZX1</strong></td>
-      <td>2</td>
-      <td>Chave	ZX1_FILIAL+ZX1_PROCES+ZX1_NIVEL</td>
-      <td>Processo + Nivel</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZX1</strong></td>
-      <td>3</td>
-      <td>ZX1_FILIAL+ZX1_PROCES+ZX1_STATUS</td>
-      <td>Processo + Regra Ativa?</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZX1</strong></td>
-      <td>4</td>
-      <td>Chave	ZX1_FILIAL+ZX1_IDUSER</td>
-      <td>Aprovador</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZX2</strong></td>
-      <td>1</td>
-      <td>ZX2_FILIAL+ZX2_COD</td>
-      <td>Codigo</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZX2</strong></td>
-      <td>2</td>
-      <td>ZX2_FILIAL+ZX2_APROV</td>
-      <td>Aprovador</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZX2</strong></td>
-      <td>3</td>
-      <td>ZX2_FILIAL+ZX2_SUBST</td>
-      <td>Substituto</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZXA</strong></td>
-      <td>1</td>
-      <td>ZXA_FILIAL+ZXA_COD+ZXA_SEQ+ZXA_NIVEL</td>
-      <td>Codigo + Sequencia + Nivel</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZXA</strong></td>
-      <td>2</td>
-      <td>Chave	ZXA_FILIAL+ZXA_COD+ZXA_IDUSER</td>
-      <td>Codigo + Aprovador</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZXA</strong></td>
-      <td>3</td>
-      <td>Chave	ZXA_FILIAL+ZXA_COD+ZXA_NIVEL+ZXA_SEQ</td>
-      <td>Codigo + NivelAprov. + Sequencia</td>
-      <td></td>      
-    </tr>  
-  </tbody>
-</table>
-
-</div>
-</details>
-
-<!--############################################### 10 #######################################################-->
-
-<details class="custom-expand" markdown="1">
-<summary markdown="1">
-  <span class="summary-title"><span class="summary-number">10.</span> Consulta Padrão (SXB)</span>
-</summary>
-<div class="content-body" markdown="1">
-
-### <span style="display: none;">10. Consulta Padrão (SXB)</span>
-
-<table class="banks-table">
-  <thead>
-    <tr>
-      <th>Tipo</th>
-      <th>Nome</th>
-      <th>Descrição</th>
-      <th>Colunas</th>
-      <th>Retorno</th>      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>US - Consulta Usuários</strong></td>
-      <td>USRZX1</td>
-      <td>UsuarioAlcadas</td>
-      <td>ID, FULLNAME</td>
-      <td>Nome Completo</td>      
+      <td><strong>MV_ALTPRCC</strong></td>
+      <td>Caracter</td>
+      <td>Permite configurar se o preço unitário do produto pode ser alterado no registro da entrada da nota fiscal ou na inclusão da autorização de entrega, mesmo que os valores tenham sido informados no pedido compras, na autorização de entrega ou no contrato de parceria.<br>
+      O conteúdo desse parâmetro pode ser configurado com as seguintes opções:<br>
+      <strong>0 - </strong> Desabilitado; O preço unitário do produto pode ser alterado em qualquer situação.<br>
+      <strong>1 - </strong>Valida o preço informado no pedido de compras, ou seja, no registro da entrada da nota fiscal (rotina Documento de Entrada) e não permite que seja alterado o preço unitário do produto quando relacionado a um pedido de compras.<br>
+      <strong>2 –</strong>Valida o preço informado na autorização de entrega, ou seja, no registro da entrada da nota fiscal (rotina Documento de Entrada) e não permite que seja alterado o preço unitário do produto quando relacionado a uma autorização de entrega.<br>
+      <strong>3 – </strong> = Valida o preço informado no pedido de compras e na autorização de entrega (ambos) e no registro da entrada da nota fiscal (rotina Documento de Entrada). Não permite que seja alterado o preço unitário do produto quando relacionado a um pedido de compras ou a uma autorização de entrega.<br>
+      <strong>4 – </strong> Valida o preço informado no contrato de parceria, ou seja, na inclusão da autorização de entrega e não permite que seja alterado o preço unitário do produto relacionado ao contrato.<br>
+      <strong>5 –</strong>  Valida o preço informado no contrato de parceria e na autorização de entrega.<br>
+      <strong>6 –</strong>  Valida o preço informado no pedido de compras, na autorização de entrega e no contrato de parceria.</td>
+      <td>0</td>    
     </tr>    
-    <tr>
-      <td><strong>DB</strong></td>
-      <td>ZX0</td>
-      <td>Destinatarios WF</td>
-      <td>ZX0_PROCES, ZX0_DESCRI, ZX0_DEST</td>
-      <td>ZX0->ZX0_PROCES</td>      
-    </tr>      
   </tbody>
 </table>
 
 </div>
 </details>
-
-<!--############################################### 11 #######################################################-->
-
-<details class="custom-expand" markdown="1">
-<summary markdown="1">
-  <span class="summary-title"><span class="summary-number">11.</span> Pontos de Entrada Especificos</span>
-</summary>
-<div class="content-body" markdown="1">
-
-### <span style="display: none;">11. Pontos de Entrada Específicos</spam>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001AAP**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tbody>
-  <tr>
-    <td>Descrição</td>
-    <td>Ponto de entrada na rotina de aprovação de alçadas, após a aprovação final do documento em alçadas.</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A01.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M001AAP ( &lt;ParamIxB&gt; ) --> Nil</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>ParamIxB – Tipo: Caracter – Descrição: Nome do processo da alçadas (ZX1_PROCES)</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M001AAP.PRW</span>
-  </div>
-  <pre><code>
-<span class="uf">User Function</span> <span class="fn">M001AAP</span>()
-    <span class="kw">Local</span> <span class="var">aArea</span>   <span class="symbol">:=</span> <span class="fn">GetArea</span>()
-    <span class="kw">Local</span> <span class="var">cRotina</span> <span class="symbol">:=</span> <span class="var">PARAMIXB</span>
-    <span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="comment">//³ Personalizações do cliente                                     ³</span>
-    <span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="kw">If</span> <span class="var">cRotina</span> <span class="symbol">==</span> <span class="string">"MATA120"</span>
-        <span class="comment">// … seu código personalizado aqui …</span>
-    <span class="kw">EndIf</span>
-    <span class="fn">RestArea</span>(<span class="var">aArea</span>)
-<span class="kw">Return</span>
-  </code></pre>
-</div>
-  </td>
-  </tr>
-  </tbody>
-</table>
-
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001ARP**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tr>
-    <td>Descrição</td>
-    <td>Ponto de entrada na rotina de aprovação de alçadas, após a reprovação final do documento em alçadas.</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A01.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M001ARP ( &lt;ParamIxB&gt; ) --> Nil</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>ParamIxB – Tipo: Caracter – Descrição: Nome do processo da alçadas (ZX1_PROCES)</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M001ARP.PRW</span>
-  </div>
-  <pre><code>
-<span class="uf">User Function</span> <span class="fn">M001ARP</span>()
-    <span class="kw">Local</span> <span class="var">aArea</span>   <span class="symbol">:=</span> <span class="fn">GetArea</span>()
-    <span class="kw">Local</span> <span class="var">cRotina</span> <span class="symbol">:=</span> <span class="var">PARAMIXB</span>
-    <span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="comment">//³ Personalizações do cliente                                     ³</span>
-    <span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="kw">If</span> <span class="var">cRotina</span> <span class="symbol">==</span> <span class="string">"MATA120"</span>
-        <span class="comment">…</span>
-    <span class="kw">EndIf</span>
-    <span class="fn">RestArea</span>(<span class="var">aArea</span>)
-<span class="kw">Return</span>
-  </code></pre>
-</div>
-  </td>
-  </tr>
-</table>
-
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M1A5CPOS**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tr>
-    <td>Descrição</td>
-    <td>Ponto de entrada na rotina de M001A05 (Verbas por Aprovador) para permitir adicionar campos à tela de cadastro. OBS: Deve ser usado em conjunto com o ponto de entrada M1A5TELA.</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A05.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M1A5CPOS ( &lt;ParamIxB&gt; ) --> Nil</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td> 
-  <div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M1A5CPOS.PRW</span>
-  </div>
-  <pre><code>   
-    <span class="uf">User Function</span> <span class="fn">User Function M1A5CPOS()</span>
-      <span class="kw">Local</span> <span class="var">_aCabec</span> <span class="var"> := </span><span class="symbol">{}</span>
-      <span class="kw">Local</span> <span class="var">_aGrid</span> <span class="var"> := </span><span class="symbol">{}</span>
-      <span class="kw">Local</span> <span class="var">_aRet</span> <span class="var"> := </span><span class="symbol">{}</span>
-    <span class="comment">
-      // Array _aCabec: array para adicionar os campos que aparecerão no cabeçalho.
-      // Contém duas posições, a primeira é para definição da variável e a segunda
-      // é o id do campo
-    </span>
-      <span class="fn">aAdd</span><span class="symbol">(</span><span class="var">_aCabec</span><span class="symbol">,</span><span class="symbol">{</span><span class="var">"cTESTE"</span><span class="symbol">,</span><span class="var">"ZX4_TESTE"</span><span class="symbol">})</span>
-    <span class="comment">
-      //aAdd(_aCabec,{"cTESTE3","ZX4_TESTE3"})   
-      // Array _aGrid: array para adicionar os campos que aparecerão no grid.
-      // contém apenas uma posição, com o id do campo
-    </span>
-      <span class="fn">aAdd</span><span class="symbol">(</span><span class="var">_aGrid</span><span class="symbol">,</span><span class="symbol">{</span><span class="var">"ZX4_TESTE2"</span><span class="symbol">})</span>
-    <span class="comment">
-      // Array _aRet: compila os dados dos arrays _aCabec e _aGrid em um só, o qual
-      // será o retorno deste PE. Sempre adicionar primeiro o _aCabec e depois o _aGrid.
-      // É obrigatório haver dois retornos no array _aRet, mesmo que um deles esteja em branco
-    </span>
-      <span class="fn">aAdd</span><span class="symbol">(</span><span class="var">_aRet</span><span class="symbol">,</span><span class="var">_aCabec</span><span class="symbol">)</span>
-      <span class="fn">aAdd</span><span class="symbol">(</span><span class="var">_aRet</span><span class="symbol">,</span><span class="var">_aGrid</span><span class="symbol">)    
-      </span>
-    <span class="kw">Return</span> </span><span class="symbol">(</span> <span class="var">_aRet</span> </span><span class="symbol">)</span>    
-  </td>
-  </tr>
-</table>
-
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M1A5TELA**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tr>
-    <td>Descrição</td>
-    <td>Ponto de entrada na rotina de M001A05 (Verbas por Aprovador) para permitir adicionar campos à tela de cadastro. OBS: Deve ser usado em conjunto com o ponto de entrada M1A5CPOS.</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A05.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M1A5TELA ( &lt;ParamIxB&gt; ) --> Nil</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M1A5TELA.PRW</span>
-  </div>
-  <pre><code>  
-  <span class="uf">User Function</span> <span class="fn">M1A5TELA()</span>
-  <span class="comment">
-      // Informações sobre posições dos campos:
-      // Os títulos dos campos ficam nas colunas (pos. x) 010 e 150
-      // As Fields ficam nas colunas (pos. x) 060 e 200
-      // As linhas (pos. y) somam de 15 em 15, iniciando a partir da posição 055
-      // Não esquecer de somar a variável nPixP12 na linha (pos. y)
-  </span>
-      <span class="kw">Local</span> <span class="var">_nLin</span><span class="symbol"> := </span><span class="number">055</span> + <span class="var">nPixP12</span>  
-      @ <span class="var">_nLin</span>,<span class="number">010</span> <span class="fn">Say</span>   <span class="fn">Posicione</span>(<span class="string">"SX3"</span>,2,<span class="string">'ZX4_TESTE'</span>,<span class="string">"X3_TITULO"</span>) <span class="kw">OF</span> <span class="var">oDlg</span> <span class="fn">PIXEL</span> <span class="fn">SIZE</span> <span class="number">080</span>,<span class="number">009</span> <span class="fn">COLOR</span> <span class="var">CLR_BLUE</span><br>
-      @ <span class="var">_nLin</span>,<span class="number">060</span> <span class="fn">MsGet</span> <span class="var">cTESTE</span> <span class="fn">Size</span> <span class="number">120</span>,<span class="number">010</span> <span class="fn">PIXEL</span> <span class="kw">OF</span> <span class="var">oDlg</span> <span class="fn">WHEN</span> <span class="var">lInclui</span> .OR. <span class="var">lAltera</span>
-  <span class="comment">
-      /*
-      @ _nLin,150 Say   Posicione("SX3",2,'ZX4_TESTE2',"X3_TITULO") OF oDlg PIXEL SIZE 080,009 COLOR CLR_BLUE
-      @ _nLin,200 MsGet cTESTE2 Size 120,010 PIXEL OF oDlg WHEN lInclui
-
-      _nLin += 15
-      @ _nLin,010 Say   Posicione("SX3",2,'ZX4_TESTE3',"X3_TITULO") OF oDlg PIXEL SIZE 080,009 COLOR CLR_BLUE
-      @ _nLin,060 MsGet cTESTE3 Size 120,010 PIXEL OF oDlg  F3 "SB1"  
-
-      @ _nLin,150 Say   Posicione("SX3",2,'ZX4_TESTE4',"X3_TITULO") OF oDlg PIXEL SIZE 080,009 COLOR CLR_BLUE
-      @ _nLin,200 MsGet cTESTE4 Size 120,010 PIXEL OF oDlg VALID (U_VALID()) 
-
-      _nLin += 15
-      */
-  </span>    
-  </td>
-  </tr>
-</table>
-
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001REG**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tr>
-    <td>Descrição</td>
-    <td>Descrição	Ponto de entrada na rotina de inclusão de movimento de alçada. Utilizado para personalizar busca de aprovador, quando a regra é do tipo PERSONALIZADA. Deve retornar o código do novo aprovador.
-</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A01.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M001AAP ( &lt;ParamIxB&gt; ) --> cCodAp</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>ParamIxB – Tipo: Carracter – Descrição: Código da rotina configurada na regra</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M001REG.PRW</span>
-  </div>
-  <pre><code>
-<span class="comment">//ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-<span class="comment">//³ Personalizações do cliente                                     ³</span>
-<span class="comment">//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-<span class="uf">User Function</span> <span class="fn">M001REG</span>()
-    <span class="kw">Local</span> <span class="var">aArea</span>      <span class="symbol">:=</span> <span class="fn">GetArea</span>()
-    <span class="kw">Local</span> <span class="var">cRotina</span>    <span class="symbol">:=</span> <span class="var">PARAMIXB</span>
-    <span class="kw">Local</span> <span class="var">cAprovador</span> <span class="symbol">:=</span> <span class="string">""</span>
-    <span class="comment">//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="comment">//³ Personalizações do cliente                                     ³</span>
-    <span class="comment">//ÀÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="kw">If</span> <span class="var">cRotina</span> <span class="symbol">==</span> <span class="string">"MATA120"</span>
-        <span class="var">cAprovador</span> <span class="symbol">:=</span> <span class="string">'000002'</span>
-    <span class="kw">EndIf</span>
-    <span class="fn">RestArea</span>(<span class="var">aArea</span>)
-<span class="kw">Return</span>(<span class="var">cAprovador</span>)
-  </code></pre>
-</div>    
-  </td>
-  </tr>
-</table>
-
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001MNU**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tr>
-    <td>Descrição</td>
-    <td>Ponto de entrada que permite e inclusão de funções na rotina de aprovação de alçadas. Variável aRotina é Private.
-</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A01.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M001MNU ( &lt;ParamIxB&gt; ) --> Nil</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M001MNU.PRW</span>
-  </div>
-  <pre><code>
-<span class="comment">// Adiciona item personalizado no menu do sistema</span><br>
-<span class="uf">User Function</span> <span class="fn">M001MNU</span>()
-    <span class="kw">Local</span> <span class="var">aArea</span> <span class="symbol">:=</span> <span class="fn">GetArea</span>()
-    <span class="comment">// Inclui a opção "&SeuMenu" chamando a função U_XXXXXXX</span>
-    <span class="fn">AADD</span>(<span class="var">aRotina</span>, {<span class="string">"&SeuMenu"</span>, <span class="string">"U_XXXXXXX"</span>, 0, 2})
-    <span class="fn">RestArea</span>(<span class="var">aArea</span>)
-<span class="kw">Return</span>
-  </code></pre>
-</div>
-  </td>
-  </tr>
-</table>
-
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **M001INC**</span>
-</summary>
-
-<div class="content-body" markdown="1">
-
-<table class="pe-table-modern">  
-  <tr>
-    <td>Descrição</td>
-    <td>Ponto de entrada para gravações adicionais após inclusão de movimentos de alçadas. Tabela de movimentos de alçadas está em edição.</td>
-  </tr>
-  <tr>
-    <td>Programa Fonte</td>
-    <td>M001A01.PRW</td>
-  </tr>  
-  <tr>
-    <td>Sintaxe</td>
-    <td><code>M001INC ( &lt;ParamIxB&gt; ) --> Nil</code></td>
-  </tr>
-  <tr>
-    <td>Parâmetros</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-    <td>Retorno</td>
-    <td>Nenhum</td>
-  </tr>
-  <tr>
-  <td>Exemplo</td>
-  <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M001INC.PRW</span>
-  </div>
-  <pre><code>
-<span class="comment">//Exemplo Implementação	User Function M001IND()</span><br>
-<span class="uf">User Function</span> <span class="fn">M001IND()</span>()
-    <span class="kw">Local</span> <span class="var">aArea</span><span class="symbol"> := </span> <span class="fn">GetArea</span>()
-    <span class="kw">Local</span> <span class="var">cRotina</span>  <span class="symbol">:=</span> <span class="var">PARAMIXB</span>
-    <span class="comment">//</span> <span class="comment">ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="comment">//</span> <span class="comment">³ Personalizações do cliente     ³</span>
-    <span class="comment">//</span> <span class="comment">ÚÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ</span>
-    <span class="kw">If</span> <span class="var">cRotina</span></span><span class="symbol"> == </span><span class="string">"MATA120"</span>
-        (_001T03)</span><span class="symbol">-></span>&_001T03FOR <span class="symbol">:=</span> <span class="string">"0101"</span>
-    <span class="kw">EndIf</span>
-    <span class="kw">Local</span> <span class="var">nI</span></span><span class="symbol"> := </span> 0      
-<span class="kw">RestArea</span>(<span class="var">aArea</span>)
-<span class="kw">Return</span>(<span class="var">aRet</span>)
-  </code></pre>
-</div>
-  </td>
-  </tr>
-</table>
-
-</div>
-</details>
-
-</div>
-</details>
-
-<!--############################################### 12 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
@@ -5214,136 +6330,742 @@ Indica a origem da Aprovação:<br>
 
 ### <span style="display: none;">12. Manual de operação</span>
 
-#### 1. Cadastro
+Este ADDON tem por objetivo efetuar o gerenciamento em torno dos arquivos XML emitidos por terceiros pertinentes à documentos fiscais do tipo:<br>
+•	Notas Fiscais Eletrônicas - NFe<br>
+•	Conhecimento de Transporte Eletrônico - CTe<br>
 
-Passo a seguir são para a inclusão de uma nova regra de alçada.
+A partir da importação dos arquivos XML para uma tabela do banco de dados do ERP Protheus, posteriormente, estes arquivos XML podem ser utilizados no processo de lançamento dos documentos fiscais abaixo junto ao ERP:<br>
+•	Documento de Entrada<br>
+•	Conhecimento de Transporte<br>
 
-![](./assets/alcadasregras/02_cadastro_dados_preenchidos.png){.flow-image}
+Vale ressaltar, que não é realizado nenhum tipo de validação em torno dos totais\tributos do documento fiscal lançado no ERP Protheus em relação as informações presentes no XML, ou seja, as informações do XML são utilizadas apenas com o objetivo de agilizar o lançamento dos documentos fiscais no ERP, ou seja, caberá ao usuário efetuar à validação dos totais\tributos do documento fiscal que está sendo lançado.
 
-- <strong>Processo:</strong> Informe o codigo do processo (nome da funcao) referente a Alçada.<br>
-- <strong>Descrição:</strong> Descricao do Processo.<br>
-- <strong>Worklow Aviso:</strong> Informe o nome do processo (rdmake) que será responsavel por enviar WorkFlow de aviso da liberacao controle de alcadas.<br>
-- <strong>Worklow Alias:</strong> Sigla dos arquivos relacionados no processo.<br>
-- <strong>Regra Ativa?:</strong> Informe se a regra esta ativa <strong>S</strong>=Sim, <strong>N</strong>=Não.<br>
+Processos deste Pacote:<br>
+<strong>1)</strong>	Cadastro de Contas de E-mails;<br>
+<strong>2)</strong>	Cadastro de Usuários X Permissões;<br>
+<strong>3)</strong>	Cadastro de Tags;<br>
+<strong>4)</strong>	Movimentação de XML Terceiros;<br>
+<strong>5)</strong>	Relatório de XML Terceiros;<br>
 
-<strong>Campos da Tabela:</strong><br>
+Este manual tem como objetivo auxiliar na utilização das novas funcionalidades disponibilizadas pelo Pacote no módulo de COMPRAS.
 
-![](./assets/alcadasregras/03_cadastro_tabela.png){.flow-image}
+<strong>OBSERVAÇÃO:</strong> Antes de utilizar as rotinas do ADDON XML Terceiros, certifique-se que foram efetuados os procedimentos de aplicação do ADDON junto ao ambiente conforme boletim técnico que acompanha o pacote do ADDON.
 
-- <strong>Sequencia:</strong> Sequencia<br>
-- <strong>Tp. Liberação:</strong> Help Informe o tipo de liberacao que deseja para esta regra de Alcadas:<br>
-  N = Nivel - Sistema respeitara os níveis configurados, encaminhando para o proximonivel somente após aprovação do nível anterior.<br>
-  U = Usuario - A liberacao do usuário pode ocorrer individualmente, sem considerar outros aprovadores constantes na regra.<br>
-- <strong>Nivel:</strong> Informe o nivel (2 digitos).<br>
-- <strong>Tp. Busca:</strong> Help Informe o tipo de busca:<br>
-  E = Entidade - O usuario poderá configurar qualquer tabela do sistema para verificar o aprovador do processo.<br>
-  U = Usuario - Configuracao de usuário "fixo" como aprovador.<br>
-- <strong>Aprovador:</strong> Informe o codigo do usuario que seraresponsavel pela aprovação.<br>
-- <strong>Nome:</strong> Nome do Aprovador.<br>
-- <strong>Indice Alias:</strong> Informe o indice de busca para posicionamento no campo a verificar o aprovador do processo.<br>
-- <strong>Campo:</strong> Informar o campo a ser verificado para selecionar o aprovador, quando selecionado o Tipo de Busca = Entidade.<br>
-- <strong>Expressao:</strong> Podera ser utilizada para criacao de regras diferentes para um mesmo processo. (Utilizar sempre a tabela posicionada no cabecalho do processo.)<br>
-- <strong>Proc. WF:</strong> Help Informe o nome do processo (rdmake) que será responsável por enviar WorkFlow para o controle de alcadas.<br>
-- <strong>Alias:</strong> Sigla dos arquivos relacionados no processo. Ex: SA1, SB1, SD2, etc...<br>
-- <strong>Observacoes:</strong> Observação.<br>
 
-<strong>Após confirmado:</strong> O sistema irá salvar a regra de alçada.<br>
+#### 1. CADASTRO CONTAS DE E-MAILS
 
-![](./assets/alcadasregras/04_cadastro_dado_adicionado.png){.flow-image}
+Esta rotina tem por objetivo o cadastro das contas de e-mail utilizadas pela empresa\filiais para recebimento de arquivos XML emitidos por terceiros contra à empresa\filial.
+<br>
+As contas de e-mail cadastradas através desta rotina, poderão ser posteriormente utilizadas para sincronização\download dos arquivos de XML recebidos através de e-mail.
+<br>
+Para cadastrar à conta de e-mail em questão, deverá ter de posse os dados técnicos em torno da comunicação\conexão junto à conta de e-mail.
+![](./assets/xmlterceiros/Imagem1.png){.flow-image}
 
-#### 2. Aprovação de Documento
+As definições técnicas a respeito da configuração das contas de e-mail que serão integradas com o addon XML Terceiros para o recebimento de arquivos XML estão organizadas em pastas conforme à sua aplicação\finalidade.<br>
+Abaixo, seguem informações especificas em torno de alguns dos campos presentes junto ao cadastro de contas de e-mail:
 
-Para aprovar um documento, na tela inicial do protheus, no grupo de "Alçadas", clique no botão "Aprovamentos", escolha a forma de visualização do filtro e clique em "OK" assim será possivel visualizar na tela de Aprovações se há algum documento que precise de atenção.
+* <strong>Bloqueado (Z04_MSBLQL)</strong>: 
+    * Determina se à conta de e-mail está bloqueada.<br>
+    * Contas de e-mail definidas como bloqueadas não serão disponibilizadas para integração com a rotina de XML Recebidos.<hr>
+* <strong>Utiliza SSL (Z04_SSL)</strong>: 
+    * Determina se à conta de e-mail utiliza autenticação do tipo SSL.
+<hr>
+* <strong>Utiliza TLS (Z04_TLS)</strong>: 
+    * Determina se à conta de e-mail utiliza autenticação do tipo TLS.
+<hr>
+* <strong>Recebimento (Z04_RECBTO)</strong><br>
+    * <strong>I – Imap</strong>: <br>
+        * Determina que o protocolo de recebimento de e-mails para a conta é IMAP.<br>
+        * Deve-se considerar os campos abaixo para configuração deste protocolo:
+            * <strong>Pop (Z04_IMAP)</strong>
+                * Endereço do servidor IMAP.
+            * <strong>Porta (Z04_PIMAP)</strong>
+                * Porta de comunicação do servidor IMAP.
+        * Ao utilizar contas de e-mail com protocolo de recebimento IMAP, certifique-se que foram adicionadas as configurações abaixo junto ao arquivo de configuração do server do ERP Protheus (appserver.ini):<br><br>
+          <strong>[MAIL]</strong><br>
+          authLogin=1<br>
+          protocol=IMAP<br>
+          authNTLM=1<br>
+          authPlain=0<br>
+          ExtendSMTP=1<br>
+          SSLVersion=2<br>
+          TLSVersion=3<br><br>
+          <strong>[SSLConfigure]</strong><br>
+          SSL2=2<br>
+      * <strong>P – Pop</strong>: <br>
+        * Determina que o protocolo de recebimento de e-mails para a conta é POP.
+        * Deve-se considerar os campos abaixo para configuração deste protocolo:
+            * <strong>Pop (Z04_POP)</strong>
+                * Endereço do servidor POP.
+            * <strong>Porta (Z04_PPOP)</strong>
+                * Porta de comunicação do servidor POP.
+        * Ao utilizar contas de e-mail com protocolo de recebimento POP, certifique-se que foram adicionadas as configurações abaixo junto ao arquivo de configuração do server do ERP Protheus (appserver.ini):<br><br>
+            <strong>[MAIL]</strong><br>
+            protocol=POP
+<hr>
+* <strong>Importação (Z04_TPIMP)</strong><br>
+  * <strong>1 – Filial Logada</strong>: <br>
+    * Nesta configuração, somente serão importados os arquivos XML cujo o CNPJ do destinatário seja igual à empresa\filial logada.<br>
+  * <strong>2 – Todas as Filiais</strong>: <br>
+    * A partir desta configuração, serão importados os arquivos XML vinculados à e-mails da conta onde o CNPJ do destinatário seja igual ao CNPJ de qualquer empresa\filial do ERP Protheus.
+<hr>
+* <strong>Processados (Z04_EPROC)</strong><br>
+  * <strong>1 – Excluir</strong>: <br>
+    * Caso tenha sido importado um ou mais XML a partir do e-mail processado, será realizado à exclusão do e-mail junto à conta de e-mail processada.<br>
+  * <strong>2 – Manter</strong>: <br>
+    * Caso tenha sido importado um ou mais XML a partir do e-mail processado, será mantido o e-mail junto à conta de e-mail processada.<br>
+        * Ao utilizar esta opção, vale ressaltar que em nova integração com a conta de e-mail, os e-mails já lidos serão novamente avaliados, logo, este cenário poderá afetar no tempo de processamento da integração com a conta de e-mail.
+<hr>
+* <strong>Ignorados (Z04_EIGNOR)</strong><br>
+  * <strong>1 – Excluir</strong>: <br>
+    * Caso não tenha sido importado nenhum XML a partir do e-mail processado, será realizado à exclusão do e-mail junto à conta de e-mail processada.<br>
+  * <strong>2 – Manter</strong>: <br>
+    * Caso não tenha sido importado nenhum XML a partir do e-mail processado, será mantido o e-mail junto à conta de e-mail processada.<br>
+        * Ao utilizar esta opção, vale ressaltar que em nova integração com a conta de e-mail, os e-mails já lidos serão novamente avaliados, logo, este cenário poderá afetar no tempo de processamento da integração com a conta de e-mail.
 
-![](./assets/alcadasregras/08_aprovacao_visualizacao.png){.flow-image}
+#### 2. CADASTRO USUÁRIOS X PERMISSÕES
+A rotina de Usuários X Permissões foi desenvolvida com o objetivo de efetuar o controle em torno das permissões que os usuários do ERP Protheus terão em relação aos recursos presentes nas rotinas do ADDON XML de Terceiros.
+<br>
+Não será possível aos usuários, utilizar os recursos do ADDON caso não possua registro de definição de permissões.
+<br>
+Para cadastrar as permissões, é necessário inicialmente vincular o cadastro do usuário do ERP Protheus o qual foi previamente definido através do ambiente Configurador.
+![](./assets/xmlterceiros/Imagem2.png){.flow-image}
+<br>
+Posteriormente, definem-se as permissões para o usuário em questão em relação aos recursos existentes no ADDON XML de Terceiros.<br>
+Para cada um dos recursos existentes nas rotinas do ADDON, existem campos específicos no cadastro de Usuários X Permissões conforme exemplo abaixo.
+![](./assets/xmlterceiros/Imagem3.png){.flow-image}
+<br>
+Ao realizar o cadastramento das permissões, verifique o help dos campos para obter demais informações sobre à permissão em questão.<br>
+<strong>DICA:</strong> não é necessário realizar à inclusão do cadastro de Usuários X Permissões para o usuário ADMINISTRADOR do ERP Protheus, afinal, o mesmo possui acesso total a todos os recursos do ADDON de modo padrão.
+<br>
 
-A legenda de cada status pode ser acessadas em Açoes Relacionadas > Legendas:
+#### 3. CADASTRO DE TAGS
+A rotina de Cadastro de Tags está presente no ADDON XML de Terceiros com o objetivo de flexibilizar à evolução do ADDON em relação a alterações na estrutura dos arquivos XML pertinentes aos documentos fiscais abaixo:
+<br>
 
-![](./assets/alcadasregras/07_aprovacao_legendas.png){.flow-image}
+* <strong>NF-e</strong><br>
+* <strong>CT-e</strong><br>
 
-Para Aprovar ou Reprovar um Documento, clicamos no botão "Liberar" no canto inferior da tela de aprovação. Nessa tela adicionamos uma "Observação" e clicamos no botão desejado (<strong>Aprovar Docto</strong> para Aprovar ou <strong>Reprovar Docto</strong> para Reprovar).
+Por padrão, o ADDON XML de Terceiros já contempla uma carga de tags pré-definidas as quais são de utilização exclusiva do próprio ADDON. As definições de tags são utilizadas no recurso de processamento dos arquivos XML recebidos, ou seja, na funcionalidade à qual através do XML possibilita um assistente para maior agilidade na inclusão dos documentos fiscais no ambiente.<br>
+![](./assets/xmlterceiros/Imagem4.png){.flow-image}
+<br>
+Junto ao cadastro de tags são definidas as tags presentes no XML que está sendo processado bem como qual a tabela\campo do ERP Protheus no qual o conteúdo será direcionado quando do processamento do XML - inclusão do documento fiscal de entrada \ conhecimento de frete.<br>
 
-![](./assets/alcadasregras/08_aprovacao_aprovar_documento.png){.flow-image}
+Não é possível alterar as tags padrões do ADDON, porém, caso seja necessário efetuar tratamento de algum campo personalizado existente por exemplo na tabela SD1 (Itens Doc. Entrada) durante o processamento do XML, poderá ser incluído uma tag personalizada, ou seja, especifica da empresa\filial.<br>
 
-- <strong>Numero Doc.:</strong> O código do documento que está sendo aprovado.<br>
-- <strong>Emissao:</strong> A data de emissão do documento.<br>
-- <strong>Aprovador:</strong> O nome do usuário que está realizando a aprovação.<br>
-- <strong>Processo:</strong> O nome do processo que está sendo aprovado.<br>
-- <strong>Status:</strong> Stauts do movimento:<br>
-1 - Aguardando Aprovacao<br>
-2 - Aguardando Aprov. Nivel Anterior<br>
-3 - Aprovado<br>
-4 - Transferido p/ outro Aprovador<br>
-5 - Reprovado<br>
-6 - Nivel Anterior Reprovado<br>
-- <strong>Observações:</strong> Observações adicionadas durante a aprovação ou reprovação do documento.<br>
+<strong>OBSERVAÇÃO:</strong> Caso seja de interesse, considerar que o valor do ICMS e ICMS ST presentes no XML seja considerado para o Documento de Entrada no processamento do XML, deve-se apendar ao cadastro de tags, tags personalizadas para este processo as quais estão disponíveis junto ao pacote deste Addon. Além disto, é necessário que seja ativado o parâmetro <strong>MV_X004014</strong> (.T.). Com isto, ao processar o XML gerando Documento de Entrada, desde que o TES esteja parametrizado para calcular ICMS, serão replicados os valores do ICMS e ICMS ST presentes nos itens do XML do documento fiscal, para os itens na rotina de Documento de Entrada.<br>
+![](./assets/xmlterceiros/Imagem5.png){.flow-image}
+<br>
+Ao realizar à inclusão de tags especificas\próprias, observe com atenção o help dos campos. Além disto, poderá estar verificando a partir das próprias tags padrões do ADDON como os campos devem ser preenchidos. 
+<br>
 
-Se precisar visualizar o Documento antes de Aprovar ou Reprovar, podemos clicar sobre o botão <strong>"Visual. Docto."</strong>
+* <strong>Vld. Usuário (Z06_VLDUSR)</strong><br>
+  * Este campo existente no Cadastro de Tags pode ser utilizado para que sejam vinculadas regras personalizadas do cliente as quais serão executadas quando da edição do referido campo\tag na interface (wizard) de processamento do XML Terceiros.<br>
+  * O seu retorno deve ser do tipo lógico (.T. \ .F.) o qual irá determinar se o conteúdo manipulado será aceito ou não.
+<br>
+<br>
+<strong>OBSERVAÇÃO:</strong> as definições de tags padrão do ADDON poderão sofrer alterações em atualizações futuras, desta forma, particularidades da empresa\filial devem ser tratadas através de tags personalizadas\especificas. As tags da NF-e contemplavalidação para notas emitidas por fornecedorsendo CNPJ ou CPF.
+<br>
 
-![](./assets/alcadasregras/09_aprovacao_visualizar_documento.png){.flow-image}
+#### 4. ROTINA XML RECEBIDOS
+Através da rotina de XML Recebidos, é realizado toda a gestão em torno do recebimento\processamento do XML de Terceiros emitidos para a empresa\filial.<br>
+Inicialmente, ao acessar a rotina é apresentado o browse com as funcionalidades disponíveis bem como, o browse com as principais informações de cada XML Terceiros previamente importado.
+![](./assets/xmlterceiros/Imagem6.png){.flow-image}
+<br>
+ Na parte superior do browse, são disponibilizados filtros pré-configurados com base nos possíveis status em que os XML Terceiros podem assumir:
+ <br>
+![](./assets/xmlterceiros/Imagem7.png){.flow-image}<br>
+Na sequência, serão abordados os recursos presentes na rotina de XML Recebidos.
 
-<strong><u>Exemplo de email de liberação de documento.</u></strong>
+* <strong>4.1. IMPORTAR</strong>: 
+    * Ações Relacionadas\Importar<br>
+    
+* <strong>MANUAL</strong>: através desta opção, será apresentado interface para que seja apontado arquivo de XML Terceiros o qual deverá ser importado para o ADDON.
 
-![](./assets/alcadasregras/10_aprovacao_email_aprovado.png){.flow-image}
+![](./assets/xmlterceiros/Imagem8.png){.flow-image}<br>
+ Ao confirmar à interface, serão executadas as regras de análise\importação do XML para o ADDON XML de Terceiros. Caso seja importado o XML com sucesso, será apresentado mensagem em torno da importação:<br>
 
-#### 3. Ausencia Temporária
+![](./assets/xmlterceiros/Imagem9.png){.flow-image}<br>
+Consequentemente, será disponibilizado no Browse, registro do XML o qual foi importado.
 
-Quando um aprovador está ausente, é possível configurar um substituto para assumir suas responsabilidades. Isso garante que os processos de aprovação não fiquem paralisados durante férias, licenças ou ausências planejadas.
+![](./assets/xmlterceiros/Imagem10.png){.flow-image}<br>
+<strong>E-MAIL:</strong> ao utilizar esta opção, será efetuado verificação em torno da existência de contas de e-mail junto à empresa\filial logada.<br>
+Caso existam contas cadastradas, ocorrerá à comunicação com a conta de e-mail sendo verificado à existência de e-mails com XML de Terceiros.<br>
+![](./assets/xmlterceiros/Imagem11.png){.flow-image}<br>
+Havendo e-mails válidos, ou seja, com XML de NFe\CTe, estes serão importados, sendo consequentemente disponibilizados no browse da rotina de XML Recebidos.
+<br>
+<strong>DICA:</strong> independentemente de efetuar à importação do XML de forma manual ou automática, quando um XML é importado ao ADDON de XML Terceiros, o arquivo .XML considerado na importação (arquivo original) é copiado para a pasta PROTHEUS_DATA do ambiente do ERP Protheus.
+<br>
 
-Para configurar um substituto, utilizamos a tela de Ausência Temporária, acessamos através de Incluir:
+Neste processo, é criado uma pasta denominada \XMLS\ junto ao PROTHEUS_DATA. Posteriormente, abaixo desta pasta, são declaradas subpastas com o CNPJ\CPF do emissor do XML que foi importado sendo vinculado à esta pasta os arquivos originais.<br>
+Com este recurso, posteriormente caso seja necessário, é possível consultar os arquivos originais. Basta solicitar ao departamento de TI.<br>
+Além das regras acima elencadas, caso o ambiente do ERP Protheus utilize-se do módulo de Gestão de Frete Embarcador - SIGAGFE, será analisado à configuração do parâmetro MV_XMLDIR.<br>
+Através deste parâmetro, é determinado diretório (dentro do Protheus_Data) no qual o SIGAGFE estará realizando à leitura de arquivos XML pertinentes à CTe (Conhecimento de Transporte Eletrônico). Em resumo, caso o parâmetro <strong>MV_XMLDIR</strong> esteja preenchido e o diretório informado no mesmo exista abaixo do Protheus_Data, ocorrerá a cópia do arquivo XML dos CTe os quais foram importados tanto de forma manual como automática também para esta pasta.<br>
+O sistema pode verificar se as Notas Fiscais de Entrada referenciadas no Cte já foram informadas em outro Cte. Para tanto, é verificada a tabela SF8 - Amarracao NF OrigINAL x NF Importação ou Frete.<br>
+Na hipótese do parâmetro <strong>MV_X004015</strong> configurado como <strong>N</strong>=Não, e alguma das notas referenciadas no .xml já estiver sido referenciada em outro CTe, não será possível efetuar a importação para futuro pocessamento do arquivo.
+<br>
+<br>
+<strong>DICA:</strong> Ao realizar à importação de um XML Terceiros, caso já exista documento de entrada\conhecimento de frete com à chave do documento fiscal presente no XML em questão, o mesmo já será automaticamente vinculado ao documento fiscal existente no ERP Protheus, ou seja, o status do registro do XML junto ao ADDON ficará como Documento Entrada.
+<br>
 
-![](./assets/alcadasregras/12_ausencia_incluir.png){.flow-image}
+* <strong>4.2. EXPORTAR</strong>: 
+    * Ações Relacionadas\Exportar<br>
+Utilizando-se deste recurso, é possível realizar à exportação dos XML Terceiros existentes no ADDON de XML para arquivos.<br>
 
-Na tela de Ausência Temporária, preenchemos os campos obrigatórios:
+Para isto, deve-se parametrizar os parâmetros visando que sejam exportados os XML existentes no ADDON conforme as regras de filtro definidas.
 
-![](./assets/alcadasregras/13_ausencia_cadastro.png){.flow-image}
 
-- <strong>Codigo:</strong> Codigo do registro.<br>
-- <strong>Aprovador:</strong> Codigo do Aprovador que esta sendo substituído temporariamente.<br>
-- <strong>Nome:</strong> Nome do Aprovador que esta sendo substituído temporariamente.<br>
-- <strong>Dt. Saida:</strong> Data de inicio da ausência.<br>
-- <strong>Dt. Retorno:</strong> Data de Retorno.<br>
-- <strong>Substituto:</strong> Codigo do Usuário que será substituto.<br>
-- <strong>Nome:</strong> Nome do Usuario substituto.<br>
 
-A partir desse momento, todos os documentos que estiverem aguardando aprovação do aprovador original serão automaticamente redirecionados para o substituto, garantindo a continuidade dos processos sem interrupções.
 
-![](./assets/alcadasregras/14_ausencia_item_incluido.png){.flow-image}
 
-#### 4. Transfêrencias
 
-Para transferir um documento de um aprovador para outro, utilizamos a tela de Transferência, acessamos através de Ações Relacionadas > Trasnferencia:
 
-![](./assets/alcadasregras/17_transferencia_novo_aprovador.png){.flow-image}
 
-- <strong>Aprovador Ausente:</strong> Codigo do aprovador que está ausente.<br>
-- <strong>Novo Aprovador:</strong> Codigo do novo aprovador.<br>
 
-Na tabela, selecionamos o documento que será transferido, clicando e marcando a caixa de seleção no começo da linha:
 
-![](./assets/alcadasregras/21_trasnferencia_tabela.png){.flow-image}
 
-Uma notificação com o documento será enviado para o aprovador através do email:
 
-![](./assets/alcadasregras/18_transferencia_email.png){.flow-image}
 
-Clicando em "Processo" no texto "Favor acessar o processo de workflow referente à liberação pedido de venda", visualizamos a tela de liberação de Pedido de Compra, podendo ser aprovado diretamente por ela:
 
-![](./assets/alcadasregras/19_transferencia_liberacao_compra.png){.flow-image}
 
-- <strong>Aprovado/Reprovado:</strong> Selecione o desejado.<br>
-- <strong>Observação:</strong> Informe uma observação.<br>
 
-Pelo sistema, através do grupo de "Alçadas" podemos clicar sobre "Aprovações". Para liberar um documento pendente podemos clicar sobre o botão "Liberar" e/ou consultar as Aprovações de Documentos pelo botão "Cons. Aprov.":
 
-![](./assets/alcadasregras/20_trasnferencia_visualiza_outro_aprovador.png){.flow-image}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<strong>•	Utiliza TLS (Z04_TLS)</strong>: Determina se à conta de e-mail utiliza autenticação do tipo TLS.
+
+<strong>•	Utiliza TLS (Z04_TLS)</strong>: Determina se à conta de e-mail utiliza autenticação do tipo TLS.
+
+<strong>•	Utiliza TLS (Z04_TLS)</strong>: Determina se à conta de e-mail utiliza autenticação do tipo TLS.
+
+
+#### 2. Regras de Alçadas
+
+Esta rotina tem por objetivo cadastraras regras dos processos em controle de alçadas, utilizado para definir as regras de bloqueio dos documentos e os usuários aprovadores de cada processo.
+
+<i>OBS: os usuários envolvidos no processo (solicitantes, aprovadores) devem estar cadastrados como usuários do ERP no módulo Configurador e devem possuir e-mail.</i>
+
+Será apresentada tela de Browse contendo as regras já criadas.
+
+![](./assets/alcadaswfpedidocompra/05.png){.flow-image}
+
+#### 2.1. Liberação por Nível
+
+Utilizado para definir regras de liberação por nível de hierarquia, ou seja, uma regra pode exigir a liberação de três usuários que estão em níveis de hierarquia diferentes, por exemplo:
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Seq</th>
+      <th>Tp. Liber.</th>
+      <th>Nível</th>      
+      <th>Usuário</th>      
+      <th>Cargo/Departamento</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01</td>
+      <td>Nível</td>
+      <td>01</td>      
+      <td>Aprovador 01</td>      
+      <td>Gerente de T.I.</td>      
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Nível</td>
+      <td>02</td>      
+      <td>Aprovador 02</td>      
+      <td>Gerente de Compras</td>      
+    </tr>  
+    <tr>
+      <td>03</td>
+      <td>Nível</td>
+      <td>03</td>      
+      <td>Aprovador 03</td>      
+      <td>Diretor 1</td>      
+    </tr>  
+    <tr>
+      <td>04</td>
+      <td>Nível</td>
+      <td>04</td>      
+      <td>Aprovador 04</td>      
+      <td>Diretor 2</td>      
+    </tr>  
+  </tbody>
+</table>
+
+O controle de alçadas vai executar a primeira regra e enviar um workflow de aprovação para os usuários aprovadores do Nível 01, neste caso usuário “APROVADOR 01”. Após o mesmo aprovar o documento, será executada a segunda regra que enviará um workflow de aprovação para os usuários do Nível 02, “APROVADOR 02”. Após este aprovar, será executada a terceira regra que enviará um workflow para os dois usuários do Nível 03.Neste caso qualquer um deles pode aprovar o documento, pois estão no mesmo nível.<br>
+
+Somente após o último nível ter sido aprovado é que o documento em questão será liberado pelo controle de alçadas.</br>
+Caso algum usuário rejeite o documento, em qualquer nível, as regras seguintes não serão executadas e o documento ficará com Status “rejeitado”.
+
+#### 2.2. Liberação por Usuário
+
+Utilizado para definir regras de liberação por usuário um ou mais usuários, sem considerar níveis de hierarquia. Exemplo:
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Seq</th>
+      <th>Tp. Liber.</th>
+      <th>Nível</th>      
+      <th>Usuário</th>      
+      <th>Cargo/Departamento</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01</td>
+      <td>Usuário</td>
+      <td>-</td>      
+      <td>Aprovador 01</td>      
+      <td>Gerente de T.I.</td>      
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Usuário</td>
+      <td>-</td>      
+      <td>Aprovador 02</td>      
+      <td>Gerente de Compras</td>      
+    </tr>  
+    <tr>
+      <td>03</td>
+      <td>Usuário</td>
+      <td>-</td>      
+      <td>Aprovador 03</td>      
+      <td>Diretor 1</td>      
+    </tr>      
+  </tbody>
+</table>
+
+O controle de alçadas vai executar sequencialmente cada regra acima e exigir a aprovação de todos os usuários definidos.
+
+#### 2.3. Liberação por Documento
+
+Utilizado quando não há diferenciação de níveis de hierarquia e quando há vários usuários aprovadores, sendo que o documento será liberado quando qualquer um dos usuários aprovar, não exigindo a aprovação de todos.
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Seq</th>
+      <th>Tp. Liber.</th>
+      <th>Nível</th>      
+      <th>Usuário</th>      
+      <th>Cargo/Departamento</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01</td>
+      <td>Documento</td>
+      <td>-</td>
+      <td>Aprovador 01</td>
+      <td>Gerente de T.I.</td>      
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Documento</td>
+      <td>-</td>      
+      <td>Aprovador 02</td>      
+      <td>Gerente de Compras</td>      
+    </tr>  
+    <tr>
+      <td>03</td>
+      <td>Documento</td>
+      <td>-</td>      
+      <td>Aprovador 03</td>      
+      <td>Diretor 1</td>      
+    </tr>      
+  </tbody>
+</table>
+
+Principais campos da tela de cadastro:
+
+<strong>PROCESSO</strong>: informe o nome do programa ao qual serão criadas as regras para alçadas, no caso deste pacote são somente as rotinas abaixo:
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Rotina</th>
+      <th>Descrição</th>  
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MATA110</td>
+      <td>SOLICITACAO DE COMPRA</td>    
+    </tr>
+    <tr>
+      <td>MATA120</td>
+      <td>PEDIDO DE COMPRA</td>  
+    </tr>      
+  </tbody>
+</table>
+
+<strong>DESCRIÇÃO</strong>: informe uma descrição ou nome para o processo, conforme a rotina.
+
+<strong>WORKFLOW AVISO</strong>: informe o nome do workflow que será utilizado para o controle de alçadas enviar um e-mail de Aviso com o Status de liberação do documento (aprovado ou rejeitado).<br>
+É necessário que o mesmo esteja cadastrado na rotina “Destinatários de Workflow”.<br>
+Por padrão, o controle de alçadas sempre enviará o workflow de aviso para o usuário “solicitante” que incluiu o respectivo documento, porém é possível adicionar outros destinatários.<br>
+Para este pacote de alçadas informe:<br>
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Processo</th>
+      <th>Workflow</th>  
+      <th>Descrição</th>  
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MATA110</td>
+      <td>W001C02</td>    
+      <td>AVISO SOLICITACAO DE COMPRA (APROVADA/REJEITADA)</td>    
+    </tr>
+    <tr>
+      <td>MATA120</td>
+      <td>W001C04</td>  
+      <td>AVISO PEDIDO DE COMPRA (APROVADO/REJEITADO)</td>    
+    </tr>      
+  </tbody>
+</table>
+
+<strong>WORKFLOW ALIAS</strong>: informe o Alias da tabela principal do documento em alçadas, para uso pelo programa de envio do workflow de aviso.
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Alias</th>
+      <th>Tabela</th>        
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SC1</td>
+      <td>SOLICITACAO DE COMPRA</td>          
+    </tr>
+    <tr>
+      <td>SC7</td>
+      <td>PEDIDO DE COMPRA</td>        
+    </tr>      
+  </tbody>
+</table>
+
+<strong>REGRA ATIVA</strong>: informe se a regra está habilitada ou não para ser utilizada pelo controle de alçadas (Sim/Não).
+
+No Grid que segue,informe a definição das regras para o processo conforme segue abaixo:
+
+<strong>SEQUENCIA</strong>: código automático que indica a sequencia de execução das regras.
+
+<strong>TIPO LIBERAÇÃO</strong>: informe o tipo de liberação da regra:
+- Por Nível
+- Por Usuário
+- Por Documento
+
+<strong>NÍVEL</strong>: caso o tipo de liberação seja “por nível” informe o código dos níveis de liberação. Exemplo: 01, 02, 03...
+
+<strong>TIPO BUSCA</strong>: informe como o controle de alçadas buscará e determinará o usuário aprovador que vai receber o workflow de aprovação:<br>
+<strong>Por Entidade</strong>:será utilizada uma tabela externa que deve estar relacionada a tabela principal do documento em questão. Exemplo: tabela de Centro de Custos. Esta tabela relacionada deverá conter um campo customizado com o código do usuário aprovador/responsável.<br>
+<strong>Por Usuário</strong>: deverá ser associado e relacionado um usuário específico para aprovação.<br>
+<strong>Personalizada</strong>: retorna o aprovador de forma personalizada. Deve ser utilizado o ponto de entrada <strong>M001REG</strong> para a regra personalizada, o retorno do ponto de entrada deve ser o código do usuário aprovador.  
+
+<strong>APROVADOR</strong>: somente se o tipo de busca for “por usuário”, informe o código do usuário do ERP que receberá o workflow para liberação do documento conforme a regra.
+
+<strong>INDICE ALIAS</strong>: somente se o tipo de busca for “por entidade”, informe o código do índice de busca da tabela relacionada que contém o código do usuário que será utilizado.
+
+<strong>CAMPO</strong>: somente se o tipo de busca for “por entidade”, informe o nome do campo da tabela relacionada que contém o código do usuário que será utilizado.
+Podem ser utilizadas duas entidades: 
+
+- SBM – Grupo de Produtos
+- CTT – Centro de Custos 
+
+Exemplo: se utilizar a tabela de Centro de Custos (CTT), esta tabela deverá conter um campo com o código do usuário responsável, exemplo: CTT_X_USR. O documento em questão deverá conter um relacionamento com a tabela CTT, por exemplo, se for Solicitação de Compras existe o campo C1_CC. Desta forma, a regra ficaria assim:
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Tp. Busca</th>
+      <th>Índice Alias</th>        
+      <th>Campo</th>        
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Entidade</td>
+      <td>1</td>          
+      <td>CTT_X_USR</td>
+    </tr>    
+  </tbody>
+</table>
+
+O controle de alçadas vai buscar na tabela CTT utilizando o índice 1, o código do centro de custo na solicitação de compras pelo campo C1_CC, pegando o código do usuário que está no campo customizado CTT_X_USER.
+
+!!! warning "ATENÇÃO: Verificar parâmetro MV_X001013, que define qual entidade será utilizada para a Solicitação de Compras e para o Pedido de Compras. "
+
+<i>OBS: estas regras devem ser definidas e customizadas durante a implantação em cada cliente, pois é necessário criar o campo customizado e a regra de relacionamento conforme a tabela que será utilizada.</i>
+
+<strong>EXPRESSÃO</strong>: opcionalmente, se necessário informe uma expressão ADVPL para determinar se a regra será executada ou não com base no documento em questão, a qual necessariamente deverá retornar: .T. ou .F. Pode ser utilizada uma função de usuário para efetuar um processamento sobre o documento e retornar a expressão.
+Exemplo: no caso de pedido de compra, o pacote de alçadas contém uma variável pública “X001SC7TOT” que representa o valor total do pedido de compra. Com base nesta variável é possível definir faixas de valores para determinar as alçadas de aprovação:
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Seq</th>
+      <th>Nível</th>        
+      <th>Usuário</th>        
+      <th>Expressão</th>        
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>01</td>
+      <td>01</td>          
+      <td>Aprovador 01</td>
+      <td>X001SC7TOT> 0</td>
+    </tr>    
+    <tr>
+      <td>02</td>
+      <td>02</td>          
+      <td>Aprovador 02</td>
+      <td>X001SC7TOT> 5000 .AND. X001SC7TOT<= 50000</td>
+    </tr>    
+    <tr>
+      <td>03</td>
+      <td>03</td>          
+      <td>Aprovador 03</td>
+      <td>X001SC7TOT> 50000 .AND. X001SC7TOT<= 100000</td>
+    </tr>    
+    <tr>
+      <td>04</td>
+      <td>04</td>          
+      <td>Aprovador 04</td>
+      <td>X001SC7TOT> 50000 .AND. X001SC7TOT<= 100000</td>
+    </tr>    
+  </tbody>
+</table>
+
+<i>OBS: as regras 03 e 04 possuem a mesma expressão pois tem dois usuários no mesmo nível.</i>
+
+<strong>PROC. WF</strong>: informe o nome do programa de workflow de liberação que será utilizado para o controle de alçadas enviar um e-mail contendo o link de aprovação do documento, para o usuário aprovador conforme as regras.
+
+<strong>ALIAS</strong>:informe o Alias da tabela principal do documento em alçadas, para uso pelo programa de envio do workflow de liberação.
+
+<strong>OBSERVAÇÕES</strong>: informe algum texto de observação para a regra em questão, opcional.
+
+Exemplo de Regra para <strong>Solicitação de Compras</strong>
+
+Por Entidade:
+
+![](./assets/alcadaswfpedidocompra/06.png){.flow-image}
+
+Por usuário:
+
+![](./assets/alcadaswfpedidocompra/07.png){.flow-image}
+
+Exemplo de Regra para <strong>Pedido de Compras</strong>
+
+![](./assets/alcadaswfpedidocompra/08.png){.flow-image}
+
+<strong>Transferência de aprovador</strong>
+
+Nesta opção é possível efetuar a transferência de documentos que estão pendentes para aprovação de determinado usuário aprovador, e passar para outro usuário. Motivo pode ser uma ausência não prevista do aprovador, por exemplo saúde, sendo que o documento precisa ser liberado.
+
+Será apresentada a seguinte tela:
+
+![](./assets/alcadaswfpedidocompra/09.png){.flow-image}
+
+<strong>APROVADOR AUSENTE</strong>: informe o código do usuário que se ausentou. Após informar, serão exibidos no Grid os documentos que estão pendentes para o aprovador.
+
+<strong>NOVO APROVADOR</strong>: informe o código do usuário que será o novo aprovador dos documentos.
+
+Selecione os documentos que deseja transferir e confirme a operação no botão “Transferir”
+
+#### 2.4. AUSÊNCIA TEMPORÁRIA
+
+Estecadastro tem por objetivo definir um usuário aprovador substituto, de forma temporária, no caso do aprovador principal ter um período ausente, por exemplo, férias.
+
+Toda vez que um documento é avaliado pelas regras do controle de alçadas, o sistema consultará se o aprovador definido pela regra tem um período de ausência temporária cadastrado, com base na data do documento. Em caso afirmativo, será utilizado o aprovador substituto para liberação do documento.
+
+![](./assets/alcadaswfpedidocompra/10.png){.flow-image}
+
+<strong>APROVADOR</strong>: informe o usuário aprovador que estará ausente.
+
+<strong>DATA SAÍDA</strong>: informe a data de saída do usuário aprovador. Tem que ser uma data futura, maior que a data atual do sistema.
+
+<strong>DATA RETORNO</strong>: informe a data de retorno do usuário aprovador. Tem que ser uma data maior ou igual a data de saída.
+
+<strong>SUBSTITUTO</strong>: informe o usuário aprovador que será o substituto do aprovador ausente.
+
+#### 2.5. VERBAS APROVADORES
+
+Estecadastro tem por objetivo definir a verba disponível para aprovadores específicos e definir seus superiores no caso de transferência.
+
+![](./assets/alcadaswfpedidocompra/11.png){.flow-image}
+
+<strong>APROVADOR</strong>: informe o usuário aprovador que terá a verba a ser cadastrada.
+
+<strong>PROCESSO</strong>: informe o nome da rotina onde será feito o controle de verba:
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Rotina</th>
+      <th>Descrição</th>                
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>MATA110</td>
+      <td>SOLICITACAO DE COMPRA</td>                
+    </tr>    
+    <tr>
+      <td>MATA120</td>
+      <td>PEDIDO DE COMPRA</td>                
+    </tr>    
+  </tbody>
+</table>
+
+<strong>TIPO LIMITE</strong>: informe o tipo de período limite da verba.
+
+<strong>SUPERIOR</strong>: informe o código do superior para efeito de transferência.
+
+<strong>VALOR VERBA</strong>: informe o valor da verba.
+
+<strong>GRUPO VERBA</strong>: informe o código do grupo de verba. Este código será comparado com o valor trazido pelo próximo campo para fins de validação.
+
+<strong>EXP. GRUPO</strong>: informe uma expressão ADVPL que irá trazer o código do grupo de verba.
+
+Na imagem exemplo, o campo Grupo Verba foi preenchido com o código de um produto especifico, ou seja, esta verba será para somente este produto.
+
+O campo Exp. Grupo então precisa trazer o campo Código do Produto do cadastro de pedidos, que por sua vez trará o código que está dentro de Grupo Verba somente quando o produto for aquele especifico.
+
+#### 3. APROVAÇÕES (LIBERAÇÃO/REJEIÇÃO DE DOCUMENTOS)
+
+Esta rotina tem por objetivo permitir a liberação ou rejeição de documento de forma manual, ou seja, via sistema e não Workflow.<br>
+Serão exibidos somente os registros/documentos que estão direcionados para o usuário logado no sistema, ou seja, o aprovador.<br>
+Na entrada da rotina é apresentada tela para selecionar o filtro de exibição dos documentos em alçadas conforme o Status:<br>
+
+![](./assets/alcadaswfpedidocompra/12.png){.flow-image}
+
+Será apresentado na tela um Browse com os documentos em controle de alçadas e o respetivo Status conforme legenda:
+
+![](./assets/alcadaswfpedidocompra/13.png){.flow-image}
+
+#### 3.1. Liberar
+
+Será apresentada tela para aprovação do documento/registro posicionado, desde que esteja pendente aguardando liberação:
+
+![](./assets/alcadaswfpedidocompra/14.png){.flow-image}
+
+
+Dentro desta tela é possível acionar as seguintes opções:
+
+- Visualizar Documento: mostra tela de visualização do documento conforme a sua rotina de origem, ou seja, se for uma solicitação de compras abrirá a visualização da solicitação de compras;
+- Aprovar Documento: confirma a liberação do documento em alçadas
+- Reprovar Documento: rejeita a liberação do documento em alçadas.
+- Cancelar: fecha a tela.
+
+#### 3.2. Cons. Aprov.
+
+Será apresentada tela para consulta do Status dos movimentos de aprovação/rejeição do documento posicionado:
+
+![](./assets/alcadaswfpedidocompra/15.png){.flow-image}
+
+#### 3.3. Visualiza Doc.
+
+Será apresentada a tela de visualização do documento conforme a sua rotina de origem, ou seja, se for uma solicitação de compras abrirá a tela de visualização da rotina solicitação de compras;
+
+#### 4. PROCESSOS INTEGRADOS COM AS ALÇADAS - COMPRAS
+
+#### 4.1. SOLICITAÇÃO DE COMPRAS(MATA110)
+
+Rotina padrão do módulo de Compras a qual foi integrada com o processo de controle de alçadas.
+Para ativar/desativar a integração verifique o parâmetro: MV_X001002
+
+![](./assets/alcadaswfpedidocompra/16.png){.flow-image}
+
+Operações:<br>
+
+- Inclusão: Serão avaliadas as regras das alçadas cadastradas para o processo MATA110 e executado o bloqueio do documento (SC) conforme as regras definidas.<br>
+- Alteração: Toda vez que efetuar a alteração de um documento em alçadas, as regras serão avaliadas novamente e será gerado um novo registro no processo de alçadas (inclusão) e o registro anterior será excluído.<br>
+- Cópia: Idem a inclusão.<br>
+- Exclusão: Serão excluídos os movimentos vinculados das alçadas, se houver.<br>
+- Cons. Alçadas: Será apresentada tela para consulta do Status dos movimentos de aprovação/rejeição do documento;<br>
+
+#### 4.2. Gera Cotações (MATA130)
+
+Rotina padrão do módulo de Compras a qual foi integrada com o processo de controle de alçadas.
+Para ativar/desativar a integração verifique o parâmetro: MV_X001002
+
+Serão exibidas somente as solicitações de compra que estão liberadas (aprovadas) pelo controle de alçadas.
+
+#### 4.3. Analisa Cotações (MATA160)
+
+Rotina padrão do módulo de Compras a qual foi integrada com o processo de controle de alçadas.
+Para ativar/desativar a integração verifique o parâmetro: MV_X001003
+
+Os pedidos de compra gerados pela rotina serão avaliados e bloqueados conforme o processo de aladas.
+
+#### 4.4. Pedido de Compras (MATA120)
+
+Rotina padrão do módulo de Compras a qual foi integrada com o processo de controle de alçadas.
+Para ativar/desativar a integração verifique o parâmetro: MV_X001003
+
+Legenda:
+
+![](./assets/alcadaswfpedidocompra/17.png){.flow-image}
+
+<strong>Operações:</strong>
+
+- Inclusão: Serão avaliadas as regras das alçadas cadastradas para o processo MATA120 e executado o bloqueio do documento (PC) conforme as regras definidas.<br>
+- Alteração: Toda vez que efetuar a alteração de um documento em alçadas, as regras serão avaliadas novamente e será gerado um novo registro no processo de alçadas (inclusão) e o registro anterior será excluído.<br>
+- Cópia: Idem a inclusão.<br>
+- Exclusão: Serão excluídos os movimentos vinculados das alçadas, se houver.<br>
+- Cons. Alçadas: Será apresentada tela para consulta do Status dos movimentos de aprovação/rejeição do documento;<br>
+
+Caso utilize as opções de Solicitação (F4) ou Solicitação por item (F5) para buscar as Solicitações de Compras para o pedido, serão exibidas somente as solicitações de compra que estão liberadas (aprovadas) pelo controle de alçadas.
+
+#### 4.5. Documento de Entrada (MATA103)
+
+Rotina padrão do módulo de Compras a qual foi integrada com o processo de controle de alçadas.
+Para ativar/desativar a integração verifique o parâmetro: MV_X001003
+
+Caso utilize as opções de Pedido (F5) ou Pedido por item (F6) para buscar os Pedidos de Compras para a nota, serão exibidos somente os pedidos que estão liberados (aprovados) pelo controle de alçadas.
+
+Após a inclusão da Nota Fiscal de Entrada relacionada relacionada a Pedidos de Compra que foram aprovados pelo controle de alçadas, e se existe controle de liberação de títulos para a carteira de Contas a Pagar (MV_CTLIPAG), será possível efetuar a liberação automática do título, através da configuração dos parâmetros MV_X001011 e MV_X001012.
+
 
 </div>
 </details>
-
-<hr>
-
-<div style="text-align: center; margin-top: 20px;">
-  <a href="/" class="md-button" style="text-decoration: none;">← Voltar para a Página Inicial</a>
-</div>
-<hr>
