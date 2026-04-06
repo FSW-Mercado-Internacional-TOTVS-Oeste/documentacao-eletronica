@@ -168,7 +168,7 @@ hide:
       <div class="fs-project__header">
         <div class="fs-project__tag">FS99_006</div>
         <h2 class="fs-project__title">Comissões</h2>
-        <p class="fs-project__desc">O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
+        <p class="fs-project__desc">Implementação de lógica customizável para definição e cálculo de comissões de venda</p>
       </div>
       <div class="fs-cards">
         <a href="addon-comissoes-faturamento" class="fs-card">
@@ -208,7 +208,7 @@ hide:
       <div class="fs-project__header">
         <div class="fs-project__tag">FS99_009</div>
         <h2 class="fs-project__title">Workflow Cadastral</h2>
-        <p class="fs-project__desc">O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
+        <p class="fs-project__desc">Permite definir cadastros sujeitos à aprovação, estruturar fluxos de alçadas e automatizar a comunicação entre os responsáveis por e-mail, garantindo controle e visibilidade do processo.</p>
       </div>
       <div class="fs-cards">
         <a href="addon-alcadas-workflow-cadastrais" class="fs-card">
@@ -228,7 +228,7 @@ hide:
       <div class="fs-project__header">
         <div class="fs-project__tag">FS99_704</div>
         <h2 class="fs-project__title">Aceleradores</h2>
-        <p class="fs-project__desc">O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
+        <p class="fs-project__desc">Tem por objetivo disponibilizar outros modelos de consultas padrões.</p>
       </div>
       <div class="fs-cards">
         <a href="addon-acelerador" class="fs-card">
@@ -248,7 +248,7 @@ hide:
       <div class="fs-project__header">
         <div class="fs-project__tag">FS99_013A</div>
         <h2 class="fs-project__title">Expedição</h2>
-        <p class="fs-project__desc">O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão.</p>
+        <p class="fs-project__desc">Tem por objetivo aperfeiçoar o Processo de Expedição de mercadorias, permitindo controlar a quantidade de produtos expedidos/separados.</p>
       </div>
       <div class="fs-cards">
         <a href="addon-rotina-expedicao" class="fs-card">
