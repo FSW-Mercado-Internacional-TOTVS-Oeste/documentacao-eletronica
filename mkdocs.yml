@@ -4,7 +4,6 @@ repo_url: https://gitlab.com/fsw-mi-totvsoeste/documentacao-eletronica
 
 plugins:
   - search
-  - toggle-sidebar
 
 theme:
   name: material
