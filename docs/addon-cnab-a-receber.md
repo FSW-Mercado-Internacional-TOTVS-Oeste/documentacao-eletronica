@@ -423,170 +423,229 @@ Esta automação utiliza o processo de Workflow via link, podendo encaminhar ao 
   </thead>
   <tbody>
 <tr>
-   <td>FTVD7042</td>
+   <td><strong>FTVD7042</strong></td>
    <td>Ponto de Entrada na finalização da venda. Venda Direta. Faturamento.</td>
-   <td markdown="1">
-      ```advpl
-      User Function FTVD7042()
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">FTVD7042</span>
+  </div>
+  <pre><code>
+User Function FTVD7042()
 
-      If ExistBlock("P003A01")
-        U_P003A01('FTVD7042',SF2->F2_DOC,SF2->F2_SERIE)
-      EndIf
+If ExistBlock("P003A01")
+  U_P003A01( 'FTVD7042' ,SF2->F2_DOC,SF2->F2_SERIE)
+EndIf
 
-      Return(.F.)
-      ```
+Return(.F.)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>LJ7042</td>
+  <td><strong>LJ7042</strong></td>
   <td>Ponto de Entrada na finalização da venda. Venda Assisista. Controle de Lojas.</td>
-  <td markdown="1">
-    ```advpl
-    User Function LJ7042()
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">LJ7042</span>
+  </div>
+  <pre><code>
+User Function LJ7042()
 
-    If ExistBlock("P003A01")
-      U_P003A01('LJ7042',SF2->F2_DOC,SF2->F2_SERIE)
-    EndIf
+If ExistBlock("P003A01")
+  U_P003A01( 'LJ7042' ,SF2->F2_DOC,SF2->F2_SERIE)
+EndIf
 
-    Return(.F.)
-    ```
-
+Return(.F.)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>MA030TOK</td>
+  <td><strong>MA030TOK</strong></td>
   <td>Ponto de Entrada para validação na inclusão/alteração de clientes.</td>
-  <td markdown="1">
-    ```advpl
-    User Function MA030TOK()
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">MA030TOK</span>
+  </div>
+  <pre><code>
+User Function MA030TOK()
 
-    Local xRet030 := .F.
+Local xRet030 := .F.
 
-    If ExistBlock("P003A01")
-      xRet030 := U_P003A01('MA030TOK')
-    EndIf
+If ExistBlock("P003A01")
+  xRet030       := U_P003A01( 'MA030TOK' )
+EndIf
 
-    Return(xRet030)
-    ```
+Return(xRet030)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>FA60FIL</td>
+  <td><strong>FA60FIL</strong></td>
   <td>Ponto de Entrada com inclusão de filtro para seleção de título no borderô a receber. Financeiro</td>
-  <td markdown="1">
-    ```advpl
-    UserFunction FA60FIL()
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">FA60FIL</span>
+  </div>
+  <pre><code>
+User Function FA60FIL()
       
-    Local cBanc        := PARAMIXB[1]
-    Local cAgec        := PARAMIXB[2]
-    Local cContc       := PARAMIXB[3]
-    Local _cFiltro     := ".T."
-    Local  lFil        := SUPERGETMV("MV_X003005", .T., .F.)
-      
-    If ExistBlock("P003A01")
-      If lFil
-        _cFiltro := " ALLTRIM(E1_PORTADO) == ALLTRIM('"+cBanc+"') .AND. ALLTRIM(E1_AGEDEP) == ALLTRIM('"+cAgec+"') .AND. ALLTRIM(E1_CONTA) == ALLTRIM('"+cContc+"') "
-      EndIf
-    EndIf    
-    Return(_cFiltro)
-    ```
+Local cBanc    := PARAMIXB[1]
+Local cAgec    := PARAMIXB[2]
+Local cContc   := PARAMIXB[3]
+Local _cFiltro := ".T."
+Local lFil     := SUPERGETMV("MV_X003005", .T., .F.)
+  
+If ExistBlock("P003A01")
+  If lFil
+    _cFiltro       := " ALLTRIM(E1_PORTADO) == ALLTRIM( '"+cBanc+"' ) .AND. ALLTRIM(E1_AGEDEP) == ALLTRIM( '"+cAgec+"' ) .AND. ALLTRIM(E1_CONTA) == ALLTRIM( '"+cContc+"' ) "
+  EndIf
+EndIf
+Return(_cFiltro)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>FA60TRAN</td>
+  <td><strong>FA60TRAN</strong></td>
   <td>Ponto de Entrada na rotina de transferência para a carteira 0. Financeiro.</td>
-  <td markdown="1">
-    ```advpl
-    UserFunction FA60TRAN()
+      <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">FA60TRAN</span>
+  </div>
+  <pre><code>
+User Function FA60TRAN()
       
-    If ExistBlock("P003A01")
-      If SE1->E1_SITUACA == "0"
-        U_P003A01('FA60TRAN')
-      EndIf
-    EndIf
+If ExistBlock("P003A01")
+  If SE1->E1_SITUACA == "0"
+    U_P003A01( 'FA60TRAN' )
+  EndIf
+EndIf
 
-    Return()
-    ```
+Return()
+   </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>FA60TRF</td>
+  <td><strong>FA60TRF</strong></td>
   <td>Ponto de Entrada na rotina de transferência para a carteira 0. Financeiro.</td>
-  <td markdown="1">
-    ```advpl
-    User Function FA60TRF()
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">FA60TRF</span>
+  </div>
+  <pre><code>
+User Function FA60TRF()
 
-    Local xRet := .T.
+Local xRet := .T.
 
-    If ExistBlock("P003A01")
-      xRet := U_P003A01('FA60TRF')
-    EndIf
+If ExistBlock("P003A01")
+  xRet       := U_P003A01( 'FA60TRF' )
+EndIf
 
-    Return(xRet)
-    ```
+Return(xRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>FA60CAN1</td>
+  <td><strong>FA60CAN1</strong></td>
   <td>Ponto de Entrada na rotina de transferência, cancelamento de borderô.</td>
-  <td markdown="1">
-    ```advpl
-    User Function FA60CAN1()
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">FA60CAN1</span>
+  </div>
+  <pre><code>
+User Function FA60CAN1()
       
-    If ExistBlock("P003A01")
-      U_P003A01('FA60CAN1')
-    EndIf
+If ExistBlock("P003A01")
+  U_P003A01( 'FA60CAN1' )
+EndIf
       
-    Return()
-    ```
+Return()
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>FA60CAN2</td>
+  <td><strong>FA60CAN2</strong></td>
   <td>Ponto de Entrada na rotina de transferência, cancelamento de borderô.</td>
-  <td markdown="1">
-    ```advpl
-    User Function FA60CAN2()
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">FA60CAN2</span>
+  </div>
+  <pre><code>
+User Function FA60CAN2()
 
-    If ExistBlock("P003A01")
-      U_P003A01('FA60CAN2')
-    EndIf
+If ExistBlock("P003A01")
+  U_P003A01( 'FA60CAN2' )
+EndIf
 
-    Return()
-    ```
+Return()
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>M460NOTA</td>
+  <td><strong>M460NOTA</strong></td>
   <td>Ponto de Entrada na rotina de Doc. Saída, ao finalizar a geração das Notas Fiscais.</td>
-  <td markdown="1">
-    ```advpl
-    User Function M460NOTA()
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">M460NOTA</span>
+  </div>
+  <pre><code>
+User Function M460NOTA()
       
-    If ExistBlock("P003A01")
-      U_P003A01('M460NOTA')
-    EndIf
+If ExistBlock("P003A01")
+  U_P003A01( 'M460NOTA' )
+EndIf
       
-    Return()      
-    ```
+Return()
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>M460MARK</td>
+  <td><strong>M460MARK</strong></td>
   <td>Ponto de Entrada na rotina de Doc. Saída, ao finalizar a geração das Notas Fiscais.</td>
-  <td markdown="1">
-    ```advpl
-    User Function M460MARK()
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">M460MARK</span>
+  </div>
+  <pre><code>
+User Function M460MARK()
 
-    Local lRet  := .T.
-    Local cMarca:= PARAMIXB[1]
+Local lRet   := .T.
+Local cMarca := PARAMIXB[1]
 
-    If ExistBlock("P003A01")
-      U_P003A01('M460MARK',cMarca)
-    EndIf
+If ExistBlock("P003A01")
+  U_P003A01( 'M460MARK' ,cMarca)
+EndIf
 
-    Return(lRet)
-    ```
+Return(lRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 </tbody>
@@ -614,472 +673,507 @@ Esta automação utiliza o processo de Workflow via link, podendo encaminhar ao 
   </thead>
   <tbody>
 <tr>
-  <td>PE003A01</td>
+  <td><strong>PE003A01</strong></td>
   <td>Ponto de Entrada chamado na inicialização da tela de seleção de títulos. Permite alterar os dados do portador sugerido.<br><br><strong>Programa Fonte:</strong> <span style="color:#FF6000">M003A01</span><br><br>Geração de boletos bancários</td>
-  <td markdown="1">
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A01</span>
+  </div>
+  <pre><code>
+User Function PE003A01()
 
-    ````advpl
-    User Function PE003A01()
+Local aRet := PARAMIXB
 
-    Local aRet:=PARAMIXB
+/\* EXEMPLO PONTO DE ENTRADA
+aRet[1]    := Space(TamSX3("EE_CODIGO")[1])
+aRet[2]    := Space(TamSX3("EE_AGENCIA")[1])
+aRet[3]    := Space(TamSX3("EE_DVAGE")[1])
+aRet[4]    := Space(TamSX3("EE_CONTA")[1])
+aRet[5]    := Space(TamSX3("EE_DVCTA")[1])
+aRet[6]    := Space(TamSX3("EE_SUBCTA")[1])
+\*/
 
-    /\* EXEMPLO DO PONTO DE ENTRADA
-
-    aRet[1] := Space(TamSX3("EE_CODIGO")[1])
-
-    aRet[2] := Space(TamSX3("EE_AGENCIA")[1])
-
-    aRet[3] := Space(TamSX3("EE_DVAGE")[1])
-
-    aRet[4] := Space(TamSX3("EE_CONTA")[1])
-
-    aRet[5] := Space(TamSX3("EE_DVCTA")[1])
-
-    aRet[6] := Space(TamSX3("EE_SUBCTA")[1])
-
-    \*/
-
-    Return(aRet)
-
-    ````
-</td>
+Return(aRet)
+  </div>
+  </code></pre>
+  </td>
 </tr>
 <tr>
-  <td>PE003A02</td>
+  <td><strong>PE003A02</strong></td>
   <td>Ponto de Entrada chamado durante a montagem da Query para seleção de títulos a receber para impressão dos Boletos. Permite incluir novas cláusulas a Query. Poderão ser utilizados campos das tabelas SE1 e SA1.<br><br><strong>Programa Fonte:</strong> <span style="color:#FF6000">M003A01</span><br><br>Geração de boletos bancários</td>
-  <td markdown="1">  
-    ````advpl
-    User Function PE003A02()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A02</span>
+  </div>
+  <pre><code>
+User Function PE003A02()
 
-    Local cRet:=""
+Local cRet := ""
 
-    /* EXEMPLO DO PONTO DE ENTRADA
+/* EXEMPLO PONTO DE ENTRADA
+cRet       := " AND SA1.A1_X_BOL <> 'N' "
+cRet       := "AND SE1.E1_X_FPGTO = 'BOL' "
+*/
 
-    cRet  := " AND SA1.A1_X_BOL <> 'N' "
-
-    cRet += "AND SE1.E1_X_FPGTO = 'BOL' "
-
-    */
-
-    Return(cRet)
-    ````
+Return(cRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A03</td>
+  <td><strong>PE003A03</strong></td>
   <td>Ponto de Entrada na seleção dos títulos que irão compor o GETDADOS. Permite filtrar os títulos que serão apresentados. Retorno do ponto de entrada deve ser lógico.<br> .T. para que o título seja incluído no GETDADOS<br> .F. para que o título não seja incluído no GETDADOS<br><br><strong>Programa Fonte:</strong> <span style="color:#FF6000">M003A01</span><br><br>Geração de boletos bancários</td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A03()
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A03</span>
+  </div>
+  <pre><code>
+User Function PE003A03()
 
-    Local aTit:=PARAMIXB
+Local aTit := PARAMIXB
+Local lRet := .T.
 
-    Local lRet:=.T.
+/\* EXEMPLO PONTO DE ENTRADA
+If ALLTRIM(aTit[2]) == 'A'
+  lRet       := .F.
+EndIf
+\*/
 
-    /\* EXEMPLO DO PONTO DE ENTRADA
-
-    If ALLTRIM(aTit[2]) == 'A'
-
-            lRet := .F.
-
-    EndIf
-
-    \*/
-
-    Return(lRet)
-    ````
+Return(lRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A04</td>
+  <td><strong>PE003A04</strong></td>
   <td>Ponto de Entrada para manipular o endereço do destinatário do e-mail a ser enviado para cliente.<br><br><strong>Programa Fonte:</strong><span style="color:#FF6000">R003A01, R003A02, R003A03, R003A04</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A04()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A04</span>
+  </div>
+  <pre><code>
+User Function PE003A04()
 
-    Local cRet:= [email protected]
+Local cRet := [email protected]
 
-    Return(cRet)
-    ````
-
+Return(cRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A06</td>
+  <td><strong>PE003A06</strong></td>
   <td>Ponto de Entrada para manipular bloco central da impressão do boleto bancário modelo 3.<br><strong>Programa Fonte:</strong><span style="color:#FF6000">PE003A06</span><br><br><strong>Parâmetro:</strong> <br><span style="color:#FF6000">MV_X003012 = 3</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A06()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A06</span>
+  </div>
+  <pre><code>
+User Function PE003A06()
     
-    Local nLinha := PARAMIXB[2]
+Local nLinha   := PARAMIXB[2]
+Local oPrn     := PARAMIXB[1]
+Local aTit     := PARAMIXB[3]
+Local nCol1    := 0050
+Local nCol2    := 0200
+Local nCol3    := 1000
+Local oFont10  := TFont():New("Arial", 9, 10, .F., .F., 5, .T., 5, .T., .F.)
+Local oFont14  := TFont():New("Arial", 9, 14, .F., .F., 5, .T., 5, .T., .F.)
+Local oFont14n := TFont():New("Arial", 9, 14, .F., .T., 5, .T., 5, .T., .F.)
+
+//Marca d´agua
     
-    Local oPrn := PARAMIXB[1]
+oPrint:SayBitmap(nLinha+100,nCol2, "/system/TESTE.JPG",1000,1000 )
+oPrn:Say(nLinha,nCol1,"Mantenha seu e-mail e teleffones sempre atualizados.", oFont10)
+nLinha         := 040
+oPrn:Line(nLinha,nCol1,nLinha,2300) //LinhaInteira    
+nLinha         := 040
+oPrn:Say(nLinha,nCol1,"Resumo dos ServiçosContratados", oFont14n)
+nLinha         := 040
+oPrn:Say(nLinha,nCol1,"2043292" , oFont14)
+oPrn:Say(nLinha,nCol2,"XXXXXXXXXXXXX " , oFont14)
+oPrn:Say(nLinha,nCol3,"139,90" , oFont14)
+nLinha         := 040
+oPrn:Say(nLinha,nCol2,"Subtotal:" , oFont14)
+oPrn:Say(nLinha,nCol3,"139,90" , oFont14)
+nLinha         := 080
     
-    Local aTit := PARAMIXB[3]
+oPrn:Lin...(truncated 3449 characters)...turn(lRet)
     
-    Local nCol1 := 0050
-    
-    Local nCol2 := 0200
-    
-    Local nCol3 := 1000
-    
-    Local oFont10 := TFont():New("Arial",9,10,.F.,.F.,5,.T.,5,.T.,.F.)
-    
-    Local oFont14 := TFont():New("Arial",9,14,.F.,.F.,5,.T.,5,.T.,.F.)
-    
-    Local oFont14n:= TFont():New("Arial",9,14,.F.,.T.,5,.T.,5,.T.,.F.)
-    
-    //Marca d´agua
-    
-    oPrint:SayBitmap(nLinha+100,nCol2, "/system/TESTE.JPG",1000,1000 )
-    
-    oPrn:Say(nLinha,nCol1,"Mantenha seu e-mail e teleffones sempre atualizados.", oFont10)
-    
-    nLinha += 040
-    
-    oPrn:Line(nLinha,nCol1,nLinha,2300) //LinhaInteira
-    
-    nLinha += 040
-    
-    oPrn:Say(nLinha,nCol1,"Resumo dos ServiçosContratados", oFont14n)
-    
-    nLinha += 040
-    
-    oPrn:Say(nLinha,nCol1,"2043292" , oFont14)
-    
-    oPrn:Say(nLinha,nCol2,"XXXXXXXXXXXXX " , oFont14)
-    
-    oPrn:Say(nLinha,nCol3,"139,90" , oFont14)
-    
-    nLinha += 040
-    
-    oPrn:Say(nLinha,nCol2,"Subtotal:" , oFont14)
-    
-    oPrn:Say(nLinha,nCol3,"139,90" , oFont14)
-    
-    nLinha += 080
-    
-    oPrn:Lin...(truncated 3449 characters)...turn(lRet)
-    
-    ````
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A07</td>
+  <td><strong>PE003A07</strong></td>
   <td>Ponto de Entrada chamado no inicio da impressão de boleto bancário.
 Permite alterar os dados da empresa emitente. <br><br><strong>Programa Fonte:</strong><span style="color:#FF6000">R003A01, R003A02, R003A03, R003A04.</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A07()
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A07</span>
+  </div>
+  <pre><code>
+User Function PE003A07()
 
-    local aRet := PARAMIXB[1]
-    local aBco := PARAMIXB[2]
+local aRet := PARAMIXB[1]
+local aBco := PARAMIXB[2]
 
-    /* EXEMPLO DO PONTO DE ENTRADA
-    If aBco[1] == '237' .and. ALLTRIM(aBco[3]) == '20375'
-        aRet[1] := "Seven Fundo de Investimento”
-    	aRet[2] := "Av.MadreLeônia Milito,1377"
-    	aRet[3] := "Ed.Palhano Premium–29ª andar/Londrina/PR"
-    	aRet[4] := "86050270"
-    	aRet[5] := "43 3372-5200"
-    	aRet[6] := "19388482000127"
-    	aRet[7] := ""
-    Endif
-    */
+/* EXEMPLO PONTO DE ENTRADA
+If aBco[1] == '237' .and. ALLTRIM(aBco[3]) == '20375'
+  aRet[1]    := "Seven Fundo de Investimento”
+  aRet[2]    := "Av.MadreLeônia Milito,1377"
+  aRet[3]    := "Ed.Palhano Premium–29ª andar/Londrina/PR"
+  aRet[4]    := "86050270"
+  aRet[5]    := "43 3372-5200"
+  aRet[6]    := "19388482000127"
+  aRet[7]    := ""
+Endif
+*/
 
-    Return(aRet)
-    ````
+Return(aRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A08</td>
+  <td><strong>PE003A08</strong></td>
   <td>Ponto de Entrada para manipular o nome do Sacador/Avalista<br><br> <strong>Programa Fonte:</strong><span style="color:#FF6000">R003A01, R003A02, R003A03, R003A04.</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A08()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A08</span>
+  </div>
+  <pre><code>
+User Function PE003A08()
 
-    Local cRet:= ””
+Local cRet:= ””
 
-    /\* EXEMPLO DO PONTO DE ENTRADA
+/\* EXEMPLO PONTO DE ENTRADA
+//Altera dados do Sacador / Avalista
+If PARAMIXB[2] == '237' .and. PARAMIXB[4] == '20375'
+  cRet := ALLTRIM(SUBSTR(SM0->M0_NOMECOM,1,40))+" CNPJ: "+TRANSFORM(SM0->M0_CGC,"@R 99.999.999/9999-99")
+Endif
+\*/
 
-    //Altera dados do Sacador / Avalista
-    If PARAMIXB[2] == '237' .and. PARAMIXB[4] == '20375'
-    cRet := ALLTRIM(SUBSTR(SM0->M0_NOMECOM,1,40))+" CNPJ: "+TRANSFORM(SM0->M0_CGC,"@R 99.999.999/9999-99")
-    Endif
-
-    \*/
-
-    Return(cRet)
-    ````
-
+Return(cRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A09</td>
+  <td><strong>PE003A09</strong></td>
   <td>Ponto de Entrada para manipular a taxa de juros e multas.<br>Deve retornar um Array:<br>[1] Juros diários<br>[2] Multa<br><br> <strong>Programa Fonte:</strong><span style="color:#FF6000">R003A01, R003A02, R003A03, R003A04.</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A09()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A09</span>
+  </div>
+  <pre><code>
+User Function PE003A09()
 
-    local aBco   := PARAMIXB[1]
-    local aRet:= {PARAMIXB[2][1], PARAMIXB[2][2]}
+local aBco := PARAMIXB[1]
+local aRet :={PARAMIXB[2][1], PARAMIXB[2][2]}
 
-    If aBco[1] == '237' .and. ALLTRIM(aBco[3]) == 'xxxxx'
-       aRet[1] := 0.002
-       aRet[2] := 0
-    Endif
+If aBco[1] == '237' .and. ALLTRIM(aBco[3]) == 'xxxxx'
+  aRet[1]    := 0.002
+  aRet[2]    := 0
+Endif
 
-    return(aRet)
-    ````
+Return(aRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A10</td>
+  <td><strong>PE003A10</strong></td>
   <td>Ponto de Entrada para manipular layout impressão. Deve retornar uma string com modelo de impressão do layout:<br>
 1=Com Rec.Sacado (htm)<br>2=Com Rec.Sacado(pdf)<br>3=Sem Rec.Sacado (pdf)<br><br> <strong>Programa Fonte:</strong><span style="color:#FF6000">R003A03.</span></td>
-  <td markdown="1">
-    ````advpl
-    User FunctionPE003A10()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A10</span>
+  </div>
+  <pre><code>
+User Function PE003A10()
 
-    Local cRetLay := "1"
-    Local aDadTit := PARAMIXB
+Local cRetLay := "1"
+Local aDadTit := PARAMIXB
 
-    Return cRetLay
-    ````
+Return cRetLay
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A11</td>
+  <td><strong>PE003A11</strong></td>
   <td>Ponto de Entrada para alterar o Assunto (Subject) do e-mail.<br><br> <strong>Programa Fonte:</strong><span style="color:#FF6000">R003A01, R003A02, R003A03, R003A04.</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A11()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A11</span>
+  </div>
+  <pre><code>
+User Function PE003A11()
 
-    cRet := paramixb[1][1]
-    cRet := “Novo Assunto”
+cRet := paramixb[1][1]
+cRet := “Novo Assunto”
 
-    return(cRet)    
-    ````
+Return(cRet)    
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A12</td>
+  <td><strong>PE003A12</strong></td>
   <td>Ponto de Entrada após a impressão de cada página de boleto. <br><br> <strong>Programa Fonte:</strong><span style="color:#FF6000">R003A01, R003A02</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A12()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A12</span>
+  </div>
+  <pre><code>
+User Function PE003A12()
 
-    Local oPrn := PARAMIXB[1]
-    Local aTit := PARAMIXB[2]
-    Local nCol1 := 0050
-    Local nCol2 := 0200
-    Local nCol3 := 1000
-    Local oFont9 := TFont():New("Arial",9,9,.F.,.F.,5,.T.,5,.T.,.F.)
-    Local oFont9n := TFont():New("Arial",9,9,.F.,.T.,5,.T.,5,.T.,.F.)
+Local oPrn    := PARAMIXB[1]
+Local aTit    := PARAMIXB[2]
+Local nCol1   := 0050
+Local nCol2   := 0200
+Local nCol3   := 1000
+Local oFont9  := TFont():New("Arial", 9, 9, .F., .F., 5, .T., 5, .T., .F.)
+Local oFont9n := TFont():New("Arial", 9, 9, .F., .T., 5, .T., 5, .T., .F.)
 
-    oPrn:Say(nLin,nCol1,"Detalhes da Fatura", oFont9n)
-    nLin += 040
-    oPrint:Line (nlin,nCol1,nlin,2300)
-    nLin += 040
-    oPrn:Say(nLin,nCol1,"Data" , oFont9)
-    oPrn:Say(nLin,nCol2,"Serviço" , oFont9)
-    oPrn:Say(nLin,nCol3,"Código" , oFont9)
-    nLin += 040
+oPrn:Say(nLin,nCol1,"Detalhes da Fatura", oFont9n)
+nLin          := 040
+oPrint:Line (nlin,nCol1,nlin,2300)
+nLin          := 040
+oPrn:Say(nLin,nCol1,"Data" , oFont9)
+oPrn:Say(nLin,nCol2,"Serviço" , oFont9)
+oPrn:Say(nLin,nCol3,"Código" , oFont9)
+nLin          := 040
 
-    Return()
-    ````
+Return()
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A13</td>
+  <td><strong>PE003A13</strong></td>
   <td>Ponto de Entrada que permite desviar o fluxo para encaminhar e-mail do boleto ou não. <br><br> <strong>Programa Fonte:</strong><span style="color:#FF6000">R003A01, R003A02</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A13()
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A13</span>
+  </div>
+  <pre><code>
+User Function PE003A13()
 
-    Local aTit	:= PARAMIXB[1]
-    Local lRet  := .F.
+Local aTit := PARAMIXB[1]
+Local lRet := .F.
 
-    If ….
-    lRet := .F.
-    EndIf
+If ….
+  lRet       := .F.
+EndIf
 
-    Return(lRet)    
-    ````
+Return(lRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A14</td>
+  <td><strong>PE003A14</strong></td>
   <td>Ponto de Entrada que permite o usuário alterar a nomenclatura do arquivo gerado (que posteriormente poderá ser encaminhado via e-mail).<br> Deve ser utilizado apenas quando o cliente gera arquivos .pdf anexos ao e-mail. <br>Nomenclatura padrão: Filial + Cliente + Loja + Hora + Minuto<br><br><strong>Programa Fonte:</strong><span style="color:#FF6000">R003A02, R003A03</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A14()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A14</span>
+  </div>
+  <pre><code>
+User Function PE003A14()
 
-    cRet := paramixb[7]
+cRet := paramixb[7]
 
-    If …
+If …
+  cRet := “NOVANOMENCLATURA
+EndIf
 
-    cRet := “NOVANOMENCLATURA
-
-    EndIf
-
-    return(cRet)
-    ````
+Return(cRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A15</td>
+  <td><strong>PE003A15</strong></td>
   <td>Ponto de Entrada para manipular variáveis do html.<br> Utilizado para cabeçalho ‘CAB’/itens ‘ITEM’<br><br><strong>Programa Fonte:</strong><span style="color:#FF6000">R003A01, R003A02, R003A03 e R003A04</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A15()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A15</span>
+  </div>
+  <pre><code>
+User Function PE003A15()
 
-    local aRet      := Paramixb[1]
+local aRet     := Paramixb[1]
+local cTipo    := alltrim(Paramixb[2])
+local aVetLink := Paramixb[3]
 
-    local cTipo     := alltrim(Paramixb[2])
+If cTipo == "CAB"
+  //exemplo de exclusao de campo (logototvs)
+  ADEL(aRet, 1)
+  ASize(aRet, 6)
 
-    local aVetLink  := Paramixb[3]
+  //exemplo de manipulação de conteúdo da variável email
+  aRet[7][2]     := "[email protected]"
 
-    If cTipo == "CAB"
+else cTipo == "ITEM"
+  dbselectarea("SE1")
+  SE1->(dbgoto(aVetLink[9]))
+  aadd(aRet, {"IT.VENCORI", dtoc(SE1->E1_VENCORI)})
+EndIf
 
-      //exemplo de exclusao de campo (logototvs)
-
-      ADEL(aRet, 1)
-
-      ASize(aRet, 6)
-
-
-
-      //exemplo de manipulação de conteúdo da variável email
-
-      aRet[7][2] := "[email protected]"
-
-
-
-      else cTipo == “ITEM”
-
-      dbselectarea("SE1")
-
-        SE1->(dbgoto(aVetLink[9]))
-
-      aadd(aRet, {"IT.VENCORI", dtoc(SE1->E1_VENCORI) })
-
-    Endif
-
-    Return(aRet)
-    ````
+Return(aRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A16</td>
+  <td><strong>PE003A16</strong></td>
   <td>Ponto de Entrada que permite o usuário alterar o path de geração do arquivo .pdf do Preview nos Layouts 2 e 3.<br><br><strong>Programa Fonte:</strong><span style="color:#FF6000">R003A02, R003A03.</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A16()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A16</span>
+  </div>
+  <pre><code>
+User Function PE003A16()
 
-    cRet := paramixb
+cRet := paramixb
+If
+  cRet := “c:\temp\”
+EndIf
 
-    If
-
-    cRet := “c:\temp\”
-
-    EndIf
-
-    Return(cRet)
-    ````
+Return(cRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A17</td>
+  <td><strong>PE003A17</strong></td>
   <td>Ponto de Entrada para manipular o valor de juros e multas. Deve retornar um Array:<br> [1] Valor Juros diários<br> [2] Valor Multa<br><br><strong>Programa Fonte:</strong><span style="color:#FF6000">R003A01, R003A02, R003A03 e R003A04</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A17()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A17</span>
+  </div>
+  <pre><code>
+User Function PE003A17()
 
-    local aBco   := PARAMIXB[1]
+local aBco := PARAMIXB[1]
+local aRet :={PARAMIXB[2][1], PARAMIXB[2][2]}
 
-    local aRet:= {PARAMIXB[2][1], PARAMIXB[2][2]}
+if aBco[1] == '237' .and. ALLTRIM(aBco[3]) == 'xxxxx'
+  aRet[1]    := 100
+  aRet[2]    := 200
+EndIf
 
-    if aBco[1] == '237' .and. ALLTRIM(aBco[3]) == 'xxxxx'
-
-    aRet[1] := 100
-
-    aRet[2] := 200
-
-    endif
-
-    Return(aRet)
-    ````
-
+Return(aRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A18</td>
+  <td><strong>PE003A18</strong></td>
   <td>Ponto de Entrada para manipular a conta corrente e DV Conta Corrente. Deve retornar um Array:<br> [1] Conta Corrente<br> [2] DV Conta Corrente<br><br><strong>Programa Fonte:</strong><span style="color:#FF6000">X003A01 - XFUN008 – Retorno dos Dados Bancários</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A18()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A18</span>
+  </div>
+  <pre><code>
+User Function PE003A18()
 
-    Local aDadosCC:= PARAMIXB
+Local aDadosCC := PARAMIXB
+Local aRet     :={aDadosCC[1], aDadosCC[2]}
+Local cAux     := “”
+If aDadosCC[1]== '237' .And. Empty(aDadosCC[2])
+  cAux           := Alltrim( cCC )
+  aRet[1]        := SubStr( cAux, 1, Len( cAux) – 1 )
+  aRet[2]        := Right( cAux, 1 )
+EndIf
 
-    Local aRet:= { aDadosCC[1], aDadosCC[2] }
-
-    Local cAux := “”
-
-    If aDadosCC[1]== '237' .And. Empty(aDadosCC[2])
-
-    cAux := Alltrim( cCC )
-
-    aRet[1] := SubStr( cAux, 1, Len( cAux) – 1 )
-
-    aRet[2] := Right( cAux, 1 )
-
-    Endif
-
-    Return(aRet)    
-    ````
+Return(aRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A19</td>
+  <td><strong>PE003A19</strong></td>
   <td>Ponto de Entrada antes da impressão dos layouts 2 e 3. Se retornado .F. não efetua a impressão do boleto.<br> Os cálculos de nosso número, cod. Barras, linha digitável já estão realizados e gravados na SE1.<br><br><strong>Programa Fonte:</strong><span style="color:#FF6000">R003A02, R003A03</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A20()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A19</span>
+  </div>
+  <pre><code>
+User Function PE003A19()
 
-    Local lRet:=.T.
+Local lRet := .T.
 
-    /* EXEMPLO DO PONTO DE ENTRADA
+/* EXEMPLO PONTO DE ENTRADA
+If SE1->E1_PREFIXO = "XXX’
+  lRet       := .F.
+EndIf
 
-    If SE1->E1_PREFIXO =  ‘XXX’
-
-         lRet  := .F.
-
-    EndIf
-
-    Return(lRet)
-    ````
+Return(lRet)
+  </div>
+  </code></pre>
   </td>
 </tr>
 <tr>
-  <td>PE003A20</td>
+  <td><strong>PE003A20</strong></td>
   <td>Ponto de Entrada antes da impressão dos layouts 2 e 3. Se retornado .F. não efetua a impressão do boleto.<br> Os cálculos de nosso número, cod. Barras, linha digitável já estão realizados e gravados na SE1.<br><br><strong>Programa Fonte:</strong><span style="color:#FF6000">R003A02, R003A03</span></td>
-  <td markdown="1">
-    ````advpl
-    User Function PE003A20()
+  <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003A20</span>
+  </div>
+  <pre><code>
+User Function PE003A20()
 
-    Local lRet:=.T.
+Local lRet := .T.
 
-    /\* EXEMPLO DO PONTO DE ENTRADA
+/\* EXEMPLO PONTO DE ENTRADA
+If SE1->E1_PREFIXO = "XXX’
+  lRet       := .F.
+EndIf
 
-    If SE1->E1_PREFIXO = ‘XXX’
-
-         lRet  := .F.
-
-    EndIf
-
-    Return(lRet)    
-    ````
+Return(lRet)
+  </div>
+  </code></pre>
   </td>
   </tr>
 </tbody>
@@ -1299,7 +1393,7 @@ Sequencia para calculo do Nosso Numero.
 #### **Help**
 
 <div class="help-box" markdown="1">
-
+-
 </div>
 
 #### **Configurações adicionais**
@@ -1379,7 +1473,7 @@ Sequencia para calculo do Nosso Numero.
 #### **Help**
 
 <div class="help-box" markdown="1">
-
+-
 </div>
 
 #### **Configurações adicionais**
@@ -1459,7 +1553,7 @@ Sequencia para calculo do Nosso Numero.
 #### **Help**
 
 <div class="help-box" markdown="1">
-
+-
 </div>
 
 #### **Configurações adicionais**
@@ -2532,9 +2626,6 @@ Informe a quantidade de dias para que os títulos em aberto sofram baixa/devolu�
     </tr>
   </tbody>
 </table>
-
-</div>
-</details>
 
 </div>
 </details>

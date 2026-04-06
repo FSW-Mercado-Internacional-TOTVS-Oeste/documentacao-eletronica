@@ -1,3 +1,9 @@
+---
+template: main.html
+hide:  
+  - toc
+---
+
 # Comissões - Faturamento {.home-hero}
 
 <!--############################################### 01 #######################################################-->
@@ -10,9 +16,9 @@
 </summary>
 <div class="content-body" markdown="1">
 
-### 1. Visão Geral
+### <span style="display: none;">1. Visão Geral</span>
 
-#### Implementação de lógica customizável para definição e cálculo de comissões de venda.
+#### Implementação de lógica customizável para definição e cálculo de comissões de venda
 
 <strong>Principais vantagens do produto:</strong>
 
@@ -23,7 +29,6 @@
 - Vinculação de regras por vendedor;
 - Configuração de faixas de valores e percentuais;
 - Extensibilidade através de pontos de entrada;
-
 
 </div>
 </details>
@@ -36,7 +41,7 @@
 </summary>
 <div class="content-body" markdown="1">
 
-### 2. Menu 
+### <span style="display: none;">2. Menu</span>
 
 No “Configurador (SIGACFG)”, acesse a opção “Ambiente > Cadastros > Menus” (CFGX013) e inclua as novas opções de menu no módulo de Compras, conforme instruções a seguir:
 
@@ -88,9 +93,7 @@ No “Configurador (SIGACFG)”, acesse a opção “Ambiente > Cadastros > Menu
 </summary>
 <div class="content-body" markdown="1">
 
-### 3. Rotinas personalizadas específicas do Pacote
-
-#### Funções personalizadas contidas no pacote:
+### <span style="display: none;">3. Rotinas personalizadas específicas do Pacote</span>
 
 <table class="banks-table">
   <thead>
@@ -140,10 +143,9 @@ No “Configurador (SIGACFG)”, acesse a opção “Ambiente > Cadastros > Menu
 <summary markdown="1">
   <span class="summary-title"><span class="summary-number">04.</span> Pontos de entrada específicos ADDON</span>
 </summary>
+<div class="content-body" markdown="1">
 
-<div class="content-body">
-
-<h3>4. Pontos de entrada específicos ADDON</h3>
+### <span style="display: none;">4. Pontos de entrada específicos ADDON</span>
 
 <table class="banks-table">
   <thead>
@@ -154,18 +156,21 @@ No “Configurador (SIGACFG)”, acesse a opção “Ambiente > Cadastros > Menu
     </tr>
   </thead>
   <tbody>
-
-<tr>
-  <td>PE006A01</td>
-  <td>
-    Ponto de Entrada para manipular as bases da comissão calculadas pelo ADD-ON de Comissões.<br><br>
-    <strong>Programa Fonte:</strong> <span style="color:#FF6000">X006A01</span><br><br>
-    Modifica bases das comissões<br>
-    PE006A01(&lt;aRet&gt;) --&gt; aRet
-  </td>
-
-  <td>
-<pre><code class="language-advpl">
+  <tr>
+    <td><strong>E006A01</strong></td>
+    <td>
+      Ponto de Entrada para manipular as bases da comissão calculadas pelo ADD-ON de Comissões.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">X006A01</span><br><br>
+      Modifica bases das comissões<br>
+      PE006A01(&lt;aRet&gt;) --&gt; aRet
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">E006A01</span>
+  </div>
+  <pre><code>
 User Function PE006A01()
 
 Local aBases := PARAMIXB
@@ -175,28 +180,32 @@ ConOut("PE PE006A01")
 
 // EXEMPLO DO PONTO DE ENTRADA:
 
- aBases: Vetor com as bases calculadas da Comissão
+aBases: Vetor com as bases calculadas da Comissão
 [1] Valor Base da Comissão
 [2] Percentual da Comissão
 [3] Valor da Comissão
 [4] Percentual da Base
 
 Return (aBases)
-</code></pre>
+  </div>
+  </code></pre>
   </td>
 </tr>
-
 <tr>
-  <td>PE006A02</td>
+  <td><strong>PE006A02</strong></td>
   <td>
     Ponto de Entrada que permite manipular o posicionamento da tabela DT0 – Tabela de Frete TMS, na função RETFRETETMS.<br><br>
     <strong>Programa Fonte:</strong> <span style="color:#FF6000">X006A01</span><br><br>
     Modifica posicionamento da tabela DT0<br>
     PE006A02(&lt;aRet&gt;) --&gt; Nil
   </td>
-
   <td>
-<pre><code class="language-advpl">
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE006A02</span>
+  </div>
+  <pre><code>
 User Function PE006A02()
 
 Local cRet := ""
@@ -206,12 +215,12 @@ dbSetOrder(2) // FILIAL + REGIAO ORIGEM + COD.REGIAO DESTINO
 dbSeek(xFilial("DT0") + '607650' + cCdrDes)
 
 Return
+</div>
 </code></pre>
   </td>
 </tr>
-
 <tr>
-  <td>PE006A03</td>
+  <td><strong>PE006A03</strong></td>
   <td>
     Ponto de Entrada que permite manipular os dados do cabeçalho do Pedido de Compras.<br><br>
     <strong>Programa Fonte:</strong> <span style="color:#FF6000">P006A01</span><br><br>
@@ -226,22 +235,27 @@ Return
     PARAMIXB[6][2] => Contato <br>
     PARAMIXB[7][2] => Filial de Entrega
   </td>
-
   <td>
-<pre><code class="language-advpl">
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE006A03</span>
+  </div>
+  <pre><code>
 User Function PE006A03()
 
 Local aRet := PARAMIXB
 
 // Altera Filial de Entrega para 01XX01 sempre que for a empresa 01
 If cEmpAnt == '01'
-   aRet[7][2] := '01XX01'
+    aRet[7][2] := '01XX01'
 EndIf
 
 Return (aRet)
+</div>
 </code></pre>
   </td>
-</tr>
+  </tr>
   </tbody>
 </table>
 
@@ -255,7 +269,7 @@ Return (aRet)
 </summary>
 <div class="content-body" markdown="1">
 
-### 5. Pontos de Entrada Padrão
+### <span style="display: none;">5. Pontos de Entrada Padrão</span>
 
 #### Pontos de entrada padrão utilizados no ADD-ON e exemplos de compatibilização
 
@@ -268,82 +282,105 @@ Return (aRet)
     </tr>
   </thead>
   <tbody>
-<tr>
-   <td>MT120EXC</td>
-   <td>Ponto de Entrada na Exclusão do Pedido de Compras, utilizado para estornar as comissões. </td>
-   <td markdown="1">
-      ```advpl
+    <tr>
+      <td>MT120EXC</td>
+      <td>Ponto de Entrada na Exclusão do Pedido de Compras, utilizado para estornar as comissões. </td>
+      <td>
+<div class="advpl-editor">
+<div class="header">
+  <span class="title">ADVPL</span>
+  <span class="filename">MT120EXC</span>
+</div>
+  <pre><code>
       User Function MT120EXC()
 
       /*Implemente o ponto de entrada antes da chamada do Bloco de Função do ADD-ON de COMISSÕES */
 
       If ExistBlock("P006A01")
-      U_P006A01("MT120EXC")	
+      U_P006A01("MT120EXC")
       EndIf
 
       Return()
-
-      ```
-</td>
+  </code></pre>
+  </td>
 </tr>
 <tr>
   <td>MT120GRV</td>
   <td>Ponto de Entrada na Exclusão do Pedido de Compras, solicitando confirmação do usuário para exclusão.</td>
-  <td markdown="1">
-    ```advpl
+  <td>
+<div class="advpl-editor">
+<div class="header">
+  <span class="title">ADVPL</span>
+  <span class="filename">MT120GRV</span>
+</div>
+  <pre><code>
     User Function MT120GRV()
 
     Local lRet := .T.
 
     /*Implemente o ponto de entrada antes da chamada do Bloco de Função do ADD-ON de COMISSÕES */
     If ExistBlock("P006A01")
-    lRet := U_P006A01("MT120GRV")	
+    lRet := U_P006A01("MT120GRV")
     EndIf
 
     Return(lRet)
-    ```
+</div>
+</code></pre>
   </td>
-</tr>
-<tr>
-  <td>M530FIL</td>
-  <td>Ponto de Entrada durante da Atualização Pagamento da Comissão, MATA530.
-Geração de títulos Contas a Pagar.</td>
-  <td markdown="1">
-    ```advpl
-    User Function M530FIL()
-
-    /*Implemente o ponto de entrada antes da chamada do Bloco de Função do ADD-ON de COMISSÕES */
-
-    If ExistBlock("P006A01")
-     U_P006A01("M530FIL")	
-    EndIf
-
-    Return()
-    ```
+  </tr>
+  <tr>
+    <td>M530FIL</td>
+    <td>Ponto de Entrada durante da Atualização Pagamento da Comissão, MATA530. Geração de títulos Contas a Pagar.</td>
+    <td>
+<div class="advpl-editor">
+<div class="header">
+  <span class="title">ADVPL</span>
+  <span class="filename">M530FIL</span>
+</div>
+  <pre><code>
+  User Function M530FIL()
+  /*Implemente o ponto de entrada antes da chamada do Bloco de Função do ADD-ON de COMISSÕES */
+  If ExistBlock("P006A01")
+    U_P006A01("M530FIL")
+  EndIf
+  Return()
+  </code></pre>
+  </div>
   </td>
 </tr>
 <tr>
   <td>M530FIM</td>
   <td>Ponto de Entrada no final da Atualização Pagamento da comissão - MATA530. Geração do Pedido de Compras</td>
-  <td markdown="1">
-  ```advpl
+<td>
+<div class="advpl-editor">
+<div class="header">
+  <span class="title">ADVPL</span>
+  <span class="filename">M530FIM</span>
+</div>
+  <pre><code>
     User Function M530FIM()
   
     /*Implemente o ponto de entrada antes da chamada do Bloco de Função do ADD-ON de COMISSÕES */
 
     If ExistBlock("P006A01")
-    U_P006A01("M530FIM")	
+    U_P006A01("M530FIM")
     EndIf
 
     Return()
-  ```
+  </code></pre>
+  </div>
   </td>
 </tr>
 <tr>
   <td>MA040TOK</td>
   <td>Ponto de Entrada na inclusão/alteração do Vendedor para  validar preenchimento de campos necessários.</td>
-  <td markdown="1">
-    ```advpl
+  <td>
+<div class="advpl-editor">
+<div class="header">
+  <span class="title">ADVPL</span>
+  <span class="filename">MA040TOK</span>
+</div>
+  <pre><code>
     UserFunction MA040TOK()
       
     Local lRet := .T.
@@ -351,36 +388,48 @@ Geração de títulos Contas a Pagar.</td>
     /*Implemente o ponto de entrada antes da chamada do Bloco de Função do ADD-ON de COMISSÕES */
 
     If ExistBlock("P006A01")
-     lRet := U_P006A01("MA040TOK")	
+     lRet := U_P006A01("MA040TOK")
     EndIf
 
     Return(lRet)
-    ```
+  </code></pre>
+  </div>
   </td>
 </tr>
 <tr>
   <td>MSE2530</td>
   <td>Ponto de Entrada durante a Atualização Pagamento da comissão - MATA530. Geração de Títulos Contas a Pagar. 
 </td>
-  <td markdown="1">
-    ```advpl
+<td>
+<div class="advpl-editor">
+<div class="header">
+  <span class="title">ADVPL</span>
+  <span class="filename">MSE2530</span>
+</div>
+  <pre><code>
     User Function MSE2530()
 
     /*Implemente o ponto de entrada antes da chamada do Bloco de Função do ADD-ON de COMISSÕES */
 
     If ExistBlock("P006A01")
-      U_P006A01("MSE2530")	
+      U_P006A01("MSE2530")
     EndIf
 
     Return()
-    ```
+  </code></pre>
+  </div>
   </td>
 </tr>
 <tr>
   <td>MTASF2</td>
   <td>Ponto de Entrada na Geração da Nota de Venda após gravar a SF2 e antes de executar o cálculo das Comissões.</td>
-  <td markdown="1">
-    ```advpl
+<td>
+<div class="advpl-editor">
+<div class="header">
+  <span class="title">ADVPL</span>
+  <span class="filename">MTASF2</span>
+</div>
+  <pre><code>
     User Function MTASF2()
       
     /*Implemente o ponto de entrada antes da chamada do Bloco de Função do ADD-ON de COMISSÕES */
@@ -390,14 +439,20 @@ Geração de títulos Contas a Pagar.</td>
     EndIf
       
     Return()
-    ```
+  </code></pre>
+  </div>
   </td>
 </tr>
 <tr>
   <td>F440ABAS</td>
   <td>Ponto de Entrada no Cálculo das Comissões por BAIXA na rotina FINA440 para modificar os valores calculados.</td>
-  <td markdown="1">
-    ```advpl
+<td>
+<div class="advpl-editor">
+<div class="header">
+  <span class="title">ADVPL</span>
+  <span class="filename">F440ABAS</span>
+</div>
+  <pre><code>
     User Function F440ABAS()
 
     Local aBases := PARAMIXB
@@ -409,14 +464,20 @@ Geração de títulos Contas a Pagar.</td>
     Endif
 
     Return(aBases)
-    ```
+  </code></pre>
+  </div>
   </td>
 </tr>
 <tr>
   <td>F440BASE</td>
   <td>Ponto de Entrada no Cálculo das Comissões por BAIXA na rotina FINA440 para modificar os valores calculados.</td>
-  <td markdown="1">
-    ```advpl
+<td>
+<div class="advpl-editor">
+<div class="header">
+  <span class="title">ADVPL</span>
+  <span class="filename">F440BASE</span>
+</div>
+  <pre><code>
     User Function F440BASE()
       
     Local aBases := PARAMIXB
@@ -428,22 +489,29 @@ Geração de títulos Contas a Pagar.</td>
     Endif
       
     Return(aBases)      
-    ```
+  </code></pre>
+  </div>
   </td>
 </tr>
 <tr>
   <td>AfterLogin</td>
   <td>Ponto de Entrada na após o Login do Usuario e abertura das tabelas SXs.</td>
-  <td markdown="1">
-    ```advpl
+<td>
+<div class="advpl-editor">
+<div class="header">
+  <span class="title">ADVPL</span>
+  <span class="filename">AfterLogin</span>
+</div>
+  <pre><code>
     User Function AfterLogin()
 
     If ExistBlock("M999B01")
-      U_M999B01("MACROSUB","006")	
+      U_M999B01("MACROSUB","006")
     Endif
 
     Return()
-    ```
+  </code></pre>
+  </div>
   </td>
 </tr>
 </tbody>
@@ -458,7 +526,7 @@ Geração de títulos Contas a Pagar.</td>
 </summary>
 <div class="content-body" markdown="1">
 
-### 6. Tabelas (SX2) 
+### <span style="display: none;">6. Tabelas (SX2)</span>
 
 <table class="banks-table">
   <thead>
@@ -521,7 +589,7 @@ Geração de títulos Contas a Pagar.</td>
 </summary>
 <div class="content-body" markdown="1">
 
-### 7. Campos (SX3)
+### <span style="display: none;">7. Campos (SX3)</span>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -4201,7 +4269,7 @@ Parâmetro.
 </summary>
 <div class="content-body" markdown="1">
 
-### 8. Parâmetros (SX6)
+### <span style="display: none;">8. Parâmetros (SX6)</span>
 
 <table class="banks-table">
   <thead>
@@ -4237,7 +4305,7 @@ Parâmetro.
 </summary>
 <div class="content-body" markdown="1">
 
-### 9. Manual de operação
+### <span style="display: none;">9. Manual de operação</span>
 
 #### 1. Parâmetros (C006A01):
 
@@ -4260,6 +4328,7 @@ Através do campo “Expressão” é possível a utilização de rdmake que ret
 - <strong>Campo Referência:</strong> Nome do campo que irá retornar o valor, formatações e validação para as regras de comissão;<br>
 - <strong>Expressão:</strong> Se necessário poderá ser utilizado um rdmake para retornar o valor do parâmetro.
 Exemplo: Somar o total de desconto de uma Nota Fiscal. Se informado, o valor do campo de referência será sobreposto.<br>
+
 - <strong>Status:</strong> Status do parâmetro (Ativo/Inativo);<br>
 
 #### 2. Regras de Comissão (C006A02):
@@ -4344,4 +4413,3 @@ Verificar parâmetro MV_X006001: Código do produto para inclusão do Pedido de 
 <div style="text-align: center; margin-top: 20px;">
   <a href="/" class="md-button" style="text-decoration: none;">← Voltar para a Página Inicial</a>
 </div>
-<hr>
