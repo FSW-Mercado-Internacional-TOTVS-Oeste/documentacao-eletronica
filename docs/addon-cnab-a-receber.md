@@ -2628,6 +2628,7 @@ Informe a quantidade de dias para que os títulos em aberto sofram baixa/devolu�
 </table>
 
 </div>
+</div>
 </details>
 
 <details class="custom-expand" markdown="1">
@@ -2989,9 +2990,13 @@ Seu correto preenchimento é de suma importância, abaixo os principais campos q
 - <strong>CÓDIGO EMPRESA</strong>: informar o código de cliente da empresa junto ao banco referente ao contrato de cobrança. Fornecido pelo banco
 - <strong>CÓDIGO TRANSMISSAO</strong>: utilizado para Santander informando o código da transmissão e para o banco CITI informando o código da conta COSMOS
 - <strong>NR. BYTES</strong>: informe a quantidade de posições da remessa/retorno layout: 240 ou 400
-- <strong>FORMATO DATA</strong>: informar o tipo da data que o banco trabalha no arquivo de retorno. Consultar manual técnico de cada banco.<br>
-  Formato da data no retorno:<br>
-  1-ddmmaa, 2=mmddaa, 3=aammdd, 4=ddmmaaaa,5=aaaammdd,6=mmddaaaa
+- <strong>FORMATO DATA</strong>: informar o tipo da data que o banco trabalha no arquivo de retorno. Consultar manual técnico de cada banco Formato da data no retorno:<br>
+    * 1-ddmmaa<br>
+    * 2-mmddaa<br>
+    * 3-aammdd<br>
+    * 4-ddmmaaaa<br>
+    * 5-aaaammdd<br>
+    * 6-mmddaaaa
 - <strong>MSG.JUROS / MSG.MULTA</strong>: informar as mensagens de instruções do boleto para juros e multa, estes campos são fórmulas em sintaxe ADVPL, na impressão de cada boleto é calculado o valor e concatenado na mensagem
 - <strong>MSG.EXTRA 1 / MSG.EXTRA 2</strong>: informar as mensagens de instruções complementares para impressão no boleto, se necessário.Estes campos são fórmulas em sintaxe ADVPL
   - <strong>OBS</strong>: no campo MSG.EXTRA 2 poderá ser informado um caractere de quebra de linha CHR(13)+CHR(10) para forçar uma quebra na impressão da mensagem, diretamente na fórmula e/ou função ADVPL se utilizada (limitado a apenas uma quebra)
@@ -3001,19 +3006,21 @@ Seu correto preenchimento é de suma importância, abaixo os principais campos q
 - <strong>HABILITADO</strong>: informe “Sim” para ativar o cadastro do banco, habilitando o mesmo para ser selecionado na emissão de boletos bancários
 - <strong>SEQUENCIAL NN</strong>: campo para controle do sequencial do Nosso Número, na inclusão do cadastro informe a numeração atual do Nosso Número junto ao banco, se a empresa já estiver utilizando cobrança bancária. Caso contrário, deixar em branco que será iniciado na primeira emissão de boleto
 - <strong>TIPO CARTEIRA</strong>: informe o tipo da carteira de cobrança conforme contrato junto ao banco:<br>
+    * 1=Cobrança Simples;<br>
+    * 2=Cobrança Vinculada;<br>
+    * 3=Cobrança Caucionada;<br>
+    * 4=Cobrança Descontada;<br>
+    * 5=Cobrança Vendor;
 
-* 1=Cobrança Simples;<br>
-* 2=Cobrança Vinculada;<br>
-* 3=Cobrança Caucionada;<br>
-* 4=Cobrança Descontada;<br>
-* 5=Cobrança Vendor;<br>
-  Obs: nem todos os bancos trabalham com todas as opções, consultar manual técnico do banco
+!!! tip "Obs: nem todos os bancos trabalham com todas as opções, consultar manual técnico do banco"
+<br>
 
-- <strong>TIPO CADASTRO TÍTULO</strong>: informe a modalidade de carteira de cobrança em relação a forma de cadastramento dos títulos:<br>
+- <strong>TIPO CADASTRO TÍTULO</strong>: informe a modalidade de carteira de cobrança em relação a forma de cadastramento dos títulos:
+    * 1=Cobrança Com Registro;
+    * 2=Cobrança Sem Registro;
 
-* 1=Cobrança Com Registro;<br>
-* 2=Cobrança Sem Registro;<br>
-  Obs: nem todos os bancos trabalham com todas as opções, consultar manual técnico do banco
+!!! tip "Obs: nem todos os bancos trabalham com todas as opções, consultar manual técnico do banco"
+<br>
 
 - <strong>COD. POSTO</strong>: campo de utilização exclusiva para o Banco SICREDI. Informe o código do posto de atendimento (pode ser obtido junto ao SICREDI)
 - <strong>DIR. REMESSA</strong>: informe o caminho (diretório) onde serão gerados os arquivos de remessa. Exemplo: D:\CNAB\REMESSA\BANCO\.<br>
@@ -3026,7 +3033,11 @@ Seu correto preenchimento é de suma importância, abaixo os principais campos q
 - <strong>CONF. RETORNO</strong>: informe o nome do arquivo de configuração de retorno.<br>
   Exemplo: banco240.2RR
 - <strong>EMIS. BOLETO</strong>: informe quem é o responsável pela emissão e distribuição do Boleto.<br>
-  1=Banco Emite, 2=Cliente emite. Se este campo não for preenchido o padrão é 2=Cliente Emite (Beneficiário)
+    * 1=Banco Emite
+    * 2=Cliente emite     
+!!! tip "Se este campo não for preenchido o padrão é 2=Cliente Emite (Beneficiário)" 
+<br>   
+
 - <strong>BAIXA/DEV</strong>?: informe 1=Sim para que o banco após o período parametrizado no campo (DIAS P/BAIXA) efetue a baixa e devolução do título
 - <strong>DIAS P/BAIXA</strong>?: informe a quantidade de dias para que títulos em aberto (não pagos) sofram baixa e devolução
 
@@ -3043,7 +3054,8 @@ Outros campos do cadastro de Parâmetros Bancários:
 ![](./assets/cnabreceber/02.png){.flow-image}
 
 - <strong>BCO CORRESP/AGE CORRESP/DV AG.CORRESP/CTA.CORRESP/DV CTA.CORRESP</strong>: Campos para informar o banco correspondente/vinculado ao banco Portador (Código do Banco, Código da Agência, Dígito Verificador da Agência, Número da Conta, DV da Conta).<br>
-  Opcional. Exemplo de uso é o banco SICOOB que na opção de Cobrança Registrada utiliza o banco B.BRASIL como correspondente. Neste caso, na impressão dos Boletos e arquivo de remessa do CNAB devem ir algumas informações do banco correspondente ao invés do banco portador
+!!! tip "Opcional." 
+    Exemplo de uso é o banco SICOOB que na opção de Cobrança Registrada utiliza o banco B.BRASIL como correspondente. Neste caso, na impressão dos Boletos e arquivo de remessa do CNAB devem ir algumas informações do banco correspondente ao invés do banco portador
 
 #### 1.2. Ocorrências CNAB
 
@@ -3403,7 +3415,8 @@ Ex.: 01, AB, A1 etc.<br></td>
   </tbody>
 </table>
 
-<strong>Atenção:</strong> É possível alterar a nomenclatura do arquivo de saída através do ponto de entrada <strong>PE003A18</strong>
+!!! warning "Atenção"
+    É possível alterar a nomenclatura do arquivo de saída através do ponto de entrada <strong>PE003A18</strong>
 
 #### 5. Transferência de Carteira
 
@@ -3411,7 +3424,7 @@ Ao transferir um título que já possua nosso número (boleto já impresso), par
 
 É possível realizar a transferência da carteira 1 para outras carteiras, sem passar para a carteira ‘0’, ou seja, sem perder o nosso número. Para isto a transferência não poderá ser contabilizada. Atentar para o preenchimento do terceiro parâmetro na rotina de transferência contas a receber.
 
-![](./assets/cnabreceber/16.png)
+![](./assets/cnabreceber/16.png){.flow-image}
 
 Contab. Transferência = Não, permite a transferência da carteira 01 para várias outras, como por exemplo Descontada.
 
@@ -3420,15 +3433,16 @@ Contab. Transferência = Não, permite a transferência da carteira 01 para vár
 Após o envio do arquivo de remessa ao banco, muitas vezes se faz necessário efetuar algum tipo de alteração no título: alteração de data de vencimento, instrução para que o banco cancele o protesto, etc. <br>
 Para isto, ao alterar um título a receber que está relacionado a um borderô, o sistema emite um aviso, solicitando ao usuário se o mesmo deseja incluir instruções de cobrança:
 
-![](./assets/cnabreceber/17.png)
+![](./assets/cnabreceber/17.png){.flow-image}
 
 Selecionar SIM se a instrução será posteriormente enviada ao banco, será apresentada a tela:
 
-![](./assets/cnabreceber/18.png)
+![](./assets/cnabreceber/18.png){.flow-image}
 
 Usuário deverá informar o código da ocorrência.
 
-IMPORTANTE: deverá ser cadastrada apenas uma ocorrência por título no arquivo de instruções, pois somente a última ocorrência é gravada na tabela SE1, e é está que será enviada.
+!!! warning "Importante"
+    Deverá ser cadastrada apenas uma ocorrência por título no arquivo de instruções, pois somente a última ocorrência é gravada na tabela SE1, e é está que será enviada.
 
 Após a alteração, basta gerar o arquivo de instruções (Comunicação Bancária / Instr. Cobrança) e enviá-lo ao banco.
 

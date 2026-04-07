@@ -1,36 +1,90 @@
 /* ============================================================
-   VARIÁVEIS CSS CUSTOMIZADAS
+   TOTVS DOCUMENTATION - REFATORADO
+   ============================================================
+   Estrutura:
+   1. Variáveis CSS (Design Tokens)
+   2. Reset e Base
+   3. Layout MkDocs
+   4. Homepage (fs-home)
+   5. Componentes Expandíveis
+   6. Tabelas
+   7. Cards e Grid
+   8. Alertas e Painéis
+   9. Syntax Highlighting
+   10. PE Components
+   11. Sidebar Toggle
+   12. Utilitários
+   13. Animações
+   14. Responsivo
+   ============================================================ */
+
+/* ============================================================
+   1. VARIÁVEIS CSS (DESIGN TOKENS)
    ============================================================ */
 :root > * {
-  --md-primary-fg-color: #004a92;
-  --md-primary-fg-color--light: #005bb5;
-  --md-primary-fg-color--dark: #003366;
-  
-  /* Cores tema */
+  /* Cores Primárias TOTVS */
   --totvs-blue: #004a92;
-  --totvs-orange: #ff7f00;
   --totvs-blue-light: #0068cc;
+  --totvs-blue-dark: #003366;
+  --totvs-orange: #ff7f00;
+  
+  /* Texto */
   --text-primary: #172b4d;
   --text-secondary: #5a6a8a;
+  --text-light: #ffffff;
+  
+  /* Backgrounds */
+  --bg-white: #ffffff;
   --bg-light: #f8f9fa;
+  --bg-hero: #0b1b3d;
+  --bg-home: #f4f6fb;
+  
+  /* Bordas */
   --border-color: #e8eaed;
+  --border-light: #e3e9f5;
+  
+  /* Sombras */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 24px rgba(0, 74, 146, 0.12);
+  --shadow-xl: 0 12px 32px rgba(0, 74, 146, 0.15);
+  
+  /* Tipografia */
+  --font-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Consolas', 'Courier New', monospace;
+  
+  /* Transições */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* MkDocs Material Overrides */
+  --md-primary-fg-color: var(--totvs-blue);
+  --md-primary-fg-color--light: var(--totvs-blue-light);
+  --md-primary-fg-color--dark: var(--totvs-blue-dark);
+  --md-default-bg-color: var(--bg-white);
 }
 
 /* ============================================================
-   ESTRUTURA MkDocs - LAYOUT GERAL
+   2. RESET E BASE
    ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-/* Container principal */
+/* ============================================================
+   3. LAYOUT MkDocs
+   ============================================================ */
 .md-container {
   display: flex;
   justify-content: center;
 }
 
-/* Layout principal */
 .md-main__inner {
-  max-width: 100% !important;
+  max-width: 100%;
   margin-left: -18px;
-  margin-right: 0px;
+  margin-right: 0;
 }
 
 .md-content {
@@ -43,103 +97,88 @@
   width: 100%;
 }
 
-/* Sidebars */
-.md-sidebar--primary {
-  left: 0;
-}
-
-.md-sidebar--secondary {
-  right: 0;
+/* Ocultar elementos desnecessários */
+.md-content__button,
+.md-footer-meta,
+.md-source__repository,
+.md-source__icon,
+.md-source__facts {
+  display: none !important;
 }
 
 /* ============================================================
-   HOMEPAGE - CONFIGURAÇÕES ESPECÍFICAS
+   4. HOMEPAGE (fs-home)
    ============================================================ */
 
-/* Reset geral da homepage */
-body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) {
-  overflow-x: hidden !important;
+/* Classe aplicada via JS quando na homepage - substitui :has() */
+body.fs-home-page {
+  overflow-x: hidden;
   background-image: 
-    linear-gradient(to bottom, #ffffff 75%, rgba(255, 255, 255, 0) 100%), 
-    url('https://tiinside.com.br/wp-content/uploads/2023/08/TOTVS-0493-1-scaled.jpg') !important;
-  background-repeat: no-repeat !important;
-  background-position: bottom center !important;
-  background-size: contain !important; 
-  background-attachment: scroll !important;
-  background-color: #ffffff !important;
+    linear-gradient(to bottom, var(--bg-white) 75%, rgba(255, 255, 255, 0) 100%), 
+    url('../assets/totvs-background_2.png');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: contain;
+  background-attachment: scroll;
+  background-color: var(--bg-white);
   margin: 0;
   padding: 0;
   min-height: 100vh;
 }
 
-/* Remove background em outras páginas */
-body:not(:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"])) {
-  background-image: none !important;
-  background-color: #ffffff !important;
-}
-
-/* Layout containers da homepage */
-body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-main,
-body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-main__inner,
-body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-content,
-body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-container,
-body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-container__inner {
+/* Reset de layout na homepage */
+body.fs-home-page .md-main,
+body.fs-home-page .md-main__inner,
+body.fs-home-page .md-content,
+body.fs-home-page .md-container,
+body.fs-home-page .md-container__inner {
   padding: 0;
   margin: 0;
-  max-width: none !important;
-  width: 100% !important;
+  max-width: none;
+  width: 100%;
 }
 
-body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-main {
+body.fs-home-page .md-main {
   min-height: 100vh;
   padding-top: 0;
   margin-top: 0;
 }
 
-body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-content,
-body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-content__inner {
-  background: transparent !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  max-width: 100% !important;
+body.fs-home-page .md-content,
+body.fs-home-page .md-content__inner {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
 }
 
-body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-typeset {
-  padding: 0 !important;
+body.fs-home-page .md-typeset {
+  padding: 0;
 }
 
-body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-typeset h1,
-body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-typeset h2 {
-  margin: 0 !important;
-  border: none !important;
+body.fs-home-page .md-typeset h1,
+body.fs-home-page .md-typeset h2 {
+  margin: 0;
+  border: none;
 }
 
-/* Desktop adjustments */
+/* Esconde botão de menu nativo no desktop (usa custom toggle) */
+@media screen and (min-width: 76.25em) {
+  .md-header__button.md-header__button--menu {
+    display: none !important;
+  }
+}
+
+/* Esconde botão nativo quando o custom está presente */
 @media (min-width: 1220px) {
-  body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-main__inner {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    display: flex !important;
-    justify-content: center !important;
-  }
-
-  body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-content {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    max-width: none !important;
-    flex-grow: 1 !important;
-  }
-
-  body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.html"]) .md-content__inner {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+  .md-header__button.md-header__button--toggle,
+  .md-header__button[title*="Menu"],
+  .md-header__button[title="Alternar Menu de Navegação"] {
+    display: none !important;
   }
 }
 
-/* ============================================================
-   HOMEPAGE - FS-HOME SYSTEM
-   ============================================================ */
-
+/* Wrapper raiz da homepage */
 /* Wrapper raiz */
 .fs-home {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -150,6 +189,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
   max-width: none;
 }
 
+/* Hero Section */
 /* Hero Section */
 .fs-hero {
   position: relative;
@@ -314,6 +354,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* Projects Container */
+/* Projects Container */
 .fs-projects {
   max-width: 1400px;
   margin: 0 auto;
@@ -324,40 +365,67 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* Project Section */
+.fs-project {
+  position: relative;
+  padding: 48px 0 64px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.fs-project:last-child {
+  border-bottom: none;
+  padding-bottom: 80px;
+}
+
+/* Header refinado: acento lateral + tipografia escalonada */
 .fs-project__header {
-  margin-bottom: 28px;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 32px;
+}
+
+.fs-project__header::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 4px;
+  background: linear-gradient(180deg, var(--totvs-blue) 0%, var(--totvs-blue-light) 100%);
+  border-radius: 4px;
 }
 
 .fs-project__tag {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Consolas', monospace;
+  background: rgba(0, 74, 146, 0.08);
+  color: var(--totvs-blue);
+  border: 1px solid rgba(0, 74, 146, 0.15);
+  padding: 4px 10px;
+  border-radius: 6px;
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--totvs-blue);
-  background: rgba(0, 74, 146, .1);
-  border: 1px solid rgba(0, 74, 146, .2);
-  padding: 4px 12px;
-  border-radius: 100px;
-  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
 }
 
 .fs-project__title {
-  font-size: 26px !important;
+  font-size: 24px !important;
   font-weight: 700 !important;
-  color: #0d1b38 !important;
+  color: #0b1b3d !important;
   margin: 0 0 8px 0 !important;
-  line-height: 1.2 !important;
+  line-height: 1.3 !important;
 }
 
 .fs-project__desc {
   font-size: 15px;
   color: var(--text-secondary);
   margin: 0;
-  max-width: 620px;
+  max-width: 680px;
   line-height: 1.6;
 }
 
+/* Cards Grid */
 /* Cards Grid */
 .fs-cards {
   display: grid;
@@ -369,6 +437,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
 
+/* Card */
 /* Card */
 .fs-card {
   display: flex;
@@ -394,15 +463,25 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
   transition: opacity .2s ease;
 }
 
+/* Hover moderno: elevação + sombra difusa */
 .fs-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(0, 74, 146, .12);
-  border-color: var(--totvs-blue);
-  text-decoration: none !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 74, 146, 0.12);
 }
 
 .fs-card:hover::before {
   opacity: 1;
+}
+
+/* Card primário (destaque para módulo principal) */
+.fs-card--primary {
+  border-left: 3px solid var(--totvs-blue);
+  background: linear-gradient(135deg, #ffffff 0%, #f8faff 100%);
+}
+
+.fs-card--primary .fs-card__icon {
+  background: linear-gradient(135deg, var(--totvs-blue) 0%, var(--totvs-blue-light) 100%);
+  color: #fff;
 }
 
 .fs-card--accent {
@@ -475,21 +554,17 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
   margin: 0;
 }
 
+/* Seta animada */
 .fs-card__arrow {
-  flex-shrink: 0;
-  font-size: 18px;
-  color: #c0cce0;
-  line-height: 1;
-  margin-top: 2px;
-  transition: color .2s ease, transform .2s ease;
-  align-self: center;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .fs-card:hover .fs-card__arrow {
+  transform: translateX(5px);
   color: var(--totvs-orange);
-  transform: translateX(4px);
 }
 
+/* Contact Footer */
 /* Contact Footer */
 .fs-contact {
   position: relative;
@@ -569,7 +644,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* ============================================================
-   COMPONENTES EXPANDÍVEIS
+   5. COMPONENTES EXPANDÍVEIS
    ============================================================ */
 
 /* Custom Expand Details */
@@ -684,6 +759,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* Field Expand */
+/* Field Expand */
 .field-expand {
   margin-bottom: 20px !important;
   border: 1px solid var(--border-color) !important;
@@ -759,113 +835,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* ============================================================
-   ANIMAÇÕES
-   ============================================================ */
-@keyframes slideDownCustom {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.md-typeset details.custom-expand[open] .content-body {
-  animation: slideDownCustom 0.3s ease-out !important;
-}
-
-.field-expand[open] .content-body {
-  animation: slideDown 0.3s ease-out !important;
-}
-
-/* ============================================================
-   TIPOGRAFIA E TEXTOS
-   ============================================================ */
-
-/* Headers */
-.md-typeset h4 { 
-  color: var(--text-primary) !important; 
-  font-weight: 700; 
-  margin-top: 30px; 
-}
-
-.md-typeset h5 { 
-  color: var(--totvs-orange) !important; 
-  font-weight: 600; 
-}
-
-/* Summary styling */
-.md-typeset summary {
-  display: flex !important;
-  align-items: center !important;
-}
-
-.md-typeset summary h2 {
-  display: inline-flex !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  border: none !important;
-  font-size: 22px !important;
-  font-weight: 600 !important;
-  color: var(--text-primary) !important;
-}
-
-.md-typeset summary h3 .headerlink,
-.md-typeset summary [data-md-component="icon"],
-.md-typeset summary .md-icon,
-.md-typeset summary svg,
-.md-typeset summary i.md-icon {
-  display: none !important;
-}
-
-.md-typeset summary:not(.custom-expand summary)::before,
-.md-typeset summary:not(.custom-expand summary)::after {
-  display: none !important;
-  content: none !important;
-}
-
-.md-typeset .summary-number {
-  color: var(--totvs-orange) !important;
-  margin-right: 12px;
-}
-
-.md-typeset .content-body {
-  padding: 24px 30px !important;    
-  line-height: 1.6;
-  color: var(--text-primary);
-}
-
-.md-typeset .content-body h3 {
-  font-size: 18px !important;
-  color: #0747a6 !important;
-  margin-top: 0 !important;
-  margin-bottom: 15px !important;
-  border-bottom: none !important;
-}
-
-.md-typeset .content-body h4 {
-  color: #0747a6 !important;
-  font-size: 16px !important;
-  font-weight: 700 !important;
-  margin-top: 20px !important;
-  margin-bottom: 8px !important;
-}
-
-/* ============================================================
-   TABELAS
+   6. TABELAS
    ============================================================ */
 
 /* Banks Table */
@@ -916,6 +886,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* Field Expand Tables */
+/* Field Expand Tables */
 .field-expand .banks-table {
   margin: 0 !important;
   border-radius: 8px !important;
@@ -939,6 +910,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
   background: var(--bg-light) !important;
 }
 
+/* Tabela de Títulos */
 /* Tabela de Títulos */
 .tabela-titulos {
   width: 100%;
@@ -1002,6 +974,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* Tabela Compacta */
+/* Tabela Compacta */
 .tabela-compacta {
   width: auto;
   max-width: 420px;
@@ -1054,6 +1027,9 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* ============================================================
+   7. CARDS E GRID
+   ============================================================ */
+/* ============================================================
    CARDS GRID
    ============================================================ */
 .md-typeset .grid.cards > ul > li {
@@ -1083,7 +1059,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* ============================================================
-   ALERTAS E PAINÉIS
+   8. ALERTAS E PAINÉIS
    ============================================================ */
 
 /* Warning Panel */
@@ -1102,6 +1078,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
   display: block;
 }
 
+/* Help Box */
 /* Help Box */
 .md-typeset .help-box {
   background-color: #f3f9f4 !important;
@@ -1127,7 +1104,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* ============================================================
-   SYNTAX HIGHLIGHTING
+   9. SYNTAX HIGHLIGHTING
    ============================================================ */
 
 /* ADVPL Syntax */
@@ -1142,57 +1119,26 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 .advpl-editor .symbol   { color: #800080; }
 
 /* General Syntax */
-.md-typeset .tk-cm, .md-typeset .c, .md-typeset .c1 { color: #7a869a !important; font-style: italic; }
-.md-typeset .tk-kw, .md-typeset .k, .md-typeset .nb { color: #0052cc !important; font-weight: bold; }
-.md-typeset .tk-st, .md-typeset .s, .md-typeset .s2 { color: #00875a !important; }
-.md-typeset .tk-fn, .md-typeset .nf { color: #6554c0 !important; }
+.md-typeset .tk-cm,
+.md-typeset .c,
+.md-typeset .c1 { color: #7a869a; font-style: italic; }
+
+.md-typeset .tk-kw,
+.md-typeset .k,
+.md-typeset .nb { color: #0052cc; font-weight: bold; }
+
+.md-typeset .tk-st,
+.md-typeset .s,
+.md-typeset .s2 { color: #00875a; }
+
+.md-typeset .tk-fn,
+.md-typeset .nf { color: #6554c0; }
 
 /* ============================================================
-   COMPONENTES ESPECÍFICOS
+   10. PE COMPONENTS
    ============================================================ */
 
-/* ADVPL Editor */
-.advpl-editor {
-  width: 100%;
-  max-width: 820px;
-  margin: 0 auto 40px;
-  background: #fdfdfd;
-  border: 1px solid #c0c0c0;
-  border-radius: 4px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  overflow: hidden;
-  font-family: 'Consolas', 'Courier New', 'Lucida Console', monospace;
-  font-size: 13.5px;
-  line-height: 1.58;
-}
-
-.advpl-editor .header {
-  background: #e8e8e8;
-  padding: 6px 12px;
-  font-size: 12px;
-  color: #444;
-  border-bottom: 1px solid #d0d0d0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.advpl-editor .header .title {
-  font-weight: bold;
-}
-
-.advpl-editor .header .filename {
-  color: #0066cc;
-}
-
-.advpl-editor pre {
-  margin: 0;
-  padding: 14px 18px;
-  background: transparent;
-  white-space: pre;
-  overflow-x: auto;
-}
-
+/* PE Cards */
 /* PE Cards */
 .pe-card {
   background: #ffffff;
@@ -1241,6 +1187,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* PE Meta Table */
+/* PE Meta Table */
 .pe-meta {
   width: 100%;
   border-collapse: collapse;
@@ -1285,6 +1232,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* PE Section */
+/* PE Section */
 .pe-section {
   padding: 0 20px 16px;
   border-top: 1px solid #eef0f5;
@@ -1299,6 +1247,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
   margin: 14px 0 8px;
 }
 
+/* PE Params Table */
 /* PE Params Table */
 .pe-params {
   width: 100%;
@@ -1350,6 +1299,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* PE Code Wrap */
+/* PE Code Wrap */
 .pe-code-wrap {
   background: #1a2035;
   border-radius: 8px;
@@ -1370,6 +1320,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
   width: 11px; height: 11px;
   border-radius: 50%;
 }
+
 .pe-code-bar span:nth-child(1) { background: #ff5f57; }
 .pe-code-bar span:nth-child(2) { background: #febc2e; }
 .pe-code-bar span:nth-child(3) { background: #28c840; }
@@ -1397,6 +1348,7 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 .pe-code-wrap .st  { color: #9ecbff; }
 .pe-code-wrap .va  { color: #e3e9f3; }
 
+/* PE Table Modern */
 /* PE Table Modern */
 .pe-table-modern {
   width: 100%;
@@ -1431,6 +1383,147 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* ============================================================
+   11. SIDEBAR TOGGLE
+   ============================================================ */
+
+/* Botão Customizado - Desktop */
+#custom-sidebar-toggle {
+  position: fixed;
+  left: 12px;
+  top: 5px;
+  z-index: 1001;
+  background: var(--totvs-blue);
+  color: var(--text-light);
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: opacity var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+  box-shadow: 0 8px 20px rgba(0, 74, 146, 0.4);
+}
+
+#custom-sidebar-toggle:hover {
+  background: var(--totvs-blue-light);
+  transform: scale(1.08);
+}
+
+#custom-sidebar-toggle svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  transition: transform var(--transition-base);
+}
+
+/* Esconde botão em mobile - usa o nativo */
+/* Esconde botão customizado em mobile */
+@media (max-width: 1220px) {
+  #custom-sidebar-toggle {
+    display: none !important;
+  }
+}
+
+/* Drawer no Desktop */
+/* 2. Força o comportamento de GAVETA (Drawer) no Desktop */
+@media screen and (min-width: 76.25em) {
+  /* Faz a sidebar se comportar como flutuante, igual ao mobile do vídeo */
+  .md-sidebar--primary {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 12.1rem !important;
+    height: 100% !important;
+    z-index: 10000 !important;
+    background-color: var(--md-default-bg-color) !important;
+    transform: translateX(-100%) !important; /* Escondido por padrão */
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    display: block !important;
+  }
+
+  /* Mostra a sidebar quando o drawer do sistema está ativado */
+  [data-md-toggle="drawer"]:checked ~ .md-container .md-sidebar--primary {
+    transform: translateX(0) !important;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.3) !important;
+  }
+
+  /* Overlay escurecido por tras do menu */
+  .md-overlay {
+    display: none !important;
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    z-index: 9999 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.25s ease !important;
+  }
+
+  /* Adiciona o fundo escurecido (Overlay) no desktop */
+  [data-md-toggle="drawer"]:checked ~ .md-overlay {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Botao de fechar no topo do sidebar */
+  .fs-sidebar-close {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    border-radius: 50% !important;
+    background: var(--totvs-blue) !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-size: 20px !important;
+    line-height: 1 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    transition: background 0.2s ease !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .fs-sidebar-close:hover {
+    background: var(--totvs-blue-light) !important;
+  }
+
+  /* Posiciona o titulo do nav para acomodar o botao */
+  .md-nav__title {
+    position: relative !important;
+    padding-right: 52px !important;
+  }
+}
+
+/* Drawer no Mobile */
+@media screen and (max-width: 76.25em) {
+  #custom-sidebar-toggle {
+    display: none !important;
+  }
+  .md-header__button.md-header__button--menu {
+    display: block !important; /* Reativa o original no mobile */
+  }
+}
+/* ============================================================
+   12. UTILITÁRIOS
+   ============================================================ */
+
+/* Hide TOC */
+/* Hide TOC */
+.md-main__inner:has(.hide-toc) h1 {
+  display: none;
+}
+
+/* Imagem de fluxo */
+/* ============================================================
    IMAGENS E MÍDIA
    ============================================================ */
 .md-typeset .flow-image {
@@ -1442,119 +1535,85 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
   margin: 20px 0;
 }
 
-/* ============================================================
-   HIDE ELEMENTS
-   ============================================================ */
-.md-content__button {
-  display: none !important;
+/* Typography */
+.md-typeset h4 { 
+  color: var(--text-primary) !important; 
+  font-weight: 700; 
+  margin-top: 30px; 
 }
 
-.md-footer-meta {
-  display: none !important;
+.md-typeset h5 { 
+  color: var(--totvs-orange) !important; 
+  font-weight: 600; 
 }
 
-.md-source__repository {
-  display: none !important;
+/* Summary styling */
+.md-typeset summary {
+  display: flex !important;
+  align-items: center !important;
 }
 
-.md-source__icon {
-  display: none !important;
-}
-
-.md-source__facts {
-  display: none !important;
-}
-
-/* ============================================================
-   NAVIGATION CUSTOMIZATIONS
-   ============================================================ */
-.md-nav__primary > .md-nav__list > .md-nav__item {
-  display: none;
-}
-
-.md-nav__primary > .md-nav__list > .md-nav__item:first-child,
-.md-nav__primary > .md-nav__list > .md-nav__item:last-child {
-  display: block;
-}
-
-.md-nav__primary > .md-nav__list > .md-nav__item--active {
-  display: block;
-}
-
-.md-nav__item--active > .md-nav__link {
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: var(--md-primary-fg-color);
-}
-
-/* ============================================================
-   HOME HERO CONTACT (LEGACY)
-   ============================================================ */
-.home-hero-contact {
-  position: relative;
-  width: 100vw;
-  left: 51%;
-  right: 50%;
-  margin-left: -52vw;
-  margin-right: -50vw;
-  margin-top: 60px;
-  min-height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-
-  background-image:
-    linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,0) 40%),
-    url('../assets/totvs-background_2.png');
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
-.home-hero-contact::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, transparent 0%, rgba(0, 30, 70, 0.45) 100%);
-  pointer-events: none;
-}
-
-.home-hero-contact__inner {
-  position: relative;
-  z-index: 1;
-  padding: 60px 20px 50px;
-}
-
-.home-hero-contact__title {
-  font-size: 28px !important;
+.md-typeset summary h2 {
+  display: inline-flex !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  font-size: 22px !important;
   font-weight: 600 !important;
-  color: #ffffff !important;
-  margin: 0 0 24px 0 !important;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  color: var(--text-primary) !important;
 }
 
-.home-hero-contact__btn {
-  display: inline-block;
-  background-color: var(--totvs-blue);
-  color: #ffffff !important;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 14px 32px;
-  border-radius: 50px;
-  text-decoration: none !important;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+.md-typeset summary h3 .headerlink,
+.md-typeset summary [data-md-component="icon"],
+.md-typeset summary .md-icon,
+.md-typeset summary svg,
+.md-typeset summary i.md-icon {
+  display: none !important;
 }
 
-.home-hero-contact__btn:hover {
-  background-color: var(--totvs-orange);
-  transform: translateY(-2px);
-  color: #ffffff !important;
+.md-typeset .summary-number {
+  color: var(--totvs-orange) !important;
+  margin-right: 12px;
 }
 
 /* ============================================================
-   RESPONSIVE DESIGN
+   13. ANIMAÇÕES
+   ============================================================ */
+/* ============================================================
+   ANIMAÇÕES
+   ============================================================ */
+@keyframes slideDownCustom {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.md-typeset details.custom-expand[open] .content-body {
+  animation: slideDownCustom 0.3s ease-out !important;
+}
+
+.field-expand[open] .content-body {
+  animation: slideDown 0.3s ease-out !important;
+}
+
+/* ============================================================
+   14. RESPONSIVO
    ============================================================ */
 
 /* Tablets */
@@ -1597,40 +1656,12 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
 }
 
 /* Mobile */
+/* Responsivo - ajustar posição em mobile */
 @media (max-width: 768px) {
-  .md-typeset details.custom-expand summary {
-    padding: 16px 18px !important;
-    font-size: 15px !important;
-  }
-  
-  .md-typeset details.custom-expand .content-body {
-    padding: 20px 24px !important;
-  }
-  
-  .md-typeset details.custom-expand .content-body h3 {
-    font-size: 16px !important;
-  }
-  
-  .md-typeset details.custom-expand .content-body h4 {
-    font-size: 15px !important;
-  }
-
-  .field-expand > summary {
-    padding: 14px 16px !important;
-    font-size: 14px !important;
-  }
-  
-  .field-expand .content-body {
-    padding: 16px 20px !important;
-  }
-  
-  .field-expand .banks-table {
-    font-size: 12px !important;
-  }
-  
-  .field-expand .banks-table th,
-  .field-expand .banks-table td {
-    padding: 8px 12px !important;
+  .md-header__button.md-header__button--toggle {
+    left: 15px !important;
+    width: 48px !important;
+    height: 48px !important;
   }
 }
 
@@ -1656,12 +1687,229 @@ body:has(nav.md-nav--primary [aria-current="page"] .md-nav__link[href="index.htm
   }
 }
 
-/* Hide TOC */
-.md-main__inner:has(.hide-toc) h1 {
+
+
+/* ============================================================
+   NOVAS CLASSES (adicionadas na consolidacao)
+   ============================================================ */
+.advpl-editor {
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto 40px;
+  background: #fdfdfd;
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+  font-family: 'Consolas', 'Courier New', 'Lucida Console', monospace;
+  font-size: 13.5px;
+  line-height: 1.58;
+}
+.advpl-editor .header {
+  background: #e8e8e8;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: #444;
+  border-bottom: 1px solid #d0d0d0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.advpl-editor .header .filename {
+  color: #0066cc;
+}
+.advpl-editor .header .title {
+  font-weight: bold;
+}
+.advpl-editor pre {
+  margin: 0;
+  padding: 14px 18px;
+  background: transparent;
+  white-space: pre;
+  overflow-x: auto;
+}
+/* Grid de cards com respiração e alinhamento */
+.fs-cards--project {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  max-width: 1200px;
+}
+.fs-project-section {
+  position: relative;
+  padding: 48px 0 64px;
+  border-bottom: 1px solid var(--border-color);
+}
+.fs-project-section:last-child {
+  border-bottom: none;
+  padding-bottom: 80px;
+}
+/* ============================================================
+   HOME HERO CONTACT (LEGACY)
+   ============================================================ */
+.home-hero-contact {
+  position: relative;
+  width: 100vw;
+  left: 51%;
+  right: 50%;
+  margin-left: -52vw;
+  margin-right: -50vw;
+  margin-top: 60px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  background-image:
+    linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,0) 40%),
+    url('../assets/totvs-background_2.png');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.home-hero-contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 30, 70, 0.45) 100%);
+  pointer-events: none;
+}
+.home-hero-contact__btn {
+  display: inline-block;
+  background-color: var(--totvs-blue);
+  color: #ffffff !important;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 14px 32px;
+  border-radius: 50px;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+.home-hero-contact__btn:hover {
+  background-color: var(--totvs-orange);
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+.home-hero-contact__inner {
+  position: relative;
+  z-index: 1;
+  padding: 60px 20px 50px;
+}
+.home-hero-contact__title {
+  font-size: 28px !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+  margin: 0 0 24px 0 !important;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+/* ============================================================
+   HIDE ELEMENTS
+   ============================================================ */
+.md-content__button {
+  display: none !important;
+}
+.md-footer-meta {
+  display: none !important;
+}
+.md-header__button.md-header__button--toggle {
+  position: fixed !important;
+  left: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 1001 !important; /* Acima de quase tudo */
+  background: var(--totvs-blue) !important;
+  border-radius: 0 50% 50% 0 !important; /* Arredondado apenas do lado direito */
+  width: 45px !important;
+  height: 56px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 2px 4px 12px rgba(0, 74, 146, 0.3) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  margin: 0 !important;
+}
+/* Ícone do botão */
+.md-header__button.md-header__button--toggle svg {
+  width: 24px !important;
+  height: 24px !important;
+  fill: white !important;
+  margin-left: -5px; /* Ajuste para o ícone não parecer "espremido" no canto */
+}
+/* Hover do botão */
+.md-header__button.md-header__button--toggle:hover {
+  background: var(--totvs-blue-light) !important;
+  width: 55px !important; /* Expande levemente ao passar o mouse */
+}
+.md-nav__item--active > .md-nav__link {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--md-primary-fg-color);
+}
+/* ============================================================
+   NAVIGATION CUSTOMIZATIONS
+   ============================================================ */
+.md-nav__primary > .md-nav__list > .md-nav__item {
   display: none;
 }
-
+.md-nav__primary > .md-nav__list > .md-nav__item--active {
+  display: block;
+}
+.md-nav__primary > .md-nav__list > .md-nav__item:last-child {
+  display: block;
+}
+/* Sidebar com animação suave */
+.md-sidebar--primary {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+/* Animação do ícone quando menu está aberto */
+.md-sidebar--primary:not([style*="transform: translateX"]) .md-header__button.md-header__button--toggle svg {
+  transform: rotate(180deg) !important;
+}
+/* Animação do ícone quando menu está fechado */
+.md-sidebar--primary[style*="transform: translateX"] .md-header__button.md-header__button--toggle svg {
+  transform: rotate(0deg) !important;
+}
+.md-source__icon {
+  display: none !important;
+}
+.md-source__repository {
+  display: none !important;
+}
+.md-typeset .content-body {
+  padding: 24px 30px !important;    
+  line-height: 1.6;
+  color: var(--text-primary);
+}
+.md-typeset .content-body h3 {
+  font-size: 18px !important;
+  color: #0747a6 !important;
+  margin-top: 0 !important;
+  margin-bottom: 15px !important;
+  border-bottom: none !important;
+}
+.md-typeset .content-body h4 {
+  color: #0747a6 !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  margin-top: 20px !important;
+  margin-bottom: 8px !important;
+}
+/* General Syntax */
+.md-typeset .tk-cm, .md-typeset .c, .md-typeset .c1 { color: #7a869a !important; font-style: italic; }
+.md-typeset .tk-fn, .md-typeset .nf { color: #6554c0 !important; }
+.md-typeset .tk-kw, .md-typeset .k, .md-typeset .nb { color: #0052cc !important; font-weight: bold; }
+.md-typeset .tk-st, .md-typeset .s, .md-typeset .s2 { color: #00875a !important; }
+.md-typeset summary:not(.custom-expand summary)::after {
+  display: none !important;
+  content: none !important;
+}
 /* Special data attribute */
 [data-md-main-steps] .md-content {
   background: none;
+}
+[data-md-toggle="drawer"]:checked ~ .md-header .md-header__button--toggle {
+  left: 12.1rem !important; /* Largura padrão da sidebar do Material */
+  border-radius: 50% !important; /* Volta a ser circular quando fora da borda */
 }

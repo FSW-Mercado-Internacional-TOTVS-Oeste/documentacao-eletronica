@@ -2,6 +2,9 @@ site_name: TOTVS ADDONS
 site_url: https://fsw-mi-addons.totvscascavel.com.br/
 repo_url: https://gitlab.com/fsw-mi-totvsoeste/documentacao-eletronica
 
+plugins:
+  - search
+
 theme:
   name: material
   language: pt
@@ -67,8 +70,8 @@ markdown_extensions:
       toc_depth: 3
 
 extra_javascript:
-  - js/advpl_format.js
-  - js/extras.js
+  - js/advpl_format.js  
+  - js/extra.js
 
 extra_css:
   - stylesheets/extra.css
