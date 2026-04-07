@@ -6,13 +6,8 @@ hide:
 
 # XML de Terceiros {.home-hero}
 
-<div class="grid cards" markdown>
-
--   __Conteúdo em Desenvolvimento__
-    
+!!! warning "Atenção"
     Esta seção do manual técnico está passando por revisões de conformidade e formatação. Os modelos de dados e procedimentos operacionais estão sendo validados para garantir a precisão das instruções técnicas. O conteúdo completo estará disponível em breve.
-
-</div>
 
 <!--############################################### 01 #######################################################-->
 
@@ -6332,11 +6327,11 @@ Status do registro do XML de Terceiros.
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">12.</span> Manual de operação</span>
+  <span class="summary-title"><span class="summary-number">08.</span> Manual de operação</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">12. Manual de operação</span>
+### <span style="display: none;">08. Manual de operação</span>
 
 Este ADDON tem por objetivo efetuar o gerenciamento em torno dos arquivos XML emitidos por terceiros pertinentes à documentos fiscais do tipo:<br>
 •	Notas Fiscais Eletrônicas - NFe<br>
@@ -6367,6 +6362,7 @@ Esta rotina tem por objetivo o cadastro das contas de e-mail utilizadas pela emp
 As contas de e-mail cadastradas através desta rotina, poderão ser posteriormente utilizadas para sincronização\download dos arquivos de XML recebidos através de e-mail.
 <br>
 Para cadastrar à conta de e-mail em questão, deverá ter de posse os dados técnicos em torno da comunicação\conexão junto à conta de e-mail.
+
 ![](./assets/xmlterceiros/Imagem1.png){.flow-image}
 
 As definições técnicas a respeito da configuração das contas de e-mail que serão integradas com o addon XML Terceiros para o recebimento de arquivos XML estão organizadas em pastas conforme à sua aplicação\finalidade.<br>
@@ -6437,10 +6433,12 @@ A rotina de Usuários X Permissões foi desenvolvida com o objetivo de efetuar o
 Não será possível aos usuários, utilizar os recursos do ADDON caso não possua registro de definição de permissões.
 <br>
 Para cadastrar as permissões, é necessário inicialmente vincular o cadastro do usuário do ERP Protheus o qual foi previamente definido através do ambiente Configurador.
+
 ![](./assets/xmlterceiros/Imagem2.png){.flow-image}
 <br>
 Posteriormente, definem-se as permissões para o usuário em questão em relação aos recursos existentes no ADDON XML de Terceiros.<br>
 Para cada um dos recursos existentes nas rotinas do ADDON, existem campos específicos no cadastro de Usuários X Permissões conforme exemplo abaixo.
+
 ![](./assets/xmlterceiros/Imagem3.png){.flow-image}
 <br>
 Ao realizar o cadastramento das permissões, verifique o help dos campos para obter demais informações sobre à permissão em questão.<br>
@@ -6454,14 +6452,16 @@ A rotina de Cadastro de Tags está presente no ADDON XML de Terceiros com o obje
 * <strong>NF-e</strong><br>
 * <strong>CT-e</strong><br>
 
-Por padrão, o ADDON XML de Terceiros já contempla uma carga de tags pré-definidas as quais são de utilização exclusiva do próprio ADDON. As definições de tags são utilizadas no recurso de processamento dos arquivos XML recebidos, ou seja, na funcionalidade à qual através do XML possibilita um assistente para maior agilidade na inclusão dos documentos fiscais no ambiente.<br>
+Por padrão, o ADDON XML de Terceiros já contempla uma carga de tags pré-definidas as quais são de utilização exclusiva do próprio ADDON. As definições de tags são utilizadas no recurso de processamento dos arquivos XML recebidos, ou seja, na funcionalidade à qual através do XML possibilita um assistente para maior agilidade na inclusão dos documentos fiscais no ambiente.
+
 ![](./assets/xmlterceiros/Imagem4.png){.flow-image}
 <br>
 Junto ao cadastro de tags são definidas as tags presentes no XML que está sendo processado bem como qual a tabela\campo do ERP Protheus no qual o conteúdo será direcionado quando do processamento do XML - inclusão do documento fiscal de entrada \ conhecimento de frete.<br>
 
 Não é possível alterar as tags padrões do ADDON, porém, caso seja necessário efetuar tratamento de algum campo personalizado existente por exemplo na tabela SD1 (Itens Doc. Entrada) durante o processamento do XML, poderá ser incluído uma tag personalizada, ou seja, especifica da empresa\filial.<br>
 
-<strong>OBSERVAÇÃO:</strong> Caso seja de interesse, considerar que o valor do ICMS e ICMS ST presentes no XML seja considerado para o Documento de Entrada no processamento do XML, deve-se apendar ao cadastro de tags, tags personalizadas para este processo as quais estão disponíveis junto ao pacote deste Addon. Além disto, é necessário que seja ativado o parâmetro <strong>MV_X004014</strong> (.T.). Com isto, ao processar o XML gerando Documento de Entrada, desde que o TES esteja parametrizado para calcular ICMS, serão replicados os valores do ICMS e ICMS ST presentes nos itens do XML do documento fiscal, para os itens na rotina de Documento de Entrada.<br>
+<strong>OBSERVAÇÃO:</strong> Caso seja de interesse, considerar que o valor do ICMS e ICMS ST presentes no XML seja considerado para o Documento de Entrada no processamento do XML, deve-se apendar ao cadastro de tags, tags personalizadas para este processo as quais estão disponíveis junto ao pacote deste Addon. Além disto, é necessário que seja ativado o parâmetro <strong>MV_X004014</strong> (.T.). Com isto, ao processar o XML gerando Documento de Entrada, desde que o TES esteja parametrizado para calcular ICMS, serão replicados os valores do ICMS e ICMS ST presentes nos itens do XML do documento fiscal, para os itens na rotina de Documento de Entrada.
+
 ![](./assets/xmlterceiros/Imagem5.png){.flow-image}
 <br>
 Ao realizar à inclusão de tags especificas\próprias, observe com atenção o help dos campos. Além disto, poderá estar verificando a partir das próprias tags padrões do ADDON como os campos devem ser preenchidos. 
@@ -6478,15 +6478,17 @@ Ao realizar à inclusão de tags especificas\próprias, observe com atenção o 
 #### 4. ROTINA XML RECEBIDOS
 Através da rotina de XML Recebidos, é realizado toda a gestão em torno do recebimento\processamento do XML de Terceiros emitidos para a empresa\filial.<br>
 Inicialmente, ao acessar a rotina é apresentado o browse com as funcionalidades disponíveis bem como, o browse com as principais informações de cada XML Terceiros previamente importado.
+
 ![](./assets/xmlterceiros/Imagem6.png){.flow-image}
-<br>
- Na parte superior do browse, são disponibilizados filtros pré-configurados com base nos possíveis status em que os XML Terceiros podem assumir:
- <br>
+
+Na parte superior do browse, são disponibilizados filtros pré-configurados com base nos possíveis status em que os XML Terceiros podem assumir:
+
 ![](./assets/xmlterceiros/Imagem7.png){.flow-image}<br>
+
 Na sequência, serão abordados os recursos presentes na rotina de XML Recebidos.
 
-* <strong>4.1. IMPORTAR</strong>: 
-    * Ações Relacionadas\Importar<br>
+#### 4.1. IMPORTAR
+Ações Relacionadas\Importar
     
 * <strong>MANUAL</strong>: através desta opção, será apresentado interface para que seja apontado arquivo de XML Terceiros o qual deverá ser importado para o ADDON.
 
@@ -6516,8 +6518,8 @@ Na hipótese do parâmetro <strong>MV_X004015</strong> configurado como <strong>
 <strong>DICA:</strong> Ao realizar à importação de um XML Terceiros, caso já exista documento de entrada\conhecimento de frete com à chave do documento fiscal presente no XML em questão, o mesmo já será automaticamente vinculado ao documento fiscal existente no ERP Protheus, ou seja, o status do registro do XML junto ao ADDON ficará como Documento Entrada.
 <br>
 
-* <strong>4.2. EXPORTAR</strong>: 
-    * Ações Relacionadas\Exportar<br>
+#### 4.2. EXPORTAR
+Ações Relacionadas\Exportar<br>
 Utilizando-se deste recurso, é possível realizar à exportação dos XML Terceiros existentes no ADDON de XML para arquivos.<br>
 
 Para isto, deve-se parametrizar os parâmetros visando que sejam exportados os XML existentes no ADDON conforme as regras de filtro definidas.

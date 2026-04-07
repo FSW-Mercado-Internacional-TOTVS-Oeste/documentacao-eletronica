@@ -85,6 +85,7 @@
   max-width: 100%;
   margin-left: -18px;
   margin-right: 0;
+  margin-top: -1rem !important; 
 }
 
 .md-content {
@@ -111,10 +112,10 @@
    ============================================================ */
 
 /* Classe aplicada via JS quando na homepage - substitui :has() */
-body.fs-home-page {
+html body.fs-home-page {
   overflow-x: hidden;
-  background-image: 
-    linear-gradient(to bottom, var(--bg-white) 75%, rgba(255, 255, 255, 0) 100%), 
+  background-image:
+    linear-gradient(to bottom, var(--bg-white) 75%, rgba(255, 255, 255, 0) 100%),
     url('../assets/totvs-background_2.png');
   background-repeat: no-repeat;
   background-position: bottom center;
@@ -123,37 +124,115 @@ body.fs-home-page {
   background-color: var(--bg-white);
   margin: 0;
   padding: 0;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh !important;
+}
+
+/* Force remove any margins/padding that might be causing spacing */
+html body.fs-home-page > * {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Override any Material-specific spacing on the main container */
+html body.fs-home-page .md-container {
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+/* Force the main content to fill available space */
+html body.fs-home-page .md-main {
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-grow: 1 !important;
+  min-height: 0 !important;
+}
+
+/* Override any internal spacing */
+html body.fs-home-page .md-main__inner {
+  margin: 0 !important;
+  margin-top: -1rem !important;
+  margin-bottom: -1rem !important;
+  padding: 0 !important;
+  flex-grow: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Ensure content areas take full width */
+html body.fs-home-page .md-content,
+html body.fs-home-page .md-content__inner {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  flex-grow: 1 !important;
+}
+
+/* Header and footer should not affect layout */
+html body.fs-home-page .md-header {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+html body.fs-home-page .md-footer {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* Reset de layout na homepage */
+/* Compensa padding-top do header e puxa conteudo para cima */
+body.fs-home-page .md-content {
+  margin-top: calc(-1 * var(--md-header-height, 2.4rem)) !important;
+  padding-top: 0 !important;
+}
+
 body.fs-home-page .md-main,
 body.fs-home-page .md-main__inner,
-body.fs-home-page .md-content,
 body.fs-home-page .md-container,
 body.fs-home-page .md-container__inner {
-  padding: 0;
-  margin: 0;
-  max-width: none;
-  width: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+  width: 100% !important;
 }
 
+body.fs-home-page .md-container {
+  flex-grow: 1 !important;
+}
 body.fs-home-page .md-main {
-  min-height: 100vh;
-  padding-top: 0;
-  margin-top: 0;
+  flex-grow: 0 !important;
+  min-height: 0 !important;
+}
+body.fs-home-page .md-main__inner {
+  flex-grow: 1 !important;
 }
 
-body.fs-home-page .md-content,
+/* Remove sombras do header na homepage */
+body.fs-home-page .md-header--shadow {
+  box-shadow: none;
+}
+
+body.fs-home-page .md-main__inner {
+  gap: 0 !important;
+}
+
+body.fs-home-page .md-content .md-grid {
+  padding: 0 !important;
+  margin: 0 !important;
+  max-width: none !important;
+}
+
 body.fs-home-page .md-content__inner {
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  max-width: 100%;
+  background: transparent !important;
 }
 
 body.fs-home-page .md-typeset {
-  padding: 0;
+  padding: 0 !important;
 }
 
 body.fs-home-page .md-typeset h1,
@@ -187,6 +266,7 @@ body.fs-home-page .md-typeset h2 {
   overflow-x: hidden;
   width: 100%;
   max-width: none;
+  flex-grow: 1;
 }
 
 /* Hero Section */
@@ -1655,8 +1735,6 @@ body.fs-home-page .md-typeset h2 {
   }
 }
 
-/* Mobile */
-/* Responsivo - ajustar posição em mobile */
 @media (max-width: 768px) {
   .md-header__button.md-header__button--toggle {
     left: 15px !important;
@@ -1728,7 +1806,7 @@ body.fs-home-page .md-typeset h2 {
   white-space: pre;
   overflow-x: auto;
 }
-/* Grid de cards com respiração e alinhamento */
+
 .fs-cards--project {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

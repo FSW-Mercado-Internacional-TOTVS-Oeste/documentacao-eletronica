@@ -21,7 +21,7 @@ hide:
         Documentação Técnica · TOTVS Protheus
       </div>
       <h1 class="fs-hero__title">Documentação<br><span>Eletrônica</span></h1>
-      <p class="fs-hero__subtitle">Módulos, integrações e add-ons desenvolvidos para ampliar e aperfeiçoar os processos do ERP Protheus.</p>
+      <p class="fs-hero__subtitle">Módulos, integrações e add-ons desenvolvidos para ampliar e aperfeiçoar os processos do Protheus.</p>
       <div class="fs-hero__stats">
         <div class="fs-hero__stat">
           <span class="fs-hero__stat-num">8</span>
@@ -34,7 +34,7 @@ hide:
         </div>
         <div class="fs-hero__stat-div"></div>
         <div class="fs-hero__stat">
-          <span class="fs-hero__stat-num">ERP</span>
+          <span class="fs-hero__stat-num">ADDONS</span>
           <span class="fs-hero__stat-label">Protheus</span>
         </div>
       </div>
