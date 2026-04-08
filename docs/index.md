@@ -10,9 +10,9 @@ hide:
   <!-- ░░ HERO ░░ -->
   <section class="fs-hero">
     <div class="fs-hero__bg">
-      <div class="fs-hero__orb fs-hero__orb--1"></div>
-      <div class="fs-hero__orb fs-hero__orb--2"></div>
-      <div class="fs-hero__orb fs-hero__orb--3"></div>
+      <!-- <div class="fs-hero__orb fs-hero__orb--1"></div>
+      <div class="fs-hero__orb fs-hero__orb--2"></div> -->
+      <!-- <div class="fs-hero__orb fs-hero__orb--3"></div> -->
       <div class="fs-hero__grid"></div>
     </div>
     <div class="fs-hero__inner">

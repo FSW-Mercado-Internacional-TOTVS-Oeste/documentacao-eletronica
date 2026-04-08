@@ -6432,12 +6432,12 @@ Não será possível aos usuários, utilizar os recursos do ADDON caso não poss
 Para cadastrar as permissões, é necessário inicialmente vincular o cadastro do usuário do ERP Protheus o qual foi previamente definido através do ambiente Configurador.
 
 ![](./assets/xmlterceiros/Imagem2.png){.flow-image}
-<br>
+
 Posteriormente, definem-se as permissões para o usuário em questão em relação aos recursos existentes no ADDON XML de Terceiros.<br>
 Para cada um dos recursos existentes nas rotinas do ADDON, existem campos específicos no cadastro de Usuários X Permissões conforme exemplo abaixo.
 
 ![](./assets/xmlterceiros/Imagem3.png){.flow-image}
-<br>
+
 Ao realizar o cadastramento das permissões, verifique o help dos campos para obter demais informações sobre à permissão em questão.<br>
 <strong>DICA:</strong> não é necessário realizar à inclusão do cadastro de Usuários X Permissões para o usuário ADMINISTRADOR do ERP Protheus, afinal, o mesmo possui acesso total a todos os recursos do ADDON de modo padrão.
 <br>
@@ -6452,7 +6452,7 @@ A rotina de Cadastro de Tags está presente no ADDON XML de Terceiros com o obje
 Por padrão, o ADDON XML de Terceiros já contempla uma carga de tags pré-definidas as quais são de utilização exclusiva do próprio ADDON. As definições de tags são utilizadas no recurso de processamento dos arquivos XML recebidos, ou seja, na funcionalidade à qual através do XML possibilita um assistente para maior agilidade na inclusão dos documentos fiscais no ambiente.
 
 ![](./assets/xmlterceiros/Imagem4.png){.flow-image}
-<br>
+
 Junto ao cadastro de tags são definidas as tags presentes no XML que está sendo processado bem como qual a tabela\campo do ERP Protheus no qual o conteúdo será direcionado quando do processamento do XML - inclusão do documento fiscal de entrada \ conhecimento de frete.<br>
 
 Não é possível alterar as tags padrões do ADDON, porém, caso seja necessário efetuar tratamento de algum campo personalizado existente por exemplo na tabela SD1 (Itens Doc. Entrada) durante o processamento do XML, poderá ser incluído uma tag personalizada, ou seja, especifica da empresa\filial.<br>
@@ -6460,7 +6460,7 @@ Não é possível alterar as tags padrões do ADDON, porém, caso seja necessár
 <strong>OBSERVAÇÃO:</strong> Caso seja de interesse, considerar que o valor do ICMS e ICMS ST presentes no XML seja considerado para o Documento de Entrada no processamento do XML, deve-se apendar ao cadastro de tags, tags personalizadas para este processo as quais estão disponíveis junto ao pacote deste Addon. Além disto, é necessário que seja ativado o parâmetro <strong>MV_X004014</strong> (.T.). Com isto, ao processar o XML gerando Documento de Entrada, desde que o TES esteja parametrizado para calcular ICMS, serão replicados os valores do ICMS e ICMS ST presentes nos itens do XML do documento fiscal, para os itens na rotina de Documento de Entrada.
 
 ![](./assets/xmlterceiros/Imagem5.png){.flow-image}
-<br>
+
 Ao realizar à inclusão de tags especificas\próprias, observe com atenção o help dos campos. Além disto, poderá estar verificando a partir das próprias tags padrões do ADDON como os campos devem ser preenchidos. 
 <br>
 
@@ -6480,7 +6480,7 @@ Inicialmente, ao acessar a rotina é apresentado o browse com as funcionalidades
 
 Na parte superior do browse, são disponibilizados filtros pré-configurados com base nos possíveis status em que os XML Terceiros podem assumir:
 
-![](./assets/xmlterceiros/Imagem7.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem7.png){.flow-image}
 
 Na sequência, serão abordados os recursos presentes na rotina de XML Recebidos.
 
@@ -6489,16 +6489,21 @@ Ações Relacionadas\Importar
     
 * <strong>MANUAL</strong>: através desta opção, será apresentado interface para que seja apontado arquivo de XML Terceiros o qual deverá ser importado para o ADDON.
 
-![](./assets/xmlterceiros/Imagem8.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem8.png){.flow-image}
+
  Ao confirmar à interface, serão executadas as regras de análise\importação do XML para o ADDON XML de Terceiros. Caso seja importado o XML com sucesso, será apresentado mensagem em torno da importação:<br>
 
-![](./assets/xmlterceiros/Imagem9.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem9.png){.flow-image}
+
 Consequentemente, será disponibilizado no Browse, registro do XML o qual foi importado.
 
-![](./assets/xmlterceiros/Imagem10.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem10.png){.flow-image}
+
 <strong>E-MAIL:</strong> ao utilizar esta opção, será efetuado verificação em torno da existência de contas de e-mail junto à empresa\filial logada.<br>
-Caso existam contas cadastradas, ocorrerá à comunicação com a conta de e-mail sendo verificado à existência de e-mails com XML de Terceiros.<br>
-![](./assets/xmlterceiros/Imagem11.png){.flow-image}<br>
+Caso existam contas cadastradas, ocorrerá à comunicação com a conta de e-mail sendo verificado à existência de e-mails com XML de Terceiros.
+
+![](./assets/xmlterceiros/Imagem11.png){.flow-image}
+
 Havendo e-mails válidos, ou seja, com XML de NFe\CTe, estes serão importados, sendo consequentemente disponibilizados no browse da rotina de XML Recebidos.
 <br>
 <strong>DICA:</strong> independentemente de efetuar à importação do XML de forma manual ou automática, quando um XML é importado ao ADDON de XML Terceiros, o arquivo .XML considerado na importação (arquivo original) é copiado para a pasta PROTHEUS_DATA do ambiente do ERP Protheus.
@@ -6520,44 +6525,52 @@ Ações Relacionadas\Exportar<br>
 Utilizando-se deste recurso, é possível realizar à exportação dos XML Terceiros existentes no ADDON de XML para arquivos.<br>
 
 Para isto, deve-se parametrizar os parâmetros visando que sejam exportados os XML existentes no ADDON conforme as regras de filtro definidas.
-![](./assets/xmlterceiros/Imagem12.png){.flow-image}<br>
+
+![](./assets/xmlterceiros/Imagem12.png){.flow-image}
+
 Ao efetuar à exportação dos XML existentes, estes serão salvos na unidade C:\ do terminal que está sendo utilizado. O nome dos arquivos será composto pela chave do documento fiscal referente ao XML em questão.
 
 Este recurso cria os arquivos\exporta as informações à partir do que está salvo na tabela de XML Recebidos, ou seja, não se trata de cópia dos arquivos originais utilizados quando os arquivos foram importados para o ADDON.
 
-* <strong>4.3. EXCLUIR</strong>:
+#### 4.3. EXCLUIR
+
 * Ações Relacionadas\Excluir<br>
 Esta funcionalidade tem por objetivo possibilitar à exclusão do registro de um XML de Terceiros o qual foi anteriormente importado.<br>
 Para isto, basta posicionar sobre o registro desejado e acionar à opção de exclusão.
 
-![](./assets/xmlterceiros/Imagem13.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem13.png){.flow-image}
+
 Ao confirmar à tela, o registro em questão será excluído da base de dados do ADDON XML de Terceiros.
 
 <strong>DICA:</strong> Não é possível efetuar à exclusão de um registro de XML Terceiros o qual já tenha sido processado, ou seja, que possua documento fiscal de entrada ou conhecimento de frete vinculado ao mesmo.
 
-* <strong>4.4. VISUALIZAR</strong>:
-<br>
+#### 4.4. VISUALIZAR
+
 Através desta funcionalidade, é possível realizar à visualização das informações presentes em um registro de XML Terceiros o qual existe na base de dados do ADDON XML Terceiros.
 
-![](./assets/xmlterceiros/Imagem14.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem14.png){.flow-image}
+
 Ao visualizar um registro de XML terceiros, são apresentados os campos pertinentes as informações do registro de XML em questão.<br>
 Inicialmente, são apresentados campos com as informações pertinentes ao tipo do documento, chave de localização e versão do mesmo.<br>
 
-![](./assets/xmlterceiros/Imagem15.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem15.png){.flow-image}
+
 Posteriormente, são apresentados campos pertinentes as informações do XML de autorização do documento fiscal, data e hora de emissão do mesmo bem como data, hora e modo pelo qual o XML foi recebido.
 <br>
-![](./assets/xmlterceiros/Imagem16.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem16.png){.flow-image}
+
 Finalizando os campos presentes na interface, são apresentados campos iguais aos descritos anteriormente, porém, referente ao XML de cancelamento do documento fiscal - caso o mesmo exista.
 <br>
-![](./assets/xmlterceiros/Imagem17.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem17.png){.flow-image}
+
 <strong>DICA:</strong> Conforme descrito acima, quando existe para um determinado documento fiscal (NF-e \ CT-e) tanto o XML de Autorização como também o XML de Cancelamento, ambos os XML ficam gravados no mesmo registro junto à rotina de XML Recebidos.
 
-* <strong>4.5. PROCESSAR</strong>:
-<br>
+#### 4.5. PROCESSAR
+
 A funcionalidade "processar" existente na rotina de XML Recebidos se refere à utilização do XML previamente importado ao ADDON para auxiliar\agilizar no lançamento do documento fiscal.<br>
 Ao acionar esta funcionalidade, será disponibilizado interface para que seja informado à chave do documento fiscal o qual deseja-se processar (NF-e \ CT-e).
 
-![](./assets/xmlterceiros/Imagem18.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem18.png){.flow-image}
 
 Ao informar à chave do documento fiscal, será verificado os itens abaixo: <br>
 
@@ -6568,38 +6581,42 @@ Ao informar à chave do documento fiscal, será verificado os itens abaixo: <br>
 
 Uma vez que os itens acima estejam válidos, será possibilitado o processamento do XML.
 
-![](./assets/xmlterceiros/Imagem19.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem19.png){.flow-image}
+
 Em caso de inconsistência, será apresentada mensagem ao operador reportando o fato ocorrido.
 
 Ao confirmar à interface inicial, ocorrerá o carregamento das informações presentes no XML Terceiros para uma interface auxiliar para definição de algumas informações obrigatórias antes da geração do documento fiscal.
 
 Na primeira tela, são apresentados no cabeçalho informações do documento fiscal e na parte inferior, informações sobre o cadastro do cliente\fornecedor vinculado ao documento fiscal.
-![](./assets/xmlterceiros/Imagem20.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem20.png){.flow-image}
+
 Caso o cliente\fornecedor presente no documento não tenha seu cadastro localizado na empresa\filial, somente poderá ser possível avançar à tela após o cadastramento do mesmo.
 
 * A busca em torno do cadastro do cliente\fornecedor ocorre através da informação do CNPJ \ CPF existente no XML do documento fiscal o qual está sendo processado.<br>
 
 Se o usuário logado possuir permissão para inclusão de cliente\fornecedor (Cadastro Usuários X Permissões), será disponibilizado botão para inclusão do cadastro na parte inferior esquerda da interface.
 
-![](./assets/xmlterceiros/Imagem21.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem21.png){.flow-image}
+
 Ao acionar este botão, será carregado à tela padrão de inclusão do cadastro de cliente\fornecedor.
 
-![](./assets/xmlterceiros/Imagem22.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem22.png){.flow-image}
 
 Para auxiliar no cadastramento do cliente\fornecedor, pode-se utilizar as informações básicas do mesmo cujo as quais estão presentes no arquivo de XML Terceiros que esta sendo processado.<br>
 Para isto, basta pressionar à tecla de atalho F2.
 
-![](./assets/xmlterceiros/Imagem23.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem23.png){.flow-image}
 
 Ao confirmar o cadastro, o cliente\fornecedor será vinculado à tela de processamento do XML Terceiros conforme exemplo abaixo.
 
-![](./assets/xmlterceiros/Imagem24.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem24.png){.flow-image}
+
 <strong>DICA:</strong> Através da configuração do parâmetro <strong>MV_X004006</strong>, poderá ser parametrizado à funcionalidade de processamento de XML Terceiros para que o número e\ou série do documento fiscal o qual está sendo processado, tenha zeros adicionados à esquerda.
 <br>
 
 Ao avançar à interface, será apresentada uma nova tela com os itens do documento fiscal.
 
-![](./assets/xmlterceiros/Imagem25.png){.flow-image}<br>
+![](./assets/xmlterceiros/Imagem25.png){.flow-image}
 
 Por padrão, é necessário que sejam definidos nesta tela o conteúdo dos campos abaixo listados:
 
@@ -6668,18 +6685,20 @@ Após gerar o documento fiscal, o registro do XML tem o seu status atualizado co
 
 <strong>OBSERVAÇÃO:</strong> Caso seja de interesse, considerar que o valor do ICMS e ICMS ST presentes no XML seja considerado para o Documento de Entrada no processamento do XML, deve-se apendar ao cadastro de tags, tags personalizadas para este processo as quais estão disponíveis junto ao pacote deste Addon. Além disto, é necessário que seja ativado o parâmetro MV_X004014 (.T.). Com isto, ao processar o XML gerando Documento de Entrada, desde que o TES esteja parametrizado para calcular ICMS, serão replicados os valores do ICMS e ICMS ST presentes nos itens do XML do documento fiscal, para os itens na rotina de Documento de Entrada.
 
-* <strong>4.6. LEGENDA</strong>:<br>
+#### 4.6. LEGENDA
 Ações Relacionadas\Legenda <br>
 Através da funcionalidade de legenda, é possível identificar os status vinculados aos registros existentes no browse da rotina de XML Terceiros.
+
 ![](./assets/xmlterceiros/Imagem29.png){.flow-image}
 
 Os status existentes para os XML existentes na rotina estão condicionados à situação do mesmo perante ao ADDON.
 
 <strong>DICA:</strong> Conforme já descrito no recurso de exclusão dos registros de XML, não é possível excluir um registro de XML Terceiros o qual já possua documento fiscal, ou seja, caso o status seja referente à Pré-Nota ou Documento de Entrada (Documento Entrada \ Conhecimento de Transporte).
 
-#### 5.RELATÓRIO LISTAGEM XML RECEBIDOS
+#### 5. RELATÓRIO LISTAGEM XML RECEBIDOS
 
 Através deste relatório, é possível emitir à relação de XML Terceiros importados\existentes junto ao ADDON XML Terceiros.
+
 ![](./assets/xmlterceiros/Imagem30.png){.flow-image}
 
 Este relatório tem por objetivo permitir um controle\relação em torno dos XML a partir do status do mesmo e até para verificar os XML que ainda não possuem documento fiscal vinculado, ou seja, cujo o documento fiscal ainda não foi dado entrada junto ao ERP Protheus.
