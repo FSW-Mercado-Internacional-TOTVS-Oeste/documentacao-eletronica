@@ -326,6 +326,8 @@ hide:
       <td>-</td>
       <th>Browse</th>
       <td>-</td>
+      <th>Usado</th>
+      <td>-</td>
     </tr>
     <tr>
       <th>Título</th>
