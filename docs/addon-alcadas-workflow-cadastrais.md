@@ -19,6 +19,29 @@ hide:
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">1. Visão Geral</span>
+Este produto tem como objetivo disponibilizar a um determinado grupo de usuários chaves, envolvidos de forma direta na validação das informações dos principais cadastros que impactam os processos de compras e faturamento, uma alçada por setor de revisão.
+
+Para facilitar o entendimento, temos o seguinte cenário:
+
+- Criação do Cadastro - Usuário faturista (não tem conhecimento contábil ou fiscal)<br>
+- Fiscal - será responsável pela verificação dos campos obrigatórios no cadastro para atender questões legais/fiscais<br>
+- Contábil - Será responsável pela verificação dos campos obrigatórios no cadastro para atender questões contábies<br>
+
+Em cenário hipotético teríamos uma pessoa responsável para cada revisão: criação, alterações fiscais, alterações cadastrais.
+
+Uma vez revisado pelo nivel de criação, um Workflow é enviado para o próximo da alçada (fiscal) notificando da sua ação sobre o referido cadastro e uma vez o processo finalizado pelo nivel do fiscal , é enviado outro workflow para o próximo da alçada, uma vez o processo finalizado por este ultimo nivel o processo é encerrado
+
+OS niveis de alçada são parametrizáveis (cascata ou escalável)
+
+Os principais cadastros mapeados são:
+
+- Cadastro de Cliente<br>
+- Cadastro de Fonecedor
+- Cadastro de Produto
+- Cadastro de Indicador de Produtos
+- Cadastro de Natureza
+
+Nas rotinas acima mapeadas é disponibilizado funcionalidade de rastreabilidade.
 
 Este add-on implementa o controle de alçadas em processos cadastrais, utilizando recursos de Workflow e Rastreabilidade.
 

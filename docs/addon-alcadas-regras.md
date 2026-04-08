@@ -17,9 +17,42 @@ hide:
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">1. Visão Geral</span>
+Este ADDON é uma opção para controle de alçadas envolvendo procesoss do compras como solicitção e pedido de compras.
+
+O ADDON permite que ao gerar um uma solicitação de compra ou pedido de compra, estes sejam analisados por regras de aprovação e conforme os criterios da regra de aprovação e o que foi informado no pedido de compra/solicitação de compra, o aprovador seja notificado via workflow e através o status do documento.
+
+Para a construção das regras, é disponibilizado uma interface que possibilita ao usuário configurar por diversar formas, como:
+
+- Tipo de Liberação: Usuário, Nivel de aprovação ou Documento
+- Expressão: Abre o leque de opções pois permite criar uma expressão com base de informações contidas nos documentos (solicitação/pedido de compra) aumentando ou até melhorando a forma de avaliação sobre o documento.
+- Nivel: Em casos de niveis de aprovação, defini quais os niveis de aprovação da alçada.
+- Aprovador: Defini que será o aprovador da regra/nivel da regra
+
+Além das regras de alçada, para o caso dos aprovadores, é possível determinar verbas de aprovação para os aprovadores.
+
+Disponibiliza interface que permite efetuar a transferência de documentos que estão pendentes para aprovação de determinado usuário aprovador, e passar para outro usuário.
+
+Também pemrite definir um usuário aprovador substituto, de forma temporária, no caso do aprovador principal ter um período ausente, por exemplo, férias.
+
+<strong>É uma opção para controle de alçadas envolvendo processos do compras como solicitção e pedido de compras.
+Permite que ao gerar um uma solicitação de compra ou pedido de compra, estes sejam analisados por regras de aprovação e conforme os criterios da regra de aprovação e o que foi informado no pedido de compra/solicitação de compra, o aprovador seja notificado via workflow e através o status do documento.
+
+Para a construção das regras, é disponibilizado uma interface que possibilita ao usuário configurar por diversar formas, como:
+
+- Tipo de Liberação: Usuário, Nivel de aprovação ou Documento
+-  Expressão: Abre o leque de opções pois permite criar uma expressão com base de informações contidas nos documentos (solicitação/pedido de compra) aumentando ou até melhorando a forma de avaliação sobre o documento.
+- Nivel: Em casos de niveis de aprovação, defini quais os niveis de aprovação da alçada.
+- Aprovador: Defini que será o aprovador da regra/nivel da regra
+
+Além das regras de alçada, para o caso dos aprovadores, é possível determinar verbas de aprovação para os aprovadores.
+
+Disponibiliza interface que permite efetuar a transferência de documentos que estão pendentes para aprovação de determinado usuário aprovador, e passar para outro usuário.
+
+Também pemrite definir um usuário aprovador substituto, de forma temporária, no caso do aprovador principal ter um período ausente, por exemplo, férias.
+</strong>
+
 
 #### Implementação de controle customizado de alçadas via workflow, integrando aprovações nativas aos processos do ERP.
-
 <strong>Principais vantagens do produto:</strong>
 
 - Cadastro de e-mails Destinatários de Workflow;

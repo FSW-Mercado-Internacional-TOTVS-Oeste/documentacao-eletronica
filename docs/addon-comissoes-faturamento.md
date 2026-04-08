@@ -17,6 +17,104 @@ hide:
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">1. Visão Geral</span>
+Este pacote de automação promove ao usuário, flexibilizar as regras para composição das comissões de venda. 
+
+É disponibilizado um cadastro de Parâmetros de Comissões, que farão parte da composição/estrutura da regra de comissões, partindo deste principio, definimos toda estrutura de forma flexível e dinâmica.
+
+O processo de comissão pode ser configurado de duas formas:
+
+- On-line: a cada Nota Fiscal processada é calculada a comissão para o vendedor e o registro da comissão já é alimentada na tabela de Comissões.<br>
+- Off-line: ao final de um determinado período é calculada a comissão para o vendedor (conforme o faturamento mensal, aplica-se um % de comissão para o vendedor. (faturamento mensal com base do que foi gerado de financeiro para as vendas do vendedor, não considerando faturas/liquidação)
+
+A regra é vinculada ao cadastro do vendedor e a automação ocorrerá dependendo da forma de integração (on-line/off-line)
+
+A forma de construção da regra é:
+Parâmetro -> Regras -> Configuração das Regras
+
+Parâmetros 
+
+- 001 - Grupo de Produtos<br>
+- 002 - Desconto
+
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Regra</span><br>
+
+<strong>Tipo processamento: </strong>On-line (<strong>cada Nota Fiscal processada é calculada a comissão para o vendedor</strong>)<br>
+<strong>%Comissão: </strong> 0% (pode ser definido por item da configuração da regra)
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Tipo de Dado</th>
+      <th>Título</th>
+      <th>Operador</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Grupo Produtos</td>
+      <td>Caracter</td>
+      <td>Grupo de</td>
+      <td>Maior ou igual</td>
+    </tr>   
+      <tr>
+      <td>Grupo Produtos</td>
+      <td>Caracter</td>
+      <td>Grupo até</td>
+      <td>Menor ou igual</td>
+    </tr>     
+      <tr>
+      <td>Desconto</td>
+      <td>Número</td>
+      <td>Desconto de</td>
+      <td>Maior ou igual</td>
+      </tr> 
+            <tr>
+      <td>Desconto</td>
+      <td>Número</td>
+      <td>Desconto até</td>
+      <td>Menor ou igual</td>
+
+  </tbody>
+</table>
+
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Configuração Regra</span><br>
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Grupo de</th>
+      <th>Grupo até</th>
+      <th>Desconto de</th>
+      <th>Desconto até</th>
+      <th>% comissão</th>
+      <th>% Base Comissão </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0001</td>
+      <td>002</td>
+      <td>0,00</td>
+      <td>100,00</td>
+      <td>3%</td>
+      <td>100%</td>
+    </tr>   
+      <tr>
+      <td>0003</td>
+      <td>009</td>
+      <td>0,01</td>
+      <td>3,00</td>
+      <td>2%</td>
+      <td>100%</td>
+    </tr>     
+      <tr>
+      <td>0010</td>
+      <td>999</td>
+      <td>0,01</td>
+      <td>5,00</td>
+      <td>1%</td>
+      <td>100%</td>
+  </tbody>
+</table>
 
 #### Implementação de lógica customizável para definição e cálculo de comissões de venda
 

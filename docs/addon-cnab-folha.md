@@ -15,7 +15,32 @@ hide:
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">1. Visão Geral</span>
+Este pacote de automação promove ao usuário uma forma ágil no processso de fechamento folha, permitindo na geração do arquivo de liquidos, montar filtros para a geração do arquivo e assim determinando a forma padronizada do pagamento sobre este arquivo.
 
+Sobre os valores dos liquidos da folha, pode-se filtrar para gerar aquivo de comunicação bancária para diversas formas de pagamento.
+
+Valores dos liquidos:
+
+- Adiantamento<br>
+- Folha
+- 13º Salário
+- Férias
+- Extras
+- Rescisão 
+
+Os valores podem ser gerados para as seguintes formas de pagamento:
+
+- Crédito Conta Corrente....:Dados bancários previamente informados no cadastro do funcionário<br>
+- Crédito Conta Poupança.: Dados bancários previamente informados no cadastro do funcionário
+- DOC..................................: Dados bancários previamente informados no cadastro do funcionário
+- TED...................................: Dados bancários previamente informados no cadastro do fornecedor
+- Ordem Pagamento...........: Dados bancários previamente informados no cadastro do fornecedor
+- Transf./Chave PIX............: Dados da Chave Pix (informado no cadastro do funcionário)
+- Cartão Salário..................: Dados bancários previamente informados no cadastro do funcionário
+
+A automação que tem como origem no ciclo de cáclulo de folha/fechamento, integrando com o Financeiro as informações 
+
+Para o usuário do financeiro, é disponibilizado um filtro customizado no processo do arquivo de liquidos da folha, para filtrar especificamente os titulos desta integração com base das formas citadas acima !
 Este produto tem por objetivo otimizar o processo de pagamento de Funcionários.
 
 **Principais vantagens do produto:**

@@ -15,6 +15,32 @@ hide:
   <span class="summary-title"><span class="summary-number">01.</span> Visão Geral</span>
 </summary>
 <div class="content-body" markdown="1">
+Este pacote de automação promove ao usuário efetuar o gerenciamento em torno dos arquivos XML decorrido de emissão de nota fiscal emitidos por terceiros, sendo estes documentos fiscais do tipo:
+
+- Notas Fiscais Eletrônicas - NFe<br>
+- Conhecimento de Transporte Eletrônico - CTe
+
+É disponibilizado um 'monitor' onde é possível efetuar a importação dos arquivos XML e posteriormente, estes arquivos XML podem ser utilizados no processo de lançamento dos documentos fiscais abaixo junto ao ERP:
+
+- Documento de Entrada<br>
+- Conhecimento de Transporte<br>
+
+A sincronização da importação do XML se dá pelas seguintes formas:
+
+- Manual: através desta opção, será apresentado interface para que seja apontado arquivo de XML Terceiros o qual deverá ser importado para o ADDON.<br>
+- E-Mail: : ao utilizar esta opção, será efetuado verificação em torno da existência de contas de e-mail junto à empresa\filial logada.
+
+Processo permite efetuar uma amarração entre usuários x permissões 
+
+Não é realizado nenhum tipo de validação em torno dos totais\tributos do documento fiscal lançado no ERP Protheus em relação as informações presentes no XML, ou seja, as informações do XML são utilizadas apenas com o objetivo de agilizar o lançamento dos documentos fiscais no ERP, ou seja, caberá ao usuário efetuar à validação dos totais\tributos do documento fiscal que está sendo lançado.
+
+Processo de integração do XML com o compras, disponibiliza um "wizard" com varias etapas para validação de:
+
+- Fornecedor<br>
+- Produto x Fornecedor
+- Condição de pagamento
+- Natureza
+- TES e TES Inteligente
 
 ### <span style="display: none;">1. Visão Geral</span>
 
