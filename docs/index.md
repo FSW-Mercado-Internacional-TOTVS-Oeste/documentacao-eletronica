@@ -112,6 +112,16 @@ hide:
 </div>
 <hr>
 
+## Projeto FS99_011 {.home-hero}
+
+<div class="grid cards" markdown>
+
+-   [__Addon - Plugin Integração TOTVS CRM - Faturamento__](addon-plugin-crm.md)
+    
+    Este ADD-ON tem por objetivo de integrar o SFA TOTVS CRM com o ERP Protheus.
+
+</div>
+
 ## Projeto FS99_013A {.home-hero}
 
 <div class="grid cards" markdown>
