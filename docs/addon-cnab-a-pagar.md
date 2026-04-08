@@ -265,63 +265,92 @@ hide:
     <tr>
       <td><strong>F240FIL</strong></td>
       <td>Ponto de Entrada na emissão do borderô a pagar. Utilizar para filtro de Modelo e Forma de Pagamento.</td>
-      <td markdown="1">
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">F240FIL</span>
+  </div>
+  <pre><code>
 User Function F240FIL()
 Local cFiltro := ''
 If ExistBlock("P003B01")
     cFiltro := U_P003B01("F240FIL")
 EndIf
 Return(cFiltro)
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
     <tr>
       <td><strong>F050ROT</strong></td>
       <td>Ponto de entrada no Contas a Pagar, para incluir função de alteração de dados referentes ao CNAB a Pagar.</td>
-      <td markdown="1">
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">F050ROT</span>
+  </div>
+  <pre><code>
 User Function F050ROT()
 Local aRot := ParamIxb
 If ExistBlock("P003B01")
     AAdd(aRot, {"Dados CNAB Pagar", "U_P003B01('F050ROT')", 0, 8, , .F.})
 EndIf
 Return(aRot)
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
     <tr>
       <td><strong>FA750BRW</strong></td>
       <td>Ponto de entrada no Funções Contas a Pagar, para incluir função de alteração de dados referentes ao CNAB a Pagar.</td>
-      <td markdown="1">
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">FA750BRW</span>
+  </div>
+  <pre><code>
 User Function FA750BRW()
 Local aRot := {}
 If ExistBlock("P003B01")
     aAdd(aRot, {"Dados CNAB Pagar", "U_P003B01('FA750BRW')", 0, 2})
 EndIf
 Return(aRot)
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
     <tr>
       <td><strong>FA050GRV</strong></td>
       <td>Ponto de entrada no final da rotina FINA050 - Contas a Pagar. Utilizado para gravação do campo E2_X_TPGTO.</td>
-      <td markdown="1">
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">FA050GRV</span>
+  </div>
+  <pre><code>
 User Function FA050GRV()
 If ExistBlock("P003B01")
     U_P003B01("FA050GRV")
 EndIf
 Return()
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
     <tr>
       <td><strong>F050ALT</strong></td>
       <td>Ponto de entrada no final da alteração do título a pagar.</td>
-      <td markdown="1">
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">F050ALT</span>
+  </div>
+  <pre><code>
 User Function F050ALT()
 Local aArea := GetArea()
 Local nOpc := PARAMIXB[1]
@@ -332,67 +361,97 @@ If nOpc == 1
 EndIf
 RestArea(aArea)
 Return
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
     <tr>
       <td><strong>F420SOMA</strong></td>
       <td>Ponto de entrada, na geração do arquivo CNAB a Pagar.</td>
-      <td markdown="1">
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">F420SOMA</span>
+  </div>
+  <pre><code>
 User Function F420SOMA()
 Local nValF420 := 0
 If ExistBlock("P003B01")
     nValF420 := U_P003B01("F420SOMA")
 EndIf
 Return(nValF420)
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
     <tr>
       <td><strong>F565CTB</strong></td>
       <td>Ponto de entrada na rotina FINA565 - Liquidação a Pagar. Executado no final da função A565Grava.</td>
-      <td markdown="1">
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">F565CTB</span>
+  </div>
+  <pre><code>
 User Function F565CTB()
 If ExistBlock("P003B01")
     U_P003B01("F565CTB", , , cLiquid)
 EndIf
 Return
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
     <tr>
       <td><strong>FA050PAR</strong></td>
       <td>Ponto de entrada na rotina FINA050 - Inclusão Tit. Pagar chamado via Desdobramento. Utilizado para tratar dados após a gravação no SE2.</td>
-      <td markdown="1">
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">FA050PAR</span>
+  </div>
+  <pre><code>
 User Function FA050PAR()
 If ExistBlock("P003B01")
     U_P003B01("FA050PAR")
 EndIf
 Return
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
     <tr>
       <td><strong>FA290</strong></td>
       <td>Ponto de entrada na rotina FINA290 - Faturas a Pagar. Executado durante a gravação dos dados da fatura no SE2.</td>
-      <td markdown="1">
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">FA290</span>
+  </div>
+  <pre><code>
 User Function FA290()
 If ExistBlock("P003B01")
     U_P003B01("FA290")
 EndIf
 Return
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
     <tr>
       <td><strong>FI290COLS</strong></td>
       <td>Ponto de entrada na rotina FINA290 - Faturas a Pagar. Utilizado para incluir colunas no aHeader/aCols das faturas.</td>
-      <td markdown="1">
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">FI290COLS</span>
+  </div>
+  <pre><code>
 User Function FI290COLS()
 Local nTipo := PARAMIXB[1]
 Local aRet := PARAMIXB[2]
@@ -401,14 +460,20 @@ If ExistBlock("P003B01")
     aRet := U_P003B01("FI290COLS", nTipo, aRet, nI)
 EndIf
 Return aRet
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
     <tr>
       <td><strong>MT103FIM</strong></td>
       <td>Ponto de entrada, após gravação da Nota Fiscal de Entrada para gravar Código de Barras, Modelo e Forma de Pagamento CNAB a Pagar.</td>
-      <td markdown="1">
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">MT103FIM</span>
+  </div>
+  <pre><code>
 User Function MT103FIM()
 If ExistBlock("P003B01")
     If (Inclui .OR. Altera) .AND. PARAMIXB[2] == 1 .AND. !(SF1->F1_TIPO $ 'DB')
@@ -416,14 +481,20 @@ If ExistBlock("P003B01")
     EndIf
 EndIf
 Return()
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
     <tr>
       <td><strong>MT116AGR</strong></td>
       <td>Ponto de entrada, após gravação do Conhecimento de Frete.</td>
-      <td markdown="1">
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">MT116AGR</span>
+  </div>
+  <pre><code>
 User Function MT116AGR()
 If ExistBlock("P003B01")
     If Inclui
@@ -431,7 +502,8 @@ If ExistBlock("P003B01")
     EndIf
 EndIf
 Return()
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
   </tbody>
@@ -464,22 +536,31 @@ Return()
  CNPJ
  Exemplo de utilização: Depósito em conta de terceiros. Incluir os campos necessários (Nome,CPNJ) no cadastro de Fornecedores.
 <br><br><strong>Programa Fonte:</strong> <span style="color:#FF6000">X003B01</span><br><br></td>
-      <td markdown="1">
-
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003B01</span>
+  </div>
+  <pre><code>
 Modifica Nome ou CNPJ do Favorecido.
 PE003B01() --> xRet
 
 Tabela SA2 está posicionada.
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
     <tr>
       <td><strong>PE003B02</strong></td>
       <td>Ponto de Entrada chamado na rotina de “Dados CNAB a Pagar”. Possibilita a inclusão de novos campos na visualização e alteração. <br><br><strong>Programa Fonte:</strong> <span style="color:#FF6000">P003B01</span><br><br></td>
-      <td markdown="1">
-
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003B02</span>
+  </div>
+  <pre><code>
 User Function PE003B02()
 
 Local aVetV := PARAMIXB[1]
@@ -497,7 +578,8 @@ Return({aVetV,aVetA})
 
 Return(cRet)
 
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
     <tr>
@@ -505,9 +587,13 @@ Return(cRet)
       <td>Ponto de Entrada chamado antes da Tela de dados bancários da Nota Fiscal de Entrada. Após o sistema já ter preenchido o aCols. 
 Permite que o usuário altere os dados do Grid. 
 <br><br><strong>Programa Fonte:</strong> <span style="color:#FF6000">P003B01</span><br><br></td>
-      <td markdown="1">
-
-```advpl
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">PE003B03</span>
+  </div>
+  <pre><code>
 User Function PE003B03()
 
 Local aRet    := PARAMIXB[1]
@@ -523,7 +609,8 @@ Next nI
 
 Return(aRet)
 
-```
+  </div>
+  </code></pre>
 </td>
     </tr>
   </tbody>

@@ -61,7 +61,7 @@ git config --global user.email "seu.email@totvs.com"
 
 # 2. SEMPRE sincronize antes de começar ou antes de enviar
 # O --rebase mantém o histórico limpo e organizado
-git pull --rebase origin main
+git pull
 
 # 3. Adicione suas alterações
 git add .
@@ -70,7 +70,7 @@ git add .
 git commit -m "Explicação sucinta da melhoria ou correção"
 
 # 5. Envie para o servidor
-git push origin main
+git push
 ```
 
 ## 🛠️ Resolução de Conflitos (Caso ocorra)
