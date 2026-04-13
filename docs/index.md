@@ -221,7 +221,7 @@ hide:
           </div>
           <div class="fs-card__arrow">→</div>
         </a>       
-      </div>
+      </div>      
     </section>
     <!-- FS99_704 -->
     <section class="fs-project">
@@ -242,8 +242,7 @@ hide:
           <div class="fs-card__arrow">→</div>
         </a>       
       </div>
-    </section>
-<<<<<<< HEAD
+    </section>      
         <!-- FS99_997C5 -->
     <section class="fs-project">
       <div class="fs-project__header">
@@ -259,7 +258,11 @@ hide:
           <div class="fs-card__body">
             <h3 class="fs-card__title">Acelerador Controle de Cheques</h3>
             <p class="fs-card__text">Modelos de consultas padrão para Produtos, Fornecedores e Clientes.</p>
-=======
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>       
+      </div>
+    </section>
     <!-- FS99_010A -->
     <section class="fs-project">
       <div class="fs-project__header">
@@ -275,7 +278,6 @@ hide:
           <div class="fs-card__body">
             <h3 class="fs-card__title">Automação Fiscal x Operação</h3>
             <p class="fs-card__text">Este ADD-ON tem por objetivo automatizar a geração de mensagens Fiscais, Cliente e Produto nas operações de Venda / Compra .</p>
->>>>>>> 4cfd5771679a7bbbdef94388bd944a44b724471d
           </div>
           <div class="fs-card__arrow">→</div>
         </a>       
@@ -319,3 +321,5 @@ hide:
   </div>
 
 </div><!-- /fs-home -->
+</div><!-- /fs-container -->
+</div>
