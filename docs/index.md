@@ -231,7 +231,7 @@ hide:
         <p class="fs-project__desc">Consultas padrão para Produtos, Fornecedores e Clientes.</p>
       </div>
       <div class="fs-cards">
-        <a href="addon-acelerador" class="fs-card">
+        <a href="addon-acelerador-consultas-generica" class="fs-card">
           <div class="fs-card__icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
           </div>
