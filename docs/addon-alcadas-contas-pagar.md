@@ -17,6 +17,28 @@ hide:
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">1. Visão Geral</span>
+Este ADDON tem por objetivo otimizar o processo de Controle de Alçadas para o departamento Financeiro, contemplando determinados processos no financeiro.
+
+Esta automação utiliza o processo de Workflow via link para aprovação ou rejeição de documentos do financeiro que estão em processo de alçadas.
+
+A Liberação de Alçadas controla título a pagar (individual) e/ou borderô de pagamento
+
+Uma vez ativado o controle de alçadas, seja por título individual ou borderô, toda baixa de título será avaliado o Status das alçadas, sendo que somente os títulos LIBERADOS poderão ser baixados
+
+Rotinas envolvidas na alçadas do financeiro a pagar:
+
+- Funções Contas a Pagar (FINA750): centralizadora das rotinas de contas a pagar.<br>
+- Inclusão manual de Contas a Pagar
+- Baixa a Pagar Manual
+- Baixa a Pagar Automática
+- Baixa a Pagar Automática Multi-Filiais
+- Borderô de Pagamento
+- Manutenção de Borderô a Pagar
+- Compensação a Pagar
+- Compensação entre Carteiras
+- Faturas a Pagar
+- Aprovação/Rejeição de Documento (Título a Pagar / Borderô)
+- Consulta Status de Aprovação do documento em alçadas
 
 #### Esta rotina tem por objetivo a implantação do processo customizado para Controle de Alçadas com Workflow, contendo a integração dos processos do módulo FINANCEIRO – TÍTULOS A PAGAR / BORDERÔ A PAGAR- realizando aprovações/liberações eletrônicamente via sistema ou mobilidade (celular/e-mail/tablet/etc).
 

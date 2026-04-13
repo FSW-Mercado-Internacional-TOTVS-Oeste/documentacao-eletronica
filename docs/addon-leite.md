@@ -4,15 +4,9 @@ hide:
   - toc
 ---
 
-# Documentação em Atualização {.home-hero}
-
 <hr>
 
 <div class="grid cards" markdown>
-
--   __Conteúdo em Desenvolvimento__
-    
-    Esta seção do manual técnico está passando por revisões de conformidade e formatação. Os modelos de dados e procedimentos operacionais estão sendo validados para garantir a precisão das instruções técnicas. O conteúdo completo estará disponível em breve.
 
 </div>
 
@@ -49,12 +43,6 @@ A partir do recebimento, outros sub-processos são efetuados tais como: registro
 tações na conta corrente do produtor.
 
 O produto já está adequado a Normativa 62 do MAPA (% Gordura, % Proteina, % Lactose, % Solidos, % ESD, % CSS, % CBT).
-
-
-
-#### Tem por objetivo, atender os processos de recebimento de leite para laticínios em geral.
-
-<strong>Principais vantagens do produto:</strong>
 
 - Ciclo de Cotação:
     - Geração e envio automático de cotações aos fornecedores.
@@ -745,13 +733,13 @@ Indica se enviará a condição de pagamento no workflow de cotação de compra 
 
 Este ADDON tem por objetivo realizar os processos para controle de entrada de leite em Laticínios, abaixo pontos que são abordados:
 
-- <strong>1)</strong> Coleta leite do Produtor
-- <strong>2)</strong> Análise laboratorial
-- <strong>3)</strong> Movimentação estoque de entrada de leite
-- <strong>4)</strong> Pagamento Produtores
-- <strong>5)</strong> Pagamento Transportadores
-- <strong>6)</strong> Emissão Nota Fiscal Produtores
-- <strong>7)</strong> Normativa 62
+- Coleta leite do Produtor
+- Análise laboratorial
+- Movimentação estoque de entrada de leite
+- Pagamento Produtores
+- Pagamento Transportadores
+- Emissão Nota Fiscal Produtores
+- Normativa 62
 
 #### 1.	FLUXO DO PROCESSO:
 
