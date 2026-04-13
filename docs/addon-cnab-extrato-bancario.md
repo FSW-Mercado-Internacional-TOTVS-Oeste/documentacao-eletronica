@@ -15,10 +15,15 @@ hide:
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">1. Visão Geral</span>
+Este pacote de automação promove ao usuário uma forma de conciliação bancária automatizada utilizando-se do arquivo de retorno bancário para extratos para uma ou mais contas correntes.
+
+A conciliação permite confrontar o extrato bancário com a movimentação bancária registrada no ERP.
+
+Seu resultado final é similar à conciliação bancária, a diferença entre elas é que a reconciliação é feita através de um arquivo enviado pelo banco, informando quais títulos foram processados. A conciliação Automática atualiza o arquivo de movimentação bancária
 
 #### Conciliação Automática de Extratos Bancários
 
-Esta funcionalidade implementa o processamento automático de arquivos CNAB (Centro Nacional de Automação Bancária) de retorno/extrato bancário, permitindo a conciliação ágil e precisa de uma ou mais contas correntes.<br>
+Implementa o processamento automático de arquivos CNAB (Centro Nacional de Automação Bancária) de retorno/extrato bancário, permitindo a conciliação ágil e precisa de uma ou mais contas correntes.<br>
 O processo importa o arquivo enviado pelo banco e compara automaticamente as movimentações registradas no extrato com as movimentações bancárias já lançadas no Protheus (tabelas relacionadas ao módulo Financeiro/SIGAFIN).
 
 A conciliação Automática atualiza o arquivo de movimentação bancária.

@@ -17,6 +17,28 @@ hide:
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">1. Visão Geral</span>
+Este produto tem como objetivo forneceder uma gestão completa do Ciclo de Compra/Beneficiamento do Leite em laticínios, onde dentre os seus processos, permite variados controles como:
+
+- Coleta de Leite<br>
+- Recebimento do Leite
+- Análises Laboratoriais
+- Conta Corrente produtor / fechamento produtor
+- Tabelas de Preço
+- Vazão de veículo
+- Notificações gerais ao produtor via Workflkow
+- Análises de Exames Rebanho
+- Vacinação Rebanho;
+- Fabricação de queijos
+- Fabricação de soro
+
+O ciclo da gestão do addon inicia na coleta do leite no produtor, que segue para o registro do recebimento desta coleta no ERP.
+
+A partir do recebimento, outros sub-processos são efetuados tais como: registro motorista/produtor, análise laboratorial do leite e consequentemente, movimen-
+tações na conta corrente do produtor.
+
+O produto já está adequado a Normativa 62 do MAPA (% Gordura, % Proteina, % Lactose, % Solidos, % ESD, % CSS, % CBT).
+
+
 
 #### Tem por objetivo, atender os processos de recebimento de leite para laticínios em geral.
 

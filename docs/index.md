@@ -24,7 +24,7 @@ hide:
       <p class="fs-hero__subtitle">Módulos, integrações e add-ons desenvolvidos para ampliar e aperfeiçoar os processos do Protheus.</p>
       <div class="fs-hero__stats">
         <div class="fs-hero__stat">
-          <span class="fs-hero__stat-num">8</span>
+          <span class="fs-hero__stat-num">15</span>
           <span class="fs-hero__stat-label">Projetos</span>
         </div>
         <div class="fs-hero__stat-div"></div>
@@ -243,6 +243,7 @@ hide:
         </a>       
       </div>
     </section>
+<<<<<<< HEAD
         <!-- FS99_997C5 -->
     <section class="fs-project">
       <div class="fs-project__header">
@@ -258,6 +259,23 @@ hide:
           <div class="fs-card__body">
             <h3 class="fs-card__title">Acelerador Controle de Cheques</h3>
             <p class="fs-card__text">Modelos de consultas padrão para Produtos, Fornecedores e Clientes.</p>
+=======
+    <!-- FS99_010A -->
+    <section class="fs-project">
+      <div class="fs-project__header">
+        <div class="fs-project__tag">FS99_010A</div>
+        <h2 class="fs-project__title">Mensagens DANFE</h2>
+        <p class="fs-project__desc">Mensagens Fiscais x Operações</p>
+      </div>
+      <div class="fs-cards">
+        <a href="addon-mensagens-danfe" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">Automação Fiscal x Operação</h3>
+            <p class="fs-card__text">Este ADD-ON tem por objetivo automatizar a geração de mensagens Fiscais, Cliente e Produto nas operações de Venda / Compra .</p>
+>>>>>>> 4cfd5771679a7bbbdef94388bd944a44b724471d
           </div>
           <div class="fs-card__arrow">→</div>
         </a>       

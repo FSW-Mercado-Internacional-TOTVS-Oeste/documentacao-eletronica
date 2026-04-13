@@ -15,6 +15,21 @@ hide:
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">1. Visão Geral</span>
+Este pacote de automação promove ao usuário uma forma ágil dentro do processso de compras (Documento de Entrada), atualizar informações nos títulos gerados no ciclo da compra, que são essenciais para o processo de comunicação bancária (CNAB) com o banco como também para a rotina dos usuários envolvidos no processo de contas a pagar.
+
+A automação permite que no final do processo de gravação da nota, seja solicitada a confirmação dos dados de pagamento e dependendo da forma de pagamento (informado no cadastro do fornecedor), implementar as informações básicas nos títulos, onde:
+
+- TED..........................: Dados bancários previamente informados no cadastro do fornecedor<br>
+- Ordem Pagamento: Dados bancários previamente informados no cadastro do fornecedor
+- Compensacao.......: Dados bancários previamente informados no cadastro do fornecedor
+- Transf./Chave PIX.: Dados da Chave Pix (informado no cadastro do fornecedor)
+- QR CODE PIX.........: Dados do QR Code (registrado em cada parcela de pagamento)
+- Boleto.....................: Código de barras registrado no boleto de pagamento
+- DOC........................: Dados bancários previamente informados no cadastro do fornecedor
+
+A automação que tem como origem no ciclo de compras/documento de entrada, integrando com o Financeiro as informações coletadas.
+
+Para o usuário do financeiro, é disponibilizado um filtro customizado no processo de montagem do borderô a pagar, para filtrar especificamente os titulos desta integração com base do Modelo e Tipo de Pagamento.
 
 #### O Produto foi desenvolvido com o objetivo de modernizar e otimizar o processo de pagamento de títulos a pagar.
 

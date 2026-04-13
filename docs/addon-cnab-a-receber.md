@@ -15,7 +15,30 @@ hide:
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">1. Visão Geral</span>
+Este pacote de automação promove ao usuário uma forma ágil dentro do processso de venda (faturamento/venda direta), gerar a emissão de boletos de recebimento, atualizando informações nos títulos gerados no ciclo da venda, que são essenciais para o processo de comunicação bancária (CNAB) com o banco e envio de forma automatizada do(s) boleto(s) para o cliente objeto da venda.
 
+A automação já efetua as análises e preenchimento de informações nos(s) título(s) referente a:
+
+- Portador<br>
+- Agência
+- Conta Bancária
+- Nosso número
+- Código de Barras
+- Linha digitável
+
+Fora do ciclo de venda, a automação disponibiliza meios para emissão de novos boletos (com base de ttítulos pré-existentes no financeiro a receber)/reimpressão de boletos (para casos de solicitação de 2ª via)
+
+A automação não está somente para o lado do cliente que utiliza esta automação, mas também para o analista de campo, pois existem vários arquivos de configuração de bancos já homologados (que utilizam funções ágeis desenvolvidas para o addon), tais como:
+
+- Banco do Brasil<br>
+- Bradesco
+- Caixa Econômica Federal
+- Itaú
+- Safra
+- Sicredi
+- Santander
+- Sicoob
+- Unipreme
 #### Otimizar o Processo de emissão de boletos para cobrança
 
 Otimizar o Processo de emissão de boletos para cobrança, nas rotinas de Pedido de Vendas (Prep. Doc. Saída), Venda Direta e Venda Assistida, permitindo sua impressão logo após o faturamento.
