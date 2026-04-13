@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 
-# XML de Terceiros {.home-hero}
+# Acelerador Controle de Cheques {.home-hero}
 
 <!--############################################### 01 #######################################################-->
 
@@ -18,20 +18,23 @@ hide:
 
 ### <span style="display: none;">1. Visão Geral</span>
 
-#### Tem por objetivo, efetuar o gerenciamento em torno dos arquivos XML emitidos por terceiros pertinentes à documentos fiscais do tipo: Notas Fiscais Eletrônicas - NFe e Conhecimento de Transporte Eletrônico - CTe
+#### Tem por objetivo, gerenciar todo o ciclo de cheques recebidos de clientes como forma de pagamento, sendo mais completo que a simples liquidação financeira. Ele possibilita registrar cheques recebidos em lotes vinculados ao cliente, substituindo os títulos originais por títulos específicos de cheque.
 
 <strong>Principais vantagens do produto:</strong>
 
-- Cadastro de Contas de E-mails;
-- Cadastro de Usuários X Permissões;
-- Cadastro de Tags;
-- Movimentação de XML Terceiros;
-- Relatório de XML Terceiros;
+- Controle completo do ciclo dos cheques;
+- Centralização e organização das informações;
+- Substituição automática de títulos;
+- Flexibilidade no uso dos cheques;
+- Operações estruturadas por lotes;
+- Interfaces ágeis e práticas;
+- Facilidade na conciliação;
 
 </div>
 </details>
 
 <!--############################################### 02 #######################################################-->
+
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
@@ -44,55 +47,22 @@ hide:
 <table class="banks-table">
   <thead>
     <tr>
-      <th>Menu</th>
-      <th>Sub Menu</th>
       <th>Nome da Rotina</th>
       <th>Programa</th>
       <th>Módulo</th>
+      <th>Grupo</th>
       <th>Tipo</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Atualizações</td>
-      <td>ADD-ON de XML \ Cadastros</td>
-      <td>Contas de E-mail</td>
-      <td>C004A01</td>
-      <td>Compras</td>
+      <td><strong>Lote de Cheques</strong></td>
+      <td>M997C501</td>
+      <td>Financeiro</td>
+      <td>Contas a Receber -> Lote de Cheques</td>
       <td>03</td>
-    </tr>   
-      <tr>
-      <td>Atualizações</td>
-      <td>ADD-ON de XML \ Cadastros</td>
-      <td>Usuários X Permissões</td>
-      <td>C004A02</td>
-      <td>Compras</td>
-      <td>03</td>
-    </tr>     
-      <tr>
-      <td>Atualizações</td>
-      <td>ADD-ON de XML \ Cadastros</td>
-      <td>Tags</td>
-      <td>C004A03</td>
-      <td>Compras</td>
-      <td>03</td>
-    </tr>   
-      <tr>
-      <td>Atualizações</td>
-      <td>ADD-ON de XML \ Movimentos</td>
-      <td>Xml Recebidos</td>
-      <td>M004A01</td>
-      <td>Compras</td>
-      <td>03</td>
-    </tr>   
-      <tr>
-      <td>Atualizações</td>
-      <td>ADD-ON de XML \ Relatórios</td>
-      <td>Listagem Xml Recebidos</td>
-      <td>R004A01</td>
-      <td>CONFIGURADOR</td>
-      <td>03</td>
-    </tr>   
+    </tr>
+    <tr>
   </tbody>
 </table>
 
@@ -100,6 +70,7 @@ hide:
 </details>
 
 <!--############################################### 03 #######################################################-->
+
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
@@ -120,24 +91,35 @@ hide:
   </thead>
   <tbody>
     <tr>
-      <td><strong>C004A01</strong></td>
-      <td>Rotina para cadastro de contas de e-mails.</td>
+      <td><strong>M997C501</strong></td>
+      <td>Rotina de lote de cheques.</td>
     </tr>
     <tr>
-      <td><strong>C004A02</strong></td>
-      <td>Rotina para cadastro de usuários X permissões.</td>
+      <td><strong>P997C501</strong></td>
+      <td>Rdmake com as regras de integração com os pontos de entrada utilizados.</td>
     </tr>
     <tr>
-      <td><strong>C004A03</strong></td>
-      <td>Rotina para cadastro de tags.</td>
+      <td><strong>R997C501</strong></td>
+      <td>Rotina de impressão de demonstrativo sob os lotes de cheques.</td>
     </tr>
     <tr>
-      <td><strong>M004A01</strong></td>
-      <td>Rotina de XML Terceiros recebidos.</td>
+      <td><strong>U997C501</strong></td>
+      <td>Rotina referente ao compatibilizador de aplicação do acelerador.</td>
     </tr>
     <tr>
-      <td><strong>R004A01</strong></td>
-      <td>Relatório de Listagem XML Recebidos</td>
+      <td><strong>X997C501</strong></td>
+      <td>Rdmake que concentra funções genéricas e de integração com os pontos de entrada.</td>
+     <tr>
+      <td><strong>FA050DEL</strong></td>
+      <td>Ponto de entrada de validação de exclusão de títulos a pagar.</td>
+    </tr>
+    <tr>
+      <td><strong>FA070CA4</strong></td>
+      <td>Ponto de entrada de validação de exclusão de baixas a receber.</td>
+    </tr>
+    <tr>
+      <td><strong>FA080OWN</strong></td>
+      <td>Ponto de entrada de validação de exclusão de títulos a receber.</td>
     </tr>
     <tr>
   </tbody>
@@ -150,157 +132,15 @@ hide:
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">04.</span> Pontos de Entradas Disponiveis para Desenvolvimento</span>
+  <span class="summary-title"><span class="summary-number">04.</span> Campos (SX3)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">4. Pontos de Entradas Disponiveis para Desenvolvimento</span>  
-
-<table class="banks-table">
-  <thead>
-    <tr>
-      <th>P.E</th>
-      <th>Descrição</th>
-      <th>Parâmetros de Entrada</th>
-      <th>Retorno</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>PE004A01</strong></td>
-      <td>Ponto de entrada na  na tela de Processamento de XML Recebidos – na sessão de geração do documento fiscal na análise dos itens/produtos do documento fiscal – validação no click AVANÇAR. Esta chamada é realizada após todas validações do ADD-ON referente aos itens/produtos.</td>
-      <td><strong>1)</strong>Vetor aHeader dos itens do documento<br>
-      <strong>2)</strong>Vetor aCols dos itens do documento</td>
-          <td>Booleano (.T./.F.) valida avanço do processo.</td>
-    </tr>
-    <tr>
-      <td><strong>PE004A02</strong></td>
-      <td>Ponto de entrada na  na tela de seleção de Itens do Pedido de Compra x item do documento fiscal, na validação do botão CONFIRMAR.</td>
-      <td><strong>1)</strong>Vetor aHeader dos pedidos<br>
-      <strong>2)</strong>Vetor aCols dos pedidos</td>
-          <td>Booleano (.T./.F.) valida avanço do processo.</td>
-    </tr>
-    <tr>
-      <td><strong>PE004A03</strong></td>
-      <td>Ponto de entrada para validação no botão Finalizar antes de iniciar a gravação do documento fiscal.</td>
-      <td>N/A</td>
-          <td>Booleano (.T./.F.) valida avanço do processo.</td>
-    </tr>
-    <tr>
-      <td><strong>PE004A04</strong></td>
-      <td>Executa ponto de entrada para complementar as regras de carga\vinculo do produto interno com o produto da NFe</td>
-      <td>N/A</td>
-          <td>N/A</td>
-    </tr>
-    <tr>
-    <td><strong>PE004A05</strong></td>
-      <td>Substituiu regras padrões de replicação da TE</td>
-      <td>N/A</td>
-          <td>N/A</td>
-    </tr>    
-    <tr>
-      <td><strong>PE004A06</strong></td>
-      <td>Ponto de entrada antes da gravação do registro na tabela de<br>arquivos XML (ZA1), permindo manipualção na filial a ser gravada.</td>
-      <td><strong>1)</strong>Filial atual a ser gravada<br>
-      <strong>2)</strong>Tipo do Documento (1=NFe,2=Cte)<br>
-      <strong>3)</strong>Objeto oXML</td>
-          <td>Filial a ser gravada.</td>
-    </tr>
-    <tr>
-      <td><strong>PE004A07</strong></td>
-      <td>Ponto de entrada antes da gravação do registro na tabela de<br>arquivos XML (ZA1), permindo efetuar validação e se necessário <br>não gravar o registro.</td>
-      <td><strong>1)</strong>Filial atual a ser gravada<br>
-      <strong>2)</strong>Tipo do Documento (1=NFe,2=Cte)<br>
-      <strong>3)</strong>Objeto oXML</td>
-          <td>Lógico.</td>
-    </tr>
-    <tr>
-      <td><strong>PE004A08</strong></td>
-      <td>Ponto de entrada após a gravação do registro na tabela de<br>arquivos XML (ZA1)</td>
-      <td><strong>1)</strong>Filial atual a ser gravada<br>
-      <strong>2)</strong>Tipo do Documento (1=NFe,2=Cte)<br>
-      <strong>3)</strong>Objeto oXML</td>
-          <td>Nenhum.</td>
-    </tr>
-     <tr>
-      <td><strong>PE004A09</strong></td>
-      <td>Ponto de entrada antes da exclusão do registro na tabela de arquivos XML (ZA1)</td>
-      <td>Nenhum.</td>
-          <td>Lógico.</td>
-    </tr>
-  </tbody>
-</table>
-
-</div>
-</details>
-
-<!--############################################### 05 #######################################################-->
-
-<details class="custom-expand" markdown="1">
-<summary markdown="1">
-  <span class="summary-title"><span class="summary-number">05.</span> Tabelas (SX2) </span>
-</summary>
-<div class="content-body" markdown="1">
-
-### <span style="display: none;">5. Tabelas (SX2)</span> 
-
-<table class="banks-table">
-  <thead>
-    <tr>
-      <th>Prefixo</th>
-      <th>Descrição</th>
-      <th>Ac. Filial</th>
-      <th>Ac. Unidade</th>
-      <th>Ac. Empresa</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Z04</strong></td>
-      <td>CONTAS DE E-MAILS</td>
-      <td>Exclusivo</td>
-      <td>Exclusivo</td>
-      <td>Exclusivo</td>
-    </tr>
-    <tr>
-      <td><strong>Z05</strong></td>
-      <td>USUÁRIOS X PERMISSÕES</td>
-      <td>Exclusivo</td>
-      <td>Exclusivo</td>
-      <td>Exclusivo</td>
-    </tr>
-    <tr>
-      <td><strong>Z06</strong></td>
-      <td>TAGS</td>
-      <td>Exclusivo</td>
-      <td>Exclusivo</td>
-      <td>Exclusivo</td>
-    </tr>
-    <tr>
-      <td><strong>ZA1</strong></td>
-      <td>XML RECEBIDOS</td>
-      <td>Exclusivo</td>
-      <td>Exclusivo</td>
-      <td>Exclusivo</td>
-    </tr>
-    
-  </tbody>
-</table>
-</div>
-</details>
-<!--############################################### 06 #######################################################-->
-
-<details class="custom-expand" markdown="1">
-<summary markdown="1">
-  <span class="summary-title"><span class="summary-number">06.</span> Campos (SX3)</span>
-</summary>
-<div class="content-body" markdown="1">
-
-### <span style="display: none;">6. Campos (SX3)</span>
+### <span style="display: none;">4. Campos (SX3)</span>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_FILIAL**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E1_X_FILLT**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -309,7 +149,7 @@ hide:
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>01</td>
+      <td>-</td>
       <th>Tamanho</th>
       <td>2</td>
       <th>Decimal</th>
@@ -321,63 +161,29 @@ hide:
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>-</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Filial</td>
+      <td colspan="7">Filial Lote</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Filial do Sistema</td>
+      <td colspan="7">Filial Lote Cheque</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
--
+Código da filial do lote de cheques vinculado ao título.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_CODIGO**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E1_X_NUMLT**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -386,7 +192,316 @@ hide:
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>02</td>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Lote</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Lote Cheque</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Código do lote de cheques vinculado ao título.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E1_X_CHQDV**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Cheque Dev.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Cheque Devolvido</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Sendo título referente a cheque, determina se o cheque foi devolvido.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E1_X_DTDEV**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>D</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Data Dev.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Data Devolução</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Data na qual ocorreu a devolução do cheque.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E1_X_PREDV**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>3</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Pref. Dev.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Prefixo Devolução</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Prefixo do título a pagar gerado devido a devolução do cheque.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E1_X_NUMDV**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Num. Dev.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Número Devolução</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Número do título a pagar gerado devido a devolução do cheque.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E1_X_PARDV**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>3</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Parcela Dev.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Parcela Devolução</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Número da parcela do título a pagar gerado devido a devolução do cheque.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E1_X_TIPDV**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>3</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Tipo Dev.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Tipo Devolução</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Tipo do título a pagar gerado devido a devolução do cheque.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E1_X_CODDV**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
       <th>Tamanho</th>
       <td>6</td>
       <th>Decimal</th>
@@ -399,62 +514,28 @@ hide:
       <td>Real</td>
       <th>Propriedade</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Código</td>
+      <td colspan="7">Código Dev.</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Código de Identificação</td>
+      <td colspan="7">Fornecedor Devolução</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Código de identificação da conta de e-mail.
+Código do fornecedor referente ao título a pagar originado pela devolução do cheque.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>GETSX8NUM("Z04", "Z04_CODIGO")</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_DESC**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E1_X_LOJDV**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -463,9 +544,414 @@ Código de identificação da conta de e-mail.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>03</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>30</td>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Loja Dev.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Loja Devolução</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Loja do fornecedor referente ao título a pagar originado pela devolução do cheque.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E2_X_FILLT**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Filial Lote</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Filial Lote Cheque</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Código da filial do lote de cheques vinculado ao título.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E2_X_NUMLT**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Lote</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Lote Cheque</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Código do lote de cheques vinculado ao título.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E5_X_FILLT**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Filial Lote</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Filial Lote Cheque</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Código da filial do lote de cheques vinculado a baixa.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **E5_X_NUMLT**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Lote</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Lote Cheque</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Código do lote de cheques vinculado a baixa.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_FILIAL**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Filial Lote</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Filial Lote Cheque</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Código da filial do lote de cheques.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_LOTE**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Lote</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Lote Cheque</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Código do lote de cheques vinculado a baixa.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_TIPO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Tipo</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Tipo do Lote</td>
+    </tr>
+    <tr>
+      <th>Opções</th>
+      <td colspan="7">1=Depósito;2=Pagamento</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Tipo do lote de cheques.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_DATA**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>D</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Emissão</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Data de Emissão</td>
+    </tr>
+    <tr>
+      <th>Inic. Padrão</th>
+      <td colspan="7">dDataBase</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Data de emissão do lote de cheques.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_BANCO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>3</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -476,62 +962,32 @@ Código de identificação da conta de e-mail.
       <td>Real</td>
       <th>Propriedade</th>
       <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-       <th>Usado</th>
-      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Descrição</td>
+      <td colspan="7">Banco</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Descrição do E-mail</td>
+      <td colspan="7">Código do Banco</td>
+    </tr>
+    <tr>
+      <th>Consulta Pad.</th>
+      <td colspan="7">SA6</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Descrição\identificação a respeito da conta de e-mail..
+Código do banco vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_USER**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_AGENCIA**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -540,9 +996,9 @@ Descrição\identificação a respeito da conta de e-mail..
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>04</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>15</td>
+      <td>5</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -552,55 +1008,23 @@ Descrição\identificação a respeito da conta de e-mail..
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Usuário</td>
+      <td colspan="7">Agência</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Login do E-mail</td>
+      <td colspan="7">Código da Agência</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Login do usuário da conta de e-mail.
+Código da agência bancária vinculada ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
+ </tr>
   </tbody>
 </table>
 </div>
@@ -608,7 +1032,7 @@ Login do usuário da conta de e-mail.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_PASS**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_CONTA**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -617,9 +1041,9 @@ Login do usuário da conta de e-mail.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>05</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>15</td>
+      <td>7</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -629,63 +1053,29 @@ Login do usuário da conta de e-mail.
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Senha</td>
+      <td colspan="7">Conta</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Senha da Conta</td>
+      <td colspan="7">Código da Conta</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Senha da conta de e-mail.
+Código da conta bancária vinculada ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_SMTP**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_MOTBX**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -694,9 +1084,9 @@ Senha da conta de e-mail.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>06</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>50</td>
+      <td>3</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -706,55 +1096,23 @@ Senha da conta de e-mail.
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Smtp</td>
+      <td colspan="7">Motivo</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Servidor Smtp</td>
+      <td colspan="7">Motivo de Baixa</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Endereço Servidor Smtp
+Motivo de baixa vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
+ </tr>
   </tbody>
 </table>
 </div>
@@ -762,7 +1120,7 @@ Endereço Servidor Smtp
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_PSMTP**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_CODFOR**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -771,86 +1129,9 @@ Endereço Servidor Smtp
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>07</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>4</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@ 9999</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Porta</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Porta Smtp</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Porta de conexão smtp.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_RECBTO**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>08</td>
-      <th>Tamanho</th>
-      <td>01</td>
+      <td>6</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -860,63 +1141,29 @@ Porta de conexão smtp.
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Recebimento</td>
+      <td colspan="7">Fornecedor</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Protocolo de Recebimento</td>
+      <td colspan="7">Código do Fornecedor</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Define o protocolo utilizado para o recebimento de e-mails.
+Código do fornecedor vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>U_C004AENV()</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>I= Imap; P= Pop</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>"P"</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_IMAP**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_LOJFOR**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -925,9 +1172,9 @@ Define o protocolo utilizado para o recebimento de e-mails.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>09</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>50</td>
+      <td>2</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -937,55 +1184,23 @@ Define o protocolo utilizado para o recebimento de e-mails.
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Imap</td>
+      <td colspan="7">Loja</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Servidor Imap</td>
+      <td colspan="7">Loja do Fornecedor</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Endereço do servidor Imap.
+Loja do fornecedor vinculada ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
+ </tr>
   </tbody>
 </table>
 </div>
@@ -993,7 +1208,7 @@ Endereço do servidor Imap.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_PIMAP**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_NOMFOR**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -1002,9 +1217,9 @@ Endereço do servidor Imap.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>10</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>04</td>
+      <td>20</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -1014,217 +1229,29 @@ Endereço do servidor Imap.
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Porta</td>
+      <td colspan="7">Nome</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Porta Imap</td>
+      <td colspan="7">Nome do Fornecedor</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Porta de conexão Imap.
+Nome do fornecedor vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_POP**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>11</td>
-      <th>Tamanho</th>
-      <td>50</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Pop</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Servidor Pop</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Endereço do servidor Pop.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_PPOP**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>12</td>
-      <th>Tamanho</th>
-      <td>4</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@ 9999</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Porta</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Porta Pop</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Porta de conexão Pop.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_TIMOUT**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_TOTTIT**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -1233,67 +1260,35 @@ Porta de conexão Pop.
       <th>Tipo</th>
       <td>N</td>
       <th>Ordem</th>
-      <td>13</td>
+      <td>-</td>
       <th>Tamanho</th>
+      <td>12</td>
+      <th>Decimal</th>
       <td>2</td>
-      <th>Decimal</th>
-      <td>0</td>
       <th>Formato</th>
-      <td>@E 99</td>
+      <td>@E 999,999,999.99</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Timeout</td>
+      <td colspan="7">Vlr Títulos</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Timeout da Conta</td>
+      <td colspan="7">Valor Total dos Títulos</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Informe o intervalo de tempo da conta de e-mail.
+Valor total dos títulos a pagar selecionado para o lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>60</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
+ </tr>
   </tbody>
 </table>
 </div>
@@ -1301,541 +1296,87 @@ Informe o intervalo de tempo da conta de e-mail.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_SSL**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_MULTIT**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
       <th>Tipo</th>
-      <td>C</td>
+      <td>N</td>
       <th>Ordem</th>
-      <td>14</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>12</td>
       <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Utiliza SSL</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Utiliza SSL</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o servidor utiliza SSL.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_TLS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>15</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Utiliza TLS</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Utiliza TLS</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o servidor utiliza TLS.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_TPIMP**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>16</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Importação</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Utiliza Tipo de Importação</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Define a regra de importação dos e-mails que será considerada para integração<br> 
-da conta de e-mail.<br> 
-<strong>1-</strong> Somente serão importados os arquivos XML onde o CNPJ do destinatário dos mesmos for igual à filial logada.<br>
-<strong>2-</strong>Serão importados todos os arquivos XML onde o CNPJ do destinatário seja<  igual ao CNPJ de qualquer empresa\filial existente no ambiente.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Filial Logada; 2=Todas as Filiais;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>"1"</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_EPROC**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>17</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Processados</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">E-mails Processados</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina à ação que deverá ser realizada com os e-mails processados que possuem arquivo XML de documentos fiscais que foram importados.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Excluir;2=Manter;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>"2"</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_EIGNOR**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>18</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Ignorados</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">E-mails Ignorados</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina à ação que deverá ser realizada com os e-mails recebidos que não possuem arquivo XML de documentos fiscais e com isto foram ignorados.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Excluir;2=Manter;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>"2"</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_MSBLQL**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>19</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Bloqueado?</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Registro bloqueado</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se a conta de e-mail esta bloqueada.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Sim;2=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>"2"</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_FILIAL**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>01</td>
-      <th>Tamanho</th>
       <td>2</td>
-      <th>Decimal</th>
-      <td>0</td>
       <th>Formato</th>
-      <td>@!</td>
+      <td>@E 999,999,999.99</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>-</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Filial</td>
+      <td colspan="7">Vlr Multa</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Filial do Sistema</td>
+      <td colspan="7">Valor de Multa</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
--
+Valor de multa dos títulos a pagar selecionados para o lote de cheques.
 </div>
-#### **Configurações adicionais**
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_DESTIT**</span>
+</summary>
+<div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>F3</th>
+      <th>Tipo</th>
+      <td>N</td>
+      <th>Ordem</th>
       <td>-</td>
+      <th>Tamanho</th>
+      <td>12</td>
+      <th>Decimal</th>
+      <td>2</td>
+      <th>Formato</th>
+      <td>@E 999,999,999.99</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
+      <th>Título</th>
+      <td colspan="7">Vlr Desconto</td>
     </tr>
     <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
+      <th>Descrição</th>
+      <td colspan="7">Valor de Desconto</td>
     </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Valor de desconto dos títulos a pagar selecionados para o lote de cheques.
+</div>
+ </tr>
   </tbody>
 </table>
 </div>
@@ -1843,7 +1384,138 @@ Determina se a conta de e-mail esta bloqueada.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_ID**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_VLRPAG**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>N</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>12</td>
+      <th>Decimal</th>
+      <td>2</td>
+      <th>Formato</th>
+      <td>@E 999,999,999.99</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Vlr Pago</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Valor Pago</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Valor liquido dos títulos a pagar pagos pelo lote de cheques.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_VLRCHQ**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>N</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>12</td>
+      <th>Decimal</th>
+      <td>2</td>
+      <th>Formato</th>
+      <td>@E 999,999,999.99</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Vlr Cheques</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Valor Cheques</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Valor total dos cheques vinculados ao lote de cheques.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_VLRDIF**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>N</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>12</td>
+      <th>Decimal</th>
+      <td>2</td>
+      <th>Formato</th>
+      <td>@E 999,999,999.99</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Vlr Diferen.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Valor Diferença</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Valor de diferença entre o valor total dos cheques e o valor dos títulos a pagar vinculados ao lote.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_CODUSR**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -1852,7 +1524,7 @@ Determina se a conta de e-mail esta bloqueada.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>02</td>
+      <td>-</td>
       <th>Tamanho</th>
       <td>6</td>
       <th>Decimal</th>
@@ -1864,55 +1536,23 @@ Determina se a conta de e-mail esta bloqueada.
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-       <th>Usado</th>
-      <td>S</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">ID Usuário</td>
+      <td colspan="7">Usuário</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">ID Usuário no Ambiente</td>
+      <td colspan="7">Código do Usuário</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Código de identificação do usuário no ambiente.
+Código do usuário que realizou a inclusão do lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>Usuários</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>U_X004A02("X004A0201")</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
+ </tr>
   </tbody>
 </table>
 </div>
@@ -1920,7 +1560,7 @@ Código de identificação do usuário no ambiente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_LOGIN**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z13_NOMUSR**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -1929,7 +1569,7 @@ Código de identificação do usuário no ambiente.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>03</td>
+      <td>-</td>
       <th>Tamanho</th>
       <td>15</td>
       <th>Decimal</th>
@@ -1942,89 +1582,6 @@ Código de identificação do usuário no ambiente.
       <td>Real</td>
       <th>Propriedade</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Login</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Login do Usuário</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Login do usuário no ambiente.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_NOME**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>04</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
@@ -2038,43 +1595,15 @@ Login do usuário no ambiente.
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Nome completo do usuário.
+Nome do usuário que realizou a inclusão do lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_EMAIL**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_FILIAL**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -2083,1085 +1612,7 @@ Nome completo do usuário.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>05</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
       <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">E-mail</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">E-mail do Usuário.</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-E-mail do usuário.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_FUNCAO**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>20</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Função</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Função do Usuário.</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Função do usuário junto a empresa.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_DEPTO**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>07</td>
-      <th>Tamanho</th>
-      <td>20</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Departamento</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Departamento do Usuário</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Departamento no qual o usuário esta inserido\vinculado.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG01**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>08</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Permissões</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Permissões</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso ao cadastro de Usuários X Permissões.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG02**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>09</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Contas de E-mail</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Contas de E-mail</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso ao cadastro de Conta de E-mail.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG03**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>10</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Importa XML</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Possibilita Importar XML</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso à importar XML.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>M=Manual;E=Email;T=Todos;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG04**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>11</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Exporta XML</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Possibilita Exportar XML</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso à exportar XML.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG05**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>12</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Exclui XML</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Possibilita Excluir XML</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso à excluir XML.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG06**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>13</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Processa XML</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Possibilita Processar XML</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso à processar XML.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG07**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>14</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Fornecedor</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Inclui Fornecedor</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso à incluir fornecedor.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG08**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>15</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>s</td>
-      <th>Usado</th>
-      <td>s</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Produto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Inclui Produto</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso à incluir produto.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG09**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>16</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Prod X For</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Produto X Fornecedor</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se a amarração de Produto X Fornecedor será salva
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG10**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>17</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Gerar Doc.</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Gerar Documento</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina qual o tipo de documento o usuário poderá gerar sobre as NFe.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>P=Pre Nota;D=Documento Entrada;I=Informado no Momento;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG11**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>18</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Valida XML</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Validar XML</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se deve validar o XML da NFe junto ao Sefaz antes do processamento
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_FILIAL**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>01</td>
       <th>Tamanho</th>
       <td>2</td>
       <th>Decimal</th>
@@ -3173,13 +1624,187 @@ Determina se deve validar o XML da NFe junto ao Sefaz antes do processamento
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Filial Lote</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Filial Lote Cheque </td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Código da filial do lote de cheques.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_LOTE**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
       <td>-</td>
-      <th>Browse</th>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Lote</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Lote Cheque</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Código do lote de cheques.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_TITULO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
       <td>-</td>
-       <th>Usado</th>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Título</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Título do Lote</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td colspan="7">C=Cheque;P=Pagamento</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Tipo do título vinculado ao lote de cheques.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_ITEM**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
       <td>-</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Item</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Item do Título</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Item sequencial do título em relação ao lote de cheques.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_FILTIT**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
@@ -3187,41 +1812,15 @@ Determina se deve validar o XML da NFe junto ao Sefaz antes do processamento
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Filial do Sistema.</td>
+      <td colspan="7">Filial do Título</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Filial do sistema.
+Filial do título vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
+ </tr>
   </tbody>
 </table>
 </div>
@@ -3229,7 +1828,7 @@ Filial do sistema.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_TIPO**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_PRETIT**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -3238,546 +1837,7 @@ Filial do sistema.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>02</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Tipo</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Tipo da Tag</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Tipo\aplicação da Tag.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Carga;2=Validação;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_DOC**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>03</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Documento</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Documento Referente a Tag.</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina para qual documento se aplica a definição de Tag.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Nfe;2=Cte;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_VERSAO**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>04</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Versão</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Versão do Documento</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Informe à versão do documento referente à tag.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=2.0;3=3.10;Z=Todas;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_DESC**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Descrição</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Descrição da Tag</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Descrição\informações da tag.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_RAIZ**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>50</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Raiz</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Raiz da Tag</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Raiz de localização da tag dentro da estrutura do arquivo XML do documento.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_NIVEL**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>07</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Nivel 1</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Nivel 1 da Tag</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Nível 1 da Tag no XML do documento fiscal.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_TAG**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>08</td>
-      <th>Tamanho</th>
-      <td>15</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Tag</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Tag de Dados</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Nome da tag presente no arquivo XML do documento fiscal.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_ALIAS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>09</td>
       <th>Tamanho</th>
       <td>3</td>
       <th>Decimal</th>
@@ -3789,63 +1849,29 @@ Nome da tag presente no arquivo XML do documento fiscal.
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Alias</td>
+      <td colspan="7">Prefixo</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Alias de Destino</td>
+      <td colspan="7">Prefixo do Título</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Informe o nome do alias de destino do conteúdo existente na tag junto ao XML.
+Prefixo do título vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_CAMPO**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_NUMTIT**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -3854,9 +1880,9 @@ Informe o nome do alias de destino do conteúdo existente na tag junto ao XML.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>10</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>10</td>
+      <td>9</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -3866,55 +1892,23 @@ Informe o nome do alias de destino do conteúdo existente na tag junto ao XML.
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Campo</td>
+      <td colspan="7">Número</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Campo de Destino</td>
+      <td colspan="7">Número do Título</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Campo presente no alias de destino no qual será encaminhado o conteúdo da tag.
+Número do titulo vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
+ </tr>
   </tbody>
 </table>
 </div>
@@ -3922,7 +1916,7 @@ Campo presente no alias de destino no qual será encaminhado o conteúdo da tag.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_WHEN**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_PARTIT**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -3931,9 +1925,9 @@ Campo presente no alias de destino no qual será encaminhado o conteúdo da tag.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>12</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>30</td>
+      <td>3</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -3943,63 +1937,29 @@ Campo presente no alias de destino no qual será encaminhado o conteúdo da tag.
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-       <th>Usado</th>
-      <td>S</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Modo Edição</td>
+      <td colspan="7">Parcela</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Modo Edição Tag\Campo</td>
+      <td colspan="7">Parcela do Título</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Regras de validação do modo de edição do campo de destino do conteúdo da tag na interface de processamento do XML.
+Parcela do título vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_VALID**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_TIPTIT**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -4008,7 +1968,52 @@ Regras de validação do modo de edição do campo de destino do conteúdo da ta
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>11</td>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>3</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Tipo</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Tipo do Título</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Tipo do título vinculado ao lote de cheques.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_EMITEN**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
       <th>Tamanho</th>
       <td>30</td>
       <th>Decimal</th>
@@ -4020,63 +2025,29 @@ Regras de validação do modo de edição do campo de destino do conteúdo da ta
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Obrigatório</th>
-      <td>S</td>
+      <td>Visualizar</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Validação</td>
+      <td colspan="7">Emitente</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Validação da Tag\Campo.</td>
+      <td colspan="7">Nome do Emitente</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Validação da Tag\Campo executada na interface de processamento.
+Nome do emitente vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_VLDUSR**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_CLIFOR**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -4085,162 +2056,7 @@ Validação da Tag\Campo executada na interface de processamento.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>13</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Vld. Usuário</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Validação de Usuário
-</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Validação de usuário que será executada na edição da tag junto à interface de processamento do XML Terceiros.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_ORIGEM**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>13</td>
-      <th>Tamanho</th>
-      <td>C</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Origem</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Origem da Tag</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Origem da tag existente no ADD-ON de XML Terceiros.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>P=Padrão;E=Específica;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_ID**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>14</td>
       <th>Tamanho</th>
       <td>6</td>
       <th>Decimal</th>
@@ -4253,54 +2069,22 @@ Origem da tag existente no ADD-ON de XML Terceiros.
       <td>Real</td>
       <th>Propriedade</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">ID da Tag</td>
+      <td colspan="7">Código</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Código do ID da Tag</td>
+      <td colspan="7">Cliente\Fornecedor</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Código de identificação único da tag.
+Cliente\fornecedor do título vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
+ </tr>
   </tbody>
 </table>
 </div>
@@ -4308,7 +2092,7 @@ Código de identificação único da tag.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_FILIAL**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_LOJA**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -4317,7 +2101,7 @@ Código de identificação único da tag.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>01</td>
+      <td>-</td>
       <th>Tamanho</th>
       <td>2</td>
       <th>Decimal</th>
@@ -4330,62 +2114,28 @@ Código de identificação único da tag.
       <td>Real</td>
       <th>Propriedade</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Filial</td>
+      <td colspan="7">Loja</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Código da Filial</td>
+      <td colspan="7">Loja Cliente\Fornecedor</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Código da filial
+Loja do cliente\fornecedor do título vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_TIPO**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_NOME**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -4394,9 +2144,9 @@ Código da filial
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>02</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>30</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -4407,54 +2157,22 @@ Código da filial
       <td>Real</td>
       <th>Propriedade</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Tipo</td>
+      <td colspan="7">Nome</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Tipo do Documento</td>
+      <td colspan="7">Nome Cliente\Fornecedor</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Tipo do documento fiscal referente ao XML.
+Nome do cliente\fornecedor vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=NFe;2=Cte;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
+ </tr>
   </tbody>
 </table>
 </div>
@@ -4462,18 +2180,18 @@ Tipo do documento fiscal referente ao XML.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_CHAVE**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_EMISSA**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
       <th>Tipo</th>
-      <td>C</td>
+      <td>D</td>
       <th>Ordem</th>
-      <td>03</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>44</td>
+      <td>8</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -4484,247 +2202,10 @@ Tipo do documento fiscal referente ao XML.
       <td>Real</td>
       <th>Propriedade</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Chave</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Chave da NFe\Cte</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Chave de acesso à NFe\Cte;
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_VERSAO**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>04</td>
-      <th>Tamanho</th>
-      <td>03</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Versão</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Versão da NFe\Cte</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Versão da NFe\Cte;
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_XML**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>M</td>
-      <th>Ordem</th>
-      <td>05</td>
-      <th>Tamanho</th>
-      <td>10</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">XML</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Xml Original</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-XML original do documento fiscal.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DTEMIS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>08</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Data Emissão</td>
+      <td colspan="7">Emissão</td>
     </tr>
     <tr>
       <th>Descrição</th>
@@ -4734,120 +2215,15 @@ XML original do documento fiscal.
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Data de emissão do documento fiscal.
+Data de emissão do título vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_HREMIS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>07</td>
-      <th>Tamanho</th>
-      <td>05</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@R !!:!!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Hora Emissão</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Hora de Emissão</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Horário de emissão do documento fiscal.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DTREC**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_VENREA**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -4856,9 +2232,9 @@ Horário de emissão do documento fiscal.
       <th>Tipo</th>
       <td>D</td>
       <th>Ordem</th>
-      <td>08</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>08</td>
+      <td>8</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -4869,54 +2245,22 @@ Horário de emissão do documento fiscal.
       <td>Real</td>
       <th>Propriedade</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Data Recbto</td>
+      <td colspan="7">Vencimento</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Data de Recebimento</td>
+      <td colspan="7">Data de Vencimento</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Data de recebimento do XML da Nfe\Cte.
+Data de vencimento do titulo vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
+ </tr>
   </tbody>
 </table>
 </div>
@@ -4924,7 +2268,7 @@ Data de recebimento do XML da Nfe\Cte.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_HRREC**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_BCOCHQ**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -4933,86 +2277,9 @@ Data de recebimento do XML da Nfe\Cte.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>09</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>05</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@R !!:!!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Hora Recbto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Hora Recebimento</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Hora do recebimento do XML da NFe\Cte.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_MODREC**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>10</td>
-      <th>Tamanho</th>
-      <td>01</td>
+      <td>3</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -5023,62 +2290,28 @@ Hora do recebimento do XML da NFe\Cte.
       <td>Real</td>
       <th>Propriedade</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Modo Recbto</td>
+      <td colspan="7">Banco</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Modo de Recebimento</td>
+      <td colspan="7">Código do Banco</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Modo de recebimento do XML da NFe\Cte.
+Código do banco presente no título vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>M=MANUAL; A=AUTOMATICO;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_EMAIL**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_AGECHQ**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
@@ -5087,9 +2320,9 @@ Modo de recebimento do XML da NFe\Cte.
       <th>Tipo</th>
       <td>C</td>
       <th>Ordem</th>
-      <td>11</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>30</td>
+      <td>5</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -5100,54 +2333,22 @@ Modo de recebimento do XML da NFe\Cte.
       <td>Real</td>
       <th>Propriedade</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Email Recbto</td>
+      <td colspan="7">Agência</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">E-mail de Recebimento</td>
+      <td colspan="7">Código da Agência</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-E-mail pelo qual foi recebido o arquivo XML.
+Código da agência presente no título vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
+ </tr>
   </tbody>
 </table>
 </div>
@@ -5155,18 +2356,323 @@ E-mail pelo qual foi recebido o arquivo XML.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_XMLCAN**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_CTACHQ**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
       <th>Tipo</th>
-      <td>M</td>
+      <td>C</td>
       <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>7</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Conta</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Código da Conta</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Código da conta presente no título vinculado ao lote de cheques.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_VLRORI**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>N</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
       <td>12</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@E 9,999,999,999,999.99</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Vlr Título</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Valor do Título</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Valor total original do título vinculado ao lote de cheques.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_VLRSLD**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>N</td>
+      <th>Ordem</th>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>10</td>
+      <td>12</td>
+      <th>Decimal</th>
+      <td>2</td>
+      <th>Formato</th>
+      <td>@E 9,999,999,999,999.99</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Vlr Saldo</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Valor do Saldo</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Valor do saldo do título vinculado ao lote de cheques.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_VLRSEL**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>N</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>12</td>
+      <th>Decimal</th>
+      <td>2</td>
+      <th>Formato</th>
+      <td>@E 9,999,999,999,999.99</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Vlr Sel.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Valor Selecionado</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Valor selecionado para baixa título vinculado ao lote de cheques.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_VLRMUL**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>12</td>
+      <th>Decimal</th>
+      <td>2</td>
+      <th>Formato</th>
+      <td>@E 9,999,999,999,999.99</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Vlr Multa</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Valor de Multa</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Valor de multa do título vinculado ao lote de cheques.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_VLRDES**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>N</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>12</td>
+      <th>Decimal</th>
+      <td>2</td>
+      <th>Formato</th>
+      <td>@E 9,999,999,999,999.99</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Vlr Desconto</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Valor de Desconto</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Valor de desconto do título vinculado ao lote de cheques.
+</div>
+ </tr>
+  </tbody>
+</table>
+</div>
+</details>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_VLRBAI**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>N</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>12</td>
+      <th>Decimal</th>
+      <td>2</td>
+      <th>Formato</th>
+      <td>@E 9,999,999,999,999.99</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Vlr Baixa</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Valor de Baixa</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Valor final de baixa do título vinculado ao lote de cheques.
+</div>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_SEQBX**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>-</td>
+      <th>Tamanho</th>
+      <td>2</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -5177,73 +2683,40 @@ E-mail pelo qual foi recebido o arquivo XML.
       <td>Real</td>
       <th>Propriedade</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">XML Canc</td>
+      <td colspan="7">Seq. Baixa</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Xml Cancelamento</td>
+      <td colspan="7">Sequência de Baixa</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-XML de cancelamento do documento fiscal.
+Sequência de baixa do título vinculado ao lote de cheques.
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
+ </tr>
   </tbody>
 </table>
 </div>
 </details>
-
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DTECAN**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z14_SEQBX2**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
       <th>Tipo</th>
-      <td>D</td>
+      <td>C</td>
       <th>Ordem</th>
-      <td>13</td>
+      <td>-</td>
       <th>Tamanho</th>
-      <td>08</td>
+      <td>2</td>
       <th>Decimal</th>
       <td>0</td>
       <th>Formato</th>
@@ -5254,917 +2727,88 @@ XML de cancelamento do documento fiscal.
       <td>Real</td>
       <th>Propriedade</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
     </tr>
     <tr>
       <th>Título</th>
-      <td colspan="7">Data Canc.</td>
+      <td colspan="7">Seq. Baixa 2</td>
     </tr>
     <tr>
       <th>Descrição</th>
-      <td colspan="7">Data Cancelamento</td>
+      <td colspan="7">Sequência de Baixa 2</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Data de cancelamento do documento fiscal.
+Sequência de baixa do título vinculado ao lote de cheques quando ocorre pagamento em espécie (Reais).
 </div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
 </table>
 </div>
 </details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_HRECAN**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>14</td>
-      <th>Tamanho</th>
-      <td>05</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@R !!:!!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Hora Canc.</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Hora de Cancelamento</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Horário de cancelamento do documento fiscal.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DTRCAN**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>D</td>
-      <th>Ordem</th>
-      <td>15</td>
-      <th>Tamanho</th>
-      <td>08</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Data Recbto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Data de Recebimento</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Data de recebimento do cancelamento XML da Nfe\Cte.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_HRRCAN**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>16</td>
-      <th>Tamanho</th>
-      <td>05</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@R !!:!!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Hora Recbto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Hora Recebimento</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Hora do recebimento do cancelamento XML da NFe\Cte.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_MODCAN**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>17</td>
-      <th>Tamanho</th>
-      <td>01</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Modo Recbto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Modo de Recebimento</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Modo de recebimento do cancelamento XML da NFe\Cte.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>M=MANUAL; A=AUTOMATICO;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_EMAILC**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>18</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Email Recbto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">E-mail de Recebimento</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-E-mail pelo qual foi recebido o arquivo XML de cancelamento do documento.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DOC**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>19</td>
-      <th>Tamanho</th>
-      <td>09</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Documento</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Número do Documento</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Número do documento\nota fiscal o qual se refere o XML.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_SERIE**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>20</td>
-      <th>Tamanho</th>
-      <td>03</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Série</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Série do Documento</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Série do documento\nota fiscal o qual se refere o XML.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_CLIFOR**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>21</td>
-      <th>Tamanho</th>
-      <td>06</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Código</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Código do cliente\fornecedor.</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Código do cliente\fornecedor no ambiente referente ao documento fiscal.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_LOJA**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>22</td>
-      <th>Tamanho</th>
-      <td>02</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Loja</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Loja do cliente\fornecedor.</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Loja do cliente\fornecedor no ambiente referente ao documento fiscal.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_CGC**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>23</td>
-      <th>Tamanho</th>
-      <td>14</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@R 99.999.999/9999-99</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">CNPJ</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">CNPJ Cliente\Fornecedor</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-CNPJ do cliente\fornecedor vinculado ao documento fiscal.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_STATUS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>24</td>
-      <th>Tamanho</th>
-      <td>01</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Status</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Status do XML</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Status do registro do XML de Terceiros.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
+</tbody>
 </table>
 </div>
 </details>
 </div>
 </details>
 
-<!--############################################### 07 #######################################################-->
+<!--############################################### 05 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">07.</span> Parâmetros (SX6)</span>
+  <span class="summary-title"><span class="summary-number">05.</span> Arquivo (SXB)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">7. Parâmetros (SX6)</span>
+### <span style="display: none;">4. Campos (SX3)</span>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span>** Arquivo (SXB)**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>Consulta Específica</td>
+      <th>Nome</th>
+      <td><strong>SE1CHQ</strong></td>
+      <th>Descrição</th>
+      <td>Cheques</td>
+      <th>Tabela</th>
+      <td>SE1</td>
+      <th>Expressão</th>
+      <td>U_M997CSE1()</td>
+    </tr>
+    <tr>
+      <th>Retorno</th>
+      <td>__cBcoChq</td>
+      <th>Retorno</th>
+      <td>__cAgeChq</td>
+     <th>Retorno</th>
+      <td>__cCtaChq</td>
+      <th>Retorno</th>
+      <td>__cNumChq</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+</tbody>
+</table>
+</div>
+</details>
+
+<!--############################################### 06 #######################################################-->
+
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">06.</span> Parâmetros (SX6)</span>
+</summary>
+<div class="content-body" markdown="1">
+
+### <span style="display: none;">6. Parâmetros (SX6)</span>
 
 <table class="banks-table">
   <thead>
@@ -6177,536 +2821,800 @@ Status do registro do XML de Terceiros.
   </thead>
   <tbody>
     <tr>
-      <td><strong>MV_X004000</strong></td>
-      <td>Lógico</td>
-      <td>Determina se o ADD-ON de XML recebidos de terceiros está disponível para a empresa\filial.</td>
-      <td>.T.</td>
+      <td><strong>MV_X997C03</strong></td>
+      <td>Caracter</td>
+      <td>Tabela referente ao Lote Cheque de Terceiros.</td>
+      <td>Z13</td>
     </tr>
     <tr>
-      <td><strong>MV_X004001</strong></td>
+      <td><strong>MV_X997C04</strong></td>
       <td>Caracter</td>
-      <td>Alias utilizado para a rotina de cadastro de conta de e-mail. ADD-ON XML Terceiros.</td>
-      <td>Z04</td>
+      <td>Tabela referente aos títulos vinculados ao Lote Cheque de Terceiros.</td>
+      <td>Z14</td>
     </tr>   
     <tr>
-      <td><strong>MV_X004002</strong></td>
+      <td><strong>MV_X997C05</strong></td>
       <td>Caracter</td>
-      <td>Alias utilizado para a rotina de cadastro de usuários x permissões. ADD-ON XML Terceiros.</td>
-      <td>Z05</td>
+      <td>AMotivo de baixa utilizado para baixa dos cheques no Lote de Pagamento.</td>
+      <td>DAC</td>
     </tr>   
     <tr>
-      <td><strong>MV_X004003</strong></td>
+      <td><strong>MV_X997C06</strong></td>
       <td>Caracter</td>
-      <td>Alias utilizado para a rotina de cadastro de tags.</td>
-      <td>Z06</td>
+      <td>Prefixo considerado para a geração de títulos pelo processo de Lote Cheques de Terceiros.</td>
+      <td>LOT</td>
     </tr>   
     <tr>
-      <td><strong>MV_X004004</strong></td>
+      <td><strong>MV_X997C07</strong></td>
       <td>Caracter</td>
-      <td>Alias utilizado para a rotina de XML recebidos.</td>
-      <td>ZA1</td>
+      <td>Natureza considerada para a geração de títulos a pagar referente a NDF na inclusão de Lote Cheques de Terceiros com valor de cheque superior aos títulos a pagar.</td>
+      <td>DINHEIRO</td>
     </tr>   
     <tr>
-      <td><strong>MV_X004005</strong></td>
+      <td><strong>MV_ X997C08</strong></td>
       <td>Caracter</td>
-      <td>Nome do campo da tabela SD1 referente à descrição dos produtos.</td>
-      <td>D1_X_DESC</td>
+      <td>Natureza considerada para a geração de títulos a pagar ao fornecedor referente a devolução de cheque vinculado a Lote Cheques de Terceiros de pagamento.</td>
+      <td>DINHEIRO</td>
     </tr>   
     <tr>
-      <td><strong>MV_X004006</strong></td>
+      <td><strong>MV_X997C09</strong></td>
       <td>Caracter</td>
-      <td>Determina se deve adicionar zeros à esquerda no número do documento (1), série (2) ou ambos (3)no processamento do XML Terceiros.</td>
-      <td>3</td>
+      <td>Tipo de título considerado para a geração de títulos a pagar ao fornecedor referente a devolução de cheque vinculado a Lote Cheques de Terceiros de pagamento.</td>
+      <td>BOL</td>
     </tr>   
-    <tr>
-      <td><strong>MV_X004007</strong></td>
-      <td>Lógico</td>
-      <td>Determina se deve carregar à natureza financeira vinculada ao cadastro do cliente\fornecedor para o processamento do XML Terceiros.</td>
-      <td>.T.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004008</strong></td>
-      <td>Caracter</td>
-      <td>Determina se deve carregar à conta contábil (1)centro de custos (2) ou ambos (3) do cadastro do produto ao item do XML Terceiros.</td>
-      <td>3</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004009</strong></td>
-      <td>Lógico</td>
-      <td>Determina se considera à condição de pagamento dos pedidos de compra no processamento XML Terceiros.</td>
-      <td>.T.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004010</strong></td>
-      <td>Numérico</td>
-      <td>Determina o percentual de tolerância da quantidade F x saldo Pedido de Compras.
-       <br>Para desativar, informar 999.   </td>
- <td>999</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004011</strong></td>
-      <td>Númerico</td>
-      <td>ADetermina o percentual de tolerância do valor unitário NF x Pedido de Compras (a maior)<br>
-      Para desativar, informar 999.   </td>
-      <td>999</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004012</strong></td>
-      <td>Numérico</td>
-      <td>Determina o percentual de tolerância no valor total da NF e valor total do XML. (a maior ou menor) <br>
-      Para desativar, informar 999.</td>
-      <td>999</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004013</strong></td>
-      <td>Lógico</td>
-      <td>Preenchimento do Valor Unitário na Pré-Nota/NF
-      <br><strong>.T.</strong> =  Considera o valor do xml.<br><strong>.F. </strong> = Considera o valor do Pedido de Compras (padrão)</td>
-      <td>.F.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004014</strong></td>
-      <td>Lógico</td>
-      <td>Considera regras personalizadas para garantir que o valor do ICMS e ICMS ST do XML seja aplicado no Documento de Entrada.
-      <br><strong>.T.</strong> = Considera as regras.<br><strong>.F. </strong> = Não considera as regras</td>
-      <td>.F.</td>    
-    </tr>   
-    </tr>   
-    <tr>
-      <td><strong>MV_X004015</strong></td>
-      <td>Caracter</td>
-      <td>Efetua a importação de arquivo .xml CTe que possua uma Nota Referenciada já incluída por outro Cte.
-      <br><strong>S</strong> = Sim<br><strong>N </strong> = Não</td>
-      <td>S</td>    
-    </tr>   
-    <tr>
-      <td><strong>MV_X004016</strong></td>
-      <td>Lógico</td>
-      <td>Exibe mensagem na importação XML de divergência de CNPJ de importação diferente do XML.</td>
-      <td>.T.</td>    
-    </tr>   
-     <tr>
-      <td><strong>MV_X004017</strong></td>
-      <td>Caracter</td>
-      <td>Filtra pedidos de compras para consumir na importação, considerando Filial de Inclusão Pedido de Compras ou Filial de Entrega.
-      <br><strong>I</strong> = Inclusão <br><strong>E </strong> = Entrega</td>
-      <td>Default = I</td>    
-    </tr>   
-    <tr>
-      <td><strong>MV_XMLDIR</strong></td>
-      <td>Caracter</td>
-      <td>Diretório dos XMLs para importação manual via SIGAGFE.</td>
-      <td>\XML\SIGAGFE\CTE\</td>    
-    </tr> 
-     <tr>
-      <td><strong>MV_RESTNFE</strong></td>
-      <td>Caracter</td>
-      <td>Indica se restringe o uso de pedidos bloqueados pelo controle de alçadas do recebimento de materiais.</td>
-      <td>N</td>    
-    </tr>    
-    <tr>
-      <td><strong>MV_ALTPRCC</strong></td>
-      <td>Caracter</td>
-      <td>Permite configurar se o preço unitário do produto pode ser alterado no registro da entrada da nota fiscal ou na inclusão da autorização de entrega, mesmo que os valores tenham sido informados no pedido compras, na autorização de entrega ou no contrato de parceria.<br>
-      O conteúdo desse parâmetro pode ser configurado com as seguintes opções:<br>
-      <strong>0 - </strong> Desabilitado; O preço unitário do produto pode ser alterado em qualquer situação.<br>
-      <strong>1 - </strong>Valida o preço informado no pedido de compras, ou seja, no registro da entrada da nota fiscal (rotina Documento de Entrada) e não permite que seja alterado o preço unitário do produto quando relacionado a um pedido de compras.<br>
-      <strong>2 –</strong>Valida o preço informado na autorização de entrega, ou seja, no registro da entrada da nota fiscal (rotina Documento de Entrada) e não permite que seja alterado o preço unitário do produto quando relacionado a uma autorização de entrega.<br>
-      <strong>3 – </strong> = Valida o preço informado no pedido de compras e na autorização de entrega (ambos) e no registro da entrada da nota fiscal (rotina Documento de Entrada). Não permite que seja alterado o preço unitário do produto quando relacionado a um pedido de compras ou a uma autorização de entrega.<br>
-      <strong>4 – </strong> Valida o preço informado no contrato de parceria, ou seja, na inclusão da autorização de entrega e não permite que seja alterado o preço unitário do produto relacionado ao contrato.<br>
-      <strong>5 –</strong>  Valida o preço informado no contrato de parceria e na autorização de entrega.<br>
-      <strong>6 –</strong>  Valida o preço informado no pedido de compras, na autorização de entrega e no contrato de parceria.</td>
-      <td>0</td>    
-    </tr>    
   </tbody>
 </table>
-
 </div>
 </details>
 
+<!--############################################### 07 #######################################################-->
+
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">08.</span> Manual de operação</span>
+  <span class="summary-title"><span class="summary-number">07.</span> Pontos de entrada do ADDON</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">08. Manual de operação</span>
+### <span style="display: none;">7. Pontos de entrada do ADDON</span>
 
-Este ADDON tem por objetivo efetuar o gerenciamento em torno dos arquivos XML emitidos por terceiros pertinentes à documentos fiscais do tipo:<br>
-•	Notas Fiscais Eletrônicas - NFe<br>
-•	Conhecimento de Transporte Eletrônico - CTe<br>
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Sintaxe</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><strong>FA050DEL</strong></td>
+    <td>
+      Validações de exclusão do título a pagar<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">FA050DEL</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Exemplo</span>
+    <span class="filename">FA050DEL</span>
+  </div>
+  <pre><code>
+UserFunction FA050DEL()
 
-A partir da importação dos arquivos XML para uma tabela do banco de dados do ERP Protheus, posteriormente, estes arquivos XML podem ser utilizados no processo de lançamento dos documentos fiscais abaixo junto ao ERP:<br>
-•	Documento de Entrada<br>
-•	Conhecimento de Transporte<br>
+Local lRet := .T.
 
-Vale ressaltar, que não é realizado nenhum tipo de validação em torno dos totais\tributos do documento fiscal lançado no ERP Protheus em relação as informações presentes no XML, ou seja, as informações do XML são utilizadas apenas com o objetivo de agilizar o lançamento dos documentos fiscais no ERP, ou seja, caberá ao usuário efetuar à validação dos totais\tributos do documento fiscal que está sendo lançado.
+If ExistBlock("P997C501")
+   lRet := U_P997C501 ("FA050DEL ")
+EndIf
 
-Processos deste Pacote:<br>
-<strong>1)</strong>	Cadastro de Contas de E-mails;<br>
-<strong>2)</strong>	Cadastro de Usuários X Permissões;<br>
-<strong>3)</strong>	Cadastro de Tags;<br>
-<strong>4)</strong>	Movimentação de XML Terceiros;<br>
-<strong>5)</strong>	Relatório de XML Terceiros;<br>
+Return lRet
+</div>
+</code></pre>
+</td>
+</tr>
+  <tr>
+    <td><strong>FA080OWN</strong></td>
+    <td>
+      Validações de exclusão do título a receber<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">FA080OWN</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Exemplo</span>
+    <span class="filename">FA080OWN</span>
+  </div>
+  <pre><code>
+User Function FA080OWN()
 
-Este manual tem como objetivo auxiliar na utilização das novas funcionalidades disponibilizadas pelo Pacote no módulo de COMPRAS.
+Local lRet := .T.
 
-<strong>OBSERVAÇÃO:</strong> Antes de utilizar as rotinas do ADDON XML Terceiros, certifique-se que foram efetuados os procedimentos de aplicação do ADDON junto ao ambiente conforme boletim técnico que acompanha o pacote do ADDON.
+If ExistBlock("P997C501") 	
+   lRet := U_P997C501 ("FA080OWN")
+EndIf
+
+Return lRet
+</div>
+</code></pre>
+</td>
+</tr>
+  <tr>
+    <td><strong>FA070CA4</strong></td>
+    <td>
+      Validação de cancelamento\exclusão de baixas a receber<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">FA070CA4</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Exemplo</span>
+    <span class="filename">FA070CA4</span>
+  </div>
+  <pre><code>
+User Function FA070CA4 ()
+
+Local lRet := .T.
+
+If ExistBlock("P997C501") 	
+   lRet := U_P997C501 ("FA070CA4")
+EndIf
+
+Return lRet
+</div>
+</code></pre>
+</td>
+</tr>
+</div>
+</details>
+
+<!--############################################### 08 #######################################################-->
+
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">08.</span>Manual de Operação</span>
+</summary>
+<div class="content-body" markdown="1">
+
+### <span style="display: none;">8. Manual de Operação</span>
 
 
-#### 1. CADASTRO CONTAS DE E-MAILS
-
-Esta rotina tem por objetivo o cadastro das contas de e-mail utilizadas pela empresa\filiais para recebimento de arquivos XML emitidos por terceiros contra à empresa\filial.
+Este ADDON tem por objetivo efetuar o controle do ciclo de utilização dos cheques recebidos como forma de pagamento sobre operações de venda.<br>
 <br>
-As contas de e-mail cadastradas através desta rotina, poderão ser posteriormente utilizadas para sincronização\download dos arquivos de XML recebidos através de e-mail.
+O processo é uma alternativa mais completa em relação ao processo de liquidação que é apenas uma ferramenta dentro do financeiro, o controle de cheque consegue de forma fácil e ágil, controlar cheques recebidos de clientes e o seu ciclo dentro do financeiro.<br>
 <br>
-Para cadastrar à conta de e-mail em questão, deverá ter de posse os dados técnicos em torno da comunicação\conexão junto à conta de e-mail.
+O processo se inicia com o registro de um lote de cheques 'recebidos', de posse dos cheques do cliente, é gerado um lote vinculado ao cliente emissor dos cheques, conforme seleção do usuário, os títulos do cliente vinculados ao recebimento dos cheques são substituidos por títulos específicos de cheque.<br>
 
-![](./assets/xmlterceiros/Imagem1.png){.flow-image}
-
-As definições técnicas a respeito da configuração das contas de e-mail que serão integradas com o addon XML Terceiros para o recebimento de arquivos XML estão organizadas em pastas conforme à sua aplicação\finalidade.<br>
-Abaixo, seguem informações especificas em torno de alguns dos campos presentes junto ao cadastro de contas de e-mail:
-
-* <strong>Bloqueado (Z04_MSBLQL)</strong>: 
-    * Determina se à conta de e-mail está bloqueada.<br>
-    * Contas de e-mail definidas como bloqueadas não serão disponibilizadas para integração com a rotina de XML Recebidos.<hr>
-* <strong>Utiliza SSL (Z04_SSL)</strong>: 
-    * Determina se à conta de e-mail utiliza autenticação do tipo SSL.
-<hr>
-* <strong>Utiliza TLS (Z04_TLS)</strong>: 
-    * Determina se à conta de e-mail utiliza autenticação do tipo TLS.
-<hr>
-* <strong>Recebimento (Z04_RECBTO)</strong><br>
-    * <strong>I – Imap</strong>: <br>
-        * Determina que o protocolo de recebimento de e-mails para a conta é IMAP.<br>
-        * Deve-se considerar os campos abaixo para configuração deste protocolo:
-            * <strong>Pop (Z04_IMAP)</strong>
-                * Endereço do servidor IMAP.
-            * <strong>Porta (Z04_PIMAP)</strong>
-                * Porta de comunicação do servidor IMAP.
-        * Ao utilizar contas de e-mail com protocolo de recebimento IMAP, certifique-se que foram adicionadas as configurações abaixo junto ao arquivo de configuração do server do ERP Protheus (appserver.ini):<br><br>
-          <strong>[MAIL]</strong><br>
-          authLogin=1<br>
-          protocol=IMAP<br>
-          authNTLM=1<br>
-          authPlain=0<br>
-          ExtendSMTP=1<br>
-          SSLVersion=2<br>
-          TLSVersion=3<br><br>
-          <strong>[SSLConfigure]</strong><br>
-          SSL2=2<br>
-      * <strong>P – Pop</strong>: <br>
-        * Determina que o protocolo de recebimento de e-mails para a conta é POP.
-        * Deve-se considerar os campos abaixo para configuração deste protocolo:
-            * <strong>Pop (Z04_POP)</strong>
-                * Endereço do servidor POP.
-            * <strong>Porta (Z04_PPOP)</strong>
-                * Porta de comunicação do servidor POP.
-        * Ao utilizar contas de e-mail com protocolo de recebimento POP, certifique-se que foram adicionadas as configurações abaixo junto ao arquivo de configuração do server do ERP Protheus (appserver.ini):<br><br>
-            <strong>[MAIL]</strong><br>
-            protocol=POP
-<hr>
-* <strong>Importação (Z04_TPIMP)</strong><br>
-  * <strong>1 – Filial Logada</strong>: <br>
-    * Nesta configuração, somente serão importados os arquivos XML cujo o CNPJ do destinatário seja igual à empresa\filial logada.<br>
-  * <strong>2 – Todas as Filiais</strong>: <br>
-    * A partir desta configuração, serão importados os arquivos XML vinculados à e-mails da conta onde o CNPJ do destinatário seja igual ao CNPJ de qualquer empresa\filial do ERP Protheus.
-<hr>
-* <strong>Processados (Z04_EPROC)</strong><br>
-  * <strong>1 – Excluir</strong>: <br>
-    * Caso tenha sido importado um ou mais XML a partir do e-mail processado, será realizado à exclusão do e-mail junto à conta de e-mail processada.<br>
-  * <strong>2 – Manter</strong>: <br>
-    * Caso tenha sido importado um ou mais XML a partir do e-mail processado, será mantido o e-mail junto à conta de e-mail processada.<br>
-        * Ao utilizar esta opção, vale ressaltar que em nova integração com a conta de e-mail, os e-mails já lidos serão novamente avaliados, logo, este cenário poderá afetar no tempo de processamento da integração com a conta de e-mail.
-<hr>
-* <strong>Ignorados (Z04_EIGNOR)</strong><br>
-  * <strong>1 – Excluir</strong>: <br>
-    * Caso não tenha sido importado nenhum XML a partir do e-mail processado, será realizado à exclusão do e-mail junto à conta de e-mail processada.<br>
-  * <strong>2 – Manter</strong>: <br>
-    * Caso não tenha sido importado nenhum XML a partir do e-mail processado, será mantido o e-mail junto à conta de e-mail processada.<br>
-        * Ao utilizar esta opção, vale ressaltar que em nova integração com a conta de e-mail, os e-mails já lidos serão novamente avaliados, logo, este cenário poderá afetar no tempo de processamento da integração com a conta de e-mail.
-
-#### 2. CADASTRO USUÁRIOS X PERMISSÕES
-A rotina de Usuários X Permissões foi desenvolvida com o objetivo de efetuar o controle em torno das permissões que os usuários do ERP Protheus terão em relação aos recursos presentes nas rotinas do ADDON XML de Terceiros.
+Este processo gera um lote de recebimento sobre cheques/títulos.<br>
 <br>
-Não será possível aos usuários, utilizar os recursos do ADDON caso não possua registro de definição de permissões.
+Dentro do fluxo operacional/estratégico da empresa, o(s) usuário(s) do financeiro podem dar os seguintes destinos a estes cheques recebidos:<br>
+<strong>a)</strong> Pagamento de fornecedores - contas a pagar - (total ou parcial)<br>
+<strong>b)</strong> Depósito em banco - movimentação bancária - (total ou parcial)<br>
 <br>
-Para cadastrar as permissões, é necessário inicialmente vincular o cadastro do usuário do ERP Protheus o qual foi previamente definido através do ambiente Configurador.
-
-![](./assets/xmlterceiros/Imagem2.png){.flow-image}
-
-Posteriormente, definem-se as permissões para o usuário em questão em relação aos recursos existentes no ADDON XML de Terceiros.<br>
-Para cada um dos recursos existentes nas rotinas do ADDON, existem campos específicos no cadastro de Usuários X Permissões conforme exemplo abaixo.
-
-![](./assets/xmlterceiros/Imagem3.png){.flow-image}
-
-Ao realizar o cadastramento das permissões, verifique o help dos campos para obter demais informações sobre à permissão em questão.<br>
-<strong>DICA:</strong> não é necessário realizar à inclusão do cadastro de Usuários X Permissões para o usuário ADMINISTRADOR do ERP Protheus, afinal, o mesmo possui acesso total a todos os recursos do ADDON de modo padrão.
+Cada uma dessas operações também pode ser controlada pelo ADDON, para isso basta gerar:<br>
+<strong>a)</strong> Lote de pagamento<br>
+<strong>b)</strong> Lote de depósito<br>
 <br>
-
-#### 3. CADASTRO DE TAGS
-A rotina de Cadastro de Tags está presente no ADDON XML de Terceiros com o objetivo de flexibilizar à evolução do ADDON em relação a alterações na estrutura dos arquivos XML pertinentes aos documentos fiscais abaixo:
+Para o lote de pagamento de fornecedores (contas a pagar), disponibiliza uma interface ágil para seleção dos títulos a pagar e dos cheques recebidos para a efetivação das baixas.<br>
 <br>
+Para o lote de depósito (contas a receber), disponibiliza uma interface permite a leitura de cheques para assim permitir a conciliação dos cheques recebidos x valores para depósito.<br>
+
+
+#### 1. CONFIGURADOR
+A seguir, são apresentadas informações a respeito dos parâmetros presentes no ambiente Configurador, os quais devem ser configurados para que seja possível utilizar as funcionalidades do acelerador.
+
+#### 1.1 MENU
+#### 1.2. LOTE DE CHEQUES
+
+Adicione a rotina de Lote de Cheques - M997C501.PRW, junto ao menu do módulo Financeiro em Atualizações\Contas a Receber.
+
+![](./assets/controledecheques/Imagem1.png){.flow-image}
+#### Parâmetros:
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Parâmetro</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>MV_X997C01</strong></td>
+      <td>Utiliza campo A1_X_PRMED (1) ou A1_COND (2) do Cliente para cálculo do Prazo Médio Cliente no Lote de Cheques de Recebimento. Ex: 1</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X997C02</strong></td>
+      <td>Utiliza campo E1_EMISSÃO (1) ou E1_VENCREA (2) dos Títulos a Receber para composição da Dt Vencimento no Lote de Cheques de Recebimento: Ex: 1.</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X997C03</strong></td>
+      <td>Tabela referente ao Lote Cheque de Terceiros. Ex: Z13.</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X997C04</strong></td>
+      <td>Tabela referente aos títulos vinculados ao Lote Cheque de Terceiros. Ex: Z14.</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X997C05</strong></td>
+      <td>Motivo de baixa utilizado para baixa dos cheques no Lote de Pagamento. Ex: DAC.</td>
+     <tr>
+      <td><strong>MV_X997C06</strong></td>
+      <td>Prefixo considerado para a geração de títulos pelo processo de Lote Cheques de Terceiros. Ex: LOT.</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X997C07</strong></td>
+      <td>Natureza considerada para a geração de títulos a pagar referente a NDF na inclusão de Lote Cheques de Terceiros com valor de cheque superior aos títulos a pagar. Ex: 1001010110.</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X997C08</strong></td>
+      <td>Natureza considerada para a geração de títulos a pagar ao fornecedor referente a devolução de cheque vinculado a Lote Cheques de Terceiros de pagamento. Ex: 1001010110.</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X997C09</strong></td>
+      <td>Tipo de título considerado para a geração de títulos a pagar ao fornecedor referente a devolução de cheque vinculado a Lote Cheques de Terceiros de pagamento. Ex: BOL.</td>
+    </tr>
+      <td><strong>MV_X997C10</strong></td>
+      <td>Percentual mensal para cálculo de Juros Excedentes. Ex: 1.8.</td>
+    </tr>
+      <td><strong>MV_X997C11</strong></td>
+      <td>Motivo de baixa utilizado para baixa dos títulos a receber com cheque no Lote de Recebimento. Ex: DAC.</td>
+    </tr>
+      <td><strong>MV_X997C12</strong></td>
+      <td>Motivo de baixa utilizado para baixa dos títulos a receber em espécie no Lote de Recebimento. Ex: NOR.</td>
+    </tr>
+      <td><strong>MV_X997C13</strong></td>
+      <td>Natureza considerada para a geração de títulos a receber referente a NCC no Lote de Recebimento. Ex: 1001010110.</td>
+    </tr>
+      <td><strong>MV_X997C14</strong></td>
+      <td>Natureza considerada para a geração de títulos a receber referente a Juros Excedentes no Lote de Recebimento. Ex: 1001010110.</td>
+    </tr>
+      <td><strong>MV_X997C15</strong></td>
+      <td>Natureza considerada para a geração de títulos a receber referente a Cheques recebidos via Lote de Recebimento. Ex: 1001010110.</td>
+    </tr>
+      <td><strong>MV_X997C16</strong></td>
+      <td>Natureza considerada para gerar mov. bancário a receber referente ao valor em espécie recebido a maior via Lote de Recebimento. Ex: 1001010110.</td>
+    </tr>
+      <td><strong>MV_X997C17</strong></td>
+      <td>Motivo de baixa utilizado para baixa dos títulos a receber de cheques no Lote de Depósito. Ex: DAC.</td>
+    </tr>
+      <td><strong>MV_X997C18</strong></td>
+      <td>Natureza considerada para gerar mov. bancário a receber referente a compensação Lote de Depósito. 
+Ex: 1001010110.</td>
+    </tr>
+      <td><strong>MV_X997C19</strong></td>
+      <td>Natureza considerada para gerar mov. bancário a pagar referente a Tarifa no Lote de Depósito. 
+Ex: 1001010110.</td>
+    </tr>
+      <td><strong>MV_X997C20</strong></td>
+      <td>Natureza considerada para gerar mov. bancário a pagar referente a Taxa no Lote de Depósito. 
+Ex: 1001010110.</td>
+    </tr>
+      <td><strong>MV_X997C21</strong></td>
+      <td>Natureza considerada para gerar mov. bancário a pagar referente a IOF no Lote de Depósito. 
+Ex: 1001010110.</td>
+    </tr>
+      <td><strong>MV_X997C22</strong></td>
+      <td>Natureza considerada para gerar mov. bancário a pagar referente a IOF Diário no Lote de Depósito. 
+Ex: 1001010110.</td>
+    </tr>
+      <td><strong>MV_X997C23</strong></td>
+      <td>Natureza considerada para gerar mov. bancário a pagar referente a devolução de cheque vinculado em Lote de Depósito. 
+Ex: 1001010110.</td>
+    </tr>
+      <td><strong>MV_X997C24</strong></td>
+      <td>Habilita compartilhamento dos registros de cheques entre filiais na rotina de Lote de Cheques.
+Ex: .F. \ .T.;</td>
+    </tr>
+    <tr>
+  </tbody>
+</table>
 
-* <strong>NF-e</strong><br>
-* <strong>CT-e</strong><br>
+#### 2. FINANCEIRO
+As informações apresentadas a seguir, referem-se a utilização dos recursos referentes ao Acelerador Controle de Cheques junto ao módulo Financeiro.
 
-Por padrão, o ADDON XML de Terceiros já contempla uma carga de tags pré-definidas as quais são de utilização exclusiva do próprio ADDON. As definições de tags são utilizadas no recurso de processamento dos arquivos XML recebidos, ou seja, na funcionalidade à qual através do XML possibilita um assistente para maior agilidade na inclusão dos documentos fiscais no ambiente.
+#### 2.1.	ATUALIZAÇÕES\CADASTROS\CLIENTES
+Foram disponibilizados campos junto ao cadastro de Clientes – CRMA980.PRW
 
-![](./assets/xmlterceiros/Imagem4.png){.flow-image}
+![](./assets/controledecheques/Imagem2.png){.flow-image}
 
-Junto ao cadastro de tags são definidas as tags presentes no XML que está sendo processado bem como qual a tabela\campo do ERP Protheus no qual o conteúdo será direcionado quando do processamento do XML - inclusão do documento fiscal de entrada \ conhecimento de frete.<br>
+Os novos campos, encontram-se disponíveis na sessão “Adm/Fin”.
 
-Não é possível alterar as tags padrões do ADDON, porém, caso seja necessário efetuar tratamento de algum campo personalizado existente por exemplo na tabela SD1 (Itens Doc. Entrada) durante o processamento do XML, poderá ser incluído uma tag personalizada, ou seja, especifica da empresa\filial.<br>
+![](./assets/controledecheques/Imagem3.png){.flow-image}
 
-<strong>OBSERVAÇÃO:</strong> Caso seja de interesse, considerar que o valor do ICMS e ICMS ST presentes no XML seja considerado para o Documento de Entrada no processamento do XML, deve-se apendar ao cadastro de tags, tags personalizadas para este processo as quais estão disponíveis junto ao pacote deste Addon. Além disto, é necessário que seja ativado o parâmetro <strong>MV_X004014</strong> (.T.). Com isto, ao processar o XML gerando Documento de Entrada, desde que o TES esteja parametrizado para calcular ICMS, serão replicados os valores do ICMS e ICMS ST presentes nos itens do XML do documento fiscal, para os itens na rotina de Documento de Entrada.
+Abaixo, são apresentados demais detalhes a respeito de ambos os campos disponibilizados na rotina de cadastro de Clientes:<br>
 
-![](./assets/xmlterceiros/Imagem5.png){.flow-image}
+- <strong>COND. PAGTO</strong>
+  - Condição de pagamento padrão aplicada para faturamento\vendas ao cliente.
+  - Utilizada para cálculo do prazo médio do cliente (Lote Cheques – Recebimento).
+    - Depende da configuração do parâmetro MV_X997C01.
 
-Ao realizar à inclusão de tags especificas\próprias, observe com atenção o help dos campos. Além disto, poderá estar verificando a partir das próprias tags padrões do ADDON como os campos devem ser preenchidos. 
-<br>
+- <strong>PRAZO MÉDIO</strong>
+  - Utilizado para cálculo do prazo médio do cliente (Lote Cheques – Recebimento).
+    - Depende da configuração do parâmetro MV_X997C01.
 
-* <strong>Vld. Usuário (Z06_VLDUSR)</strong><br>
-  * Este campo existente no Cadastro de Tags pode ser utilizado para que sejam vinculadas regras personalizadas do cliente as quais serão executadas quando da edição do referido campo\tag na interface (wizard) de processamento do XML Terceiros.<br>
-  * O seu retorno deve ser do tipo lógico (.T. \ .F.) o qual irá determinar se o conteúdo manipulado será aceito ou não.
-<br>
-<br>
-<strong>OBSERVAÇÃO:</strong> as definições de tags padrão do ADDON poderão sofrer alterações em atualizações futuras, desta forma, particularidades da empresa\filial devem ser tratadas através de tags personalizadas\especificas. As tags da NF-e contemplavalidação para notas emitidas por fornecedorsendo CNPJ ou CPF.
-<br>
+- <strong>% JUROS EXC</strong>
+  - Percentual mensal de juros excedentes (Lote Cheques – Recebimento).
+  - Ao incluir novos Clientes, seu valor é sugerido a partir da configuração do parâmetro MV_X997C510.
 
-#### 4. ROTINA XML RECEBIDOS
-Através da rotina de XML Recebidos, é realizado toda a gestão em torno do recebimento\processamento do XML de Terceiros emitidos para a empresa\filial.<br>
-Inicialmente, ao acessar a rotina é apresentado o browse com as funcionalidades disponíveis bem como, o browse com as principais informações de cada XML Terceiros previamente importado.
+#### 2.2.	ATUALIZAÇÕES\CADASTROS\BANCOS
 
-![](./assets/xmlterceiros/Imagem6.png){.flow-image}
+Foram disponibilizados campos junto ao cadastro de Bancos – MATA070.PRW
 
-Na parte superior do browse, são disponibilizados filtros pré-configurados com base nos possíveis status em que os XML Terceiros podem assumir:
+![](./assets/controledecheques/Imagem4.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem7.png){.flow-image}
+Trata-se de campos referentes ao vínculo de Cliente (SA1) ao cadastro de bancos. Este vínculo de Cliente é necessário, nos cadastros de bancos que venham a ser utilizados na rotina de Lote de Cheques, para registro de lotes do tipo “Depósito”.
 
-Na sequência, serão abordados os recursos presentes na rotina de XML Recebidos.
+![](./assets/controledecheques/Imagem5.png){.flow-image}
 
-#### 4.1. IMPORTAR
-Ações Relacionadas\Importar
-    
-* <strong>MANUAL</strong>: através desta opção, será apresentado interface para que seja apontado arquivo de XML Terceiros o qual deverá ser importado para o ADDON.
+#### 2.3.	ATUALIZAÇÕES\CONTAS A RECEBER\LIQUIDAÇÃO
 
-![](./assets/xmlterceiros/Imagem8.png){.flow-image}
+A rotina de Liquidação – FINA460.PRW, possibilita que sejam realizadas operações referentes ao recebimento de títulos a receber de clientes, onde o recebimento ocorreu em cheques.
 
- Ao confirmar à interface, serão executadas as regras de análise\importação do XML para o ADDON XML de Terceiros. Caso seja importado o XML com sucesso, será apresentado mensagem em torno da importação:<br>
+![](./assets/controledecheques/Imagem6.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem9.png){.flow-image}
+Ao utilizar a rotina de Liquidação para registro do recebimento em cheques, deve-se atentar ao preenchimento dos campos necessários no grid de “Títulos Gerados”.
 
-Consequentemente, será disponibilizado no Browse, registro do XML o qual foi importado.
+![](./assets/controledecheques/Imagem7.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem10.png){.flow-image}
+A direita no grid de “Títulos Gerados”, existem campos específicos para a identificação dos cheques recebidos do cliente.
 
-<strong>E-MAIL:</strong> ao utilizar esta opção, será efetuado verificação em torno da existência de contas de e-mail junto à empresa\filial logada.<br>
-Caso existam contas cadastradas, ocorrerá à comunicação com a conta de e-mail sendo verificado à existência de e-mails com XML de Terceiros.
+![](./assets/controledecheques/Imagem8.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem11.png){.flow-image}
+Após confirmar a inclusão da Liquidação, é possível observar que os títulos recebidos foram “baixados”, sendo gerado novos títulos referentes aos “cheques”.
 
-Havendo e-mails válidos, ou seja, com XML de NFe\CTe, estes serão importados, sendo consequentemente disponibilizados no browse da rotina de XML Recebidos.
-<br>
-<strong>DICA:</strong> independentemente de efetuar à importação do XML de forma manual ou automática, quando um XML é importado ao ADDON de XML Terceiros, o arquivo .XML considerado na importação (arquivo original) é copiado para a pasta PROTHEUS_DATA do ambiente do ERP Protheus.
-<br>
+![](./assets/controledecheques/Imagem9.png){.flow-image}
 
-Neste processo, é criado uma pasta denominada \XMLS\ junto ao PROTHEUS_DATA. Posteriormente, abaixo desta pasta, são declaradas subpastas com o CNPJ\CPF do emissor do XML que foi importado sendo vinculado à esta pasta os arquivos originais.<br>
-Com este recurso, posteriormente caso seja necessário, é possível consultar os arquivos originais. Basta solicitar ao departamento de TI.<br>
-Além das regras acima elencadas, caso o ambiente do ERP Protheus utilize-se do módulo de Gestão de Frete Embarcador - SIGAGFE, será analisado à configuração do parâmetro MV_XMLDIR.<br>
-Através deste parâmetro, é determinado diretório (dentro do Protheus_Data) no qual o SIGAGFE estará realizando à leitura de arquivos XML pertinentes à CTe (Conhecimento de Transporte Eletrônico). Em resumo, caso o parâmetro <strong>MV_XMLDIR</strong> esteja preenchido e o diretório informado no mesmo exista abaixo do Protheus_Data, ocorrerá a cópia do arquivo XML dos CTe os quais foram importados tanto de forma manual como automática também para esta pasta.<br>
-O sistema pode verificar se as Notas Fiscais de Entrada referenciadas no Cte já foram informadas em outro Cte. Para tanto, é verificada a tabela SF8 - Amarracao NF OrigINAL x NF Importação ou Frete.<br>
-Na hipótese do parâmetro <strong>MV_X004015</strong> configurado como <strong>N</strong>=Não, e alguma das notas referenciadas no .xml já estiver sido referenciada em outro CTe, não será possível efetuar a importação para futuro pocessamento do arquivo.
-<br>
-<br>
-<strong>DICA:</strong> Ao realizar à importação de um XML Terceiros, caso já exista documento de entrada\conhecimento de frete com à chave do documento fiscal presente no XML em questão, o mesmo já será automaticamente vinculado ao documento fiscal existente no ERP Protheus, ou seja, o status do registro do XML junto ao ADDON ficará como Documento Entrada.
-<br>
+<strong>ATENÇÃO:</strong> para que os cheques registrados a partir da rotina de Liquidação sejam válidos para a rotina de Lote de Cheques, obrigatoriamente os mesmos devem ser gerados com o Tipo = CH. Assim, poderão ser utilizados para lotes de depósito\pagamento.
 
-#### 4.2. EXPORTAR
-Ações Relacionadas\Exportar<br>
-Utilizando-se deste recurso, é possível realizar à exportação dos XML Terceiros existentes no ADDON de XML para arquivos.<br>
+#### 2.4.	ATUALIZAÇÕES\CONTAS A RECEBER\LOTE DE CHEQUES
 
-Para isto, deve-se parametrizar os parâmetros visando que sejam exportados os XML existentes no ADDON conforme as regras de filtro definidas.
+Através do Acelerador de Controle de Cheques, é disponibilizado rotina específica denominada Lote de Cheques – M997C501.PRW.
 
-![](./assets/xmlterceiros/Imagem12.png){.flow-image}
+![](./assets/controledecheques/Imagem10.png){.flow-image}
 
-Ao efetuar à exportação dos XML existentes, estes serão salvos na unidade C:\ do terminal que está sendo utilizado. O nome dos arquivos será composto pela chave do documento fiscal referente ao XML em questão.
+A seguir, serão apresentadas informações a respeito das funcionalidades presentes no browse da rotina de Lote de Cheques.
 
-Este recurso cria os arquivos\exporta as informações à partir do que está salvo na tabela de XML Recebidos, ou seja, não se trata de cópia dos arquivos originais utilizados quando os arquivos foram importados para o ADDON.
+![](./assets/controledecheques/Imagem11.png){.flow-image}
 
-#### 4.3. EXCLUIR
+<strong>INCLUIR</strong>
 
-* Ações Relacionadas\Excluir<br>
-Esta funcionalidade tem por objetivo possibilitar à exclusão do registro de um XML de Terceiros o qual foi anteriormente importado.<br>
-Para isto, basta posicionar sobre o registro desejado e acionar à opção de exclusão.
+A funcionalidade “incluir”, disponibiliza regras para que seja realizado a inclusão do lote de cheques. Ao acionar esta funcionalidade, é disponibilizado tela para que o usuário determine qual o “tipo” do lote de cheques que será incluso.
 
-![](./assets/xmlterceiros/Imagem13.png){.flow-image}
+![](./assets/controledecheques/Imagem12.png){.flow-image}
 
-Ao confirmar à tela, o registro em questão será excluído da base de dados do ADDON XML de Terceiros.
+<strong>RECEBIMENTO</strong>
 
-<strong>DICA:</strong> Não é possível efetuar à exclusão de um registro de XML Terceiros o qual já tenha sido processado, ou seja, que possua documento fiscal de entrada ou conhecimento de frete vinculado ao mesmo.
+Além da rotina de Liquidação, também é possível realizar o registro de recebimento financeiro de clientes com cheques, através da inclusão de lote de cheques do tipo “recebimento”.
 
-#### 4.4. VISUALIZAR
+![](./assets/controledecheques/Imagem13.png){.flow-image}
 
-Através desta funcionalidade, é possível realizar à visualização das informações presentes em um registro de XML Terceiros o qual existe na base de dados do ADDON XML Terceiros.
+Junto a sessão “Recebimento”, é necessário que seja informado o código\loja do Cliente do qual está sendo realizado o recebimento financeiro. Neste momento, será disponibilizado tela de parâmetros. Estes parâmetros, serão utilizados para busca dos títulos a receber (em Reais) em aberto existentes para recebimento.
 
-![](./assets/xmlterceiros/Imagem14.png){.flow-image}
+![](./assets/controledecheques/Imagem14.png){.flow-image}
 
-Ao visualizar um registro de XML terceiros, são apresentados os campos pertinentes as informações do registro de XML em questão.<br>
-Inicialmente, são apresentados campos com as informações pertinentes ao tipo do documento, chave de localização e versão do mesmo.<br>
+Após confirmar os parâmetros, caso sejam localizados títulos a receber, estes serão apresentados no grid presente na sessão “Recebimento”.
 
-![](./assets/xmlterceiros/Imagem15.png){.flow-image}
+![](./assets/controledecheques/Imagem15.png){.flow-image}
 
-Posteriormente, são apresentados campos pertinentes as informações do XML de autorização do documento fiscal, data e hora de emissão do mesmo bem como data, hora e modo pelo qual o XML foi recebido.
-<br>
-![](./assets/xmlterceiros/Imagem16.png){.flow-image}
+Junto ao grid de títulos a receber, deve-se selecionar os títulos que serão recebidos através da inclusão do lote de cheques de recebimento. Ao selecionar individualmente cada título, é apresentado tela onde é possível definir o valor que será recebido, bem como, se existe incidência de descontos e\ou multa sob tal recebimento.
 
-Finalizando os campos presentes na interface, são apresentados campos iguais aos descritos anteriormente, porém, referente ao XML de cancelamento do documento fiscal - caso o mesmo exista.
-<br>
-![](./assets/xmlterceiros/Imagem17.png){.flow-image}
+![](./assets/controledecheques/Imagem16.png){.flow-image}
 
-<strong>DICA:</strong> Conforme descrito acima, quando existe para um determinado documento fiscal (NF-e \ CT-e) tanto o XML de Autorização como também o XML de Cancelamento, ambos os XML ficam gravados no mesmo registro junto à rotina de XML Recebidos.
+Caso seja de interesse, selecionar todos os títulos a receber disponíveis no grid, pode-se utilizar recurso específico do grid. Para isto, basta clicar na área em destaque na imagem a seguir. Ao utilizar este recurso, será considerado o saldo a receber total de todos os títulos presentes no grid.
 
-#### 4.5. PROCESSAR
+![](./assets/controledecheques/Imagem17.png){.flow-image}
 
-A funcionalidade "processar" existente na rotina de XML Recebidos se refere à utilização do XML previamente importado ao ADDON para auxiliar\agilizar no lançamento do documento fiscal.<br>
-Ao acionar esta funcionalidade, será disponibilizado interface para que seja informado à chave do documento fiscal o qual deseja-se processar (NF-e \ CT-e).
+A partir dos títulos a receber selecionados no grid de “Recebimento”, é possível identificar o valor total recebido referente aos mesmos, junto a campos da sessão “negociação”.
 
-![](./assets/xmlterceiros/Imagem18.png){.flow-image}
+![](./assets/controledecheques/Imagem18.png){.flow-image}
 
-Ao informar à chave do documento fiscal, será verificado os itens abaixo: <br>
+Após a definição dos títulos a receber, deve-se registrar os cheques utilizados pelo cliente como forma de pagamento. Para isto, deve-se utilizar o botão “Adicionar” presente na sessão “Cheques”.
 
-* Existência de registro de XML Terceiros no ADDON referente à chave em questão.<br>
-* Havendo o registro do XML Terceiros, se o mesmo está pendente, ou seja, sem documento fiscal lançado no ERP Protheus.<br>
-* Caso no cadastro de Usuários X Permissões esteja determinado que deverá ocorrer à validação do XML no Sefaz, será verificado se o documento se encontra autorizado no Sefaz.
-    * Nesta validação, é considerado a utilização do Totvs Sped Service (TSS) conforme configuração do ambiente, ou seja, se estiver configurado à NFe para HOMOLOGAÇÃO à validação da chave será realizada no mesmo ambiente.  
+![](./assets/controledecheques/Imagem19.png){.flow-image}
 
-Uma vez que os itens acima estejam válidos, será possibilitado o processamento do XML.
+Será apresentado tela para registro dos cheques repassados pelo cliente para o recebimento dos títulos financeiros selecionados. Caso possua leitora de cheques, é possível utilizar a mesma para obter as principais informações dos cheques, basta utilizar o campo “leitora” presente no cabeçalho da tela.
 
-![](./assets/xmlterceiros/Imagem19.png){.flow-image}
+![](./assets/controledecheques/Imagem20.png){.flow-image}
 
-Em caso de inconsistência, será apresentada mensagem ao operador reportando o fato ocorrido.
+Após a atualização dos demais campos com as informações obtidas da leitora de cheques, deve-se complementar as demais informações referentes ao cheque recebido.
 
-Ao confirmar à interface inicial, ocorrerá o carregamento das informações presentes no XML Terceiros para uma interface auxiliar para definição de algumas informações obrigatórias antes da geração do documento fiscal.
+![](./assets/controledecheques/Imagem21.png){.flow-image}
 
-Na primeira tela, são apresentados no cabeçalho informações do documento fiscal e na parte inferior, informações sobre o cadastro do cliente\fornecedor vinculado ao documento fiscal.
-![](./assets/xmlterceiros/Imagem20.png){.flow-image}
+Caso não tenha disponível leitora de cheques, pode-se informar manualmente todos os campos correspondentes aos dados do cheque recebido.
 
-Caso o cliente\fornecedor presente no documento não tenha seu cadastro localizado na empresa\filial, somente poderá ser possível avançar à tela após o cadastramento do mesmo.
+![](./assets/controledecheques/Imagem22.png){.flow-image}
 
-* A busca em torno do cadastro do cliente\fornecedor ocorre através da informação do CNPJ \ CPF existente no XML do documento fiscal o qual está sendo processado.<br>
+Após identificar todas as informações do cheque, basta acionar o botão “Adicionar”. Assim, o cheque informado será adicionado ao lote e a tela será reinicializada para registro de um novo cheque.
 
-Se o usuário logado possuir permissão para inclusão de cliente\fornecedor (Cadastro Usuários X Permissões), será disponibilizado botão para inclusão do cadastro na parte inferior esquerda da interface.
+![](./assets/controledecheques/Imagem23.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem21.png){.flow-image}
+Após finalizar o registro de todos os cheques, deve-se acionar o botão “Finalizar”, assim, será encerrado a tela de registro dos cheques do lote.
 
-Ao acionar este botão, será carregado à tela padrão de inclusão do cadastro de cliente\fornecedor.
+![](./assets/controledecheques/Imagem24.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem22.png){.flow-image}
+A partir dos cheques vinculados ao lote de recebimento, serão executadas as regras referentes ao prazo médio de vencimento dos cheques. Caso o resultado seja superior ao prazo médio de vencimento do cliente, haverá cálculo de valor de juros excedentes. Estas informações, estão disponíveis no rodapé do lote de recebimento, junto a sessão denominada “Composição”.
 
-Para auxiliar no cadastramento do cliente\fornecedor, pode-se utilizar as informações básicas do mesmo cujo as quais estão presentes no arquivo de XML Terceiros que esta sendo processado.<br>
-Para isto, basta pressionar à tecla de atalho F2.
+![](./assets/controledecheques/Imagem25.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem23.png){.flow-image}
+Após o registro dos cheques, é possível também, visualizar a atualização das informações junto a sessão “Negociação”.
 
-Ao confirmar o cadastro, o cliente\fornecedor será vinculado à tela de processamento do XML Terceiros conforme exemplo abaixo.
+![](./assets/controledecheques/Imagem26.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem24.png){.flow-image}
+Além do recebimento em cheques, também é possível ao incluir lote de cheques do tipo recebimento, informar a ocorrência de recebimento em espécie. Para isto, deve-se utilizar campo especifico presente na sessão “Negociação”.
 
-<strong>DICA:</strong> Através da configuração do parâmetro <strong>MV_X004006</strong>, poderá ser parametrizado à funcionalidade de processamento de XML Terceiros para que o número e\ou série do documento fiscal o qual está sendo processado, tenha zeros adicionados à esquerda.
-<br>
+![](./assets/controledecheques/Imagem27.png){.flow-image}
 
-Ao avançar à interface, será apresentada uma nova tela com os itens do documento fiscal.
+Ao informar um “Vlr. Espécie”, será apresentado tela para registro dos bancos\caixas\valores recebidos.
 
-![](./assets/xmlterceiros/Imagem25.png){.flow-image}
+![](./assets/controledecheques/Imagem28.png){.flow-image}
 
-Por padrão, é necessário que sejam definidos nesta tela o conteúdo dos campos abaixo listados:
+Após distribuir todo o “Vlr. Espécie” entre um ou mais bancos\caixas, deve-se confirmar a tela.
 
-*	Produtos
-    * Esta relação será necessária ao menos uma vez. Posteriormente, caso esteja definido no cadastro de Usuários X Permissão para o usuário logado que deva ser salvo à definição de Produtos X Fornecedores, em novos processamentos, será automaticamente carregado o PRODUTO (código interno do ERP) a partir desta amarração. Não localizando o produto na amarração de Produtos X Fornecedores, irá buscar o produto pelo código de barras existente no XML.
-    * Caso o produto não esteja cadastrado no ambiente e o usuário possua permissão para incluir produtos (Cadastro Usuários X Permissões), poderá efetuar tal processo estando posicionado no item do documento clicando no atalho específico.  
+![](./assets/controledecheques/Imagem29.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem26.png){.flow-image}
+Finalizado a definição das informações referentes ao lote de recebimento, basta confirmar a inclusão do lote.
 
-* Será apresentado à interface de inclusão do produto. Para agilizar no processo, pode-se utilizar à tecla de atalho F2 onde serão atualizados alguns campos à partir de informações presentes no próprio XML que está sendo processado.
-* Ao confirmar à inclusão do produto, o mesmo é automaticamente vinculado ao item, caso necessário, poderá ser alterado para outro produto já incluso.
+![](./assets/controledecheques/Imagem30.png){.flow-image}
 
-<strong>DICAS:</strong> 
+Caso existam diferenças entre o “Vlr. Total” do lote de cheques, em relação ao “Vlr. Cheques + Vlr. Espécie”, será apresentada mensagem ao usuário, onde:
 
-* Através da configuração do parâmetro MV_X004008, poderá ser parametrizado à funcionalidade de processamento de XML Terceiros para que esteja sugerindo à conta contábil e\ou centro de custos vinculado ao cadastro do produto para o respectivo item junto ao grid de itens da interface de processamento do XML.
-* No cadastro de Produtos X Fornecedores, se o campo Unidade (A5_UNID) estiver preenchido, no momento do processamento do XML, o sistema verifica qual das unidades do produto Protheus (Primária ou Secundária) é utilizada pelo Fornecedor, efetuando automaticamente o preenchimento no GRID. 
-Exemplo:
-Produto ABC – Unidade Primária PC, Unidade Secundária CX
-Fornecedor efetua o fornecimento sempre em CX. No Cadastro de Produtos x Fornecedor, foi informado campo Unidade = CX. 
-No momento do processamento do XML, identificamos que a unidade é CX, o campo a ser preenchido automaticamente pelo sistema será o da unidade Secundária, efetuando os cálculos para a primeira unidade. 
+- VLR. DIFERENÇA > 0
 
-<strong>TES:</strong> 
+![](./assets/controledecheques/Imagem31.png){.flow-image}
 
-* O TES é necessário para que seja posteriormente gerado o Documento de Entrada ou Conhecimento de Frete.
-* Quando se trata do processamento do XML de NF-e, é possível replicar uma mesma TES à todos os itens do documento fiscal, neste momento será apresentado mensagem ao usuário em torno da execução deste processo ou não.
-*	Referente ao processamento de XML de CT-e, sempre será replicado o TES informado\alterado em qualquer item para todos os demais itens do documento. Isto ocorre, pois à rotina padrão de Conhecimento de Frete permite o lançamento do conhecimento com um único Tes.
+- VLR. DIFERENÇA < 0
 
-<strong>PEDIDO DE COMPRA:</strong> 
+![](./assets/controledecheques/Imagem32.png){.flow-image}
 
-*	Junto aos itens da interface de processamento, existem campos para vinculo de pedidos de compra.
-*	Neste caso, ao dar "enter" sob o campo, será apresentado interface com os pedidos de compra para o fornecedor\produto em questão que possuem saldo.
-*	Se necessário, poderá ser selecionado itens de pedidos diferentes para atender à quantidade do item da nota. Neste caso, o item na tela de processamento ficará com o pedido "999999" vinculado. Posteriormente, ao gerar à Pré-Nota\Documento de Entrada, será "quebrado" o item do documento em mais de um item sendo vinculado à cada item os respectivos pedidos de compra conforme à quantidade\valor unitário definidos.
-*	Caso a nota fiscal de entrada tenha vindo de uma loja do fornecedor diferente daquela do pedido de compra, será possível fazer o vínculo do pedido normalmente, desde que o parâmetro “Quanto ao PC”, na rotina Documento de Entrada, acessado via tecla F12, seja definido como “Fornecedor”;
+Após a confirmação da mensagem (caso exista), serão executadas as regras de gravação do lote de cheques de recebimento. Associado a sua inclusão, serão gerados os movimentos financeiros correspondentes ao tipo do lote utilizado.
 
-![](./assets/xmlterceiros/Imagem27.png){.flow-image}
+![](./assets/controledecheques/Imagem33.png){.flow-image}
 
-<strong>DICA:</strong> Através da utilização do parâmetro MV_X004009, poderá ser ativado parametrização onde havendo um único pedido de compra vinculado aos itens do documento fiscal que está sendo processado, será sugerido à condição de pagamento vinculada ao pedido de compra em questão, como sendo à condição de pagamento para a inclusão do documento fiscal em campo específico existente na última sessão da funcionalidade de processamento XML Terceiros presente na aba Duplicatas.
+<strong>PAGAMENTO</strong>
 
-*	Caso o item do pedido de compra selecionado contenha os campos das entidades contábeis preenchidos (Centro de Custo, Conta Contábil, Item Contábil, Classe de Valor), estes campos serão vinculados ao item do documento fiscal em questão.<br> 
-<strong>OBS:</strong> Isso somente se houver um único pedido de compra vinculado.
+A partir da existência do registro de cheques recebidos de clientes (via Liquidação e\ou Lote Cheques - Recebimento), é possível utilizar estes cheques para realizar o pagamento de Fornecedores. Para isto, deve-se realizar a inclusão de um lote de “Pagamento”.
 
-*	 Atentar ao preenchimento do parâmetro MV_X004013 que define se o valor unitário para a Pré-Nota ou Documento de entrada será considerado pelo Pedido de Compras ou pelo XML.
-<br>
+![](./assets/controledecheques/Imagem34.png){.flow-image}
 
-<strong>Gestão de Cereais:</strong> 
+Junto a sessão “Pagamento”, é necessário que seja informado o código\loja do Fornecedor do qual está sendo realizado o pagamento financeiro. Neste momento, será disponibilizado tela de parâmetros. Estes parâmetros, serão utilizados para busca dos títulos a pagar (em Reais) em aberto existentes para pagamento.
 
-  *	Quando a empresa\filial utiliza-se também do ADDON de Gestão de Cereais, serão adicionadas novas tags ao ADDON de XML Terceiros de modo que ocorrerá a obrigatoriedade na informação de outros campos específicos do ADDON de gestão de cereais conforme à configuração do produto vinculado aos itens em questão.
+![](./assets/controledecheques/Imagem35.png){.flow-image}
 
-Após à definição das informações dos itens conforme observações acima, ao avançar à interface será apresentado à tela final de processamento do XML. Nesta interface, na parte inferior existe a aba "duplicatas" onde deverá ser informado à condição de pagamento e a natureza financeira.
-<br>
-<strong>DICA:</strong> Através da parametrização do parâmetro <strong>MV_X004007</strong>, poderá ser parametrizado à funcionalidade de processamento de XML Terceiros para que seja sugerido à natureza financeira vinculada ao cadastro do cliente\fornecedor vinculado ao XML Terceiros que esta sendo processada. 
+Após confirmar os parâmetros, caso sejam localizados títulos a pagar, estes serão apresentados no grid presente na sessão “Pagamento”.
 
-![](./assets/xmlterceiros/Imagem28.png){.flow-image}
+![](./assets/controledecheques/Imagem36.png){.flow-image}
 
-Caso no cadastro de Usuários X Permissões esteja definido que o usuário gera apenas Pré-Nota (Processamento XML NFe), não será obrigatório informar estes campos, bem como o TES nos itens, pois à Pré-Nota não se utiliza destas informações. Já no caso de geração de documento de entrada ou conhecimento de frete (Processamento XML CTe), é obrigatório à informação destes campos.
-<br>
+Junto ao grid de títulos a pagar, deve-se selecionar os títulos que serão pagos através da inclusão do lote de cheques de pagamento. Ao selecionar individualmente cada título, é apresentado tela onde é possível definir o valor que será pago, bem como, se existe incidência de descontos e\ou multa sob tal pagamento.
 
-<strong>DICA:</strong> Caso esteja definido que a informação de natureza é obrigatória no documento de entrada, a mesma também será obrigatória na tela de processamento do XML.
-<br>
-Uma vez que todas as informações foram definidas, ao acionar à opção "Finalizar" existente na interface, será aplicado validações finais gerais. Após isto, estando tudo correto, ocorrerá à inclusão do documento fiscal: 
+![](./assets/controledecheques/Imagem37.png){.flow-image}
 
-*	Processamento XML NF-e: será gerado (Pré-Nota \ Documento de Entrada) conforme definido no cadastro de Usuários X Permissões para o usuário logado. Caso esteja definido como INFORMADO NO MOMENTO, será questionado ao usuário qual o tipo de documento deseja gerar. Ao confirmar, será apresentado à tela de inclusão com todas as informações onde o usuário poderá checar\complementar antes de confirmar a inclusão.
-*	Processamento XML CT-e: independente do Cadastro de Usuários X Permissões, quando se trata de processamento de CTe sob documentos de compra vinculados, será utilizado à inclusão de Conhecimento de Frete, não sendo apresentado à interface ao usuário (Rotina automática não disponibiliza este recurso). Caso seja conhecimento de frete onde as notas fiscais referenciadas não sejam documentos de entrada (frete não entra no custo do produto), será tratado como inclusão de documento de entrada do tipo normal referente à despesa com frete. Neste caso, é apresentado à interface do documento ao usuário antes de confirmar à inclusão.
+Caso seja de interesse, selecionar todos os títulos a pagar disponíveis no grid, pode-se utilizar recurso específico do grid. Para isto, basta clicar na área em destaque na imagem a seguir. Ao utilizar este recurso, será considerado o saldo a pagar total de todos os títulos presentes no grid.
 
-Após gerar o documento fiscal, o registro do XML tem o seu status atualizado conforme situações apresentadas na legenda.
+![](./assets/controledecheques/Imagem38.png){.flow-image}
 
-<strong>OBSERVAÇÃO:</strong> Caso seja de interesse, considerar que o valor do ICMS e ICMS ST presentes no XML seja considerado para o Documento de Entrada no processamento do XML, deve-se apendar ao cadastro de tags, tags personalizadas para este processo as quais estão disponíveis junto ao pacote deste Addon. Além disto, é necessário que seja ativado o parâmetro MV_X004014 (.T.). Com isto, ao processar o XML gerando Documento de Entrada, desde que o TES esteja parametrizado para calcular ICMS, serão replicados os valores do ICMS e ICMS ST presentes nos itens do XML do documento fiscal, para os itens na rotina de Documento de Entrada.
+A partir dos títulos a pagar selecionados no grid de “Pagamento”, é possível identificar o valor total pago referente aos mesmos, junto a campos da sessão “Negociação”.
 
-#### 4.6. LEGENDA
-Ações Relacionadas\Legenda <br>
-Através da funcionalidade de legenda, é possível identificar os status vinculados aos registros existentes no browse da rotina de XML Terceiros.
+![](./assets/controledecheques/Imagem39.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem29.png){.flow-image}
+Após a definição dos títulos a pagar considerados para composição do lote de cheques de pagamento, é necessário que sejam informados os cheques que serão utilizados para a realização do pagamento. Para isto, deve-se utilizar o botão “Adicionar” presente na sessão “Cheques”.
 
-Os status existentes para os XML existentes na rotina estão condicionados à situação do mesmo perante ao ADDON.
+![](./assets/controledecheques/Imagem40.png){.flow-image}
 
-<strong>DICA:</strong> Conforme já descrito no recurso de exclusão dos registros de XML, não é possível excluir um registro de XML Terceiros o qual já possua documento fiscal, ou seja, caso o status seja referente à Pré-Nota ou Documento de Entrada (Documento Entrada \ Conhecimento de Transporte).
+Será disponibilizado tela, para vínculo dos cheques na composição do lote de pagamento. Caso exista leitora de cheques, poderá ser utilizado através do cabeçalho da tela.
 
-#### 5. RELATÓRIO LISTAGEM XML RECEBIDOS
+![](./assets/controledecheques/Imagem41.png){.flow-image}
 
-Através deste relatório, é possível emitir à relação de XML Terceiros importados\existentes junto ao ADDON XML Terceiros.
+Não havendo disponibilidade de lote de cheques, é possível realizar a busca do cheque através da consulta padrão (F3), disponível no campo “Banco”.
 
-![](./assets/xmlterceiros/Imagem30.png){.flow-image}
+![](./assets/controledecheques/Imagem42.png){.flow-image}
 
-Este relatório tem por objetivo permitir um controle\relação em torno dos XML a partir do status do mesmo e até para verificar os XML que ainda não possuem documento fiscal vinculado, ou seja, cujo o documento fiscal ainda não foi dado entrada junto ao ERP Protheus.
+Os registros disponibilizados com legenda na cor “verde”, referem-se há cheques que se encontram disponíveis para utilização no lote de pagamento.
 
-![](./assets/xmlterceiros/Imagem30.png){.flow-image}
+![](./assets/controledecheques/Imagem43.png){.flow-image}
 
-<strong>DICA:</strong> O relatório de Listagem XML Recebidos foi desenvolvimento utilizando o componente TReport, desta forma, é possível efetuar personalizações em torno do layout do mesmo visando atender necessidades especificas.
+Abaixo, apresenta-se o significado de cada uma das legendas presentes na consulta padrão de cheques:
+
+![](./assets/controledecheques/Imagem44.png){.flow-image}
+
+Ao selecionar e confirmar a tela de consulta do cheque, serão atualizadas as informações do mesmo na tela principal. Desta forma, basta acionar o botão “Adicionar”.
+
+![](./assets/controledecheques/Imagem45.png){.flow-image}
+
+Com a localização do cheque desejado e validação do mesmo, basta acionar o botão “Adicionar” para que seja vinculado ao lote de cheques. Assim, a tela será reinicializada, para que seja vinculado outro cheque ao lote.
+
+![](./assets/controledecheques/Imagem46.png){.flow-image}
+
+Após finalizar as definições do lote de cheques de pagamento, basta confirmar a tela para que ocorra a gravação.
+
+![](./assets/controledecheques/Imagem47.png){.flow-image}
+
+Havendo diferenças, entre o “Vlr. Pagamento” e o “Vlr. Cheques”, serão executadas regras especificas, onde:
+
+-	VLR. CHEQUES > VLR. PAGAMENTO
+    - Será apresentado mensagem ao usuário, alertando a respeito da geração de título a pagar ao fornecedor do tipo NDF (nota débito do fornecedor), correspondente ao valor pago a maior.
+
+![](./assets/controledecheques/Imagem48.png){.flow-image}
+
+- VLR. CHEQUES < VLR. PAGAMENTO
+    - Será apresentado tela para informação do banco\caixa, a partir do qual, será registrado a saída em espécie do valor faltante para pagamento ao fornecedor.
+
+![](./assets/controledecheques/Imagem49.png){.flow-image}
+
+Após a gravação do lote de cheques de pagamento, será retornado ao browse da rotina.
+
+![](./assets/controledecheques/Imagem50.png){.flow-image}
+
+<strong>DEPÓSITO</strong>
+
+Além da utilização dos cheques para pagamento de fornecedores, também é possível, utilizar os mesmos para que sejam descontados junto a instituição financeira. Nestes casos, deve-se realizar a inclusão de um lote de cheques do tipo “depósito”.
+
+![](./assets/controledecheques/Imagem51.png){.flow-image}
+
+Através do botão “Adicionar” presente no rodapé da tela, será apresentado tela para busca\vinculo dos cheques ao lote de depósito.
+
+![](./assets/controledecheques/Imagem52.png){.flow-image}
+
+Junto a interface disponibilizada, deverá ser realizado a leitura\busca de cada um dos cheques disponíveis\válidos para utilização no lote de depósito.
+
+![](./assets/controledecheques/Imagem53.png){.flow-image}
+
+Após o vínculo dos cheques ao lote de depósito, é necessário informar na sessão “Depósito”, o banco\caixa em que ocorrerá o depósito dos mesmos.
+
+![](./assets/controledecheques/Imagem54.png){.flow-image}
+
+Ao realizar a inclusão do lote de depósito, podem ser vinculadas ao mesmo, informações complementares, referentes há incidência de Impostos, Tarifas e Taxas. Para isto, deve-se utilizar os campos disponíveis no rodapé da interface.
+
+![](./assets/controledecheques/Imagem55.png){.flow-image}
+
+A partir dos campos disponíveis, serão executadas as regras de cálculo das Tarifas\Taxas que venham a ter incidência sob o lote de depósito, impactando na composição dos totais do lote em questão.
+
+![](./assets/controledecheques/Imagem56.png){.flow-image}
+
+Finalizado a definição do lote de cheques de depósito, basta confirmar a tela para que ocorra a gravação do lote e geração dos movimentos financeiros correspondentes.
+
+![](./assets/controledecheques/Imagem57.png){.flow-image}
+
+Após o término da gravação do lote de cheques de depósito, será retornado ao browse da rotina.
+
+![](./assets/controledecheques/Imagem58.png){.flow-image}
+
+Diferente da inclusão dos lotes de recebimento e pagamento, ao realizar a inclusão de lote de depósito, é possível identificar que a legenda do mesmo após inclusão é diferente, indicando que se trata de um lote que encontra-se “pendente”.
+
+![](./assets/controledecheques/Imagem59.png){.flow-image}
+
+Este comportamento ocorre, devido ao fato em que o registro do lote de depósito ocorre em duas etapas distintas. Após sua inclusão, o mesmo deverá posteriormente ser complementado, através da utilização da funcionalidade “Finalizar”, disponível no browse da rotina em “Outras Ações”.
+
+<strong>RECUSA DE CHEQUES</strong>
+
+Funcionalidade disponível no browse da rotina de Lote de Cheques em “Outras Ações\Recusar\Cheques”.
+
+![](./assets/controledecheques/Imagem60.png){.flow-image}
+
+A funcionalidade “Recusar\Cheques”, aplica-se único e exclusivamente, sob lotes de depósito, que estejam “pendentes”. Ou seja, ao tentar utilizar a funcionalidade sob um lote que não atenda a estes requisitos, não será permitido sua utilização.
+
+![](./assets/controledecheques/Imagem61.png){.flow-image}
+
+Uma vez que a funcionalidade seja executada sob lote de depósito que esteja “pendente”, será disponibilizado a interface, diretamente na tela de definição dos cheques do lote, que serão recusados.
+
+![](./assets/controledecheques/Imagem62.png){.flow-image}
+
+Através do botão “Adicionar”, serão disponibilizados recursos para busca\vínculo dos cheques do lote de depósito manipulado, que serão recusados junto ao lote.
+
+![](./assets/controledecheques/Imagem63.png){.flow-image}
+
+Junto a tela apresentada, é possível ler o cheque utilizando leitora de cheques. Caso contrário, pode ser realizado a busca do cheque através da consulta padrão no campo “Banco”. Na consulta, serão apresentados apenas os cheques válidos (não devolvidos \ não recusados) que estão vinculados ao lote.
+
+![](./assets/controledecheques/Imagem64.png){.flow-image}
+
+Após vincular os cheques do lote de depósito que serão recusados, é apresentado na parte superior, totalizador referente ao valor dos mesmos.
+
+![](./assets/controledecheques/Imagem65.png){.flow-image}
+
+Finalizado a definição dos cheques que serão recusados, basta confirmar a tela.
+
+![](./assets/controledecheques/Imagem66.png){.flow-image}
+
+Será apresentado a tela principal do lote de depósito. Na parte direita da tela, serão atualizados os totalizadores, conforme os cheques vinculados para realização da recusa.
+
+![](./assets/controledecheques/Imagem67.png){.flow-image}
+
+<strong>ATENÇÃO:</strong> A funcionalidade “Recusar \ Cheques”, pode ser executada quantas vezes for necessário sob um mesmo lote de depósito. Para isto, é necessário que o lote esteja “Pendente” e existam cheques válidos vinculados ao lote.
+
+Para finalizar o processo de recusa dos cheques no lote de depósito, basta confirmar a tela principal.
+
+![](./assets/controledecheques/Imagem68.png){.flow-image}
+
+Será então, realizado a execução das regras de processamento da recusa dos cheques. Neste processo, os cheques têm o seu vínculo removido do lote de depósito, estando aptos\disponíveis para utilização em novos lotes de depósito ou pagamento. Portanto, o status do lote de depósito não é modificado, ou seja, permanece “Pendente”.
+
+![](./assets/controledecheques/Imagem69.png){.flow-image}
+
+<strong>ATENÇÃO:</strong> Não é possível cancelar a recusa de cheques. Ou seja, uma vez que é executado a funcionalidade “Recusar \ Cheques”, para um ou mais cheques de um lote de depósito, não é possível reverter a ação realizada.
+
+Ao utilizar a funcionalidade “Visualizar” sob um lote de depósito, que teve recusa de um ou mais cheques, encontra-se disponível em “Outras Ações”, a funcionalidade “Cheques Recusados”.
+
+![](./assets/controledecheques/Imagem70.png){.flow-image}
+
+Será disponibilizado tela, com informações a respeito dos cheques que faziam parte do lote de depósito e que sofreram o processo de recusa de cheques.
+
+![](./assets/controledecheques/Imagem71.png){.flow-image}
+
+Ao utilizar a funcionalidade de “Consulta” do histórico de cheques, disponível no browse da rotina em “Outras Ações”, caso exista histórico de recusa do cheque em um ou mais lotes de depósito, serão apresentadas informações a respeito.
+
+![](./assets/controledecheques/Imagem72.png){.flow-image}
+
+<strong>FINALIZAR</strong>
+
+Funcionalidade disponível no browse da rotina de Lote de Cheques em “Outras Ações”.
+
+![](./assets/controledecheques/Imagem73.png){.flow-image}
+
+A funcionalidade “Finalizar”, aplica-se único e exclusivamente, sob lotes de depósito, que estejam “pendentes”. Ou seja, ao tentar utilizar a funcionalidade sob um lote que não atenda a estes requisitos, não será permitido sua utilização.
+
+![](./assets/controledecheques/Imagem74.png){.flow-image}
+
+Uma vez que a funcionalidade seja executada sob lote de depósito que esteja “pendente”, será disponibilizado a interface com layout referente há lote de depósito.
+
+![](./assets/controledecheques/Imagem75.png){.flow-image}
+
+Junto ao rodapé da interface, será disponibilizado a edição dos campos referentes há valor de Impostos, Tarifa e Taxas os quais foram calculados na inclusão do lote de depósito. Desta forma, é possível editar os valores, conforme o que realmente teve de incidência por parte da instituição financeira na operação de depósito em questão.
+
+![](./assets/controledecheques/Imagem76.png){.flow-image}
+
+A partir da edição dos valores de Impostos\Tarifas\Taxas, ocorrerá a atualização dos totais do lote de depósito junto a sessão de “Depósito”, impactando, no valor líquido referente ao respectivo lote de depósito.
+
+![](./assets/controledecheques/Imagem77.png){.flow-image}
+
+Ainda junto a sessão de “Depósito”, caso tenha sido recebido por parte da instituição financeira envolvida no lote de depósito, cheques referentes a parte\totalidade do valor líquido do lote, o valor total destes cheques deverá ser indicado em campo específico.
+
+![](./assets/controledecheques/Imagem78.png){.flow-image}
+
+Ao editar o campo “Vlr. Cheque”, será disponibilizado interface secundária, através da qual, deverá ser realizado a leitur\registro das informações de cada um dos cheques repassados pela instituição financeira, referente ao valor líquido (parcial\total) do respectivo lote de depósito.
+
+![](./assets/controledecheques/Imagem79.png){.flow-image}
+
+Para realizar a leitura\registro dos cheques recebidos através do lote de depósito, deve-se acionar o botão “Adicionar”, presente na parte inferior da tela.
+
+![](./assets/controledecheques/Imagem80.png){.flow-image}
+
+<strong>ATENÇÃO:</strong> Para que seja possível registrar o recebimento de cheques na finalização do lote de depósito, é necessário, que exista cadastro de Cliente (SA1) referente há instituição financeira utilizada no lote. Este cliente, deve estar vinculado ao cadastro de Bancos (SA6) no cadastro da respectiva instituição financeira.
+
+Para que seja possível confirmar a interface secundária de registro dos cheques recebidos através do lote de depósito, é necessário que o valor total dos cheques registrados, seja igual ao valor informado no campo “Vlr. Cheque”.
+
+![](./assets/controledecheques/Imagem81.png){.flow-image}
+
+A diferença entre o “Vlr. Líquido” e o “Vlr. Cheque” presentes na sessão “Depósito”, corresponde ao “Vlr. Espécie”, ou seja, valor que fora repassado em espécie pela instituição financeira vinculada ao lote de depósito que está sendo finalizado.
+
+![](./assets/controledecheques/Imagem82.png){.flow-image}
+
+Uma vez que tenha sido realizado o complemento das informações referentes ao lote de depósito manipulado, é possível realizar a confirmação da interface de finalização do mesmo.
+
+![](./assets/controledecheques/Imagem83.png){.flow-image}
+
+Ocorrerá então, o registro dos cheques recebidos através do lote de depósito (caso existam), bem como, a geração dos movimentos bancários (receber\pagar) referente ao valor recebido em espécie e, descontos de impostos\tarifa\taxas junto a movimentação da instituição financeira vinculada ao lote. A partir da realização da finalização do lote de depósito, este por sua vez, assume legenda indicando que está finalizado.
+
+![](./assets/controledecheques/Imagem84.png){.flow-image}
+
+<strong>ATENÇÃO:</strong> Os movimentos bancários a pagar, referentes aos valores de impostos\tarifas\taxas incidentes sob o lote de depósito, serão gerados conforme as Naturezas Financeiras vinculadas aos parâmetros (SX6) de configuração. Caso uma mesma natureza seja aplicada há mais de um destes itens, o valor dos mesmos será “somado” em um único movimento bancário por cada natureza.
+
+<strong>VISUALIZAR</strong>
+
+Através da funcionalidade “visualizar”, é possível realizar consulta ao lote de cheques posicionado.
+
+<strong>RECEBIMENTO</strong>
+
+Apresenta informações a respeito de lote de cheques do tipo “recebimento”.
+
+![](./assets/controledecheques/Imagem85.png){.flow-image}
+
+Em “Outras Ações\Recebimento Financeiro”, será disponibilizado tela para o detalhamento dos bancos\caixas em que foi registrado recebimento em espécie vinculado ao lote.
+
+![](./assets/controledecheques/Imagem86.png){.flow-image}
+
+<strong>PAGAMENTO</strong>
+
+Apresenta informações a respeito de lote de cheques do tipo “pagamento”.
+
+![](./assets/controledecheques/Imagem87.png){.flow-image}
+
+Em “Outras Ações\Pagamento Financeiro”, será disponibilizado tela de informações do banco\caixa considerado para realização de pagamento em espécie ao fornecedor.
+
+![](./assets/controledecheques/Imagem88.png){.flow-image}
+
+<strong>DEPÓSITO</strong>
+
+Apresenta informações a respeito de lote de cheques do tipo “depósito”.
+
+![](./assets/controledecheques/Imagem89.png){.flow-image}
+
+Em “Outras Ações\Recebimento Cheques”, será disponibilizado tela de informações dos cheques que foram recebidos através da finalização do lote de depósito.
+
+![](./assets/controledecheques/Imagem90.png){.flow-image} 
+
+Em “Outras Ações\Recebimento Financeiro”, será disponibilizado tela para o detalhamento do recebimento em espécie vinculado ao lote de depósito.
+
+![](./assets/controledecheques/Imagem91.png){.flow-image}
+
+<strong>EXCLUIR</strong>
+
+A exemplo da funcionalidade “Visualizar”, ao executar a funcionalidade “Excluir”, será apresentado a interface conforme o tipo do lote de cheque posicionado no browse no ato da execução.
+
+![](./assets/controledecheques/Imagem92.png){.flow-image}
+
+Ao confirmar a interface da funcionalidade “Excluir”, serão executadas regras de validação conforme o tipo do lote de cheques manipulado (Depósito\Pagamento\Recebimento). Caso uma das regras aplicadas não seja contemplada, será apresentado mensagem ao usuário, não sendo permito realizar a exclusão do respectivo lote, conforme o exemplo apresentado a seguir.
+
+![](./assets/controledecheques/Imagem93.png){.flow-image}
+
+<strong>IMPRIMIR</strong>
+
+A funcionalidade “Imprimir”, disponibiliza impressão de um resumo das principais informações vinculadas ao lote de cheque posicionado no browse. O layout de impressão, é alterado conforme o tipo do lote de cheques.
+
+<strong>RECEBIMENTO</strong>
+
+![](./assets/controledecheques/Imagem94.png){.flow-image}
+
+<strong>PAGAMENTO</strong>
+
+![](./assets/controledecheques/Imagem95.png){.flow-image}
+
+<strong>DEPÓSITO</strong>
+
+![](./assets/controledecheques/Imagem96.png){.flow-image}
+
+<strong>CONSULTA</strong>
+
+Para auxiliar a rastrear as informações referentes aos cheques recebidos de clientes, foi disponibilizado a funcionalidade denominada “Consulta”.
+
+![](./assets/controledecheques/Imagem97.png){.flow-image}
+
+A partir da identificação do cheque (manual \ via leitora), serão apresentadas as informações correspondentes ao mesmo.
+
+![](./assets/controledecheques/Imagem98.png){.flow-image}
+
+Caso exista ocorrência de devolução sob o cheque consultado, serão apresentadas informações a respeito junto a sessão “Histórico” presente no layout da tela.
+
+![](./assets/controledecheques/Imagem99.png){.flow-image}
+
+
+#### 2.5.ATUALIZAÇÕES\CONTAS A RECEBER\BAIXAS A RECEBER
+
+Ao realizar a utilização da rotina de Lote de Cheques registrando lotes dos tipos depósito ou pagamento, serão utilizados títulos a receber referentes a “cheques”. Estes por sua vez, serão baixados conforme o tipo do lote de cheques em que foram utilizados.
+
+![](./assets/controledecheques/Imagem100.png){.flow-image}
+
+Caso existam situações de “devolução” de cheques, deverá ser localizado o título a receber correspondente ao cheque no browse da rotina de Baixas a Receber\Funções Contas a Receber e em seguida, realizar a exclusão\cancelamento da baixa.
+
+![](./assets/controledecheques/Imagem101.png){.flow-image}
+
+Desta forma, será apresentado mensagem correspondente ao movimento financeiro que será gerado devido a devolução do cheque manipulado. Veja a seguir, o comportamento que ocorrerá conforme o tipo do lote de cheques em que o cheque devolvido foi utilizado.
+
+  -	LOTE PAGAMENTO
+    - A mensagem apresentada, refere-se há geração de título a pagar ao fornecedor\loja referente ao lote de pagamento em que o cheque foi utilizado.
+    - Assim, através do título a pagar poderá ser restituído o valor financeiro ao fornecedor, correspondente ao cheque que teve incidência de devolução.
+
+![](./assets/controledecheques/Imagem102.png){.flow-image}
+
+  - Portanto, os títulos a pagar (SE2) vinculados ao lote de pagamento em que o cheque devolvido, não serão “reabertos”. Desta forma, será gerado um “novo título a pagar” ao fornecedor em questão, para que seja realizado a “restituição” do cheque que foi devolvido.
+  - Este novo título a pagar (SE2), será gerado com as informações de identificação do lote de cheques no qual, foi utilizado para pagamento, o cheque devolvido.
+
+![](./assets/controledecheques/Imagem103.png){.flow-image}
+
+-	Ao visualizar o novo título a pagar gerado, é possível junto ao campo de “observações”, identificar informações referentes ao cheque que foi utilizado para pagamento ao fornecedor e que foi devolvido, gerando este novo título a pagar para restituição ao fornecedor.
+
+![](./assets/controledecheques/Imagem104.png){.flow-image}
+
+O novo título a pagar (SE2) que foi gerado para restituição do fornecedor, do valor do cheque devolvido, poderá ser utilizado em novos lotes de cheque do tipo pagamento.
+
+  - LOTE DEVOLUÇÃO
+    - A mensagem apresentada, refere-se há confirmação por parte do usuário, de que ocorrerá a devolução do cheque correspondente ao título a receber, que teve sua baixa, gerada pela inclusão\finalização do lote de depósito.
+
+![](./assets/controledecheques/Imagem105.png){.flow-image}
+
+  -	Desta forma, ao confirmar a mensagem apresentada, será realizado a inclusão de Mov. Bancário (a pagar) no Banco\Caixa do lote de depósito o qual gerou a baixa do título a receber do cheque que foi devolvido.
+  -	Este movimento bancário, será gerado do valor integral do cheque, utilizando-se da natureza financeira vinculada ao parâmetro MV_X997C23.
+
+![](./assets/controledecheques/Imagem106.png){.flow-image}
+
+<strong>ATENÇÃO:</strong> Após o cheque ser “devolvido”, o título a receber do mesmo fica em aberto. Assim, é possível realizar a cobrança do cliente que repassou o cheque, pois é o cliente\loja vinculado ao mesmo. A referida “cobrança”, poderá ocorrer através da inclusão de um novo Lote de Recebimento.
+</div>
+</details>
 </div>
 </details>
