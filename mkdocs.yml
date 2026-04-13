@@ -29,27 +29,35 @@ theme:
 nav:
   - Inicio: index.md  
   - Projeto FS99_001:
-    - Alçadas - Regras: addon-alcadas-regras.md
-    - Alçadas - Workflow Pedido de Venda: addon-alcadas-pedido-venda.md
-    - Alçadas - Workflow Pedidos de Compras: addon-alcadas-pedido-compras.md
-    - Alçadas - Workflow Contas a Pagar: addon-alcadas-contas-pagar.md   
+    - A - Alçadas - Regras: addon-alcadas-regras.md
+    - B - Alçadas - Workflow Pedido de Venda: addon-alcadas-pedido-venda.md
+    - C - Alçadas - Workflow Pedidos de Compras: addon-alcadas-pedido-compras.md
+    - D - Alçadas - Workflow Contas a Pagar: addon-alcadas-contas-pagar.md   
+
   - Projeto FS99_003:
-    - CNAB - A Receber: addon-cnab-a-receber.md
-    - CNAB - A Pagar: addon-cnab-a-pagar.md
-    - CNAB - Folha: addon-cnab-folha.md
-    - CNAB - Extrato Bancario: addon-cnab-extrato-bancario.md 
+    - A - CNAB - A Receber: addon-cnab-a-receber.md
+    - B - CNAB - A Pagar: addon-cnab-a-pagar.md
+    - C - CNAB - Folha: addon-cnab-folha.md
+    - D - CNAB - Extrato Bancario: addon-cnab-extrato-bancario.md 
+
   - Projeto FS99_004:
-    - Addon - Importação de XML: addon-xml-terceiro.md
+    - A - Addon - Importação de XML: addon-xml-terceiro.md
+
   - Projeto FS99_006:
-    - Addon - Comissões e Faturamento: addon-comissoes-faturamento.md
+    - A - Addon - Comissões e Faturamento: addon-comissoes-faturamento.md
+
   - Projeto FS99_007:  
-    - Addon - Leite: addon-leite.md
+    - A - Addon - Leite: addon-leite.md
+
   - Projeto FS99_009:  
-    - Addon - Processo de Workflow de Alçadas Cadastrais: addon-alcadas-workflow-cadastrais.md
-  - Projeto FS99_704:  
-    - Addon - Acelerador: addon-acelerador.md    
-  - Projeto FS99_013A:  
-    - Addon - Rotina de Expedição - Faturamento: addon-rotina-expedicao.md
+    - A - Addon - Processo de Workflow de Alçadas Cadastrais: addon-alcadas-workflow-cadastrais.md
+
+  - Projeto FS99_007:  
+    - D - Addon - Acelerador: addon-acelerador-consultas-generica.md
+
+  - Projeto FS99_013:  
+    - A - Addon - Rotina de Expedição - Faturamento: addon-rotina-expedicao.md
+    
   - Suporte: suporte.md         
 
 markdown_extensions:

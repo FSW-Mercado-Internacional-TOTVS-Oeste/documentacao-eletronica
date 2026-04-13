@@ -17,6 +17,13 @@ hide:
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">1. Visão Geral</span>
+No processo de faturamento, um dos pontos que envolve este ADDON é sobre o processo padrão de limite de crédito que pode ser configurado no cadastro do cliente.
+
+Uma vez informado os dados de Risco, limite de crédito, todo pedido de venda gerado por padrão é verificado o limite de crédito do cliente da venda, uma vez não passando pelas regras de linite de crédito do cliente o pedido de venda é bloqueado por crédito.
+
+Neste momento do bloqueio é exibido uma pequena interface solicitando que seja informada a justificativa para liberação e é disparado um Workflow para o usuário liberador para análise, aprovação/reprovação.
+
+Este produto utiliza O ADDON 001A-Regras de Alçadas onde é parametrizada as alçadas do processo.
 
 #### Implantação de controle de alçadas com workflow, integrado ao processo de pedido de venda com bloqueio por crédito..
 

@@ -17,6 +17,13 @@ hide:
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">1. Visão Geral</span>
+Este ADDON é uma otimização do ADDON de Regras Alçadas, permitindo uma maior automação no processo de aprovação/rejeição de solicitação de compra/pedido de compra.
+
+O ADDON permite que ao gerar um uma solicitação de compra ou pedido de compra, estes sejam analisados por regras de aprovação e conforme os criterios da regra de aprovação e o que foi informado no pedido de compra/solicitação de compra, o aprovador seja notificado via workflow e através do próprio da liberaçãdo do documento e pelo próprio Workflow deliberar da aprovação ou não.
+
+Esta automação utiliza o processo de Workflow via link para aprovação ou rejeição de documentos que estão em processo de alçadas.
+
+A Liberação de Alçadas considera sempre por Documento e não por item, ou seja, no caso do documento ter e itens (solicitação de compra, pedido de compra, etc.) não terá liberação por item e sim o documento todo.
 
 #### Sistema customizado para gestão de aprovações integradas ao módulo de Compras.
 
