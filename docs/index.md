@@ -243,6 +243,26 @@ hide:
         </a>       
       </div>
     </section>
+        <!-- FS99_997C5 -->
+    <section class="fs-project">
+      <div class="fs-project__header">
+        <div class="fs-project__tag">FS99_997C5</div>
+        <h2 class="fs-project__title">Controle de Cheques</h2>
+        <p class="fs-project__desc">Controle completo do ciclo dos cheques.</p>
+      </div>
+      <div class="fs-cards">
+        <a href="controle-de-cheques" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">Acelerador Controle de Cheques</h3>
+            <p class="fs-card__text">Modelos de consultas padrão para Produtos, Fornecedores e Clientes.</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>       
+      </div>
+    </section>
     <!-- FS99_013A -->
     <section class="fs-project">
       <div class="fs-project__header">
