@@ -243,8 +243,7 @@ hide:
         </a>       
       </div>
     </section>
-<<<<<<< HEAD
-        <!-- FS99_997C5 -->
+    <!-- FS99_997C5 -->
     <section class="fs-project">
       <div class="fs-project__header">
         <div class="fs-project__tag">FS99_997C5</div>
@@ -259,7 +258,11 @@ hide:
           <div class="fs-card__body">
             <h3 class="fs-card__title">Acelerador Controle de Cheques</h3>
             <p class="fs-card__text">Modelos de consultas padrão para Produtos, Fornecedores e Clientes.</p>
-=======
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>       
+      </div>
+    </section>
     <!-- FS99_010A -->
     <section class="fs-project">
       <div class="fs-project__header">
