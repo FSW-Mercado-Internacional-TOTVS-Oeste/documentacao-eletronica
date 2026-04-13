@@ -122,6 +122,8 @@ Processo de integração do XML com o compras, disponibiliza um "wizard" com var
   </tbody>
 </table>
 
+<strong>DICA:</strong> verificar à sessão ADD-ON XML existente no arquivo de menu do módulo de compras o qual é disponibilizado junto ao pacote de aplicação do ADD-ON Xml de Terceiros.
+
 </div>
 </details>
 
@@ -168,19 +170,165 @@ Processo de integração do XML com o compras, disponibiliza um "wizard" com var
     <tr>
   </tbody>
 </table>
-
 </div>
 </details>
+
 
 <!--############################################### 04 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">04.</span> Pontos de Entradas Disponiveis para Desenvolvimento</span>
+  <span class="summary-title"><span class="summary-number">04.</span> Pontos de entrada necessários implementar (Não inclusos no Pacote)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">4. Pontos de Entradas Disponiveis para Desenvolvimento</span>  
+### <span style="display: none;">4. Pontos de entrada necessários implementar (Não inclusos no Pacote)</span>
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Sintaxe</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><strong>MA103OPC</strong></td>
+    <td>
+      Ponto de entrada utilizado para disponibilizar novos itens no aRotina documento de entrada.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MA103OPC</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Implementação</span>
+    <span class="filename">MA103OPC</span>
+  </div>
+  <pre><code>
+User Function MA103OPC()
+
+Local aArea    := GetArea()
+Local aBotoes := {}
+     
+If ExistBlock("P004A01")
+   aBotoes := U_P004A01("MA103OPC", aBotoes)                  
+EndIf
+
+RestArea(aArea)
+
+Return aBotoes
+
+<tr>
+    <td><strong>MATA061MVC</strong></td>
+    <td>
+      Ponto de Entrada na rotina MATA061 (Produto x Fornecedor), validação no campo A5_UNID.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MATA061MVC</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Implementação</span>
+    <span class="filename">MATA061MVC</span>
+  </div>
+  <pre><code>
+User Function MATA061()
+
+Local lRet := .T.
+
+if ExistBlock("P004A01")
+   lRet := U_P004A01("MATA061MVC",PARAMIXB)
+endif
+
+Return(lRet)
+<tr>
+    <td><strong>MT103FIM</strong></td>
+    <td>
+     Ponto de entrada executado no término de gravação do documento de entrada.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MT103FIM</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Implementação</span>
+    <span class="filename">MT103FIM</span>
+  </div>
+  <pre><code>
+User Function MT103FIM()
+   
+Local aArea := GetArea()
+Local nOpc  := PARAMIXB[1]
+Local nConfirmou := PARAMIXB[2]  
+
+If ExistBlock("P004A01")
+   U_P004A01("MT103FIM", nOpc, nConfirmou)   
+EndIf
+
+RestArea(aArea)
+
+Return
+
+<tr>
+    <td><strong>MT116AGR</strong></td>
+    <td>
+      Ponto de entrada executado após a gravação do conhecimento de frete.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MT116AGR</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Implementação</span>
+    <span class="filename">MT116AGR</span>
+  </div>
+  <pre><code>
+User Function MT116AGR()
+   
+If ExistBlock("P004A01")
+   U_P004A01("MT116AGR")                  
+EndIf
+
+RestArea(aArea)
+
+Return
+
+<tr>
+    <td><strong>MT140SAI</strong></td>
+    <td>
+      Ponto de entrada após a gravação da operação sobre utilização de pré nota de entrada.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MT140SAI</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Implementação</span>
+    <span class="filename">MT140SAI</span>
+  </div>
+  <pre><code>
+UUser Function MT140SAI()
+   
+If ExistBlock("P004A01")
+	U_P004A01("MT140SAI", PARAMIXB[1], PARAMIXB[2], PARAMIXB[3], PARAMIXB[4], PARAMIXB[5], PARAMIXB[6], PARAMIXB[7])
+EndIf
+           
+RestArea(aArea)
+</div>
+</code></pre>
+</td>
+</tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<!--############################################### 05 #######################################################-->
+
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">05.</span> Pontos de Entradas Disponiveis para Desenvolvimento</span>
+</summary>
+<div class="content-body" markdown="1">
+
+### <span style="display: none;">5. Pontos de Entradas Disponiveis para Desenvolvimento</span>  
 
 <table class="banks-table">
   <thead>
@@ -260,15 +408,15 @@ Processo de integração do XML com o compras, disponibiliza um "wizard" com var
 </div>
 </details>
 
-<!--############################################### 05 #######################################################-->
+<!--############################################### 06 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">05.</span> Tabelas (SX2) </span>
+  <span class="summary-title"><span class="summary-number">06.</span> Tabelas (SX2) </span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">5. Tabelas (SX2)</span> 
+### <span style="display: none;">6. Tabelas (SX2)</span> 
 
 <table class="banks-table">
   <thead>
@@ -314,15 +462,15 @@ Processo de integração do XML com o compras, disponibiliza um "wizard" com var
 </table>
 </div>
 </details>
-<!--############################################### 06 #######################################################-->
+<!--############################################### 07 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">06.</span> Campos (SX3)</span>
+  <span class="summary-title"><span class="summary-number">07.</span> Campos (SX3)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">6. Campos (SX3)</span>
+### <span style="display: none;">7. Campos (SX3)</span>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -6181,6 +6329,123 @@ Status do registro do XML de Terceiros.
 </details>
 </div>
 </details>
+
+<!--############################################### 07 #######################################################-->
+
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">07.</span> Parâmetros (SX6)</span>
+</summary>
+<div class="content-body" markdown="1">
+
+### <span style="display: none;">7. Parâmetros (SX6)</span>
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Conteúdo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>MV_X004000</strong></td>
+      <td>Lógico</td>
+      <td>Determina se o ADD-ON de XML recebidos de terceiros está disponível para a empresa\filial.</td>
+      <td>.T.</td>
+    </tr>
+    <tr>
+      <td><strong>MV_X004001</strong></td>
+      <td>Caracter</td>
+      <td>Alias utilizado para a rotina de cadastro de conta de e-mail. ADD-ON XML Terceiros.</td>
+      <td>Z04</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004002</strong></td>
+      <td>Caracter</td>
+      <td>Alias utilizado para a rotina de cadastro de usuários x permissões. ADD-ON XML Terceiros.</td>
+      <td>Z05</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004003</strong></td>
+      <td>Caracter</td>
+      <td>Alias utilizado para a rotina de cadastro de tags.</td>
+      <td>Z06</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004004</strong></td>
+      <td>Caracter</td>
+      <td>Alias utilizado para a rotina de XML recebidos.</td>
+      <td>ZA1</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004005</strong></td>
+      <td>Caracter</td>
+      <td>Nome do campo da tabela SD1 referente à descrição dos produtos.</td>
+      <td>D1_X_DESC</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004006</strong></td>
+      <td>Caracter</td>
+      <td>Determina se deve adicionar zeros à esquerda no número do documento (1), série (2) ou ambos (3)no processamento do XML Terceiros.</td>
+      <td>3</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004007</strong></td>
+      <td>Lógico</td>
+      <td>Determina se deve carregar à natureza financeira vinculada ao cadastro do cliente\fornecedor para o processamento do XML Terceiros.</td>
+      <td>.T.</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004008</strong></td>
+      <td>Caracter</td>
+      <td>Determina se deve carregar à conta contábil (1)centro de custos (2) ou ambos (3) do cadastro do produto ao item do XML Terceiros.</td>
+      <td>3</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004009</strong></td>
+      <td>Lógico</td>
+      <td>Determina se considera à condição de pagamento dos pedidos de compra no processamento XML Terceiros.</td>
+      <td>.T.</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004010</strong></td>
+      <td>Numérico</td>
+      <td>Determina o percentual de tolerância da quantidade F x saldo Pedido de Compras.
+       <br>Para desativar, informar 999.   </td>
+ <td>999</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004011</strong></td>
+      <td>Númerico</td>
+      <td>ADetermina o percentual de tolerância do valor unitário NF x Pedido de Compras (a maior)<br>
+      Para desativar, informar 999.   </td>
+      <td>999</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004012</strong></td>
+      <td>Numérico</td>
+      <td>Determina o percentual de tolerância no valor total da NF e valor total do XML. (a maior ou menor) <br>
+      Para desativar, informar 999.</td>
+      <td>999</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_X004013</strong></td>
+      <td>Lógico</td>
+      <td>Preenchimento do Valor Unitário na Pré-Nota/NF
+      <br><strong>.T.</strong> =  Considera o valor do xml.<br><strong>.F. </strong> = Considera o valor do Pedido de Compras (padrão)</td>
+      <td>.F.</td> 
+    </tr>    
+  </tbody>
+</table>
+
+</div>
+</details>
+
+
+
 
 <!--############################################### 07 #######################################################-->
 
