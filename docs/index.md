@@ -24,7 +24,7 @@ hide:
       <p class="fs-hero__subtitle">Módulos, integrações e add-ons desenvolvidos para ampliar e aperfeiçoar os processos do Protheus.</p>
       <div class="fs-hero__stats">
         <div class="fs-hero__stat">
-          <span class="fs-hero__stat-num">8</span>
+          <span class="fs-hero__stat-num">15</span>
           <span class="fs-hero__stat-label">Projetos</span>
         </div>
         <div class="fs-hero__stat-div"></div>

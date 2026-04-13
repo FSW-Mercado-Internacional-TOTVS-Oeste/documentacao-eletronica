@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 
-# Addon - Acelerador {.home-hero}
+# Addon - Mensagens DANFE {.home-hero}
 
 <!--############################################### 01 #######################################################-->
 
@@ -35,11 +35,8 @@ Exemplos típicos que podem ser parametrizados
 
 <strong>Principais vantagens do produto:</strong>
 
-- Produtos
-- Fornecedores
-- Clientes
-
-!!! warning "ATENÇÃO: É necessário relacionar a novas consultas aos campos necessários – consultar Boletim Técnico."
+- Configurações de mensagens para operações de compra/devolução
+- Configurações de mensagens para operações de venda/devolução
 
 </div>
 </details>
@@ -54,7 +51,30 @@ Exemplos típicos que podem ser parametrizados
 
 ### <span style="display: none;">2. Menu</span>
 
-!!! warning "Não se Aplica" 
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Menu</th>
+      <th>Sub Menu</th>
+      <th>Nome da Rotina</th>
+      <th>Programa</th>
+      <th>Módulo</th>
+      <th>Tipo</th>
+      <th>Tabelas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Atualizações</td>
+      <td>* ESPECIFICOS</td>
+      <td>Mensagens DANFE</td>
+      <td>C010A01</td>
+      <td>Faturamento</td>
+      <td>03 (Função de Usuário)</td>
+      <td>SZ0</td>
+    </tr>         
+  </tbody>
+</table>
 
 </div>
 </details>
@@ -80,21 +100,17 @@ Exemplos típicos que podem ser parametrizados
   </thead>
   <tbody>
     <tr>
-      <td>T997041</td>
-      <td>Consulta Padrão Modelo 1</td>      
+      <td>C010A01</td>
+      <td>Rotina para Cadastro das Regras de Mensagens DANFE</td>      
     </tr>
     <tr>
-      <td>T997042</td>
-      <td>Consulta Padrão Modelo 2</td>      
+      <td>X010A01</td>
+      <td>Rotina centralizadora de funções genéricas do pacote.</td>      
     </tr>
     <tr>
-      <td>T997043</td>
-      <td>Consulta Padrão com Mark</td>      
+      <td>UPD010A</td>
+      <td>Programa compatibilizador do Dicionário de Dados para aplicação do pacote</td>      
     </tr>
-    <tr>
-      <td>UPD997F</td>
-      <td>Programa compatibilizador do Dicionário de Dados para aplicação do Acelerador.</td>      
-    </tr>    
   </tbody>
 </table>
 
@@ -123,20 +139,20 @@ Exemplos típicos que podem ser parametrizados
   </thead>
   <tbody>
     <tr>
-      <td><strong>PE997042</strong></td>
-      <td>Ponto de Entrada para validação ao pressionar<br> o botão OK, consulta padrão Produtos Modelo 2. </td>
-      <td>T997042</td>      
-      <td>Validação total PE997042(<lRet>) --> lRet</td>      
+      <td><strong>X010A01</strong></td>
+      <td>Ponto de Entrada narotina NFESEFAZ antes damontagem e envio do XML da NFe ao Sefaz. Utilizado para efetuar a chamada das regras de validação das mensagens cadastradas do pacote. </td>
+      <td>X010A01</td>      
+      <td>aRetorno := U_X010A01("NFESEFAZ")</td>      
       <td>
 <div class="advpl-editor">
   <div class="header">
     <span class="title">ADVPL</span>
-    <span class="filename">PE997042</span>
+    <span class="filename">X010A01</span>
   </div>
   <pre><code>
-User Function PE997042()
-Local lRet := .T. 
-Return(lRet)
+If ExistBlock("X010A01")
+  aRetorno := U_X010A01("NFESEFAZ")
+Endif
 </code></pre>
   </div>
       </td>      
@@ -155,11 +171,36 @@ Return(lRet)
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">5. Tabelas (SX2)</span>
+<div class="content-body" markdown="1">
 
-!!! warning "Não se Aplica" 
+### <span style="display: none;">5. Tabelas (SX2)</span> 
 
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Prefixo</th>
+      <th>Descrição</th>
+      <th>Ac. Filial</th>
+      <th>Ac. Unidade</th>
+      <th>Ac. Empresa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SZ0</strong></td>
+      <td>CADASTRO DE MENSAGENS NFESEFAZ/DANFE</td>
+      <td>Exclusivo</td>
+      <td>Exclusivo</td>
+      <td>Exclusivo</td>
+    </tr>
+   
+  </tbody>
+</table>
 </div>
 </details>
+</div>
+</details>
+
 
 <!--############################################### 06 #######################################################-->
 
@@ -170,8 +211,1075 @@ Return(lRet)
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">6. Campos (SX3)</span>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_CODIGO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>02</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Visualizar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Codigo</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Codigo da Mensagem</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Codigo sequencial identificador de uma regra de mensagem.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>GETSX8NUM(_010T01,_010T01COD)</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
 
-!!! warning "Não se Aplica" 
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_OPER**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>03</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Operacao</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Operacao da Nota</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Defina a operação da nota a qual se aplicará a regra.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>S=Saida;E=Entrada</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_ORDEM**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>04</td>
+      <th>Tamanho</th>
+      <td>3</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Ordem</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Sequencia das mensagens</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Defina a ordem sequencial para as mensagens.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>ALTERA</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>SUBSTR(M->&_010T01COD,4,3)</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_TIPO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>05</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+      <th>Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Tipo Mens.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Tipo de Mensagem</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Defina qual retorno se aplicará a regra de mensagem: informações adicionais do produto; mensagem fiscal; mensagem de cliente
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>C=Cliente;F=Fiscal;P=Produto</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_INFCOMP**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>06</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>N</td>
+      <th>Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Inf.Complem.</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Inf.Complementar</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+<div class="help-box" markdown="1">
+Informações complementares
+</div>
+
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>CCE</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>ExistCPO(“CCE”)</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_MSG**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>07</td>
+      <th>Tamanho</th>
+      <td>200</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>S</td>
+      <th>Browse</th>
+      <td>S</d>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Mensagem</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Mensagem de retorno</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Informe o texto ou a composição da mensagem que será retornada, utilizando sintaxe ADVPL.
+
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>Empty(M->&_010T01FRM)</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_GRUPO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>10</td>
+      <th>Tamanho</th>
+      <td>4</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>N</td>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Grupo</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Grupo de Produtos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+<div class="help-box" markdown="1">
+Informe o código do Grupo que se aplicará a mensagem (opcional)
+</div>
+
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SBM</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>Vazio().OR.ExistCpo("SBM")</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_CLIENT**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>11</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>N</td>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Cliente</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Codigo do Cliente</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+<div class="help-box" markdown="1">
+Informe o código do Cliente que se aplicará a mensagem (opcional)
+</div>
+
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SA1</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>M->&_010T01OPE == "S"</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>Vazio().OR.ExistCpo("SA1")</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_FORNEC**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>12</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>N</td>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Fornecedor</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Codigo do Fornecedor/td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+<div class="help-box" markdown="1">
+Informe o código do Fornecedor que se aplicará a mensagem (opcional)
+</div>
+
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SA2</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>M->&_010T01OPE == "E"</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>Vazio().OR.ExistCpo("SA2")</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>N=Nivel; U=Usuario; D=Documento</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_LOJA**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>14</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>N</td>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Estado</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Unidade da Federacao</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+<div class="help-box" markdown="1">
+Informe o Estado do Cliente/Fornecedor que se aplicará a mensagem (opcional)
+</div>
+
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>Vazio().OR.ExistCpo("SX5","12"+M->&_010T01UF)</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_UF**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>14</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>N</td>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Estado</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Unidade da Federacao</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+<div class="help-box" markdown="1">
+Unidade da Federacao
+</div>
+
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>Vazio().OR.ExistCpo("SX5","12"+M->&_010T01UF)</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_TES**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>15</td>
+      <th>Tamanho</th>
+      <td>3</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>N</td>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">TES</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Tipo de Entrada / Saida</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+<div class="help-box" markdown="1">
+Informe o TES do item que se aplicará a mensagem (opcional)
+</div>
+
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SF4</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>Vazio().OR.ExistCpo("SF4")</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_EXPRES**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>16</td>
+      <th>Tamanho</th>
+      <td>3</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>N</td>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Expressao</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Expressao condicional</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+<div class="help-box" markdown="1">
+Informe uma expressão condicional para que a mensagem seja retornada (opcional), utilizando sintaxe ADVPL. Deve retornar .T./.F.
+</div>
+
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z0_STATUS**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Tipo</th>
+      <td>C</td>
+      <th>Ordem</th>
+      <td>17</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+      <th>Formato</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>Alterar</td>
+      <th>Obrigatório</th>
+      <td>N</td>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Título</th>
+      <td colspan="7">Status da Regra</td>
+    </tr>
+    <tr>
+      <th>Descrição</th>
+      <td colspan="7">Status da Regra</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+<div class="help-box" markdown="1">
+Status da Regra
+</div>
+
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções</th>
+      <td>1=Ativo;2=Inativo</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>"1"</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
 
 </div>
 </details>
@@ -197,59 +1305,23 @@ Return(lRet)
   </thead>
   <tbody>
     <tr>
-      <td>MV_X997041</td>
+      <td>MV_X010T01</td>
       <td>Caracter</td>
-      <td>Campos considerados para a composicao da coluna de saldo em estoque na consulta personalizada de produtos.</td>   
-      <td>SB2.B2_QATU-(SB2.B2_QEMP+SB2.B2_RESERVA)</td>   
+      <td>Tabela macro-substituição utilizada. Informar qual tabela foi definida na aplicação do ADD-ON.</td>   
+      <td>SZ0</td>   
     </tr>    
     <tr>
-      <td>MV_X997042</td>
-      <td>Caracter</td>
-      <td>Define se apresenta coluna de Saldo em Contrato de Parceria na consulta personalizada de  produtos.</td>   
-      <td>.F.</td>   
-    </tr>    
-    <tr>
-      <td>MV_X997043</td>
-      <td>Caracter</td>
-      <td>Armazens considerados para a composicao da coluna de saldo em estoque na consulta personalizada de  produtos.</td>   
-      <td>001</td>   
-    </tr>    
-    <tr>
-      <td>MV_X997044</td>
-      <td>Numérico</td>
-      <td>Numero máximo de registros apresentados junto a consulta personalizada de produtos.</td>   
-      <td>50</td>   
-    </tr>    
-    <tr>
-      <td>MV_X997045</td>
+      <td>MV_X010000</td>
       <td>Lógico</td>
-      <td>Define se deve apresentar os registros bloqueados na consulta personalizada de produtos.</td>   
+      <td>Ativa utilizacao do Template Mensagens NFESEFAZ.</td>   
       <td>.T.</td>   
     </tr>    
     <tr>
-      <td>MV_X997046</td>
-      <td>Lógico</td>
-      <td>Determina se deve somar a quantidade em itens já existentes ou gerar novos itens atraves daconsulta personalizada de produtos.</td>   
-      <td>.T.</td>   
-    </tr>    
-    <tr>
-      <td>MV_X997047</td>
+      <td>MV_X010001</td>
       <td>Caracter</td>
-      <td>Codigo TES Inteligente considerado para carga do TES na rotina de Pedidos de Venda atraves da consulta personalizada de produtos.</td>   
-      <td>01</td>   
-    </tr>    
-    <tr>
-      <td>MV_X997048</td>
-      <td>Caracter</td>
-      <td>Codigo TES Inteligente considerado para carga do TES Cobranca no Ct. Parceria atraves da consulta personalizada de produtos.</td>   
-      <td>01</td>   
-    </tr>    
-    <tr>
-      <td>MV_X997049</td>
-      <td>Caracter</td>
-      <td>Codigo TES Inteligente considerado para carga do TES Remessa no Ct. Parceria atraves da consulta personalizada de produtos.</td>   
-      <td>01</td>   
-    </tr>    
+      <td>Caractere padrao para tratar a quebra de linha a  ser tratado nos fontes DANFEII.PRW / DANFEIII.PRW.</td>   
+      <td>#</td>   
+    </tr>      
   </tbody>
 </table>
 
@@ -267,7 +1339,39 @@ Return(lRet)
 
 ### <span style="display: none;">8. Gatilhos (SX7)</span>
 
-!!! warning "Não se Aplica" 
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Campo</th>
+      <th>Sequencia</th>
+      <th>Contra Dom.</th>
+      <th>Tipo</th>
+      <th>Regra</th>
+      <th>Posiciona</th>      
+      <th>Condicao</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Z0_INFCOMP</strong></td>
+      <td>001</td>
+      <td>Z0_MSG</td>
+      <td>1 = Primário</td>
+      <td>'"'+ALLTRIM(CCE->CCE_DESCR)+'"'</td>
+      <td>S</td>      
+      <td>xFilial("CCE")+M->Z0_INFCOMP</td>
+    </tr>
+    <tr>
+      <td><strong>Z0_TIPO</strong></td>
+      <td>001</td>
+      <td>Z0_INFCOMP</td>
+      <td>1 = Primário</td>
+      <td>""</td>
+      <td>N</td>      
+      <td>M->Z0_TIPO <> "F"</td>
+    </tr>   
+  </tbody>
+</table>
 
 </div>
 </details>
@@ -282,7 +1386,33 @@ Return(lRet)
 
 ### <span style="display: none;">9. Índices (SIX)</span>
 
-!!! warning "Não se Aplica" 
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Indice</th>
+      <th>Ordem</th>
+      <th>Chave</th>
+      <th>Descrição</th>
+      <th>NickName</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SZ0</strong></td>
+      <td>1</td>
+      <td>Z0_FILIAL+Z0_OPER+Z0_TIPO+Z0_ORDEM</td>
+      <td>-</td>
+      <td>-</td>      
+    </tr>    
+    <tr>
+      <td><strong>SZ0</strong></td>
+      <td>2</td>
+      <td>Z0_FILIAL+Z0_CODIGO</td>
+      <td>-</td>
+      <td>-</td>      
+    </tr>  
+  </tbody>
+</table>
 
 </div>
 </details>
@@ -297,52 +1427,7 @@ Return(lRet)
 
 ### <span style="display: none;">10. Consulta Padrão (SXB)</span>
 
-<table class="banks-table">
-  <thead>
-    <tr>
-      <th>Tipo</th>
-      <th>Nome</th>
-      <th>Descrição</th>
-      <th>Tabela</th>
-      <th>Expressao</th>
-      <th>Retorno</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Consulta Específica</td>
-      <td>SA1041</td>
-      <td>Consulta Clientes</td>
-      <td>SA1</td>
-      <td>U_T997041( "Consulta Clientes", "SA1", 2, "A1_NOME", "A1_NOME<>'XX'", .T.)</td>
-      <td>SA1->A1_COD, SA1->A1_LOJA</td>
-    </tr> 
-    <tr>
-      <td>Consulta Específica</td>
-      <td>SA2041</td>
-      <td>Consulta Fornecedores</td>
-      <td>SA2</td>
-      <td>U_T997041( "Consulta Fornecedores", "SA2", 2, "A2_NOME", "A2_NOME<>'XX'", .T.)</td>
-      <td>SA2->A2_COD, SA2->A2_LOJA</td>
-    </tr> 
-    <tr>
-      <td>Consulta Específica</td>
-      <td>SB1041</td>
-      <td>Consulta Produtos</td>
-      <td>SB1</td>
-      <td>U_T997041( "Consulta Produtos", "SB1", 2, "B1_DESC", "B1_TIPO<>'XX'", .T.)</td>
-      <td>SB1->B1_COD</td>
-    </tr> 
-    <tr>
-      <td>Consulta Específica</td>
-      <td>SB1042</td>
-      <td>Consulta Produtos</td>
-      <td>SB1</td>
-      <td>U_T997042()</td>
-      <td>__cCodPro</td>
-    </tr> 
-  </tbody>
-</table>
+!!! warning "Não se Aplica" 
 
 </div>
 </details>
@@ -357,167 +1442,58 @@ Return(lRet)
 
 ### <span style="display: none;">11. Manual de operação</span>
 
-#### 1. CONSULTA DE PRODUTOS Mod.1
+#### 1. Cadastro
+Regras Mensagens DANFE
 
-Modelo de consulta disponível para Produtos, Fornecedores e Clientes. 
+-	Módulo: Faturamento<br>
+-	Atualizações ->Cadastros ->* Mensagens DANFE
 
-![](./assets/acelerador/01.png){.flow-image}
+Efetue o cadastro das mensagens e suas regras e condições para impressão no DANFE / XML.
 
-#### 2. CONSULTA DE PRODUTOS Mod.2
+![](./assets/mensagensdanfe/01.png){.flow-image}
 
-Disponibilizado consulta padrão personalizada referente ao cadastro de produtos. Esta nova consulta, possui funcionalidades as quais tem por objetivo disponibilizar uma maior agilidade na pesquisa, localização e seleção de produtos para movimentação junto ao ERP Protheus.
+Seu correto preenchimento é de suma importância, abaixo os campos que devem ser observados
 
-Esta nova consulta, possui funcionalidades de integração especificas com as rotinas padrões do ERP Protheus abaixo elencadas:
+<strong>Código:</strong> Numeração sequencial automática.
 
-- Venda Direta – FATA701.PRW
-- Orçamentos – MATA415.PRW
-- Pedido de Venda – MATA410.PRW
-- Contrato de Parceria – FATA400.PRW
+<strong>Operação da Nota:</strong> informe para qual operação de nota a mensagem se aplicará:
 
-Ao executar à consulta padrão personalizada de produtos à partir destas rotinas, dentre as funcionalidades presentes na mesma, também será disponibilizado recurso referente à mult-seleção de produtos, ou seja, funcionalidade que possibilita ao usuário para que esteja através da interface da própria consulta, selecionando um ou mais produtos.
+-	E=Entrada<br>
+-	S=Saída
 
-Para selecionar os produtos, pode-se clicar com o mouse ou utilizar à tecla “enter”. Uma vez que o produto é selecionado, este passa a ser apresentado com o fundo vermelho, visando facilitar ao usuário. Caso seja desejado mais de uma unidade do mesmo produto, basta alterar o campo quantidade existente no grid inferior da tela.
+<strong>Tipo de Mensagem:</strong> informe o tipo de mensagem que está sendo definida:
 
-![](./assets/acelerador/02.png){.flow-image}
+-	1-Descrição do Produto: mensagem complementar que saíra na descrição do produto/item no DANFE e na tag <infAdProd>do XML.<br>
+-	2-Mensagem Fiscal: mensagem Fiscal que sairá nos dados adicionais no DANFE (informações complementares) e na tag <infAdFisco>do XML.
+-	3-Mensagem Cliente: mensagem de Cliente que sairá nos dados adicionais no DANFE (informações complementares) e na tag <infCpl>do XML.
 
-<strong>DICA</strong>: também é possível determinar à quantidade do produto através da tecla “enter”, ou seja, a cada vez que a tecla é aciona sob um mesmo produto, o campo quantidade é incrementado.
+<strong>Ordem:</strong> ordem/sequencia para impressão da mensagem, campo disponibilizado na alteração do cadastro.
 
-Quando a consulta é executada a partir das rotinas descritas anteriormente, o recurso de mult-seleção é disponibilizado, logo, ao confirmar à interface, é retornado ao grid de itens da rotina pela qual a mesma foi chamada, onde todos os produtos e quantidades são atualizadas conforme selecionado na consulta.
+<strong>Fórmula:</strong> informe o código da fórmula que definirá a composição da mensagem, caso já tenha cadastrado, obrigatório SE não informar o campo Mensagem abaixo.
 
-Caso exista tabela de preços informada no cabeçalho da rotina, será apresentado o preço dos itens já na interface da consulta de produtos, bem como, será atualizado o preço dos respectivos itens na interface de venda.
+<strong>Mensagem:</strong> informe a composição da mensagem em sintaxe ADVPL, obrigatório caso não informe o campo Fórmula acima.
 
-Ainda em relação a carregar os itens\produtos da consulta para a rotina padrão, existem parâmetros conforme abaixo, para que seja configurado o código do TES Inteligente considerado na busca do código do Tipo de Saída (TES) considerado na comercialização dos produtos selecionados na interface da consulta.
+<strong>Produto:</strong> opcional, informe um código de produto caso a mensagem deva ser considerada apenas para tal produto na nota.
 
-**Pedido de Venda**
-- MV_X997047
+<strong>Grupo de Produto:</strong> opcional, informe um código de grupo caso a mensagem deva ser considerada apenas para produtos de tal grupo na nota.
 
-**Contrato de Parceria**
-- MV_X997048
-- MV_X997049
+<strong>Cliente/Fornecedor/Loja:</strong> opcional, informe um código de Cliente ou Fornecedor, conforme o tipo da operação (Entrada/Saída), caso a mensagem deva ser considerada apenas para estes códigos na nota.
 
-**OBSERVAÇÃO**: caso não seja localizado o TES para o item ou até mesmo o preço de venda, o item em questão será carregado como deletado no grid da rotina padrão do sistema.
+<strong>Estado:</strong> opcional, informe um código de Estado/UF caso a mensagem deva ser considerada apenas para cliente/fornecedor de tal código.
 
-Ao realizar à utilização da consulta personalizada de produção, é possível realizar filtro em torno da busca de registros específicos a serem considerados em sua execução. Para isto, basta informar o conteúdo desejado no cabeçalho da consulta.
+<strong>TES:</strong> opcional, informe um código de TES caso a mensagem deva ser considerada apenas para tal código nos itens da nota.
 
-![](./assets/acelerador/03.png){.flow-image}
+<strong>Expressão:</strong> opcional, informe uma expressão condicional para impressão da mensagem, em sintaxe ADVPL, deve retornar .T. / .F.
 
-Após informar o conteúdo da busca, basta acionar duas vezes à tecla “enter”. Havendo registros para o filtro informado, será posicionado no grid de itens, onde pode ser possível selecionar o produto desejado utilizando também a tecla “enter”. Caso não sejam encontrados registros para pesquisa informada, o foco será retornado ao filtro para que seja informado um novo conteúdo de busca\filtro.
+<strong>Status:</strong> informe se o cadastro da regra de mensagem está Ativo ou Inativo, onde somente as mensagens ativas serão impressas.
 
-Ainda em relação ao filtro dos produtos, pode-se utilizar o caracter coringa “%” para realizar um filtro mais refinado considerando-se do conceito de “está contido”.
+<strong>Finalidade:</strong> informe uma breve descrição da finalidade da mensagem.
 
-![](./assets/acelerador/04.png){.flow-image}
+#### 2. PROCESSO
 
-Para uma pesquisa dos produtos ainda mais refinada, pode-se adicionar várias informações de filtro, para isto, utilize o caracter coringa “+” conforme exemplo abaixo.
-
-![](./assets/acelerador/05.png){.flow-image}
-
-Vale ressaltar, que ao realizar à pesquisa por uma determinada descrição, os registros localizados no cadastro de produtos que atendem ao conteúdo do filtro são apresentados de forma ordenada considerando como critério de ordenação à descrição dos mesmos e não o código.
-
-**DICA**: através da tecla de atalho F12 é retornado o foco na interface da consulta de produtos para à edição do conteúdo de filtro\pesquisa, ou seja, estando entre os produtos por exemplo, ao acionar a tecla F12 o foco é retornado para que seja informado um novo conteúdo de pesquisa, considerando-se dos mesmos critérios descritos anteriormente.
-
-Outra informação presente na interface da consulta padrão personalizada de cadastro de produtos, se refere à coluna de saldo em estoque.
-
-![](./assets/acelerador/06.png){.flow-image}
-
-Esta coluna se refere ao saldo disponível em estoque (SB2) dos produtos apresentados. A configuração a respeito de quais campos da tabela SB2 serão considerados para a composição da posição em estoque apresentada na interface da consulta é realizada através do parâmetro MV_X997041 o qual por default é configurado considerando-se dos campos abaixo:
-
-- SB2.B2_QATU-(SB2.B2_QEMP+SB2.B2_RESERVA)
-
-Outro detalhe referente à coluna de saldo em estoque dos produtos, se refere aos armazéns considerados para a composição da posição em estoque. Por padrão, são considerados todos os armazéns existentes para cada produto na tabela SB2, porém, caso devam ser considerados apenas armazéns específicos, estes poderão ser vinculados junto ao parâmetro abaixo:
-
-- MV_X997043
-
-Por final, está disponível na interface da consulta de produtos à tecla de atalho F4 a qual aciona à interface padrão de consulta da posição em estoque a partir do produto em que se está posicionado na interface.
-
-![](./assets/acelerador/07.png){.flow-image}
-
-Através da configuração do parâmetro MV_X997042, é possível apresentar a coluna Saldo em Contrato de Parceria. 
-
-#### 3.CONSULTA Mod.3 com Mark
-
-Modelo de consulta disponível para qualquer tabela do Protheus. 
-
-Deverá ser incluída como “consulta específica”.
-
-![](./assets/acelerador/08.png){.flow-image}
-
-cAliasM, Caracter:  Alias da tabela consultada
-aCamposM, Array: Campos que serão montados na grid de marcação
-cFiltroM, Caracter: Filtragem da tela (SQL)
-nTamanM, Numérico: Tamanho do campo de retorno
-cCheckM, Caracter: Campo que será checado
-lEditM, Lógico: Permite editar o retorno
-cSepM, Caracter: Caracter de separação do texto
-lAllFilM, Lógico: Identifica se são todas as filiais (inclusive de todas as empresas)
-lRetorn: retorno se a consulta foi confirmada ou não
-
-
-<table class="banks-table">
-  <thead>
-    <tr>
-      <th>Parâmetro</th>
-      <th>Tipo</th>
-      <th>Descrição</th>      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>cAliasM</td>
-      <td>Caracter</td>
-      <td>Alias da tabela consultada</td>      
-    </tr>    
-    <tr>
-      <td>aCamposM</td>
-      <td>Array</td>
-      <td>Campos que serão montados na grid de marcação</td>      
-    </tr>
-    <tr>
-      <td>cFiltroM</td>
-      <td>Caracter</td>
-      <td>Filtragem da tela (SQL)</td>      
-    </tr>
-    <tr>
-      <td>nTamanM</td>
-      <td>Numérico</td>
-      <td>Tamanho do campo de retorno</td>      
-    </tr>
-    <tr>
-      <td>cCheckM</td>
-      <td>Caracter</td>
-      <td>Campo que será checado</td>      
-    </tr>
-    <tr>
-      <td>lEditM</td>
-      <td>Lógico</td>
-      <td>Permite editar o retorno</td>      
-    </tr>
-    <tr>
-      <td>cSepM</td>
-      <td>Caracter</td>
-      <td>Caracter de separação do texto</td>      
-    </tr>
-    <tr>
-      <td>lAllFilM</td>
-      <td>Lógico</td>
-      <td>Identifica se são todas as filiais (inclusive de todas as empresas)</td>      
-    </tr>
-    <tr>
-      <td>lRetorn</td>
-      <td>Lógico</td>
-      <td>Retorno se a consulta foi confirmada ou não</td>      
-    </tr>
-  </tbody>
-</table>
-
-!!! warning "IMPORTANTE: O Retorno da consulta padrão deve ser **__cRetorn**"
-
-Exemplo de cadastramento da consulta CTT (consulta específica):
-
-![](./assets/acelerador/09.png){.flow-image}
-
-![](./assets/acelerador/10.png){.flow-image}
-
-
+- Efetuar o faturamento do pedido e geração da nota fiscal.<br>
+- Efetuar a transmissão da nota eletrônica SEFAZ.
+- Efetuar a impressão do DANFE.
 
 </div>
 </details>
