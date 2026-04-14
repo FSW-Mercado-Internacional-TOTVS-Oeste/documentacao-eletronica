@@ -35,14 +35,53 @@ hide:
 
 <!--############################################### 02 #######################################################-->
 
-
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">02.</span> Menu</span>
+  <span class="summary-title"><span class="summary-number">02.</span> Procedimentos para a implementação do Addon</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">2. Menu</span>
+### <span style="display: none;">2. Procedimentos para a implementação do Addon</span>
+
+#### Importante:
+
+![](./assets/controledecheques/Imagem107.png){.flow-image}
+
+
+
+<strong>1.	</strong>Baixar e descompactar o pacote de instalação do Acelerador (FS99999_997C5);<br>
+<strong>2.	</strong>Compatibilizar os rdmakes disponibilizados, com o projeto de personalizações do cliente;<br>
+<strong>3.	</strong>Copiar os arquivos de dicionário de dados para o diretório \SYSTEMLOAD\ do ambiente;<br>
+<strong>3.1.	</strong>3.1.	Através do Totvs SmartClient, executar o compatibilizador UPDDISTR conforme abaixo:
+
+![](./assets/controledecheques/Imagem108.png){.flow-image}
+
+<strong>3.2.	</strong>Siga as etapas apresentadas no wizard;
+
+![](./assets/controledecheques/Imagem109.png){.flow-image}
+
+<strong>3.3.	</strong>Aguardar o processamento do compatibilizador;
+<strong>3.4.	</strong>Ao término da execução, é a apresentado mensagem à respeito;
+
+![](./assets/controledecheques/Imagem110.png){.flow-image}
+</tbody>
+</table>
+</div>
+</details>
+
+
+<!--############################################### 03 #######################################################-->
+
+
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">03.</span> Menu</span>
+</summary>
+<div class="content-body" markdown="1">
+
+### <span style="display: none;">3. Menu</span>
+
+No “Configurador (SIGACFG)”, opção “Ambiente/Cadastros/Menus” (CFGX013), inclua a(s)nova(s) opções de menu (módulo financeiro) conforme instruções a seguir:
 
 <table class="banks-table">
   <thead>
@@ -65,20 +104,19 @@ hide:
     <tr>
   </tbody>
 </table>
-
 </div>
 </details>
 
-<!--############################################### 03 #######################################################-->
+<!--############################################### 04 #######################################################-->
 
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">03.</span> Rotinas personalizadas específicas do Pacote</span>
+  <span class="summary-title"><span class="summary-number">04.</span> Rotinas personalizadas específicas do Pacote</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">3. Rotinas personalizadas específicas do Pacote</span>
+### <span style="display: none;">4. Rotinas personalizadas específicas do Pacote</span>
 
 #### Funções personalizadas contidas no pacote:
 
@@ -128,15 +166,17 @@ hide:
 </div>
 </details>
 
-<!--############################################### 04 #######################################################-->
+<!--############################################### 05 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">04.</span> Campos (SX3)</span>
+  <span class="summary-title"><span class="summary-number">05.</span> Campos (SX3)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">4. Campos (SX3)</span>
+### <span style="display: none;">5. Campos (SX3)</span>
+
+No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/Base de Dados” (CFGX031), inclua a(s)nova(s) configurações conforme instruções a seguir:
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -2752,15 +2792,17 @@ Sequência de baixa do título vinculado ao lote de cheques quando ocorre pagame
 </div>
 </details>
 
-<!--############################################### 05 #######################################################-->
+<!--############################################### 06 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">05.</span> Arquivo (SXB)</span>
+  <span class="summary-title"><span class="summary-number">06.</span> Arquivo (SXB)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">4. Campos (SX3)</span>
+### <span style="display: none;">6. Campos (SXB)</span>
+
+No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/Base de Dados” (CFGX031), inclua a(s) nova(s) configurações conforme instruções a seguir:
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -2800,15 +2842,17 @@ Sequência de baixa do título vinculado ao lote de cheques quando ocorre pagame
 </div>
 </details>
 
-<!--############################################### 06 #######################################################-->
+<!--############################################### 07 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">06.</span> Parâmetros (SX6)</span>
+  <span class="summary-title"><span class="summary-number">07.</span> Parâmetros (SX6)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">6. Parâmetros (SX6)</span>
+### <span style="display: none;">7. Parâmetros (SX6)</span>
+
+No “Configurador (SIGACFG)”, opção “Ambiente/Cadastros/Parâmetros” (CFGX017), configurar os seguintes parâmetros:
 
 <table class="banks-table">
   <thead>
@@ -2867,15 +2911,15 @@ Sequência de baixa do título vinculado ao lote de cheques quando ocorre pagame
 </div>
 </details>
 
-<!--############################################### 07 #######################################################-->
+<!--############################################### 08 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">07.</span> Pontos de entrada do ADDON</span>
+  <span class="summary-title"><span class="summary-number">08.</span> Pontos de entrada do ADDON</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">7. Pontos de entrada do ADDON</span>
+### <span style="display: none;">8. Pontos de entrada do ADDON</span>
 
 <table class="banks-table">
   <thead>
@@ -2967,15 +3011,15 @@ Return lRet
 </div>
 </details>
 
-<!--############################################### 08 #######################################################-->
+<!--############################################### 09 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">08.</span>Manual de Operação</span>
+  <span class="summary-title"><span class="summary-number">09.</span>Manual de Operação</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">8. Manual de Operação</span>
+### <span style="display: none;">9. Manual de Operação</span>
 
 
 Este ADDON tem por objetivo efetuar o controle do ciclo de utilização dos cheques recebidos como forma de pagamento sobre operações de venda.<br>
