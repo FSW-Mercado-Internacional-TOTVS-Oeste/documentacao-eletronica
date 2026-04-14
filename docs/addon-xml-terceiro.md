@@ -28,11 +28,11 @@ Este pacote de automação promove ao usuário efetuar o gerenciamento em torno 
 A sincronização da importação do XML se dá pelas seguintes formas:
 
 - Manual: através desta opção, será apresentado interface para que seja apontado arquivo de XML Terceiros o qual deverá ser importado para o ADDON.<br>
-- E-Mail: : ao utilizar esta opção, será efetuado verificação em torno da existência de contas de e-mail junto à empresa\filial logada.
+- E-Mail: : ao utilizar esta opção, será efetuado verificação em torno da existência de contas de e-mail junto a empresa\filial logada.
 
 Processo permite efetuar uma amarração entre usuários x permissões 
 
-Não é realizado nenhum tipo de validação em torno dos totais\tributos do documento fiscal lançado no ERP Protheus em relação as informações presentes no XML, ou seja, as informações do XML são utilizadas apenas com o objetivo de agilizar o lançamento dos documentos fiscais no ERP, ou seja, caberá ao usuário efetuar à validação dos totais\tributos do documento fiscal que está sendo lançado.
+Não é realizado nenhum tipo de validação em torno dos totais\tributos do documento fiscal lançado no ERP Protheus em relação as informações presentes no XML, ou seja, as informações do XML são utilizadas apenas com o objetivo de agilizar o lançamento dos documentos fiscais no ERP, ou seja, caberá ao usuário efetuar a validação dos totais\tributos do documento fiscal que está sendo lançado.
 
 Processo de integração do XML com o compras, disponibiliza um "wizard" com varias etapas para validação de:
 
@@ -44,7 +44,7 @@ Processo de integração do XML com o compras, disponibiliza um "wizard" com var
 
 ### <span style="display: none;">1. Visão Geral</span>
 
-#### Tem por objetivo, efetuar o gerenciamento em torno dos arquivos XML emitidos por terceiros pertinentes à documentos fiscais do tipo: Notas Fiscais Eletrônicas - NFe e Conhecimento de Transporte Eletrônico - CTe
+#### Tem por objetivo, efetuar o gerenciamento em torno dos arquivos XML emitidos por terceiros pertinentes a documentos fiscais do tipo: Notas Fiscais Eletrônicas - NFe e Conhecimento de Transporte Eletrônico - CTe
 
 <strong>Principais vantagens do produto:</strong>
 
@@ -66,6 +66,8 @@ Processo de integração do XML com o compras, disponibiliza um "wizard" com var
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">2. Menu</span>
+
+No “Configurador (SIGACFG)”, opção “Ambiente/Cadastros/Menus” (CFGX013), inclua a(s)nova(s)  opções de menu (módulo de compras) conforme instruções a seguir:
 
 <table class="banks-table">
   <thead>
@@ -122,7 +124,7 @@ Processo de integração do XML com o compras, disponibiliza um "wizard" com var
   </tbody>
 </table>
 
-<strong>DICA:</strong> verificar à sessão ADD-ON XML existente no arquivo de menu do módulo de compras o qual é disponibilizado junto ao pacote de aplicação do ADD-ON Xml de Terceiros.
+<strong>DICA:</strong> Verificar a sessão ADD-ON XML existente no arquivo de menu do módulo de compras o qual é disponibilizado junto ao pacote de aplicação do ADD-ON Xml de Terceiros.
 
 </div>
 </details>
@@ -183,6 +185,11 @@ Processo de integração do XML com o compras, disponibiliza um "wizard" com var
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">4. Pontos de entrada necessários implementar (Não inclusos no Pacote)</span>
+
+Pontos de Entrada que devem ser personalizados integração com às funções de controle de alçadas:
+
+<strong>Importante:</strong> Atentar para a pré-existência de implementações nestes pontos de entrada!
+
 
 <table class="banks-table">
   <thead>
@@ -418,6 +425,8 @@ RestArea(aArea)
 
 ### <span style="display: none;">6. Tabelas (SX2)</span> 
 
+No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/Base de Dados” (CFGX031), inclua a(s)nova(s)  configurações conforme instruções a seguir:
+
 <table class="banks-table">
   <thead>
     <tr>
@@ -471,6 +480,8 @@ RestArea(aArea)
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">7. Campos (SX3)</span>
+
+No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/Base de Dados” (CFGX031), inclua a(s)nova(s)  configurações conforme instruções a seguir:
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -1672,7 +1683,7 @@ Determina se o servidor utiliza TLS.
 <div class="help-box" markdown="1">
 Define a regra de importação dos e-mails que será considerada para integração<br> 
 da conta de e-mail.<br> 
-<strong>1-</strong> Somente serão importados os arquivos XML onde o CNPJ do destinatário dos mesmos for igual à filial logada.<br>
+<strong>1-</strong> Somente serão importados os arquivos XML onde o CNPJ do destinatário dos mesmos for igual a filial logada.<br>
 <strong>2-</strong>Serão importados todos os arquivos XML onde o CNPJ do destinatário seja<  igual ao CNPJ de qualquer empresa\filial existente no ambiente.
 </div>
 #### **Configurações adicionais**
@@ -1750,7 +1761,7 @@ da conta de e-mail.<br>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Determina à ação que deverá ser realizada com os e-mails processados que possuem arquivo XML de documentos fiscais que foram importados.
+Determina a ação que deverá ser realizada com os e-mails processados que possuem arquivo XML de documentos fiscais que foram importados.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -1827,7 +1838,7 @@ Determina à ação que deverá ser realizada com os e-mails processados que pos
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Determina à ação que deverá ser realizada com os e-mails recebidos que não possuem arquivo XML de documentos fiscais e com isto foram ignorados.
+Determina a ação que deverá ser realizada com os e-mails recebidos que não possuem arquivo XML de documentos fiscais e com isto foram ignorados.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2674,7 +2685,7 @@ Determina se o usuário possui acesso ao cadastro de Conta de E-mail.
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Determina se o usuário possui acesso à importar XML.
+Determina se o usuário possui acesso a importar XML.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2751,7 +2762,7 @@ Determina se o usuário possui acesso à importar XML.
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Determina se o usuário possui acesso à exportar XML.
+Determina se o usuário possui acesso a exportar XML.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2828,7 +2839,7 @@ Determina se o usuário possui acesso à exportar XML.
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Determina se o usuário possui acesso à excluir XML.
+Determina se o usuário possui acesso a excluir XML.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2905,7 +2916,7 @@ Determina se o usuário possui acesso à excluir XML.
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Determina se o usuário possui acesso à processar XML.
+Determina se o usuário possui acesso a processar XML.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -2982,7 +2993,7 @@ Determina se o usuário possui acesso à processar XML.
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Determina se o usuário possui acesso à incluir fornecedor.
+Determina se o usuário possui acesso a incluir fornecedor.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -3059,7 +3070,7 @@ Determina se o usuário possui acesso à incluir fornecedor.
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Determina se o usuário possui acesso à incluir produto.
+Determina se o usuário possui acesso a incluir produto.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -3598,7 +3609,7 @@ Determina para qual documento se aplica a definição de Tag.
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Informe à versão do documento referente à tag.
+Informe a versão do documento referente a tag.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -4292,7 +4303,7 @@ Validação da Tag\Campo executada na interface de processamento.
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Validação de usuário que será executada na edição da tag junto à interface de processamento do XML Terceiros.
+Validação de usuário que será executada na edição da tag junto a interface de processamento do XML Terceiros.
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -4677,7 +4688,7 @@ Tipo do documento fiscal referente ao XML.
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Chave de acesso à NFe\Cte;
+Chave de acesso a NFe\Cte;
 </div>
 #### **Configurações adicionais**
 <table class="banks-table">
@@ -6330,132 +6341,170 @@ Status do registro do XML de Terceiros.
 </div>
 </details>
 
-<!--############################################### 07 #######################################################-->
+<!--############################################### 08 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">07.</span> Parâmetros (SX6)</span>
+  <span class="summary-title"><span class="summary-number">08.</span>Criação no arquivo SIX - Índices</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">7. Parâmetros (SX6)</span>
+### <span style="display: none;">8. Criação no arquivo SIX - Índices</span>
+
+No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/Base de Dados” (CFGX031), inclua a(s)nova(s)  configurações conforme instruções a seguir:
+
+<strong>TABELA: ZA4 - CONTAS E-MAILS</strong>
 
 <table class="banks-table">
   <thead>
     <tr>
-      <th>Nome</th>
-      <th>Tipo</th>
+      <th>Indice</th>
+      <th>Ordem</th>
+      <th>Chave</th>
       <th>Descrição</th>
-      <th>Conteúdo</th>
+      <th>NickName</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>MV_X004000</strong></td>
-      <td>Lógico</td>
-      <td>Determina se o ADD-ON de XML recebidos de terceiros está disponível para a empresa\filial.</td>
-      <td>.T.</td>
+      <td><strong>Z04</strong></td>
+      <td>1</td>
+      <td>Z04_FILIAL+Z04_CODIGO</td>
+      <td>Codigo</td>
+      <td>Z0401</td>
+      <tr>
+      <td><strong>Z04</strong></td>
+      <td>2</td>
+      <td>Z04_FILIAL+Z04_DESC</td>
+      <td>Descricao</td>
+      <td>Z0402</td>
+      </tr>
+       </tbody>
+  </thead>
+</table>
+  
+<strong>TABELA: ZA5 - USUÁRIOS X PERMISSÕES</strong>
+ <table class="banks-table">
+  <thead>
+    <tr>
+      <th>Indice</th>
+      <th>Ordem</th>
+      <th>Chave</th>
+      <th>Descrição</th>
+      <th>NickName</th>
     </tr>
-    <tr>
-      <td><strong>MV_X004001</strong></td>
-      <td>Caracter</td>
-      <td>Alias utilizado para a rotina de cadastro de conta de e-mail. ADD-ON XML Terceiros.</td>
-      <td>Z04</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004002</strong></td>
-      <td>Caracter</td>
-      <td>Alias utilizado para a rotina de cadastro de usuários x permissões. ADD-ON XML Terceiros.</td>
-      <td>Z05</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004003</strong></td>
-      <td>Caracter</td>
-      <td>Alias utilizado para a rotina de cadastro de tags.</td>
-      <td>Z06</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004004</strong></td>
-      <td>Caracter</td>
-      <td>Alias utilizado para a rotina de XML recebidos.</td>
-      <td>ZA1</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004005</strong></td>
-      <td>Caracter</td>
-      <td>Nome do campo da tabela SD1 referente à descrição dos produtos.</td>
-      <td>D1_X_DESC</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004006</strong></td>
-      <td>Caracter</td>
-      <td>Determina se deve adicionar zeros à esquerda no número do documento (1), série (2) ou ambos (3)no processamento do XML Terceiros.</td>
-      <td>3</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004007</strong></td>
-      <td>Lógico</td>
-      <td>Determina se deve carregar à natureza financeira vinculada ao cadastro do cliente\fornecedor para o processamento do XML Terceiros.</td>
-      <td>.T.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004008</strong></td>
-      <td>Caracter</td>
-      <td>Determina se deve carregar à conta contábil (1)centro de custos (2) ou ambos (3) do cadastro do produto ao item do XML Terceiros.</td>
-      <td>3</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004009</strong></td>
-      <td>Lógico</td>
-      <td>Determina se considera à condição de pagamento dos pedidos de compra no processamento XML Terceiros.</td>
-      <td>.T.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004010</strong></td>
-      <td>Numérico</td>
-      <td>Determina o percentual de tolerância da quantidade F x saldo Pedido de Compras.
-       <br>Para desativar, informar 999.   </td>
- <td>999</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004011</strong></td>
-      <td>Númerico</td>
-      <td>ADetermina o percentual de tolerância do valor unitário NF x Pedido de Compras (a maior)<br>
-      Para desativar, informar 999.   </td>
-      <td>999</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004012</strong></td>
-      <td>Numérico</td>
-      <td>Determina o percentual de tolerância no valor total da NF e valor total do XML. (a maior ou menor) <br>
-      Para desativar, informar 999.</td>
-      <td>999</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004013</strong></td>
-      <td>Lógico</td>
-      <td>Preenchimento do Valor Unitário na Pré-Nota/NF
-      <br><strong>.T.</strong> =  Considera o valor do xml.<br><strong>.F. </strong> = Considera o valor do Pedido de Compras (padrão)</td>
-      <td>.F.</td> 
-    </tr>    
-  </tbody>
+  </thead>
+  <tbody>
+   <tr>
+      <td><strong>Z05</strong></td>
+      <td>1</td>
+      <td>Z05_FILIAL+Z05_ID</td>
+      <td>ID Usuario</td>
+      <td>Z0501</td>
+    </tr>
+</tbody>
+</thead>
 </table>
 
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Indice</th>
+      <th>Ordem</th>
+      <th>Chave</th>
+      <th>Descrição</th>
+      <th>NickName</th>
+    </tr>
+  </thead>
+ <strong>TABELA: ZA5 - TAGS</strong>
+ <thead>
+    <tr>
+      <td><strong>Z06</strong></td>
+      <td>1</td>
+      <td>Z06_FILIAL+Z06_TAG</td>
+      <td>Tag</td>
+      <td>Z0601</td>
+    </tr>
+    <tr>
+      <td><strong>Z06</strong></td>
+      <td>2</td>
+      <td>Z06_FILIAL+Z06_TIPO+Z06_TAG</td>
+      <td>Tipo+Tag</td>
+      <td>Z0602</td>
+    </tr>
+    <tr>
+      <td><strong>Z06</strong></td>
+      <td>3</td>
+      <td>Z06_FILIAL+Z06_CAMPO</td>
+      <td>Campo</td>
+      <td>Z0603</td>
+     <tr>
+      <td><strong>Z06</strong></td>
+      <td>4</td>
+      <td>Z06_FILIAL+Z06_ALIAS</td>
+      <td>Alias</td>
+      <td>Z0604</td>
+    </tr>
+    <tr>
+      <td><strong>Z06</strong></td>
+      <td>5</td>
+      <td>Z06_FILIAL+Z06_ID</td>
+      <td>ID da Tag</td>
+      <td>Z0605</td>
+    </tr>
+   </tbody>
+</table>
+
+<strong>TABELA: ZA1 - XML RECEBIDOS</strong>
+ <table class="banks-table">
+  <thead>
+    <tr>
+      <th>Indice</th>
+      <th>Ordem</th>
+      <th>Chave</th>
+      <th>Descrição</th>
+      <th>NickName</th>
+    </tr>
+  </thead>
+  <tbody>
+   <tr>
+      <td><strong>ZA1</strong></td>
+      <td>1</td>
+      <td>ZA1_FILIAL+ZA1_CHAVE</td>
+      <td>Chave</td>
+      <td>ZA101</td>
+    </tr>
+    <tr>
+      <td><strong>ZA1</strong></td>
+      <td>2</td>
+      <td>ZA1_FILIAL+ZA1_CLIFOR+ZA1_LOJA</td>
+      <td>Codigo+Loja</td>
+      <td>ZA102</td>
+    </tr>
+    <tr>
+      <td><strong>ZA1</strong></td>
+      <td>3</td>
+      <td>ZA1_FILIAL+ZA1_DOC+ZA1_SERIE+ZA1_CLIFOR+ZA1_LOJA</td>
+      <td>Documento+Serie+Codigo+Loja</td>
+      <td>ZA103</td>
+    </tr>
+</tbody>
+</thead>
+</table>
 </div>
 </details>
 
-
-
-
-<!--############################################### 07 #######################################################-->
+<!--############################################### 09 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">07.</span> Parâmetros (SX6)</span>
+  <span class="summary-title"><span class="summary-number">09.</span> Parâmetros (SX6)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">7. Parâmetros (SX6)</span>
+### <span style="display: none;">9. Parâmetros (SX6)</span>
+
+No “Configurador (SIGACFG)”, opção “Ambiente/Cadastros/Parâmetros” (CFGX017), inclua\verifique a(s)nova(s)  configurações conforme instruções a seguir:
 
 <table class="banks-table">
   <thead>
@@ -6500,31 +6549,31 @@ Status do registro do XML de Terceiros.
     <tr>
       <td><strong>MV_X004005</strong></td>
       <td>Caracter</td>
-      <td>Nome do campo da tabela SD1 referente à descrição dos produtos.</td>
+      <td>Nome do campo da tabela SD1 referente a descrição dos produtos.</td>
       <td>D1_X_DESC</td>
     </tr>   
     <tr>
       <td><strong>MV_X004006</strong></td>
       <td>Caracter</td>
-      <td>Determina se deve adicionar zeros à esquerda no número do documento (1), série (2) ou ambos (3)no processamento do XML Terceiros.</td>
+      <td>Determina se deve adicionar zeros a esquerda no número do documento (1), série (2) ou ambos (3)no processamento do XML Terceiros.</td>
       <td>3</td>
     </tr>   
     <tr>
       <td><strong>MV_X004007</strong></td>
       <td>Lógico</td>
-      <td>Determina se deve carregar à natureza financeira vinculada ao cadastro do cliente\fornecedor para o processamento do XML Terceiros.</td>
+      <td>Determina se deve carregar a natureza financeira vinculada ao cadastro do cliente\fornecedor para o processamento do XML Terceiros.</td>
       <td>.T.</td>
     </tr>   
     <tr>
       <td><strong>MV_X004008</strong></td>
       <td>Caracter</td>
-      <td>Determina se deve carregar à conta contábil (1)centro de custos (2) ou ambos (3) do cadastro do produto ao item do XML Terceiros.</td>
+      <td>Determina se deve carregar a conta contábil (1)centro de custos (2) ou ambos (3) do cadastro do produto ao item do XML Terceiros.</td>
       <td>3</td>
     </tr>   
     <tr>
       <td><strong>MV_X004009</strong></td>
       <td>Lógico</td>
-      <td>Determina se considera à condição de pagamento dos pedidos de compra no processamento XML Terceiros.</td>
+      <td>Determina se considera a condição de pagamento dos pedidos de compra no processamento XML Terceiros.</td>
       <td>.T.</td>
     </tr>   
     <tr>
@@ -6611,19 +6660,19 @@ Status do registro do XML de Terceiros.
     </tr>    
   </tbody>
 </table>
-
 </div>
 </details>
+<!--############################################### 10 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">08.</span> Manual de operação</span>
+  <span class="summary-title"><span class="summary-number">10.</span> Manual de operação</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">08. Manual de operação</span>
+### <span style="display: none;">10. Manual de operação</span>
 
-Este ADDON tem por objetivo efetuar o gerenciamento em torno dos arquivos XML emitidos por terceiros pertinentes à documentos fiscais do tipo:<br>
+Este ADDON tem por objetivo efetuar o gerenciamento em torno dos arquivos XML emitidos por terceiros pertinentes a documentos fiscais do tipo:<br>
 •	Notas Fiscais Eletrônicas - NFe<br>
 •	Conhecimento de Transporte Eletrônico - CTe<br>
 
@@ -6631,7 +6680,7 @@ A partir da importação dos arquivos XML para uma tabela do banco de dados do E
 •	Documento de Entrada<br>
 •	Conhecimento de Transporte<br>
 
-Vale ressaltar, que não é realizado nenhum tipo de validação em torno dos totais\tributos do documento fiscal lançado no ERP Protheus em relação as informações presentes no XML, ou seja, as informações do XML são utilizadas apenas com o objetivo de agilizar o lançamento dos documentos fiscais no ERP, ou seja, caberá ao usuário efetuar à validação dos totais\tributos do documento fiscal que está sendo lançado.
+Vale ressaltar, que não é realizado nenhum tipo de validação em torno dos totais\tributos do documento fiscal lançado no ERP Protheus em relação as informações presentes no XML, ou seja, as informações do XML são utilizadas apenas com o objetivo de agilizar o lançamento dos documentos fiscais no ERP, ou seja, caberá ao usuário efetuar a validação dos totais\tributos do documento fiscal que está sendo lançado.
 
 Processos deste Pacote:<br>
 <strong>1)</strong>	Cadastro de Contas de E-mails;<br>
@@ -6647,25 +6696,25 @@ Este manual tem como objetivo auxiliar na utilização das novas funcionalidades
 
 #### 1. CADASTRO CONTAS DE E-MAILS
 
-Esta rotina tem por objetivo o cadastro das contas de e-mail utilizadas pela empresa\filiais para recebimento de arquivos XML emitidos por terceiros contra à empresa\filial.
+Esta rotina tem por objetivo o cadastro das contas de e-mail utilizadas pela empresa\filiais para recebimento de arquivos XML emitidos por terceiros contra  empresa\filial.
 <br>
 As contas de e-mail cadastradas através desta rotina, poderão ser posteriormente utilizadas para sincronização\download dos arquivos de XML recebidos através de e-mail.
 <br>
-Para cadastrar à conta de e-mail em questão, deverá ter de posse os dados técnicos em torno da comunicação\conexão junto à conta de e-mail.
+Para cadastrar a conta de e-mail em questão, deverá ter de posse os dados técnicos em torno da comunicação\conexão junto a conta de e-mail.
 
 ![](./assets/xmlterceiros/Imagem1.png){.flow-image}
 
-As definições técnicas a respeito da configuração das contas de e-mail que serão integradas com o addon XML Terceiros para o recebimento de arquivos XML estão organizadas em pastas conforme à sua aplicação\finalidade.<br>
+As definições técnicas a respeito da configuração das contas de e-mail que serão integradas com o addon XML Terceiros para o recebimento de arquivos XML estão organizadas em pastas conforme a sua aplicação\finalidade.<br>
 Abaixo, seguem informações especificas em torno de alguns dos campos presentes junto ao cadastro de contas de e-mail:
 
 * <strong>Bloqueado (Z04_MSBLQL)</strong>: 
-    * Determina se à conta de e-mail está bloqueada.<br>
+    * Determina se a conta de e-mail está bloqueada.<br>
     * Contas de e-mail definidas como bloqueadas não serão disponibilizadas para integração com a rotina de XML Recebidos.<hr>
 * <strong>Utiliza SSL (Z04_SSL)</strong>: 
-    * Determina se à conta de e-mail utiliza autenticação do tipo SSL.
+    * Determina se a conta de e-mail utiliza autenticação do tipo SSL.
 <hr>
 * <strong>Utiliza TLS (Z04_TLS)</strong>: 
-    * Determina se à conta de e-mail utiliza autenticação do tipo TLS.
+    * Determina se a conta de e-mail utiliza autenticação do tipo TLS.
 <hr>
 * <strong>Recebimento (Z04_RECBTO)</strong><br>
     * <strong>I – Imap</strong>: <br>
@@ -6699,22 +6748,22 @@ Abaixo, seguem informações especificas em torno de alguns dos campos presentes
 <hr>
 * <strong>Importação (Z04_TPIMP)</strong><br>
   * <strong>1 – Filial Logada</strong>: <br>
-    * Nesta configuração, somente serão importados os arquivos XML cujo o CNPJ do destinatário seja igual à empresa\filial logada.<br>
+    * Nesta configuração, somente serão importados os arquivos XML cujo o CNPJ do destinatário seja igual  empresa\filial logada.<br>
   * <strong>2 – Todas as Filiais</strong>: <br>
-    * A partir desta configuração, serão importados os arquivos XML vinculados à e-mails da conta onde o CNPJ do destinatário seja igual ao CNPJ de qualquer empresa\filial do ERP Protheus.
+    * A partir desta configuração, serão importados os arquivos XML vinculados  e-mails da conta onde o CNPJ do destinatário seja igual ao CNPJ de qualquer empresa\filial do ERP Protheus.
 <hr>
 * <strong>Processados (Z04_EPROC)</strong><br>
   * <strong>1 – Excluir</strong>: <br>
-    * Caso tenha sido importado um ou mais XML a partir do e-mail processado, será realizado à exclusão do e-mail junto à conta de e-mail processada.<br>
+    * Caso tenha sido importado um ou mais XML a partir do e-mail processado, será realizado a exclusão do e-mail junto a conta de e-mail processada.<br>
   * <strong>2 – Manter</strong>: <br>
-    * Caso tenha sido importado um ou mais XML a partir do e-mail processado, será mantido o e-mail junto à conta de e-mail processada.<br>
+    * Caso tenha sido importado um ou mais XML a partir do e-mail processado, será mantido o e-mail junto a conta de e-mail processada.<br>
         * Ao utilizar esta opção, vale ressaltar que em nova integração com a conta de e-mail, os e-mails já lidos serão novamente avaliados, logo, este cenário poderá afetar no tempo de processamento da integração com a conta de e-mail.
 <hr>
 * <strong>Ignorados (Z04_EIGNOR)</strong><br>
   * <strong>1 – Excluir</strong>: <br>
-    * Caso não tenha sido importado nenhum XML a partir do e-mail processado, será realizado à exclusão do e-mail junto à conta de e-mail processada.<br>
+    * Caso não tenha sido importado nenhum XML a partir do e-mail processado, será realizado a exclusão do e-mail junto a conta de e-mail processada.<br>
   * <strong>2 – Manter</strong>: <br>
-    * Caso não tenha sido importado nenhum XML a partir do e-mail processado, será mantido o e-mail junto à conta de e-mail processada.<br>
+    * Caso não tenha sido importado nenhum XML a partir do e-mail processado, será mantido o e-mail junto a conta de e-mail processada.<br>
         * Ao utilizar esta opção, vale ressaltar que em nova integração com a conta de e-mail, os e-mails já lidos serão novamente avaliados, logo, este cenário poderá afetar no tempo de processamento da integração com a conta de e-mail.
 
 #### 2. CADASTRO USUÁRIOS X PERMISSÕES
@@ -6731,18 +6780,18 @@ Para cada um dos recursos existentes nas rotinas do ADDON, existem campos espec�
 
 ![](./assets/xmlterceiros/Imagem3.png){.flow-image}
 
-Ao realizar o cadastramento das permissões, verifique o help dos campos para obter demais informações sobre à permissão em questão.<br>
-<strong>DICA:</strong> não é necessário realizar à inclusão do cadastro de Usuários X Permissões para o usuário ADMINISTRADOR do ERP Protheus, afinal, o mesmo possui acesso total a todos os recursos do ADDON de modo padrão.
+Ao realizar o cadastramento das permissões, verifique o help dos campos para obter demais informações sobre a permissão em questão.<br>
+<strong>DICA:</strong> não é necessário realizar a inclusão do cadastro de Usuários X Permissões para o usuário ADMINISTRADOR do ERP Protheus, afinal, o mesmo possui acesso total a todos os recursos do ADDON de modo padrão.
 <br>
 
 #### 3. CADASTRO DE TAGS
-A rotina de Cadastro de Tags está presente no ADDON XML de Terceiros com o objetivo de flexibilizar à evolução do ADDON em relação a alterações na estrutura dos arquivos XML pertinentes aos documentos fiscais abaixo:
+A rotina de Cadastro de Tags está presente no ADDON XML de Terceiros com o objetivo de flexibilizar a evolução do ADDON em relação a alterações na estrutura dos arquivos XML pertinentes aos documentos fiscais abaixo:
 <br>
 
 * <strong>NF-e</strong><br>
 * <strong>CT-e</strong><br>
 
-Por padrão, o ADDON XML de Terceiros já contempla uma carga de tags pré-definidas as quais são de utilização exclusiva do próprio ADDON. As definições de tags são utilizadas no recurso de processamento dos arquivos XML recebidos, ou seja, na funcionalidade à qual através do XML possibilita um assistente para maior agilidade na inclusão dos documentos fiscais no ambiente.
+Por padrão, o ADDON XML de Terceiros já contempla uma carga de tags pré-definidas as quais são de utilização exclusiva do próprio ADDON. As definições de tags são utilizadas no recurso de processamento dos arquivos XML recebidos, ou seja, na funcionalidade a qual através do XML possibilita um assistente para maior agilidade na inclusão dos documentos fiscais no ambiente.
 
 ![](./assets/xmlterceiros/Imagem4.png){.flow-image}
 
@@ -6754,7 +6803,7 @@ Não é possível alterar as tags padrões do ADDON, porém, caso seja necessár
 
 ![](./assets/xmlterceiros/Imagem5.png){.flow-image}
 
-Ao realizar à inclusão de tags especificas\próprias, observe com atenção o help dos campos. Além disto, poderá estar verificando a partir das próprias tags padrões do ADDON como os campos devem ser preenchidos. 
+Ao realizar a inclusão de tags especificas\próprias, observe com atenção o help dos campos. Além disto, poderá estar verificando a partir das próprias tags padrões do ADDON como os campos devem ser preenchidos. 
 <br>
 
 * <strong>Vld. Usuário (Z06_VLDUSR)</strong><br>
@@ -6784,7 +6833,7 @@ Ações Relacionadas\Importar
 
 ![](./assets/xmlterceiros/Imagem8.png){.flow-image}
 
- Ao confirmar à interface, serão executadas as regras de análise\importação do XML para o ADDON XML de Terceiros. Caso seja importado o XML com sucesso, será apresentado mensagem em torno da importação:<br>
+ Ao confirmar a interface, serão executadas as regras de análise\importação do XML para o ADDON XML de Terceiros. Caso seja importado o XML com sucesso, será apresentado mensagem em torno da importação:<br>
 
 ![](./assets/xmlterceiros/Imagem9.png){.flow-image}
 
@@ -6792,54 +6841,54 @@ Consequentemente, será disponibilizado no Browse, registro do XML o qual foi im
 
 ![](./assets/xmlterceiros/Imagem10.png){.flow-image}
 
-<strong>E-MAIL:</strong> ao utilizar esta opção, será efetuado verificação em torno da existência de contas de e-mail junto à empresa\filial logada.<br>
-Caso existam contas cadastradas, ocorrerá à comunicação com a conta de e-mail sendo verificado à existência de e-mails com XML de Terceiros.
+<strong>E-MAIL:</strong> ao utilizar esta opção, será efetuado verificação em torno da existência de contas de e-mail junto a empresa\filial logada.<br>
+Caso existam contas cadastradas, ocorrerá a comunicação com a conta de e-mail sendo verificado a existência de e-mails com XML de Terceiros.
 
 ![](./assets/xmlterceiros/Imagem11.png){.flow-image}
 
 Havendo e-mails válidos, ou seja, com XML de NFe\CTe, estes serão importados, sendo consequentemente disponibilizados no browse da rotina de XML Recebidos.
 <br>
-<strong>DICA:</strong> independentemente de efetuar à importação do XML de forma manual ou automática, quando um XML é importado ao ADDON de XML Terceiros, o arquivo .XML considerado na importação (arquivo original) é copiado para a pasta PROTHEUS_DATA do ambiente do ERP Protheus.
+<strong>DICA:</strong> independentemente de efetuar a importação do XML de forma manual ou automática, quando um XML é importado ao ADDON de XML Terceiros, o arquivo .XML considerado na importação (arquivo original) é copiado para a pasta PROTHEUS_DATA do ambiente do ERP Protheus.
 <br>
 
-Neste processo, é criado uma pasta denominada \XMLS\ junto ao PROTHEUS_DATA. Posteriormente, abaixo desta pasta, são declaradas subpastas com o CNPJ\CPF do emissor do XML que foi importado sendo vinculado à esta pasta os arquivos originais.<br>
+Neste processo, é criado uma pasta denominada \XMLS\ junto ao PROTHEUS_DATA. Posteriormente, abaixo desta pasta, são declaradas subpastas com o CNPJ\CPF do emissor do XML que foi importado sendo vinculado a esta pasta os arquivos originais.<br>
 Com este recurso, posteriormente caso seja necessário, é possível consultar os arquivos originais. Basta solicitar ao departamento de TI.<br>
-Além das regras acima elencadas, caso o ambiente do ERP Protheus utilize-se do módulo de Gestão de Frete Embarcador - SIGAGFE, será analisado à configuração do parâmetro MV_XMLDIR.<br>
-Através deste parâmetro, é determinado diretório (dentro do Protheus_Data) no qual o SIGAGFE estará realizando à leitura de arquivos XML pertinentes à CTe (Conhecimento de Transporte Eletrônico). Em resumo, caso o parâmetro <strong>MV_XMLDIR</strong> esteja preenchido e o diretório informado no mesmo exista abaixo do Protheus_Data, ocorrerá a cópia do arquivo XML dos CTe os quais foram importados tanto de forma manual como automática também para esta pasta.<br>
+Além das regras acima elencadas, caso o ambiente do ERP Protheus utilize-se do módulo de Gestão de Frete Embarcador - SIGAGFE, será analisado a configuração do parâmetro MV_XMLDIR.<br>
+Através deste parâmetro, é determinado diretório (dentro do Protheus_Data) no qual o SIGAGFE estará realizando a leitura de arquivos XML pertinentes a CTe (Conhecimento de Transporte Eletrônico). Em resumo, caso o parâmetro <strong>MV_XMLDIR</strong> esteja preenchido e o diretório informado no mesmo exista abaixo do Protheus_Data, ocorrerá a cópia do arquivo XML dos CTe os quais foram importados tanto de forma manual como automática também para esta pasta.<br>
 O sistema pode verificar se as Notas Fiscais de Entrada referenciadas no Cte já foram informadas em outro Cte. Para tanto, é verificada a tabela SF8 - Amarracao NF OrigINAL x NF Importação ou Frete.<br>
 Na hipótese do parâmetro <strong>MV_X004015</strong> configurado como <strong>N</strong>=Não, e alguma das notas referenciadas no .xml já estiver sido referenciada em outro CTe, não será possível efetuar a importação para futuro pocessamento do arquivo.
 <br>
 <br>
-<strong>DICA:</strong> Ao realizar à importação de um XML Terceiros, caso já exista documento de entrada\conhecimento de frete com à chave do documento fiscal presente no XML em questão, o mesmo já será automaticamente vinculado ao documento fiscal existente no ERP Protheus, ou seja, o status do registro do XML junto ao ADDON ficará como Documento Entrada.
+<strong>DICA:</strong> Ao realizar a importação de um XML Terceiros, caso já exista documento de entrada\conhecimento de frete com a chave do documento fiscal presente no XML em questão, o mesmo já será automaticamente vinculado ao documento fiscal existente no ERP Protheus, ou seja, o status do registro do XML junto ao ADDON ficará como Documento Entrada.
 <br>
 
 #### 4.2. EXPORTAR
 Ações Relacionadas\Exportar<br>
-Utilizando-se deste recurso, é possível realizar à exportação dos XML Terceiros existentes no ADDON de XML para arquivos.<br>
+Utilizando-se deste recurso, é possível realizar a exportação dos XML Terceiros existentes no ADDON de XML para arquivos.<br>
 
 Para isto, deve-se parametrizar os parâmetros visando que sejam exportados os XML existentes no ADDON conforme as regras de filtro definidas.
 
 ![](./assets/xmlterceiros/Imagem12.png){.flow-image}
 
-Ao efetuar à exportação dos XML existentes, estes serão salvos na unidade C:\ do terminal que está sendo utilizado. O nome dos arquivos será composto pela chave do documento fiscal referente ao XML em questão.
+Ao efetuar a exportação dos XML existentes, estes serão salvos na unidade C:\ do terminal que está sendo utilizado. O nome dos arquivos será composto pela chave do documento fiscal referente ao XML em questão.
 
-Este recurso cria os arquivos\exporta as informações à partir do que está salvo na tabela de XML Recebidos, ou seja, não se trata de cópia dos arquivos originais utilizados quando os arquivos foram importados para o ADDON.
+Este recurso cria os arquivos\exporta as informações a partir do que está salvo na tabela de XML Recebidos, ou seja, não se trata de cópia dos arquivos originais utilizados quando os arquivos foram importados para o ADDON.
 
 #### 4.3. EXCLUIR
 
 * Ações Relacionadas\Excluir<br>
-Esta funcionalidade tem por objetivo possibilitar à exclusão do registro de um XML de Terceiros o qual foi anteriormente importado.<br>
-Para isto, basta posicionar sobre o registro desejado e acionar à opção de exclusão.
+Esta funcionalidade tem por objetivo possibilitar a exclusão do registro de um XML de Terceiros o qual foi anteriormente importado.<br>
+Para isto, basta posicionar sobre o registro desejado e acionar a opção de exclusão.
 
 ![](./assets/xmlterceiros/Imagem13.png){.flow-image}
 
-Ao confirmar à tela, o registro em questão será excluído da base de dados do ADDON XML de Terceiros.
+Ao confirmar a tela, o registro em questão será excluído da base de dados do ADDON XML de Terceiros.
 
-<strong>DICA:</strong> Não é possível efetuar à exclusão de um registro de XML Terceiros o qual já tenha sido processado, ou seja, que possua documento fiscal de entrada ou conhecimento de frete vinculado ao mesmo.
+<strong>DICA:</strong> Não é possível efetuar a exclusão de um registro de XML Terceiros o qual já tenha sido processado, ou seja, que possua documento fiscal de entrada ou conhecimento de frete vinculado ao mesmo.
 
 #### 4.4. VISUALIZAR
 
-Através desta funcionalidade, é possível realizar à visualização das informações presentes em um registro de XML Terceiros o qual existe na base de dados do ADDON XML Terceiros.
+Através desta funcionalidade, é possível realizar a visualização das informações presentes em um registro de XML Terceiros o qual existe na base de dados do ADDON XML Terceiros.
 
 ![](./assets/xmlterceiros/Imagem14.png){.flow-image}
 
@@ -6856,21 +6905,21 @@ Finalizando os campos presentes na interface, são apresentados campos iguais ao
 <br>
 ![](./assets/xmlterceiros/Imagem17.png){.flow-image}
 
-<strong>DICA:</strong> Conforme descrito acima, quando existe para um determinado documento fiscal (NF-e \ CT-e) tanto o XML de Autorização como também o XML de Cancelamento, ambos os XML ficam gravados no mesmo registro junto à rotina de XML Recebidos.
+<strong>DICA:</strong> Conforme descrito acima, quando existe para um determinado documento fiscal (NF-e \ CT-e) tanto o XML de Autorização como também o XML de Cancelamento, ambos os XML ficam gravados no mesmo registro junto a rotina de XML Recebidos.
 
 #### 4.5. PROCESSAR
 
-A funcionalidade "processar" existente na rotina de XML Recebidos se refere à utilização do XML previamente importado ao ADDON para auxiliar\agilizar no lançamento do documento fiscal.<br>
-Ao acionar esta funcionalidade, será disponibilizado interface para que seja informado à chave do documento fiscal o qual deseja-se processar (NF-e \ CT-e).
+A funcionalidade "processar" existente na rotina de XML Recebidos se refere a utilização do XML previamente importado ao ADDON para auxiliar\agilizar no lançamento do documento fiscal.<br>
+Ao acionar esta funcionalidade, será disponibilizado interface para que seja informado a chave do documento fiscal o qual deseja-se processar (NF-e \ CT-e).
 
 ![](./assets/xmlterceiros/Imagem18.png){.flow-image}
 
-Ao informar à chave do documento fiscal, será verificado os itens abaixo: <br>
+Ao informar a chave do documento fiscal, será verificado os itens abaixo: <br>
 
-* Existência de registro de XML Terceiros no ADDON referente à chave em questão.<br>
+* Existência de registro de XML Terceiros no ADDON referente a chave em questão.<br>
 * Havendo o registro do XML Terceiros, se o mesmo está pendente, ou seja, sem documento fiscal lançado no ERP Protheus.<br>
-* Caso no cadastro de Usuários X Permissões esteja determinado que deverá ocorrer à validação do XML no Sefaz, será verificado se o documento se encontra autorizado no Sefaz.
-    * Nesta validação, é considerado a utilização do Totvs Sped Service (TSS) conforme configuração do ambiente, ou seja, se estiver configurado à NFe para HOMOLOGAÇÃO à validação da chave será realizada no mesmo ambiente.  
+* Caso no cadastro de Usuários X Permissões esteja determinado que deverá ocorrer a validação do XML no Sefaz, será verificado se o documento se encontra autorizado no Sefaz.
+    * Nesta validação, é considerado a utilização do Totvs Sped Service (TSS) conforme configuração do ambiente, ou seja, se estiver configurado a NFe para HOMOLOGAÇÃO a validação da chave será realizada no mesmo ambiente.  
 
 Uma vez que os itens acima estejam válidos, será possibilitado o processamento do XML.
 
@@ -6878,12 +6927,12 @@ Uma vez que os itens acima estejam válidos, será possibilitado o processamento
 
 Em caso de inconsistência, será apresentada mensagem ao operador reportando o fato ocorrido.
 
-Ao confirmar à interface inicial, ocorrerá o carregamento das informações presentes no XML Terceiros para uma interface auxiliar para definição de algumas informações obrigatórias antes da geração do documento fiscal.
+Ao confirmar a interface inicial, ocorrerá o carregamento das informações presentes no XML Terceiros para uma interface auxiliar para definição de algumas informações obrigatórias antes da geração do documento fiscal.
 
 Na primeira tela, são apresentados no cabeçalho informações do documento fiscal e na parte inferior, informações sobre o cadastro do cliente\fornecedor vinculado ao documento fiscal.
 ![](./assets/xmlterceiros/Imagem20.png){.flow-image}
 
-Caso o cliente\fornecedor presente no documento não tenha seu cadastro localizado na empresa\filial, somente poderá ser possível avançar à tela após o cadastramento do mesmo.
+Caso o cliente\fornecedor presente no documento não tenha seu cadastro localizado na empresa\filial, somente poderá ser possível avançar a tela após o cadastramento do mesmo.
 
 * A busca em torno do cadastro do cliente\fornecedor ocorre através da informação do CNPJ \ CPF existente no XML do documento fiscal o qual está sendo processado.<br>
 
@@ -6891,40 +6940,40 @@ Se o usuário logado possuir permissão para inclusão de cliente\fornecedor (Ca
 
 ![](./assets/xmlterceiros/Imagem21.png){.flow-image}
 
-Ao acionar este botão, será carregado à tela padrão de inclusão do cadastro de cliente\fornecedor.
+Ao acionar este botão, será carregado a tela padrão de inclusão do cadastro de cliente\fornecedor.
 
 ![](./assets/xmlterceiros/Imagem22.png){.flow-image}
 
 Para auxiliar no cadastramento do cliente\fornecedor, pode-se utilizar as informações básicas do mesmo cujo as quais estão presentes no arquivo de XML Terceiros que esta sendo processado.<br>
-Para isto, basta pressionar à tecla de atalho F2.
+Para isto, basta pressionar a tecla de atalho F2.
 
 ![](./assets/xmlterceiros/Imagem23.png){.flow-image}
 
-Ao confirmar o cadastro, o cliente\fornecedor será vinculado à tela de processamento do XML Terceiros conforme exemplo abaixo.
+Ao confirmar o cadastro, o cliente\fornecedor será vinculado a tela de processamento do XML Terceiros conforme exemplo abaixo.
 
 ![](./assets/xmlterceiros/Imagem24.png){.flow-image}
 
-<strong>DICA:</strong> Através da configuração do parâmetro <strong>MV_X004006</strong>, poderá ser parametrizado à funcionalidade de processamento de XML Terceiros para que o número e\ou série do documento fiscal o qual está sendo processado, tenha zeros adicionados à esquerda.
+<strong>DICA:</strong> Através da configuração do parâmetro <strong>MV_X004006</strong>, poderá ser parametrizado a funcionalidade de processamento de XML Terceiros para que o número e\ou série do documento fiscal o qual está sendo processado, tenha zeros adicionados a esquerda.
 <br>
 
-Ao avançar à interface, será apresentada uma nova tela com os itens do documento fiscal.
+Ao avançar a interface, será apresentada uma nova tela com os itens do documento fiscal.
 
 ![](./assets/xmlterceiros/Imagem25.png){.flow-image}
 
 Por padrão, é necessário que sejam definidos nesta tela o conteúdo dos campos abaixo listados:
 
 *	Produtos
-    * Esta relação será necessária ao menos uma vez. Posteriormente, caso esteja definido no cadastro de Usuários X Permissão para o usuário logado que deva ser salvo à definição de Produtos X Fornecedores, em novos processamentos, será automaticamente carregado o PRODUTO (código interno do ERP) a partir desta amarração. Não localizando o produto na amarração de Produtos X Fornecedores, irá buscar o produto pelo código de barras existente no XML.
+    * Esta relação será necessária ao menos uma vez. Posteriormente, caso esteja definido no cadastro de Usuários X Permissão para o usuário logado que deva ser salvo a definição de Produtos X Fornecedores, em novos processamentos, será automaticamente carregado o PRODUTO (código interno do ERP) a partir desta amarração. Não localizando o produto na amarração de Produtos X Fornecedores, irá buscar o produto pelo código de barras existente no XML.
     * Caso o produto não esteja cadastrado no ambiente e o usuário possua permissão para incluir produtos (Cadastro Usuários X Permissões), poderá efetuar tal processo estando posicionado no item do documento clicando no atalho específico.  
 
 ![](./assets/xmlterceiros/Imagem26.png){.flow-image}
 
-* Será apresentado à interface de inclusão do produto. Para agilizar no processo, pode-se utilizar à tecla de atalho F2 onde serão atualizados alguns campos à partir de informações presentes no próprio XML que está sendo processado.
-* Ao confirmar à inclusão do produto, o mesmo é automaticamente vinculado ao item, caso necessário, poderá ser alterado para outro produto já incluso.
+* Será apresentado a interface de inclusão do produto. Para agilizar no processo, pode-se utilizar a tecla de atalho F2 onde serão atualizados alguns campos a partir de informações presentes no próprio XML que está sendo processado.
+* Ao confirmar a inclusão do produto, o mesmo é automaticamente vinculado ao item, caso necessário, poderá ser alterado para outro produto já incluso.
 
 <strong>DICAS:</strong> 
 
-* Através da configuração do parâmetro MV_X004008, poderá ser parametrizado à funcionalidade de processamento de XML Terceiros para que esteja sugerindo à conta contábil e\ou centro de custos vinculado ao cadastro do produto para o respectivo item junto ao grid de itens da interface de processamento do XML.
+* Através da configuração do parâmetro MV_X004008, poderá ser parametrizado a funcionalidade de processamento de XML Terceiros para que esteja sugerindo a conta contábil e\ou centro de custos vinculado ao cadastro do produto para o respectivo item junto ao grid de itens da interface de processamento do XML.
 * No cadastro de Produtos X Fornecedores, se o campo Unidade (A5_UNID) estiver preenchido, no momento do processamento do XML, o sistema verifica qual das unidades do produto Protheus (Primária ou Secundária) é utilizada pelo Fornecedor, efetuando automaticamente o preenchimento no GRID. 
 Exemplo:
 Produto ABC – Unidade Primária PC, Unidade Secundária CX
@@ -6934,19 +6983,19 @@ No momento do processamento do XML, identificamos que a unidade é CX, o campo a
 <strong>TES:</strong> 
 
 * O TES é necessário para que seja posteriormente gerado o Documento de Entrada ou Conhecimento de Frete.
-* Quando se trata do processamento do XML de NF-e, é possível replicar uma mesma TES à todos os itens do documento fiscal, neste momento será apresentado mensagem ao usuário em torno da execução deste processo ou não.
-*	Referente ao processamento de XML de CT-e, sempre será replicado o TES informado\alterado em qualquer item para todos os demais itens do documento. Isto ocorre, pois à rotina padrão de Conhecimento de Frete permite o lançamento do conhecimento com um único Tes.
+* Quando se trata do processamento do XML de NF-e, é possível replicar uma mesma TES a todos os itens do documento fiscal, neste momento será apresentado mensagem ao usuário em torno da execução deste processo ou não.
+*	Referente ao processamento de XML de CT-e, sempre será replicado o TES informado\alterado em qualquer item para todos os demais itens do documento. Isto ocorre, pois a rotina padrão de Conhecimento de Frete permite o lançamento do conhecimento com um único Tes.
 
 <strong>PEDIDO DE COMPRA:</strong> 
 
 *	Junto aos itens da interface de processamento, existem campos para vinculo de pedidos de compra.
 *	Neste caso, ao dar "enter" sob o campo, será apresentado interface com os pedidos de compra para o fornecedor\produto em questão que possuem saldo.
-*	Se necessário, poderá ser selecionado itens de pedidos diferentes para atender à quantidade do item da nota. Neste caso, o item na tela de processamento ficará com o pedido "999999" vinculado. Posteriormente, ao gerar à Pré-Nota\Documento de Entrada, será "quebrado" o item do documento em mais de um item sendo vinculado à cada item os respectivos pedidos de compra conforme à quantidade\valor unitário definidos.
+*	Se necessário, poderá ser selecionado itens de pedidos diferentes para atender a quantidade do item da nota. Neste caso, o item na tela de processamento ficará com o pedido "999999" vinculado. Posteriormente, ao gerar a Pré-Nota\Documento de Entrada, será "quebrado" o item do documento em mais de um item sendo vinculado a cada item os respectivos pedidos de compra conforme a quantidade\valor unitário definidos.
 *	Caso a nota fiscal de entrada tenha vindo de uma loja do fornecedor diferente daquela do pedido de compra, será possível fazer o vínculo do pedido normalmente, desde que o parâmetro “Quanto ao PC”, na rotina Documento de Entrada, acessado via tecla F12, seja definido como “Fornecedor”;
 
 ![](./assets/xmlterceiros/Imagem27.png){.flow-image}
 
-<strong>DICA:</strong> Através da utilização do parâmetro MV_X004009, poderá ser ativado parametrização onde havendo um único pedido de compra vinculado aos itens do documento fiscal que está sendo processado, será sugerido à condição de pagamento vinculada ao pedido de compra em questão, como sendo à condição de pagamento para a inclusão do documento fiscal em campo específico existente na última sessão da funcionalidade de processamento XML Terceiros presente na aba Duplicatas.
+<strong>DICA:</strong> Através da utilização do parâmetro MV_X004009, poderá ser ativado parametrização onde havendo um único pedido de compra vinculado aos itens do documento fiscal que está sendo processado, será sugerido a condição de pagamento vinculada ao pedido de compra em questão, como sendo a condição de pagamento para a inclusão do documento fiscal em campo específico existente na última sessão da funcionalidade de processamento XML Terceiros presente na aba Duplicatas.
 
 *	Caso o item do pedido de compra selecionado contenha os campos das entidades contábeis preenchidos (Centro de Custo, Conta Contábil, Item Contábil, Classe de Valor), estes campos serão vinculados ao item do documento fiscal em questão.<br> 
 <strong>OBS:</strong> Isso somente se houver um único pedido de compra vinculado.
@@ -6956,23 +7005,23 @@ No momento do processamento do XML, identificamos que a unidade é CX, o campo a
 
 <strong>Gestão de Cereais:</strong> 
 
-  *	Quando a empresa\filial utiliza-se também do ADDON de Gestão de Cereais, serão adicionadas novas tags ao ADDON de XML Terceiros de modo que ocorrerá a obrigatoriedade na informação de outros campos específicos do ADDON de gestão de cereais conforme à configuração do produto vinculado aos itens em questão.
+  *	Quando a empresa\filial utiliza-se também do ADDON de Gestão de Cereais, serão adicionadas novas tags ao ADDON de XML Terceiros de modo que ocorrerá a obrigatoriedade na informação de outros campos específicos do ADDON de gestão de cereais conforme a configuração do produto vinculado aos itens em questão.
 
-Após à definição das informações dos itens conforme observações acima, ao avançar à interface será apresentado à tela final de processamento do XML. Nesta interface, na parte inferior existe a aba "duplicatas" onde deverá ser informado à condição de pagamento e a natureza financeira.
+Após a definição das informações dos itens conforme observações acima, ao avançar a interface será apresentado a tela final de processamento do XML. Nesta interface, na parte inferior existe a aba "duplicatas" onde deverá ser informado a condição de pagamento e a natureza financeira.
 <br>
-<strong>DICA:</strong> Através da parametrização do parâmetro <strong>MV_X004007</strong>, poderá ser parametrizado à funcionalidade de processamento de XML Terceiros para que seja sugerido à natureza financeira vinculada ao cadastro do cliente\fornecedor vinculado ao XML Terceiros que esta sendo processada. 
+<strong>DICA:</strong> Através da parametrização do parâmetro <strong>MV_X004007</strong>, poderá ser parametrizado a funcionalidade de processamento de XML Terceiros para que seja sugerido a natureza financeira vinculada ao cadastro do cliente\fornecedor vinculado ao XML Terceiros que esta sendo processada. 
 
 ![](./assets/xmlterceiros/Imagem28.png){.flow-image}
 
-Caso no cadastro de Usuários X Permissões esteja definido que o usuário gera apenas Pré-Nota (Processamento XML NFe), não será obrigatório informar estes campos, bem como o TES nos itens, pois à Pré-Nota não se utiliza destas informações. Já no caso de geração de documento de entrada ou conhecimento de frete (Processamento XML CTe), é obrigatório à informação destes campos.
+Caso no cadastro de Usuários X Permissões esteja definido que o usuário gera apenas Pré-Nota (Processamento XML NFe), não será obrigatório informar estes campos, bem como o TES nos itens, pois a Pré-Nota não se utiliza destas informações. Já no caso de geração de documento de entrada ou conhecimento de frete (Processamento XML CTe), é obrigatório a informação destes campos.
 <br>
 
 <strong>DICA:</strong> Caso esteja definido que a informação de natureza é obrigatória no documento de entrada, a mesma também será obrigatória na tela de processamento do XML.
 <br>
-Uma vez que todas as informações foram definidas, ao acionar à opção "Finalizar" existente na interface, será aplicado validações finais gerais. Após isto, estando tudo correto, ocorrerá à inclusão do documento fiscal: 
+Uma vez que todas as informações foram definidas, ao acionar a opção "Finalizar" existente na interface, será aplicado validações finais gerais. Após isto, estando tudo correto, ocorrerá a inclusão do documento fiscal: 
 
-*	Processamento XML NF-e: será gerado (Pré-Nota \ Documento de Entrada) conforme definido no cadastro de Usuários X Permissões para o usuário logado. Caso esteja definido como INFORMADO NO MOMENTO, será questionado ao usuário qual o tipo de documento deseja gerar. Ao confirmar, será apresentado à tela de inclusão com todas as informações onde o usuário poderá checar\complementar antes de confirmar a inclusão.
-*	Processamento XML CT-e: independente do Cadastro de Usuários X Permissões, quando se trata de processamento de CTe sob documentos de compra vinculados, será utilizado à inclusão de Conhecimento de Frete, não sendo apresentado à interface ao usuário (Rotina automática não disponibiliza este recurso). Caso seja conhecimento de frete onde as notas fiscais referenciadas não sejam documentos de entrada (frete não entra no custo do produto), será tratado como inclusão de documento de entrada do tipo normal referente à despesa com frete. Neste caso, é apresentado à interface do documento ao usuário antes de confirmar à inclusão.
+*	Processamento XML NF-e: será gerado (Pré-Nota \ Documento de Entrada) conforme definido no cadastro de Usuários X Permissões para o usuário logado. Caso esteja definido como INFORMADO NO MOMENTO, será questionado ao usuário qual o tipo de documento deseja gerar. Ao confirmar, será apresentado a tela de inclusão com todas as informações onde o usuário poderá checar\complementar antes de confirmar a inclusão.
+*	Processamento XML CT-e: independente do Cadastro de Usuários X Permissões, quando se trata de processamento de CTe sob documentos de compra vinculados, será utilizado a inclusão de Conhecimento de Frete, não sendo apresentado a interface ao usuário (Rotina automática não disponibiliza este recurso). Caso seja conhecimento de frete onde as notas fiscais referenciadas não sejam documentos de entrada (frete não entra no custo do produto), será tratado como inclusão de documento de entrada do tipo normal referente a despesa com frete. Neste caso, é apresentado a interface do documento ao usuário antes de confirmar a inclusão.
 
 Após gerar o documento fiscal, o registro do XML tem o seu status atualizado conforme situações apresentadas na legenda.
 
@@ -6984,13 +7033,13 @@ Através da funcionalidade de legenda, é possível identificar os status vincul
 
 ![](./assets/xmlterceiros/Imagem29.png){.flow-image}
 
-Os status existentes para os XML existentes na rotina estão condicionados à situação do mesmo perante ao ADDON.
+Os status existentes para os XML existentes na rotina estão condicionados a situação do mesmo perante ao ADDON.
 
-<strong>DICA:</strong> Conforme já descrito no recurso de exclusão dos registros de XML, não é possível excluir um registro de XML Terceiros o qual já possua documento fiscal, ou seja, caso o status seja referente à Pré-Nota ou Documento de Entrada (Documento Entrada \ Conhecimento de Transporte).
+<strong>DICA:</strong> Conforme já descrito no recurso de exclusão dos registros de XML, não é possível excluir um registro de XML Terceiros o qual já possua documento fiscal, ou seja, caso o status seja referente a Pré-Nota ou Documento de Entrada (Documento Entrada \ Conhecimento de Transporte).
 
 #### 5. RELATÓRIO LISTAGEM XML RECEBIDOS
 
-Através deste relatório, é possível emitir à relação de XML Terceiros importados\existentes junto ao ADDON XML Terceiros.
+Através deste relatório, é possível emitir a relação de XML Terceiros importados\existentes junto ao ADDON XML Terceiros.
 
 ![](./assets/xmlterceiros/Imagem30.png){.flow-image}
 
