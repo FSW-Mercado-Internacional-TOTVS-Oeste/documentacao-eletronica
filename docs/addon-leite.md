@@ -77,13 +77,196 @@ O sistema automatiza todo o fluxo desde a cotação até o pedido de compra, com
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">02.</span> Rotinas personalizadas específicas do Pacote</span>
+  <span class="summary-title"><span class="summary-number">02.</span> Procedimentos para a implementação do Addon</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">2. Rotinas personalizadas específicas do Pacote</span>
+### <span style="display: none;">2. Procedimentos para a implementação do Addon</span>
+
+#### Importante:
+
+![](./assets/leite/Imagem36.png){.flow-image}
+
+<strong>PRÉ-REQUISITOS:</strong>
+<br>
+Este pacote requer as seguintes configurações no Servidor ERP Protheus:<br>
+<strong>1.	</strong>Configuração do serviço de Workflow e conta de e-mail de workflow no módulo Configurador;<br>
+<strong>2.	</strong>Configuração do serviço HTTP no .INI do Servidor Protheus;
+
+<strong>Exemplo:</strong>
+
+<strong>[HTTP]</strong><br>
+enable=1<br>
+port=8089<br>
+PATH=C:\P11\Protheus_Data\web<br>
+
+;----------------------------------------<br>
+<strong>;	JOB WORKFLOW VIA LINK<br></strong>
+<strong>;----------------------------------------<br>
+[192.168.1.151:8089]</strong><br>
+ENABLE=1<br>
+PORT=8089<br>
+PATH=C:\P11\Protheus_Data\web<br>
+ENVIRONMENT=desenvolvimento<br>
+RESPONSEJOB=JOB_WF_LINK<br>
+<br>
+<strong>[JOB_WF_LINK]</strong><br>
+TYPE=WEB<br>
+SIGAWEB=WF<br>
+ENVIRONMENT=desenvolvimento<br>
+INSTANCES=3,5<br>
+INSTANCENAME=WF<br>
+ONSTART=STARTWEBEX<br>
+ONCONNECT=CONNECTWEBEX<br>
+ONEXIT=FINISHWEBEX<br>
+PREPAREIN=01,01<br>
+
+<strong>3.	</strong>Redirecionamento do DNS para acesso ao link do workflow (https://dominio.com.br) na porta HTTP configurada;<br>
+<strong>4.	</strong>Liberação de Firewall para a porta HTTP do Servidor Protheus;<br>
+<strong>5.	</strong>Copiar MENU sigaesp1.xnu para past de menus;<br>
+
+<strong>COMPATIBILIZADOR:</strong>
+
+Baixar e descompactar o pacote de instalação do ADD-ON (F007A);<br>
+<strong>1.	</strong>Copiar a pasta \FSW999\UPD007\A\DADOS  para o rootpath (protheus_data);<br>
+<strong>2.	</strong>Aplicar o patch contido na pasta \FSW999\UPD007\A\PATCH (tttp110_007A);<br>
+<strong>3.	</strong>Ajustar arquivo SX2LAT.DTC nome das tabelas conforme dicionário.<br>
+<strong>4.	</strong>Ajustar arquivo SX3LAT.DTC grupo de campos 001, 002, e 033 conforme tamanho no dicionário.<br>
+<strong>5.	</strong>Executar o compatibilizador U_UPD007A através do remote:<br>
+
+![](./assets/leite/Imagem37.png){.flow-image}
+</tbody>
+</table>
+</div>
+</details>
+
+<!--############################################### 03 #######################################################-->
+
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">03.</span> Arquivos do Workflow</span>
+</summary>
+<div class="content-body" markdown="1">
+
+### <span style="display: none;">3. Arquivos do Workflow</span>
+
+Copiar os seguintes arquivos do Pacote para a pasta de trabalho do Workflow (protheus_data\workflow), configurado através do parâmetro MV_WFDIR:
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Arquivo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ltcad014.htm</strong></td>
+      <td>Diferença entre Plataforma e Coletas uMov.me.</td>
+    </tr>
+    <tr>
+      <td><strong>ltcad015.htm</strong></td>
+      <td>Abertura/Fechamento de Plataforma</td>
+    </tr>
+  </tbody>
+</table>
+
+Copiar os seguintes arquivos do Pacote para a pasta WEB (protheus_data\web), configurada através do parâmetro MV_WFDHTTP:
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Arquivo</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>logototvs.png</strong></td>
+      <td>Imagem logotipo da TOTVS.</td>
+    </tr>
+    <tr>
+      <td><strong>lgmidEEFF.png</strong></td>
+      <td>Imagem logotipo da Empresa EE (Empresa = 01) FF (Filial = 01).<br> Tamanho padrão para a imagem 110 x 110 Pixels.</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+
+<!--############################################### 04 #######################################################-->
+
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">04.</span>Pontos de entrada específicos</span>
+</summary>
+<div class="content-body" markdown="1">
+
+### <span style="display: none;">04. Pontos de entrada específicos</span>
+
+Implementar os seguintes pontos de entrada com chamada à rotina específica do Pacote:
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Chamada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>MA120BUT</strong></td>
+      <td>Local aBotoes := U_P002A01("MA120BUT").</td>
+    </tr>
+    <tr>
+      <td><strong>MA150BUT</strong></td>
+      <td>Local aBotoes := U_P002A01("MA150BUT").</td>
+    </tr>
+    <tr>
+      <td><strong>MT120FIM</strong></td>
+      <td>U_P002A01("MT120FIM",PARAMIXB).</td>
+    </tr>
+    <tr>
+      <td><strong>MT130WF</strong></td>
+      <td>U_P002A01("MT130WF",PARAMIXB).</td>
+    </tr>
+    <tr>
+      <td><strong>MT150GET</strong></td>
+      <td>U_P002A01("MT150GET").</td>
+    </tr>
+    <tr>
+      <td><strong>MT150GRV</strong></td>
+      <td>FU_P002A01("MT150GRV", PARAMIXB).</td>
+    </tr>
+    <tr>
+      <td><strong>MT160WF</strong></td>
+      <td>U_P002A01("MT160WF",PARAMIXB).</td>
+    </tr>
+    <tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+
+
+
+<!--############################################### 05 #######################################################-->
+
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">05.</span> Rotinas personalizadas específicas do Pacote</span>
+</summary>
+<div class="content-body" markdown="1">
+
+### <span style="display: none;">5. Rotinas personalizadas específicas do Pacote</span>
 
 #### Funções personalizadas contidas no pacote:
+
+O pacote disponibilizará as seguintes rotinas/funções personalizadas no ambiente aplicado:
 
 <table class="banks-table">
   <thead>
@@ -138,22 +321,24 @@ CADMAIL: Tela para cadastrar E-MAIL do Fornecedor.</td>
       <td><strong>UPD00201</strong></td>
       <td>Programa compatibilizador do Dicionário de Dados para aplicação do ADD-ON.</td>
     </tr>
-    <tr>
+    </tr>
   </tbody>
 </table>
 
 </div>
 </details>
 
-<!--############################################### 03 #######################################################-->
+<!--############################################### 06 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">03.</span> Campos (SX3)</span>
+  <span class="summary-title"><span class="summary-number">06.</span> Campos (SX3)</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">3. Campos (SX3)</span>
+### <span style="display: none;">6. Campos (SX3)</span>
+
+No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/Base de Dados” (CFGX031), serão criados os seguintes campos:
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -682,15 +867,17 @@ Indica se enviará a condição de pagamento no workflow de cotação de compra 
 </div>
 </details>
 
-<!--############################################### 04 #######################################################-->
+<!--############################################### 07 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">04.</span> Parâmetros (SX6)</span>
+  <span class="summary-title"><span class="summary-number">07.</span> Parâmetros (SX6)</span>
 </summary>
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">7. Parâmetros (SX6)</span>
+
+No “Configurador (SIGACFG)”, opção “Ambiente/Cadastros/Parâmetros” (CFGX017), configurar os seguintes parâmetros:
 
 <table class="banks-table">
   <thead>
@@ -722,17 +909,18 @@ Indica se enviará a condição de pagamento no workflow de cotação de compra 
     </tr>      
   </tbody>
 </table>
-
 </div>
 </details>
 
+<!--############################################### 08 #######################################################-->
+
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">05.</span> Manual de operação</span>
+  <span class="summary-title"><span class="summary-number">08.</span> Manual de operação</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">12. Manual de operação</span>
+### <span style="display: none;">8. Manual de operação</span>
 
 Este ADDON tem por objetivo realizar os processos para controle de entrada de leite em Laticínios, abaixo pontos que são abordados:
 
@@ -769,7 +957,7 @@ Amarração Cliente x Fornecedor para geração contas a receber
 Devem ser cadastrados transportadores interno/externo, sistema não gera movimento para pagamento, somente gera relatório auxiliar de movimentos. Se tiver adiantamentos deve-se ser informado Fornecedor no cadastro para sistema identificar movimentação no financeiro em aberto.
 - <strong>VEÍCULO</strong>:<br>
 Cadastro Padrão
-- <strong>MOTORISTA:</strong>:<br>
+- <strong>MOTORISTA:</strong><br>
 Cadastro Padrão
 - <strong>TES:</strong><br>
 <strong>1)</strong> Cadastrar as TES, analisando pontos abaixo (pré-definida já);<br>
