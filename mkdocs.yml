@@ -28,36 +28,74 @@ theme:
 
 nav:
   - Inicio: index.md  
-  - Projeto FS99_001:
+  
+  - Projeto FSW99_001:
     - A - Alçadas - Regras: addon-alcadas-regras.md
     - B - Alçadas - Workflow Pedido de Venda: addon-alcadas-pedido-venda.md
     - C - Alçadas - Workflow Pedidos de Compras: addon-alcadas-pedido-compras.md
     - D - Alçadas - Workflow Contas a Pagar: addon-alcadas-contas-pagar.md   
 
-  - Projeto FS99_003:
+  - Projeto FSW99_002:
+    - A - Compras - Cotações: addon-alcadas-regras.md
+
+  - Projeto FSW99_003:
     - A - CNAB - A Receber: addon-cnab-a-receber.md
     - B - CNAB - A Pagar: addon-cnab-a-pagar.md
     - C - CNAB - Folha: addon-cnab-folha.md
     - D - CNAB - Extrato Bancario: addon-cnab-extrato-bancario.md 
 
-  - Projeto FS99_004:
+  - Projeto FSW99_004:
     - A - Addon - Importação de XML: addon-xml-terceiro.md
 
-  - Projeto FS99_006:
+  - Projeto FSW99_006:
     - A - Addon - Comissões e Faturamento: addon-comissoes-faturamento.md
 
-  - Projeto FS99_007:  
+  - Projeto FSW99_007:  
     - A - Addon - Leite: addon-leite.md
 
-  - Projeto FS99_009:  
+  - Projeto FSW99_009:  
     - A - Addon - Processo de Workflow de Alçadas Cadastrais: addon-alcadas-workflow-cadastrais.md
 
-  - Projeto FS99_007:  
-    - D - Addon - Acelerador: addon-acelerador-consultas-generica.md
+  - Projeto FSW99_010:  
+    - A - Addon - Mensagems DANFE: addon-mensagens-danfe.md
 
-  - Projeto FS99_013:  
+  - Projeto FSW99_011:  
+    - A - Plugins - TOTVS CRM: addon-mensagens-danfe.md
+    - A - Plugins - RS Station: addon-mensagens-danfe.md
+
+  - Projeto FSW99_012:  
+    - A - Cereais - Originação de Grãos: addon-mensagens-danfe.md
+    - B - Cereais - Controle de Cultivos: addon-mensagens-danfe.md
+
+  - Projeto FSW99_013:  
     - A - Addon - Rotina de Expedição - Faturamento: addon-rotina-expedicao.md
-    
+
+  - Projeto FSW99_015:  
+    - A - Financeiro - DRE Financeiro: addon-acelerador-consultas-generica.md
+    - B - Financeiro - Controle de Cheques: addon-acelerador-consultas-generica.md
+
+  - Projeto FSW99_016:  
+    - A - Contabilidade - Regras de Contabilização: addon-acelerador-consultas-generica.md
+  
+  - Projeto FSW99_017:  
+    - B - PCO - Regras para PCO: addon-acelerador-consultas-generica.md
+
+  - Projeto FSW99_018:  
+    - A - Acelerador - Gatilho Cliente/Fornecedor/Produto: addon-acelerador-gatilho.md
+    - B - Acelerador - UPD Tamanho Campos: upd_nao_feito.md
+    - C - Acelerador - Campos Reservados: campos_nao_feito.md
+    - D - Acelerador - Consulta Genérica: consulta_nao_feito.md
+    - E - Acelerador - Importação Saldo Inicial: importacao_nao_feito.md
+    - F - Acelerador - Carrega XML: carrega_xml_nao_feito.md
+    - G - Acelerador - Replica Tabelas: replica_tabelas_nao_feito.md
+    - H - Acelerador - Impressão Pedido de Compra: pc_nao_feito.md
+    - I - Acelerador - Impressão Pedido de Venda/Orçamento: imp_ped_nao_feito.md
+    - J - Acelerador - Impressão Duplicata/Recibos : imp_dup_nao_feito.md
+    - K - Acelerador - Impressão Recibo Baixas a Receber : rec_nao_feito.md
+    - L - Acelerador - Taxa da Moeda : taxa_nao_feito.md
+    - M - Acelerador - Simulação Carga : simul_nao_feito.md
+
+
   - Suporte: suporte.md         
 
 markdown_extensions:
