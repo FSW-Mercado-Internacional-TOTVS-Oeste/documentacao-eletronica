@@ -11,8 +11,8 @@ hide:
   <section class="fs-hero">
     <div class="fs-hero__bg">
       <!-- <div class="fs-hero__orb fs-hero__orb--1"></div>
-      <div class="fs-hero__orb fs-hero__orb--2"></div> -->
-      <!-- <div class="fs-hero__orb fs-hero__orb--3"></div> -->
+      <div class="fs-hero__orb fs-hero__orb--2"></div>
+      <div class="fs-hero__orb fs-hero__orb--3"></div> -->
       <div class="fs-hero__grid"></div>
     </div>
     <div class="fs-hero__inner">
@@ -282,27 +282,7 @@ hide:
           <div class="fs-card__arrow">→</div>
         </a>       
       </div>
-    </section>
-    <!-- FS99_70 -->
-    <section class="fs-project">
-      <div class="fs-project__header">
-        <div class="fs-project__tag">FS99_70</div>
-        <h2 class="fs-project__title">Aceleradores</h2>
-        <p class="fs-project__desc">Consultas padrão para Produtos, Fornecedores e Clientes.</p>
-      </div>
-      <div class="fs-cards">
-        <a href="addon-acelerador-consultas-generica" class="fs-card">
-          <div class="fs-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <div class="fs-card__body">
-            <h3 class="fs-card__title">Acelerador</h3>
-            <p class="fs-card__text">Modelos de consultas padrão para Produtos, Fornecedores e Clientes.</p>
-          </div>
-          <div class="fs-card__arrow">→</div>
-        </a>       
-      </div>
-    </section>
+    </section>    
     <!-- FS99_013A -->
     <section class="fs-project">
       <div class="fs-project__header">
@@ -328,7 +308,7 @@ hide:
 
   <!-- ░░ CONTACT FOOTER ░░ -->
   <div class="fs-contact">
-    <div class="fs-contact__glow"></div>
+    <!-- <div class="fs-contact__glow"></div> -->
     <div class="fs-contact__inner">
       <p class="fs-contact__eyebrow">Suporte técnico</p>
       <h2 class="fs-contact__title">Como podemos ajudar?</h2>

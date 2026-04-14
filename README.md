@@ -59,15 +59,14 @@ Acesse `http://127.0.0.1:8000` no seu navegador. Agora, qualquer alteração que
 git config --global user.name "Seu Nome"
 git config --global user.email "seu.email@totvs.com"
 
-# 2. SEMPRE sincronize antes de começar ou antes de enviar
-# O --rebase mantém o histórico limpo e organizado
-git pull
-
-# 3. Adicione suas alterações
+# 2. Sempre que houver alterações execute:
 git add .
 
-# 4. Salve localmente
+# 3. Salve localmente:
 git commit -m "Explicação sucinta da melhoria ou correção"
+
+# 4. SEMPRE sincronize antes de começar ou antes de enviar
+git pull
 
 # 5. Envie para o servidor
 git push

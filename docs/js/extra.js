@@ -1,10 +1,5 @@
 /*
  * extra.js — Custom sidebar toggle and overlay
- *
- * SECURITY:
- * - Hardcoded HTML only — zero user/external input.
- * - No eval(), no Function(), no document.write().
- * - No fetch/XHR calls.
  */
 
 document.addEventListener('DOMContentLoaded', function () {
