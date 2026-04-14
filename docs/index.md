@@ -11,8 +11,8 @@ hide:
   <section class="fs-hero">
     <div class="fs-hero__bg">
       <!-- <div class="fs-hero__orb fs-hero__orb--1"></div>
-      <div class="fs-hero__orb fs-hero__orb--2"></div> -->
-      <!-- <div class="fs-hero__orb fs-hero__orb--3"></div> -->
+      <div class="fs-hero__orb fs-hero__orb--2"></div>
+      <div class="fs-hero__orb fs-hero__orb--3"></div> -->
       <div class="fs-hero__grid"></div>
     </div>
     <div class="fs-hero__inner">
@@ -538,7 +538,7 @@ hide:
 
   <!-- ░░ CONTACT FOOTER ░░ -->
   <div class="fs-contact">
-    <div class="fs-contact__glow"></div>
+    <!-- <div class="fs-contact__glow"></div> -->
     <div class="fs-contact__inner">
       <p class="fs-contact__eyebrow">Suporte técnico</p>
       <h2 class="fs-contact__title">Como podemos ajudar?</h2>
