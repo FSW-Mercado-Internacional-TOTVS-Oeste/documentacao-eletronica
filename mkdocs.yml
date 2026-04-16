@@ -60,7 +60,7 @@ nav:
     - A - Addon - Mensagems DANFE: addon-mensagens-danfe.md
 
   - Projeto FSW99_011:  
-    - A - Plugins - TOTVS CRM: addon-mensagens-danfe.md
+    - A - Plugins - TOTVS CRM: addon-plugin-totvscrm.md
     - A - Plugins - RS Station: addon-mensagens-danfe.md
 
   - Projeto FSW99_012:  
@@ -84,7 +84,7 @@ nav:
     - A - Acelerador - Gatilho Cliente/Fornecedor/Produto: addon-acelerador-gatilho.md
     - B - Acelerador - UPD Tamanho Campos: upd_nao_feito.md
     - C - Acelerador - Campos Reservados: campos_nao_feito.md
-    - D - Acelerador - Consulta Genérica: consulta_nao_feito.md
+    - D - Acelerador - Consulta Genérica: addon-acelerador-consultas-generica.md
     - E - Acelerador - Importação Saldo Inicial: importacao_nao_feito.md
     - F - Acelerador - Carrega XML: carrega_xml_nao_feito.md
     - G - Acelerador - Replica Tabelas: replica_tabelas_nao_feito.md
