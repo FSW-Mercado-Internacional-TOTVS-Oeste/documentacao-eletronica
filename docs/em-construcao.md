@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 
-# Addon - Acelerador {.home-hero}
+# Em construção {.home-hero}
 
 <!--############################################### 01 #######################################################-->
 
@@ -18,13 +18,9 @@ hide:
 
 ### <span style="display: none;">1. Visão Geral</span>
 
-#### Este Acelerador tem por objetivo disponibilizar outros modelos de consultas padrões para:.
+#### Em construção.
 
-<strong>Principais vantagens do produto:</strong>
-
-- Produtos
-- Fornecedores
-- Clientes
+<strong>Em construção:</strong>
 
 !!! warning "EM CONSTRUÇÃO"
 

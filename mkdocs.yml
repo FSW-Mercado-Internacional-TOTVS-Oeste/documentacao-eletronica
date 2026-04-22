@@ -61,40 +61,39 @@ nav:
 
   - Projeto FSW99_011:  
     - A - Plugins - TOTVS CRM: addon-plugin-totvscrm.md
-    - A - Plugins - RS Station: addon-mensagens-danfe.md
+    - A - Plugins - RS Station: em-construcao1.md
 
   - Projeto FSW99_012:  
-    - A - Cereais - Originação de Grãos: addon-mensagens-danfe.md
-    - B - Cereais - Controle de Cultivos: addon-mensagens-danfe.md
+    - A - Cereais - Originação de Grãos: addon-gestaocereais.md
+    - B - Cereais - Controle de Cultivos: em-construcao3.md
 
   - Projeto FSW99_013:  
     - A - Addon - Rotina de Expedição - Faturamento: addon-rotina-expedicao.md
 
   - Projeto FSW99_015:  
-    - A - Financeiro - DRE Financeiro: addon-acelerador-consultas-generica.md
-    - B - Financeiro - Controle de Cheques: addon-acelerador-consultas-generica.md
+    - A - Financeiro - DRE Financeiro: em-construcao2.md
+    - B - Financeiro - Controle de Cheques: em-construcao3.md
 
   - Projeto FSW99_016:  
-    - A - Contabilidade - Regras de Contabilização: addon-acelerador-consultas-generica.md
+    - A - Contabilidade - Regras de Contabilização: em-construcao4.md
   
   - Projeto FSW99_017:  
-    - B - PCO - Regras para PCO: addon-acelerador-consultas-generica.md
+    - B - PCO - Regras para PCO: em-construcao5.md
 
   - Projeto FSW99_018:  
-    - A - Acelerador - Gatilho Cliente/Fornecedor/Produto: addon-acelerador-gatilho.md
-    - B - Acelerador - UPD Tamanho Campos: upd_nao_feito.md
-    - C - Acelerador - Campos Reservados: campos_nao_feito.md
-    - D - Acelerador - Consulta Genérica: addon-acelerador-consultas-generica.md
-    - E - Acelerador - Importação Saldo Inicial: importacao_nao_feito.md
-    - F - Acelerador - Carrega XML: carrega_xml_nao_feito.md
-    - G - Acelerador - Replica Tabelas: replica_tabelas_nao_feito.md
-    - H - Acelerador - Impressão Pedido de Compra: pc_nao_feito.md
-    - I - Acelerador - Impressão Pedido de Venda/Orçamento: imp_ped_nao_feito.md
-    - J - Acelerador - Impressão Duplicata/Recibos : imp_dup_nao_feito.md
-    - K - Acelerador - Impressão Recibo Baixas a Receber : rec_nao_feito.md
-    - L - Acelerador - Taxa da Moeda : taxa_nao_feito.md
-    - M - Acelerador - Simulação Carga : simul_nao_feito.md
-
+    - A - Acelerador - Gatilho Cliente/Fornecedor/Produto: em-construcao6.md
+    - B - Acelerador - UPD Tamanho Campos: em-construcao7.md
+    - C - Acelerador - Campos Reservados: em-construcao8.md
+    - D - Acelerador - Consulta Genérica: em-construcao9.md
+    - E - Acelerador - Importação Saldo Inicial: em-construcao10.md
+    - F - Acelerador - Carrega XML: em-construcao11.md
+    - G - Acelerador - Replica Tabelas: em-construcao12.md
+    - H - Acelerador - Impressão Pedido de Compra: em-construcao13.md
+    - I - Acelerador - Impressão Pedido de Venda/Orçamento: em-construcao14.md
+    - J - Acelerador - Impressão Duplicata/Recibos : em-construcao15.md
+    - K - Acelerador - Impressão Recibo Baixas a Receber : em-construcao16.md
+    - L - Acelerador - Taxa da Moeda : em-construcao17.md
+    - M - Acelerador - Simulação Carga : em-construcao18.md
 
   - Suporte: suporte.md         
 
