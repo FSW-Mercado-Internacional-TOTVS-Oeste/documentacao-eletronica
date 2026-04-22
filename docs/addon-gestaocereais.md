@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 
-# XML de Terceiros {.home-hero}
+# Controle de Cultivos {.home-hero}
 
 <!--############################################### 01 #######################################################-->
 
@@ -20,15 +20,21 @@ Através desta solução, é possível realizar o controle simplificado da gest�
 
 ### <span style="display: none;">1. Visão Geral</span>
 
-#### Tem por objetivo, efetuar o gerenciamento em torno dos arquivos XML emitidos por terceiros pertinentes a documentos fiscais do tipo: Notas Fiscais Eletrônicas - NFe e Conhecimento de Transporte Eletrônico - CTe
+#### Principais vantagens do produto:
 
-<strong>Principais vantagens do produto:</strong>
 
-- Cadastro de Contas de E-mails;
-- Cadastro de Usuários X Permissões;
-- Cadastro de Tags;
-- Movimentação de XML Terceiros;
-- Relatório de XML Terceiros;
+-   Gestão simplificada dos cultivos:<br>
+Permite controlar todo o ciclo agrícola (safra) de forma mais simples e organizada.
+-   Controle de insumos e recursos:<br>
+Acompanha tudo que foi utilizado no cultivo (insumos, materiais, etc.), ajudando no controle e redução de desperdícios.
+-   Rastreabilidade da produção:<br>
+Registra os volumes produzidos com detalhamento por Fazenda, Zona e Parcela, facilitando análises mais precisas.<br>
+-   Controle da colheita integrado ao processo:<br>
+Inclui o acompanhamento da colheita dentro da gestão, garantindo visão completa do ciclo produtivo.<br>
+-   Integração com o ERP (Totvs Protheus):<br>
+Os dados alimentam o backoffice, permitindo composição de custos e melhor controle financeiro.<br>
+-   Alternativa mais acessível ao PIMS Multicultivos:<br>
+Indicado para empresas com restrições financeiras ou estruturais, oferecendo uma solução mais leve e viável.
 
 </div>
 </details>
@@ -42,8 +48,6 @@ Através desta solução, é possível realizar o controle simplificado da gest�
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">2. Menu</span>
-
-No “Configurador (SIGACFG)”, opção “Ambiente/Cadastros/Menus” (CFGX013), inclua a(s)nova(s)  opções de menu (módulo de compras) conforme instruções a seguir:
 
 <table class="banks-table">
   <thead>
@@ -65,43 +69,8 @@ No “Configurador (SIGACFG)”, opção “Ambiente/Cadastros/Menus” (CFGX013
       <td>Compras</td>
       <td>03</td>
     </tr>   
-      <tr>
-      <td>Atualizações</td>
-      <td>ADD-ON de XML \ Cadastros</td>
-      <td>Usuários X Permissões</td>
-      <td>C004A02</td>
-      <td>Compras</td>
-      <td>03</td>
-    </tr>     
-      <tr>
-      <td>Atualizações</td>
-      <td>ADD-ON de XML \ Cadastros</td>
-      <td>Tags</td>
-      <td>C004A03</td>
-      <td>Compras</td>
-      <td>03</td>
-    </tr>   
-      <tr>
-      <td>Atualizações</td>
-      <td>ADD-ON de XML \ Movimentos</td>
-      <td>Xml Recebidos</td>
-      <td>M004A01</td>
-      <td>Compras</td>
-      <td>03</td>
-    </tr>   
-      <tr>
-      <td>Atualizações</td>
-      <td>ADD-ON de XML \ Relatórios</td>
-      <td>Listagem Xml Recebidos</td>
-      <td>R004A01</td>
-      <td>CONFIGURADOR</td>
-      <td>03</td>
-    </tr>   
   </tbody>
 </table>
-
-<strong>DICA:</strong> Verificar a sessão ADD-ON XML existente no arquivo de menu do módulo de compras o qual é disponibilizado junto ao pacote de aplicação do ADD-ON Xml de Terceiros.
-
 </div>
 </details>
 
@@ -129,28 +98,10 @@ No “Configurador (SIGACFG)”, opção “Ambiente/Cadastros/Menus” (CFGX013
       <td><strong>C004A01</strong></td>
       <td>Rotina para cadastro de contas de e-mails.</td>
     </tr>
-    <tr>
-      <td><strong>C004A02</strong></td>
-      <td>Rotina para cadastro de usuários X permissões.</td>
-    </tr>
-    <tr>
-      <td><strong>C004A03</strong></td>
-      <td>Rotina para cadastro de tags.</td>
-    </tr>
-    <tr>
-      <td><strong>M004A01</strong></td>
-      <td>Rotina de XML Terceiros recebidos.</td>
-    </tr>
-    <tr>
-      <td><strong>R004A01</strong></td>
-      <td>Relatório de Listagem XML Recebidos</td>
-    </tr>
-    <tr>
   </tbody>
 </table>
 </div>
 </details>
-
 
 <!--############################################### 04 #######################################################-->
 
@@ -201,103 +152,6 @@ EndIf
 RestArea(aArea)
 
 Return aBotoes
-
-<tr>
-    <td><strong>MATA061MVC</strong></td>
-    <td>
-      Ponto de Entrada na rotina MATA061 (Produto x Fornecedor), validação no campo A5_UNID.<br><br>
-      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MATA061MVC</span><br><br>
-    </td>
-    <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">Implementação</span>
-    <span class="filename">MATA061MVC</span>
-  </div>
-  <pre><code>
-User Function MATA061()
-
-Local lRet := .T.
-
-if ExistBlock("P004A01")
-   lRet := U_P004A01("MATA061MVC",PARAMIXB)
-endif
-
-Return(lRet)
-<tr>
-    <td><strong>MT103FIM</strong></td>
-    <td>
-     Ponto de entrada executado no término de gravação do documento de entrada.<br><br>
-      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MT103FIM</span><br><br>
-    </td>
-    <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">Implementação</span>
-    <span class="filename">MT103FIM</span>
-  </div>
-  <pre><code>
-User Function MT103FIM()
-   
-Local aArea := GetArea()
-Local nOpc  := PARAMIXB[1]
-Local nConfirmou := PARAMIXB[2]  
-
-If ExistBlock("P004A01")
-   U_P004A01("MT103FIM", nOpc, nConfirmou)   
-EndIf
-
-RestArea(aArea)
-
-Return
-
-<tr>
-    <td><strong>MT116AGR</strong></td>
-    <td>
-      Ponto de entrada executado após a gravação do conhecimento de frete.<br><br>
-      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MT116AGR</span><br><br>
-    </td>
-    <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">Implementação</span>
-    <span class="filename">MT116AGR</span>
-  </div>
-  <pre><code>
-User Function MT116AGR()
-   
-If ExistBlock("P004A01")
-   U_P004A01("MT116AGR")                  
-EndIf
-
-RestArea(aArea)
-
-Return
-
-<tr>
-    <td><strong>MT140SAI</strong></td>
-    <td>
-      Ponto de entrada após a gravação da operação sobre utilização de pré nota de entrada.<br><br>
-      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MT140SAI</span><br><br>
-    </td>
-    <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">Implementação</span>
-    <span class="filename">MT140SAI</span>
-  </div>
-  <pre><code>
-UUser Function MT140SAI()
-   
-If ExistBlock("P004A01")
-    U_P004A01("MT140SAI", PARAMIXB[1], PARAMIXB[2], PARAMIXB[3], PARAMIXB[4], PARAMIXB[5], PARAMIXB[6], PARAMIXB[7])
-EndIf
-           
-RestArea(aArea)
-</div>
-</code></pre>
-</td>
-</tr>
   </tbody>
 </table>
 </div>
@@ -330,61 +184,6 @@ RestArea(aArea)
       <strong>2)</strong>Vetor aCols dos itens do documento</td>
           <td>Booleano (.T./.F.) valida avanço do processo.</td>
     </tr>
-    <tr>
-      <td><strong>PE004A02</strong></td>
-      <td>Ponto de entrada na  na tela de seleção de Itens do Pedido de Compra x item do documento fiscal, na validação do botão CONFIRMAR.</td>
-      <td><strong>1)</strong>Vetor aHeader dos pedidos<br>
-      <strong>2)</strong>Vetor aCols dos pedidos</td>
-          <td>Booleano (.T./.F.) valida avanço do processo.</td>
-    </tr>
-    <tr>
-      <td><strong>PE004A03</strong></td>
-      <td>Ponto de entrada para validação no botão Finalizar antes de iniciar a gravação do documento fiscal.</td>
-      <td>N/A</td>
-          <td>Booleano (.T./.F.) valida avanço do processo.</td>
-    </tr>
-    <tr>
-      <td><strong>PE004A04</strong></td>
-      <td>Executa ponto de entrada para complementar as regras de carga\vinculo do produto interno com o produto da NFe</td>
-      <td>N/A</td>
-          <td>N/A</td>
-    </tr>
-    <tr>
-    <td><strong>PE004A05</strong></td>
-      <td>Substituiu regras padrões de replicação da TE</td>
-      <td>N/A</td>
-          <td>N/A</td>
-    </tr>    
-    <tr>
-      <td><strong>PE004A06</strong></td>
-      <td>Ponto de entrada antes da gravação do registro na tabela de<br>arquivos XML (ZA1), permindo manipualção na filial a ser gravada.</td>
-      <td><strong>1)</strong>Filial atual a ser gravada<br>
-      <strong>2)</strong>Tipo do Documento (1=NFe,2=Cte)<br>
-      <strong>3)</strong>Objeto oXML</td>
-          <td>Filial a ser gravada.</td>
-    </tr>
-    <tr>
-      <td><strong>PE004A07</strong></td>
-      <td>Ponto de entrada antes da gravação do registro na tabela de<br>arquivos XML (ZA1), permindo efetuar validação e se necessário <br>não gravar o registro.</td>
-      <td><strong>1)</strong>Filial atual a ser gravada<br>
-      <strong>2)</strong>Tipo do Documento (1=NFe,2=Cte)<br>
-      <strong>3)</strong>Objeto oXML</td>
-          <td>Lógico.</td>
-    </tr>
-    <tr>
-      <td><strong>PE004A08</strong></td>
-      <td>Ponto de entrada após a gravação do registro na tabela de<br>arquivos XML (ZA1)</td>
-      <td><strong>1)</strong>Filial atual a ser gravada<br>
-      <strong>2)</strong>Tipo do Documento (1=NFe,2=Cte)<br>
-      <strong>3)</strong>Objeto oXML</td>
-          <td>Nenhum.</td>
-    </tr>
-     <tr>
-      <td><strong>PE004A09</strong></td>
-      <td>Ponto de entrada antes da exclusão do registro na tabela de arquivos XML (ZA1)</td>
-      <td>Nenhum.</td>
-          <td>Lógico.</td>
-    </tr>
   </tbody>
 </table>
 
@@ -401,8 +200,6 @@ RestArea(aArea)
 
 ### <span style="display: none;">6. Tabelas (SX2)</span> 
 
-No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/Base de Dados” (CFGX031), inclua a(s)nova(s)  configurações conforme instruções a seguir:
-
 <table class="banks-table">
   <thead>
     <tr>
@@ -415,34 +212,41 @@ No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/B
   </thead>
   <tbody>
     <tr>
-      <td><strong>Z04</strong></td>
-      <td>CONTAS DE E-MAILS</td>
+      <td><strong>SZK</strong></td>
+      <td>FAZENDAS</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
     </tr>
     <tr>
-      <td><strong>Z05</strong></td>
-      <td>USUÁRIOS X PERMISSÕES</td>
+      <td><strong>SZL</strong></td>
+      <td>FAZENDAS X BLOCOS</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
     </tr>
     <tr>
-      <td><strong>Z06</strong></td>
-      <td>TAGS</td>
+      <td><strong>SZM</strong></td>
+      <td>FAZENDAS X BLOCOS X QUADRAS</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
     </tr>
     <tr>
-      <td><strong>ZA1</strong></td>
-      <td>XML RECEBIDOS</td>
+      <td><strong>SZN</strong></td>
+      <td>FAZENDAS X CULTIVOS</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
     </tr>
-    
+    <tr>
+      <td><strong>SZO</strong></td>
+      <td>FAZENDAS X CULTIVOS X LOGS</td>
+      <td>Exclusivo</td>
+      <td>Exclusivo</td>
+      <td>Exclusivo</td>
+    </tr>
+
   </tbody>
 </table>
 </div>
@@ -457,80 +261,148 @@ No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/B
 
 ### <span style="display: none;">7. Campos (SX3)</span>
 
-No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/Base de Dados” (CFGX031), inclua a(s)nova(s)  configurações conforme instruções a seguir:
-
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_FILIAL**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **NN9_CODIGO**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+ <th>Arquivo</th>
+      <td>NN9</td>
       <th>Ordem</th>
-      <td>01</td>
+      <td>02</td>
+	   <th>Campo</th>
+      <td>NN9_CODIGO</td>
+	  <th>Tipo</th>
+      <td>C</td>
       <th>Tamanho</th>
-      <td>2</td>
+      <td>6</td>
       <th>Decimal</th>
       <td>0</td>
+	  <tr>
+      <th>Título</th>
+      <td colspan="7">Código</td>
+    </tr>
+<tr>
+   <th>Titspa</th>
+      <td colspan="7">Código</td>
+    </tr>
+<tr>
+      <th>Titeng</th>
+      <td colspan="7">Código</td>
+    </tr>
+      <th>Descric</th>
+      <td>Código do Serviço</td>
+      <th>Desc SPA</th>
+      <td>Codigo del Servicio</td>
+      <th>Desceng</th>
+      <td>Service Code</td>
       <th>Formato</th>
       <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
+ <th>Valid</th>
+      <td>ExistChav("NN9",M->NN9_CODIGO)                                                                                                                                  
+</td>
       <th>Usado</th>
+      <td>S</td>
+<th>Relação</th>
+      <td>GetSX8Num("NN9","NN9_CODIGO")                                                                                                                                  
+</td>
+</tr>
+       <th>F3</th>
       <td>-</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Filial</td>
+      <th>Nível</th>
+      <td>1</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Filial do Sistema</td>
+      <th>Reserv</th>
+      <td>S</td>
     </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
     <tr>
-      <th>F3</th>
+      <th>Check</th>
       <td>-</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
+      <th>Trigger</th>
       <td>-</td>
     </tr>
     <tr>
-      <th>Val. Usuário</th>
+      <th>Propri</th>
+      <td>-</td>
+    </tr>
+  <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  <tr>
+      <th>Visual</th>
+      <td>V</td>
+    </tr>
+ <tr>
+      <th>Context</th>
+      <td>R</td>
+      <th>Obrigat</th>
+      <td>S</td>
+      <th>Vlduser</th>
+      <td>-</td>
+      <th>Cbox</th>
+      <td>-</td>
+      <th>Cboxspa</th>
       <td>-</td>
     </tr>
     <tr>
-      <th>Lista Opções</th>
+      <th>Cboxeng</th>
       <td>-</td>
     </tr>
     <tr>
-      <th>Inicializador</th>
+      <th>Pictvar</th>
       <td>-</td>
     </tr>
-    <tr>
-      <th>Ini. Browse</th>
+ <tr>
+      <th>When</th>
       <td>-</td>
-    </tr>
+      <th>Inibrw</th>
+      <td>-</td>
+      <th>Gprsxg</th>
+      <td>-</td>
+      <th>Folder</th>
+      <td>-</td>
+      <th>Pyme</th>
+      <td>-</td>
+	<th>Condsql</th>
+      <td>-</td>
+<th>Chksql</th>
+      <td>-</td>
+<th>Idxsrv</th>
+      <td>N</td>
+<th>Ortogra</th>
+      <td>N</td>
+<th>Idxfld</th>
+      <td>-</td>
+<th>Tela</th>
+      <td>-</td>
+<th>Picbrv</th>
+      <td>-</td>
+<th>Agrup</th>
+      <td>-</td>
+<th>Poslgt</th>
+      <td>1</td>
+<th>Modal</th>
+      <td>1</td>
+<th>PF_L_A_G</th>
+      <td>0</td>
+<th>PR_E_C_N_O</th>
+      <td>0</td>
+<th>PM_0_E_M_P</th>
+      <td>99</td>
+<th>ID_PACKAGE</th>
+      <td>000003</td>
+<th>Help</th>
+      <td>Memo</td>
+</tr>
   </tbody>
 </table>
 </div>
