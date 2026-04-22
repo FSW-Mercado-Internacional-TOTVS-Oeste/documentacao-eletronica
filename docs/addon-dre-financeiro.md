@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 
-# ADDON Controle de Cheques {.home-hero}
+# ADDON DRE Financeiro {.home-hero}
 
 <!--############################################### 01 #######################################################-->
 
@@ -18,18 +18,17 @@ hide:
 
 ### <span style="display: none;">1. Visão Geral</span>
 
-#### Tem por objetivo, gerenciar todo o ciclo de cheques recebidos de clientes como forma de pagamento, sendo mais completo que a simples liquidação financeira. Ele possibilita registrar cheques recebidos em lotes vinculados ao cliente, substituindo os títulos originais por títulos específicos de cheque.
+#### Esta automação é um complemento para o processo padrão no TOTVS Protheus no Financeiro - Plano Gerencial Financeiro (FINA271).<br>
+<strong>Este processo permite gerar um demonstrativo de resultado/exercício (formato de relatório) sobre as movimentações financeiras.</strong><br> 
+<strong>É disponibilizado um modelo de visão gerencial que estrutura uma visão modelo por naturezas.</strong><br> 
+<strong>Disponibilizado sub-processo que permite replicar o modelo inicial para 'n' outras visões e adequar conforme necessidades do cliente.</strong>
 
-<strong>Principais vantagens do produto:</strong>
+<strong>Principais vantagens do produto:<br></strong>
 
-- Controle completo do ciclo dos cheques;
-- Centralização e organização das informações;
-- Substituição automática de títulos;
-- Flexibilidade no uso dos cheques;
-- Operações estruturadas por lotes;
-- Interfaces ágeis e práticas;
-- Facilidade na conciliação;
-
+- Cadastro Visão Gerencial Financeira;<br>
+- Copia Cadastro DRE;
+- Modelo de Visão Gerencial pré-montado.
+- Relatorio DRE personalizável (fonte);
 </div>
 </details>
 
