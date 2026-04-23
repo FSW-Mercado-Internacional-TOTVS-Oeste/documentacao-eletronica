@@ -146,210 +146,14 @@ hide:
 </details>
 
 <!--############################################### 05 #######################################################-->
-
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">05.</span> Pontos de Entradas Disponiveis para Desenvolvimento</span>
-</summary>
-<div class="content-body" markdown="1">
-
-### <span style="display: none;">5. Pontos de Entradas Disponiveis para Desenvolvimento</span>
-
-<table class="banks-table">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Descrição</th>
-      <th>Implementação</th>      
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>M410STTS</strong></td>
-      <td>Ponto de Entrada na inclusão/alteração do Pedido de Vendas. 
-Faturamento</td>
-      <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M410STTS</span>
-  </div>
-  <pre><code>  
-User Function M410STTS()
-
-If ExistBlock("P013A01")
-    U_P013A01("M410STTS")
-EndIf
-
-Return()
-</code></pre>
-      </td>      
-    </tr>
-    <tr>
-      <td><strong>M460FIM</strong></td>
-      <td>Ponto de Entrada no final da emissão da Nota Fiscal de Saída. 
-Faturamento</td>
-      <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M460FIM</span>
-  </div>
-  <pre><code>  
-User Function M460FIM()
-
-If ExistBlock("P013A01")
-    U_P013A01("M460FIM")
-EndIf
-
-Return()
-</code></pre>
-      </td>      
-    </tr>
-    <tr>
-      <td><strong>MA410MNU</strong></td>
-      <td>Ponto de Entrada para inclusão de opções de menu no Pedido de Vendas. 
-Faturamento. </td>
-      <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">MA410MNU</span>
-  </div>
-  <pre><code>  
-User Function MA410MNU()
-
-If ExistBlock("P013A01")
-    U_P013A01("MA410MNU")
-EndIf
-
-Return()
-</code></pre>
-      </td>      
-    </tr>
-    <tr>
-      <td><strong>MS520VLD</strong></td>
-      <td>Ponto de Entrada na exclusão da Nota Fiscal de Saída.</td>
-      <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">MS520VLD</span>
-  </div>
-  <pre><code>  
-User Function MS520VLD()
-
-Local lRet := .T.
-If ExistBlock("P013A01")
-     U_P013A01('MS520VLD')
-EndIf
-
-Return(lRet)
-</code></pre>
-      </td>      
-    </tr>
-    <tr>
-      <td><strong>MT410ACE</strong></td>
-      <td>Ponto de Entrada executado antes da apresentação da Tela do Pedido de Vendas. Faturamento.</td>
-      <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">MT410ACE</span>
-  </div>
-  <pre><code>  
-User Function MT410ACE()
-
-Local lRet := .T.
-
-If ExistBlock("P013A01")
-     U_P013A01(MT410ACE)
-EndIf
-
-Return(lRet)
-</code></pre>
-      </td>      
-    </tr>
-    <tr>
-      <td><strong>MT410TOK</strong></td>
-      <td>Ponto de Entrada usado para validação total do pedido de venda.</td>
-      <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">MT410TOK</span>
-  </div>
-  <pre><code>  
-User Function MT410TOK()
-
-Local lRet   := .T.
-
-If ExistBlock("P013A01")
-    lRet := U_P013A01("MT410TOK", PARAMIXB)
-EndIf
-
-Return lRet
-</code></pre>
-      </td>      
-    </tr>
-    <tr>
-      <td><strong>M410PVNF</strong></td>
-      <td>Ponto de Entrada executado durante o faturamento do pedido de venda através da rotina MATA410.</td>
-      <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">M410PVNF</span>
-  </div>
-  <pre><code>  
-User Function M410PVNF()
-
-Local lRet := .T.
-
-If ExistBlock("P013A01")
-     lRet := U_P013A01("M410PVNF", PARAMIXB)
-EndIf
-
-Return(lRet)
-</code></pre>
-      </td>      
-    </tr>
-    <tr>
-      <td><strong>SF2520E</strong></td>
-      <td>Ponto de Entrada executado durante a exclusão de notas de saída</td>
-      <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">ADVPL</span>
-    <span class="filename">SF2520E</span>
-  </div>
-  <pre><code>  
-User Function SF2520E()
-
-If ExistBlock("P013A01")
-    U_P013A01("SF2520E")
-EndIf
-
-Return()
-</code></pre>
-      </td>      
-    </tr>
-  </tbody>
-</table>
-
-</div>
-</details>
-
-<!--############################################### 06 #######################################################-->
-
-<details class="custom-expand" markdown="1">
-<summary markdown="1">
-  <span class="summary-title"><span class="summary-number">06.</span> Pontos de Entrada Padrão</span>
+  <span class="summary-title"><span class="summary-number">05.</span>Pontos de entradas disponiveis para desenvolvimento</span>
 </summary>
 
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">6. Pontos de Entrada Padrão</span>
+### <span style="display: none;">5. Pontos de entradas disponiveis para desenvolvimento</span>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
@@ -1043,9 +847,200 @@ Return()
 </div>
 </details>
 
+</div>
+</details>
 
+<!--############################################### 06 #######################################################-->
 
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">06.</span>Pontos de entradas padrões</span>
+</summary>
+<div class="content-body" markdown="1">
 
+### <span style="display: none;">6. Pontos de entradas padrões</span>
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Descrição</th>
+      <th>Implementação</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>M410STTS</strong></td>
+      <td>Ponto de Entrada na inclusão/alteração do Pedido de Vendas. 
+Faturamento</td>
+      <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">M410STTS</span>
+  </div>
+  <pre><code>  
+User Function M410STTS()
+
+If ExistBlock("P013A01")
+    U_P013A01("M410STTS")
+EndIf
+
+Return()
+</code></pre>
+      </td>      
+    </tr>
+    <tr>
+      <td><strong>M460FIM</strong></td>
+      <td>Ponto de Entrada no final da emissão da Nota Fiscal de Saída. 
+Faturamento</td>
+      <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">M460FIM</span>
+  </div>
+  <pre><code>  
+User Function M460FIM()
+
+If ExistBlock("P013A01")
+    U_P013A01("M460FIM")
+EndIf
+
+Return()
+</code></pre>
+      </td>      
+    </tr>
+    <tr>
+      <td><strong>MA410MNU</strong></td>
+      <td>Ponto de Entrada para inclusão de opções de menu no Pedido de Vendas. 
+Faturamento. </td>
+      <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">MA410MNU</span>
+  </div>
+  <pre><code>  
+User Function MA410MNU()
+
+If ExistBlock("P013A01")
+    U_P013A01("MA410MNU")
+EndIf
+
+Return()
+</code></pre>
+      </td>      
+    </tr>
+    <tr>
+      <td><strong>MS520VLD</strong></td>
+      <td>Ponto de Entrada na exclusão da Nota Fiscal de Saída.</td>
+      <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">MS520VLD</span>
+  </div>
+  <pre><code>  
+User Function MS520VLD()
+
+Local lRet := .T.
+If ExistBlock("P013A01")
+     U_P013A01('MS520VLD')
+EndIf
+
+Return(lRet)
+</code></pre>
+      </td>      
+    </tr>
+    <tr>
+      <td><strong>MT410ACE</strong></td>
+      <td>Ponto de Entrada executado antes da apresentação da Tela do Pedido de Vendas. Faturamento.</td>
+      <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">MT410ACE</span>
+  </div>
+  <pre><code>  
+User Function MT410ACE()
+
+Local lRet := .T.
+
+If ExistBlock("P013A01")
+     U_P013A01(MT410ACE)
+EndIf
+
+Return(lRet)
+</code></pre>
+      </td>      
+    </tr>
+    <tr>
+      <td><strong>MT410TOK</strong></td>
+      <td>Ponto de Entrada usado para validação total do pedido de venda.</td>
+      <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">MT410TOK</span>
+  </div>
+  <pre><code>  
+User Function MT410TOK()
+
+Local lRet   := .T.
+
+If ExistBlock("P013A01")
+    lRet := U_P013A01("MT410TOK", PARAMIXB)
+EndIf
+
+Return lRet
+</code></pre>
+      </td>      
+    </tr>
+    <tr>
+      <td><strong>M410PVNF</strong></td>
+      <td>Ponto de Entrada executado durante o faturamento do pedido de venda através da rotina MATA410.</td>
+      <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">M410PVNF</span>
+  </div>
+  <pre><code>  
+User Function M410PVNF()
+
+Local lRet := .T.
+
+If ExistBlock("P013A01")
+     lRet := U_P013A01("M410PVNF", PARAMIXB)
+EndIf
+
+Return(lRet)
+</code></pre>
+      </td>      
+    </tr>
+    <tr>
+      <td><strong>SF2520E</strong></td>
+      <td>Ponto de Entrada executado durante a exclusão de notas de saída</td>
+      <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">ADVPL</span>
+    <span class="filename">SF2520E</span>
+  </div>
+  <pre><code>  
+User Function SF2520E()
+
+If ExistBlock("P013A01")
+    U_P013A01("SF2520E")
+EndIf
+
+Return()
+</code></pre>
+      </td>      
+    </tr>
+  </tbody>
+</table>
 
 </div>
 </details>

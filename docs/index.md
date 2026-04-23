@@ -24,7 +24,7 @@ hide:
       <p class="fs-hero__subtitle">Módulos, integrações e add-ons desenvolvidos para ampliar e aperfeiçoar os processos do Protheus.</p>
       <div class="fs-hero__stats">
         <div class="fs-hero__stat">
-          <span class="fs-hero__stat-num">15</span>
+          <span class="fs-hero__stat-num">25</span>
           <span class="fs-hero__stat-label">Projetos</span>
         </div>
         <div class="fs-hero__stat-div"></div>
@@ -46,7 +46,7 @@ hide:
     <!-- FS99_001 -->
     <section class="fs-project">
       <div class="fs-project__header">
-        <div class="fs-project__tag">FS99_001</div>
+        <div class="fs-project__tag">FSW99_001</div>
         <h2 class="fs-project__title">Alçadas & Workflow</h2>
         <p class="fs-project__desc">Controle de alçadas com aprovação via Workflow integrado aos principais processos do ERP.</p>
       </div>
@@ -96,7 +96,7 @@ hide:
     <!-- FS99_003 -->
     <section class="fs-project">
       <div class="fs-project__header">
-        <div class="fs-project__tag">FS99_003</div>
+        <div class="fs-project__tag">FSW99_003</div>
         <h2 class="fs-project__title">CNAB — Integração Bancária</h2>
         <p class="fs-project__desc">Gestão completa de arquivos de remessa, retorno e extrato para integração bancária automatizada.</p>
       </div>
@@ -146,7 +146,7 @@ hide:
     <!-- FS99_004 -->
     <section class="fs-project">
       <div class="fs-project__header">
-        <div class="fs-project__tag">FS99_004</div>
+        <div class="fs-project__tag">FSW99_004</div>
         <h2 class="fs-project__title">XML</h2>
         <p class="fs-project__desc">Destina-se ao gerenciamento de XMLs de NF-e e CT-e recebidos de terceiros.</p>
       </div>
@@ -166,7 +166,7 @@ hide:
     <!-- FS99_006 -->
     <section class="fs-project">
       <div class="fs-project__header">
-        <div class="fs-project__tag">FS99_006</div>
+        <div class="fs-project__tag">FSW99_006</div>
         <h2 class="fs-project__title">Comissões</h2>
         <p class="fs-project__desc">Implementação de lógica customizável para definição e cálculo de comissões de venda</p>
       </div>
@@ -186,7 +186,7 @@ hide:
      <!-- FS99_007 -->
     <section class="fs-project">
       <div class="fs-project__header">
-        <div class="fs-project__tag">FS99_007</div>
+        <div class="fs-project__tag">FSW99_007</div>
         <h2 class="fs-project__title">Laticínios</h2>
         <p class="fs-project__desc">Gestão customizada dos processos da indústria de laticínios.</p>
       </div>
@@ -206,7 +206,7 @@ hide:
     <!-- FS99_009 -->
     <section class="fs-project">
       <div class="fs-project__header">
-        <div class="fs-project__tag">FS99_009</div>
+        <div class="fs-project__tag">FSW99_009</div>
         <h2 class="fs-project__title">Workflow Cadastral</h2>
         <p class="fs-project__desc">Fluxo de aprovação para cadastros com notificação automática por e-mail.</p>
       </div>
@@ -223,50 +223,10 @@ hide:
         </a>       
       </div>      
     </section>
-    <!-- FS99_704 -->
-    <section class="fs-project">
-      <div class="fs-project__header">
-        <div class="fs-project__tag">FS99_704</div>
-        <h2 class="fs-project__title">Aceleradores</h2>
-        <p class="fs-project__desc">Consultas padrão para Produtos, Fornecedores e Clientes.</p>
-      </div>
-      <div class="fs-cards">
-        <a href="addon-acelerador-consultas-generica" class="fs-card">
-          <div class="fs-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <div class="fs-card__body">
-            <h3 class="fs-card__title">Acelerador</h3>
-            <p class="fs-card__text">Modelos de consultas padrão para Produtos, Fornecedores e Clientes.</p>
-          </div>
-          <div class="fs-card__arrow">→</div>
-        </a>       
-      </div>
-    </section>
-    <!-- FS99_997C5 -->
-    <section class="fs-project">
-      <div class="fs-project__header">
-        <div class="fs-project__tag">FS99_997C5</div>
-        <h2 class="fs-project__title">Controle de Cheques</h2>
-        <p class="fs-project__desc">Controle completo do ciclo dos cheques.</p>
-      </div>
-      <div class="fs-cards">
-        <a href="controle-de-cheques" class="fs-card">
-          <div class="fs-card__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-          </div>
-          <div class="fs-card__body">
-            <h3 class="fs-card__title">Acelerador Controle de Cheques</h3>
-            <p class="fs-card__text">Modelos de consultas padrão para Produtos, Fornecedores e Clientes.</p>
-          </div>
-          <div class="fs-card__arrow">→</div>
-        </a>       
-      </div>
-    </section>
     <!-- FS99_010A -->
     <section class="fs-project">
       <div class="fs-project__header">
-        <div class="fs-project__tag">FS99_010A</div>
+        <div class="fs-project__tag">FSW99_010</div>
         <h2 class="fs-project__title">Mensagens DANFE</h2>
         <p class="fs-project__desc">Mensagens Fiscais x Operações</p>
       </div>
@@ -276,13 +236,73 @@ hide:
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
           </div>
           <div class="fs-card__body">
-            <h3 class="fs-card__title">Automação Fiscal x Operação</h3>
+            <h3 class="fs-card__title">A - Automação Fiscal x Operação</h3>
             <p class="fs-card__text">Este ADD-ON tem por objetivo automatizar a geração de mensagens Fiscais, Cliente e Produto nas operações de Venda / Compra .</p>
           </div>
           <div class="fs-card__arrow">→</div>
         </a>       
       </div>
-    </section>    
+    </section>
+ <!-- FS99_011A -->
+    <section class="fs-project">
+      <div class="fs-project__header">
+        <div class="fs-project__tag">FSW99_011</div>
+        <h2 class="fs-project__title">Plugins</h2>
+        <p class="fs-project__desc">Integrações CRM</p>
+      </div>
+      <div class="fs-cards">
+        <a href="addon-plugin-totvscrm" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">A - TOTVS CRM</h3>
+            <p class="fs-card__text">Este ADD-ON tem por objetivo automatizar a integração entre a plataforma TOTVS CRM com o Protheus.</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+        <a href="em-construcao" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">B - RD STATION</h3>
+            <p class="fs-card__text">Este ADD-ON tem por objetivo automatizar a integração entre a plataforma RD STATION com o Protheus.</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>       
+      </div>
+    </section> 
+    <!-- FS99_012A -->
+    <section class="fs-project">
+      <div class="fs-project__header">
+        <div class="fs-project__tag">FSW99_012</div>
+        <h2 class="fs-project__title">Cereais</h2>
+        <p class="fs-project__desc">Originação de Grãos x Cultivos</p>
+      </div>
+      <div class="fs-cards">
+        <a href="addon-mensagens-danfe" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">A - Gestão de Cereais</h3>
+            <p class="fs-card__text">O Addon Gestão de Cereais é uma solução complementar ao ERP Totvs Microsiga Protheus com foco no atendimento de processos de originação de grãos.</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+        <a href="addon-gestaocereais" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">B - Controle de Cultivos</h3>
+            <p class="fs-card__text">Este ADD-ON permite realizar o controle simplificado da gestão de cultivos em áreas agrícolas com controle dos insumos e demais itens utilizados durante o ciclo de cultivo.</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>       
+      </div>
+    </section> 
     <!-- FS99_013A -->
     <section class="fs-project">
       <div class="fs-project__header">
@@ -302,8 +322,218 @@ hide:
           <div class="fs-card__arrow">→</div>
         </a>       
       </div>
+    </section> 
+  <!-- FS99_998 -->
+    <section class="fs-project">
+      <div class="fs-project__header">
+        <div class="fs-project__tag">FSW99_015</div>
+        <h2 class="fs-project__title">Financeiro</h2>
+        <p class="fs-project__desc">Automação/Gestão</p>
+      </div>
+      <div class="fs-cards">
+        <a href="controle-de-cheques" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">A - DRE Financeiro</h3>
+            <p class="fs-card__text">Permite gerar um demonstrativo de resultado/exercício (formato de relatório) sobre as movimentações financeiras</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+        <a href="addon-dre-financeiro" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">B - Controle de Cheques</h3>
+            <p class="fs-card__text">Permite o controle do ciclo de utilização dos cheques recebidos como forma de pagamento sobre operações de venda.</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>         
+      </div>
     </section>
-
+    <!-- FS99_016 -->
+    <section class="fs-project">
+      <div class="fs-project__header">
+        <div class="fs-project__tag">FSW99_016</div>
+        <h2 class="fs-project__title">Contabilidade</h2>
+        <p class="fs-project__desc">Automação</p>
+      </div>
+      <div class="fs-cards">
+        <a href="controle-de-cheques" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">A - Regras de Contabilização</h3>
+            <p class="fs-card__text">Disponiliza ao usuário um conjunto de regras para otimizar à contabilização de movimentos além de funcionalidades que impactam diretamente na contablidade</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+      </div>
+    </section>
+        <!-- FS99_017 -->
+    <section class="fs-project">
+      <div class="fs-project__header">
+        <div class="fs-project__tag">FSW99_017</div>
+        <h2 class="fs-project__title">PCO</h2>
+        <p class="fs-project__desc">Automação</p>
+      </div>
+      <div class="fs-cards">
+        <a href="controle-de-cheques" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">A - Regras para PCO</h3>
+            <p class="fs-card__text">disponibiliza uma pré-configuração padrão dos principais pontos de bloqueio e lançamento, permitindo que o ambiente já possua uma base inicial de parametrização</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+      </div>
+    </section>    
+    <!-- FS99_704 -->
+    <section class="fs-project">
+      <div class="fs-project__header">
+        <div class="fs-project__tag">FSW99_018</div>
+        <h2 class="fs-project__title">Aceleradores</h2>
+        <p class="fs-project__desc">Facilitadores Implantação</p>
+      </div>
+      <div class="fs-cards">
+        <a href="addon-acelerador-gatilho" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">A - Gatilho Cliente / Fornecedor / Produto</h3>
+            <p class="fs-card__text">Gerador de código para cliente / fornecedor e produto</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a> 
+        <a href="addon-acelerador-consultas-generica" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">B - UPD Tamanho Campos</h3>
+            <p class="fs-card__text">Ajuste de tamanho/decimais campos numéricos</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+        <a href="addon-acelerador-consultas-generica" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">C - Campos Reservados</h3>
+            <p class="fs-card__text">Facilitador para criação em massa de campos reservados</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+        <a href="addon-acelerador-consultas-generica" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">D - Consulta Genérica</h3>
+            <p class="fs-card__text">Consulta Genérica para produtos, fornecedores e clientes</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+        <a href="addon-acelerador-consultas-generica" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">E - Importação Saldo Inicial</h3>
+            <p class="fs-card__text">Permite através de um arquivo no padrão .CSV importar saldos de outro sistema e gerar os saldos iniciais no ERP</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+        <a href="addon-acelerador-consultas-generica" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">F - Carrega XML</h3>
+            <p class="fs-card__text">Permite Importar arquivos XML para uma pasta especifica no TCLoud</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>      
+        <a href="addon-acelerador-consultas-generica" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">G - Replica Tabelas</h3>
+            <p class="fs-card__text">Permite onde existe a necessidade de ter duas bases rodando em paralelo (fiscal / gerencial) onde quando os dados de um servidor são gerados, devem ser replicados para outro servidor.</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+        <a href="addon-acelerador-consultas-generica" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">H - Impressão Pedido de Compra</h3>
+            <p class="fs-card__text">Permite a impressão do pedido de compras (modo gráfico)</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+        <a href="addon-acelerador-consultas-generica" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">I - Impressão Pedido de Venda / Orçamento</h3>
+            <p class="fs-card__text">Permite a impressão do pedido de vendas/orçamentos (impressão modo texto)</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+         <a href="addon-acelerador-consultas-generica" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">J - Impressão Duplicata / Recibos</h3>
+            <p class="fs-card__text">Permite que seja gerada a impressão de duplicata em modo gráfico</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+        <a href="addon-acelerador-consultas-generica" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">K - Impressão Recibo Baixas a Receber</h3>
+            <p class="fs-card__text">Permite imprimir recibos de valores recebidos sobre títulos em modo gráfico</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+        <a href="addon-acelerador-consultas-generica" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">L - Taxa da Moeda</h3>
+            <p class="fs-card__text">Possibilita que seja trabalhado com até 3 cotações distintas para as moedas configuradas no ERP Protheus</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>
+        <a href="addon-acelerador-consultas-generica" class="fs-card">
+          <div class="fs-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="fs-card__body">
+            <h3 class="fs-card__title">M - Simulação de Carga</h3>
+            <p class="fs-card__text">Disponibiliza ao usuário uma interface onde é possível simular uma montagem de carga sobre pedidos de vendas.
+</p>
+          </div>
+          <div class="fs-card__arrow">→</div>
+        </a>            
+      </div>
+    </section> 
   </div><!-- /fs-projects -->
 
   <!-- ░░ CONTACT FOOTER ░░ -->
