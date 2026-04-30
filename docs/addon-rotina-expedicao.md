@@ -1044,12 +1044,58 @@ Return()
 
 </div>
 </details>
-
 <!--############################################### 07 #######################################################-->
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">07.</span> Tabelas (SX2) </span>
+</summary>
+<div class="content-body" markdown="1">
+
+### <span style="display: none;">7. Tabelas (SX2)</span>
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Prefixo</th>
+      <th>Descrição</th>
+      <th>Ac. Filial</th>
+      <th>Ac. Unidade</th>
+      <th>Ac. Empresa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>ZA2</strong></td>
+      <td>EXPEDIÇÃO</td>
+      <td>Exclusivo</td>
+      <td>Exclusivo</td>
+      <td>Exclusivo</td>
+    </tr>
+    <tr>
+      <td><strong>ZA3</strong></td>
+      <td>ITENS DA EXPEDIÇÃO</td>
+      <td>Exclusivo</td>
+      <td>Exclusivo</td>
+      <td>Exclusivo</td>
+    </tr>
+    <tr>
+      <td><strong>ZA4</strong></td>
+      <td>Rest. Carga – Pedidos Excluídos</td>
+      <td>Exclusivo</td>
+      <td>Exclusivo</td>
+      <td>Exclusivo</td>
+    </tr>    
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<!--############################################### 08 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">07.</span> Campos (SX3)</span>
+  <span class="summary-title"><span class="summary-number">08.</span> Campos (SX3)</span>
 </summary>
 <div class="content-body" markdown="1">
 
@@ -1057,987 +1103,59 @@ Return()
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z00_PROCES**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span><strong>ZA2_FILIAL</strong>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
-      <td>02</td>
-      <th>Tamanho</th>
-      <td>8</td>
-      <th>Decimal</th>
+      <td>01</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>Tamaho padrão da Filial</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
       <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Funcao</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Funcao</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Informe a funcao de WorkFlow.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>INCLUI</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>ExistChav("Z00")</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z00_DESCRI**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>03</td>
-      <th>Tamanho</th>
-      <td>100</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Descricao</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Descricao</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Informe a descricao da Funcao.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z00_DEST**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>04</td>
-      <th>Tamanho</th>
-      <td>200</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Destinat.</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Destinatarios</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Informe os destinatarios do Workflow. Para mais de um, utilize (;).
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z00_USERGI**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>-</td>
-      <th>Ordem</th>
-      <td>05</td>
-      <th>Tamanho</th>
-      <td>-</td>
-      <th>Decimal</th>
-      <td>-</td>
-      <th>Formato</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>-</td>
-      <th>Propriedade</th>
-      <td>-</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">LOG de Inclusão</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">-</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z00_USERGA**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>-</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>-</td>
-      <th>Decimal</th>
-      <td>-</td>
-      <th>Formato</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>-</td>
-      <th>Propriedade</th>
-      <td>-</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">LOG de Alteração</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">-</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_PROCES**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>02</td>
-      <th>Tamanho</th>
-      <td>8</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</d>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Processo</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Codigo do Processo</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-
-<div class="help-box" markdown="1">
-Informe o codigo do processo (nome da funcao) referente a Alçada.
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_DESCRI**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>03</td>
-      <th>Tamanho</th>
-      <td>40</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Descricao</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Descricao do Processo</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Descricao do Processo
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_SEQ**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>04</td>
-      <th>Tamanho</th>
-      <td>2</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>99</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Sequencia</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Sequencia</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Sequencia
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_TPLIB**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>05</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Tp.Liberacao</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Tipo de Liberacao</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Informe o tipo de liberacao que deseja para esta regra de Alcadas:<br>
-<strong>N</strong> = Nivel - Sistema respeitara os níveis configurados, encaminhando para o proximonivel somente após aprovação do nível anterior.<br>
-<strong>U</strong> = Usuario - A liberacao do usuário pode ocorrer individualmente, semconsiderar outros aprovadores constantes na regra.<br>
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>N=Nivel; U=Usuario; D=Documento</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_NIVEL**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>2</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Nivel</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Nivel</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Informe o nivel (2digitos).
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>aCols[n][2] = 'N'</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_TPBUSC**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>07</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Tp. Busca</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Tipo de Busca</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Informe o tipo de busca:<br>
-<strong>E</strong> = Entidade - O usuario poderá configurar qualquer tabela do sistema para verificar o aprovador do processo.<br>
-<strong>U</strong> = Usuario - Configuracao de usuário "fixo" como aprovador.
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>E=Entidade; U=Usuario</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_IDUSER**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>08</td>
-      <th>Tamanho</th>
-      <td>6</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Aprovador</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Id do Aprovador</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Informe o codigo do usuario que seraresponsavel pela aprovação.
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>USRZ01 (USUARIO ALCADAS)</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>aCols[n][4]='U'</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>UsrExist(M->Z01_IDUSER)</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>E=Entidade; U=Usuario</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_NMUSER**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>09</td>
-      <th>Tamanho</th>
-      <td>20</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
+      <th>PROPRIEDADE</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Nome</td>
+      <th>TÍTULO</th>
+      <td>Filial</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Nome</td>
+      <th>DESCRIÇÃO</th>
+      <td>Filial</td>
     </tr>
   </tbody>
 </table>
-
 #### **Help**
 <div class="help-box" markdown="1">
-Nome do Aprovador.
+Não se aplica.
 </div>
-
 #### **Configurações adicionais**
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>F3</th>
-      <td>USRZX1 (USUARIO ALCADAS)</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>aCols[n][nPosTPB]='U'</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>UsrExist(M->ZX1_IDUSER)</td>
-    </tr>
-    <tr>
       <th>Lista Opções</th>
-      <td>E=Entidade; U=Usuario</td>
+      <td>-</td>
     </tr>
     <tr>
       <th>Inicializador</th>
@@ -2047,6 +1165,30 @@ Nome do Aprovador.
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -2054,64 +1196,149 @@ Nome do Aprovador.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_INDICE**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA2_CODIGO**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>N</td>
       <th>Ordem</th>
-      <td>10</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
+      <td>02</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
       <td>9</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Indice Alias</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Indice Alias</td>
+      <th>TÍTULO</th>
+      <td>Código</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Código</td>
     </tr>
   </tbody>
 </table>
-
 #### **Help**
 <div class="help-box" markdown="1">
-Informe o indice de busca para posicionamento no campo a verificar o aprovador do processo.
+Código da Expedição
 </div>
-
 #### **Configurações adicionais**
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>F3</th>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>GETSXENUM(&quot;ZA2&quot;,&quot;ZA2_CODIGO&quot;)</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
       <td>-</td>
     </tr>
     <tr>
       <th>Modo Edição</th>
-      <td>aCols[n][4]='E'</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
       <td>-</td>
     </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA2_PEDIDO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>03</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Alterar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Pedido</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Número do Pedido</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Número do pedido de vendas.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
     <tr>
       <th>Lista Opções</th>
       <td>-</td>
@@ -2124,6 +1351,214 @@ Informe o indice de busca para posicionamento no campo a verificar o aprovador d
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>EMPTY(M-&gt;ZA2_CARGA).AND.EMPTY(M-&gt;ZA2_DOC)</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>U_GET01301(&quot;P&quot;)</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA2_CARGA**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>04</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Alterar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Carga</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Número da Carga</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Número da Carga
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>EMPTY(M-&gt;ZA2_PEDIDO).AND.EMPTY(M-&gt;ZA2_DOC)</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+   </tr>
+  </tbody>
+</table>
+</div>
+</details>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA2_DOC**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>05</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Alterar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Nota Fiscal</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Nota Fiscal</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Número da Nota Fiscal
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>EMPTY(M-&gt;ZA2_PEDIDO).AND.EMPTY(M-&gt;ZA2_CARGA)</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>U_GET01301(&quot;C&quot;)</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -2131,63 +1566,521 @@ Informe o indice de busca para posicionamento no campo a verificar o aprovador d
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_CAMPO**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA2_SERIE**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
+      <th>Ordem</th>
+      <td>06</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
       <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Alterar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Série</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Série da nota fiscal</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Número da série da nota fiscal
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>EMPTY(M-&gt;ZA2_PEDIDO).AND.EMPTY(M-&gt;ZA2_CARGA)</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>U_GET01301(&quot;N&quot;)</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA2_STATUS**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>07</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Status</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Status</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Status da expedição
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA2_DATA**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>08</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>D</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Data Expedição  </td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Data expedição
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>DDATABASE</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA2_HORA**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>09</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>99:99</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Hora</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Hora Expedição</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Hora Expedição
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>TIME()</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA2_VEICUL**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Veículo Carga</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Veículo Carga</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Veículo Carga
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA2_PESO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
       <th>Ordem</th>
       <td>11</td>
-      <th>Tamanho</th>
-      <td>10</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@E 99,999,999.999</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Campo</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Campo</td>
+      <th>TÍTULO</th>
+      <td>Peso Carga</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Peso Carga</td>
     </tr>
   </tbody>
 </table>
 #### **Help**
 <div class="help-box" markdown="1">
-Informar o campo a ser verificado para selecionar o aprovador, quando selecionado o Tipo de Busca = Entidade.
+Peso Carga
 </div>
-
 #### **Configurações adicionais**
 <table class="banks-table">
   <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>aCols[n][4]='E'</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>EXISTCPO("SX3",M->Z01_CAMPO,2)</td>
-    </tr>
     <tr>
       <th>Lista Opções</th>
       <td>-</td>
@@ -2200,6 +2093,30 @@ Informar o campo a ser verificado para selecionar o aprovador, quando selecionad
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -2207,64 +2124,56 @@ Informar o campo a ser verificado para selecionar o aprovador, quando selecionad
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_EXP**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA2_DATAEC**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
       <td>12</td>
-      <th>Tamanho</th>
-      <td>20</td>
-      <th>Decimal</th>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>D</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>FORMATO</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Expressao</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Expressao</td>
+      <th>TÍTULO</th>
+      <td>Data encerramento</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Data encerramento</td>
     </tr>
   </tbody>
 </table>
-
 #### **Help**
 <div class="help-box" markdown="1">
-Podera ser utilizada para criacao de regras diferentes para um mesmo processo. (Utilizar sempre a tabela posicionada no cabecalho do processo.)
+Data encerramento Expedição
 </div>
-
 #### **Configurações adicionais**
 <table class="banks-table">
   <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
     <tr>
       <th>Lista Opções</th>
       <td>-</td>
@@ -2277,6 +2186,30 @@ Podera ser utilizada para criacao de regras diferentes para um mesmo processo. (
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -2284,64 +2217,56 @@ Podera ser utilizada para criacao de regras diferentes para um mesmo processo. (
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_PROCWF**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA2_HORAEC**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
       <td>13</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>FORMATO</th>
+      <td>99:99</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Proc. WF</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Processo WorkFlow</td>
+      <th>TÍTULO</th>
+      <td>Hora encerramento</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Hora encerramento</td>
     </tr>
   </tbody>
 </table>
-
 #### **Help**
 <div class="help-box" markdown="1">
-Informe o nome do processo (rdmake) que será responsável por enviar WorkFlow para o controle de alcadas.
+Hora encerramento Expedição
 </div>
-
 #### **Configurações adicionais**
 <table class="banks-table">
   <tbody>
-    <tr>
-      <th>F3</th>
-      <td>Z00</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>Vazio().OR.ExistCPO("Z00")</td>
-    </tr>
     <tr>
       <th>Lista Opções</th>
       <td>-</td>
@@ -2354,6 +2279,30 @@ Informe o nome do processo (rdmake) que será responsável por enviar WorkFlow p
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -2361,64 +2310,56 @@ Informe o nome do processo (rdmake) que será responsável por enviar WorkFlow p
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_ALIAS**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA2_CLIENT**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
       <td>14</td>
-      <th>Tamanho</th>
-      <td>3</td>
-      <th>Decimal</th>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>60</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
       <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Alias</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Entidade (Alias)</td>
+      <th>TÍTULO</th>
+      <td>Cliente</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Cliente</td>
     </tr>
   </tbody>
 </table>
-
 #### **Help**
 <div class="help-box" markdown="1">
-Sigla dos arquivos relacionados no processo. Ex: SA1, SB1, SD2, etc...
+Nome do cliente
 </div>
-
 #### **Configurações adicionais**
 <table class="banks-table">
   <tbody>
-    <tr>
-      <th>F3</th>
-      <td>SX21 (Tabelas Sistema)</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>Vazio().OR.ExistCpo("SX2")</td>
-    </tr>
     <tr>
       <th>Lista Opções</th>
       <td>-</td>
@@ -2431,61 +2372,102 @@ Sigla dos arquivos relacionados no processo. Ex: SA1, SB1, SD2, etc...
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
   </tbody>
 </table>
 </div>
-</details>
+</details> 
+
+#### **Observação**
+<div class="help-box" markdown="1">
+Incluir campos reservados ZA2_USERLGI e ZA2_USERLGA
+</div>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_STATUS**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_FILIAL**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
-      <td>15</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
+      <td>01</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>Tamanho padrão da Filial</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
       <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Regra Ativa?</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Regra Ativa?</td>
+      <th>TÍTULO</th>
+      <td>Filial</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Filial</td>
     </tr>
   </tbody>
 </table>
-
 #### **Help**
 <div class="help-box" markdown="1">
-Informe se a regra esta ativa <strong>S</strong>=Sim, <strong>N</strong>=Nao.
+Não se aplica
 </div>
-
 #### **Configurações adicionais**
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>F3</th>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
       <td>-</td>
     </tr>
     <tr>
@@ -2493,12 +2475,1388 @@ Informe se a regra esta ativa <strong>S</strong>=Sim, <strong>N</strong>=Nao.
       <td>-</td>
     </tr>
     <tr>
-      <th>Val. Usuário</th>
+      <th>Consulta F3</th>
       <td>-</td>
     </tr>
     <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details> 
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_CODIGO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>02</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Código</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Código</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Código da expedição
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
       <th>Lista Opções</th>
-      <td>S=Sim; N=Não</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details> 
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_SEQ**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>02</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Sequência</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Sequência</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Sequência
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details> 
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_PEDIDO**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>04</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Pedido</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Número do Pedido</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Número do pedido de vendas
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_ITEMPD**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>05</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Item Pedido</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Item do Pedido</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Número do item do pedido de vendas
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_CARGA**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>06</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Carga</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Número da Carga</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Número da Carga
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_PRODUT**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>07</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Produto</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Código do Produto</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Código do Produto
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_QTDE**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>08</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@E 999,999,999.9999</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Quantidade</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Quantidade</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Quantidade do Produto
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_QTDE2**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>09</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@E 999,999,999.9999</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Qtde 2Un</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Quantidade Un</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Quantidade do Produto na segunda unidade de medida
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_LOTECT**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Lote</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Lote</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Lote
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_QTDORG**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@E 999,999,999.9999</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Quantidade Original</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Quantidade Original</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Quantidade Original
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_QTDOR2**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@E 999,999,999.9999</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Quantidade Original 2</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Quantidade Original 2</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Quantidade original na segunda unidade de medida.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_VOLITE**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@E 999</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Volume Item</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Volume Item</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Número do volume do item.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_DOC**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Nota Fiscal</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Nota Fiscal</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Número da nota fiscal.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA3_SERIE**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Série</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Série nota fiscal</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Número da série nota fiscal
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **B1_X_NEXP**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Ordem</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Alterar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Considera Expedição</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Considera na Expedição?</td>
+    </tr>
+  </tbody>
+</table>
+#### **Help**
+<div class="help-box" markdown="1">
+Informe 'Não' para que o produto sofra a expedição de forma automática, ou seja, não precisará ser expedido via leitura da etiqueta.
+Utilizado para desconsiderar o produto no momento da expedição.
+</div>
+#### **Configurações adicionais**
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções</th>
+      <td>-</td>
     </tr>
     <tr>
       <th>Inicializador</th>
@@ -2508,6 +3866,30 @@ Informe se a regra esta ativa <strong>S</strong>=Sim, <strong>N</strong>=Nao.
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
+    <tr>
+      <th>Modo Edição</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Consulta F3</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Val Usuário</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Usado</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Obrigatório</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -2515,75 +3897,46 @@ Informe se a regra esta ativa <strong>S</strong>=Sim, <strong>N</strong>=Nao.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_WFAVIS**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_FILIAL**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
-      <td>16</td>
-      <th>Tamanho</th>
-      <td>8</td>
-      <th>Decimal</th>
+      <td>01</td>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>Tamanho padrão da Filial</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
       <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">WF Aviso</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">WorkFlow Aviso</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de aviso da liberacao controle de alcadas.
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>Z00</td>
+      <th>TÍTULO</th>
+      <td>Filial</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
+      <th>DESCRIÇÃO</th>
+      <td>Filial</td>
     </tr>
   </tbody>
 </table>
@@ -2592,381 +3945,46 @@ Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de a
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_WFALIA**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_C6NUM**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>17</td>
-      <th>Tamanho</th>
-      <td>3</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Alias WF</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Alias WF</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>SX21 (Tabelas Sistema)</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_OBS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>MEMO</td>
-      <th>Ordem</th>
-      <td>18</td>
-      <th>Tamanho</th>
-      <td>-</td>
-      <th>Decimal</th>
-      <td>-</td>
-      <th>Formato</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Observacoes</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Observacoes</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_USERGI**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>-</td>
-      <th>Ordem</th>
-      <td>19</td>
-      <th>Tamanho</th>
-      <td>-</td>
-      <th>Decimal</th>
-      <td>-</td>
-      <th>Formato</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>-</td>
-      <th>Propriedade</th>
-      <td>-</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">LOG de Inclusão</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">-</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z01_USERGA**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>-</td>
-      <th>Ordem</th>
-      <td>20</td>
-      <th>Tamanho</th>
-      <td>-</td>
-      <th>Decimal</th>
-      <td>-</td>
-      <th>Formato</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>-</td>
-      <th>Propriedade</th>
-      <td>-</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">LOG de Alteração</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">-</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z02_COD**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
       <td>02</td>
-      <th>Tamanho</th>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
       <td>6</td>
-      <th>Decimal</th>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
       <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Codigo</td>
+      <th>TÍTULO</th>
+      <td>Num PV</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Codigo</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>ExistChav("Z02")</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>GETSXENUM("Z02","Z02_COD")</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
+      <th>DESCRIÇÃO</th>
+      <td>Número do Pedido de Venda</td>
     </tr>
   </tbody>
 </table>
@@ -2975,75 +3993,46 @@ Informe o nome do processo (rdmake) que seraresponsavel por enviar WorkFlow de a
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z02_APROV**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_C6ITEM**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
       <td>03</td>
-      <th>Tamanho</th>
-      <td>6</td>
-      <th>Decimal</th>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
       <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Aprovador</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Codigo do Aprovador</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Codigo do Aprovador que esta sendo substituído temporariamente.
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>USR (Usuários)</td>
+      <th>TÍTULO</th>
+      <td>Item PV</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>UsrExist(M->Z02_APROV) .AND. (M->Z02_APROV # M->Z02_SUBST)</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
+      <th>DESCRIÇÃO</th>
+      <td>Item do Pedido de Venda</td>
     </tr>
   </tbody>
 </table>
@@ -3052,75 +4041,46 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z02_NOME**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_SEQ**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
       <td>04</td>
-      <th>Tamanho</th>
-      <td>40</td>
-      <th>Decimal</th>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
       <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Nome</td>
+      <th>TÍTULO</th>
+      <td>Sequência</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Nome do Aprovador</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
+      <th>DESCRIÇÃO</th>
+      <td>Sequência</td>
     </tr>
   </tbody>
 </table>
@@ -3129,75 +4089,46 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z02_DTSAID**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_CARGA**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>DATA</td>
       <th>Ordem</th>
       <td>05</td>
-      <th>Tamanho</th>
-      <td>8</td>
-      <th>Decimal</th>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Dt. Saida</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Data Saida</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
+      <th>TÍTULO</th>
+      <td>Carga</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>M->Z02_DTSAID > DDATABASE</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
+      <th>DESCRIÇÃO</th>
+      <td>Carga</td>
     </tr>
   </tbody>
 </table>
@@ -3206,75 +4137,46 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z02_DTRET**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_RECSC6**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>DATA</td>
       <th>Ordem</th>
       <td>06</td>
-      <th>Tamanho</th>
-      <td>8</td>
-      <th>Decimal</th>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>FORMATO</th>
+      <td>@E 9999999999</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Dt. Retorno</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Data de Retorno</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
+      <th>TÍTULO</th>
+      <td>Recno SC6</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>M->Z02_DTRET >= M->Z02_DTSAID</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
+      <th>DESCRIÇÃO</th>
+      <td>Recno SC6</td>
     </tr>
   </tbody>
 </table>
@@ -3283,75 +4185,46 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z02_SUBST**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_RECSC9**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
       <td>07</td>
-      <th>Tamanho</th>
-      <td>6</td>
-      <th>Decimal</th>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>FORMATO</th>
+      <td>@E 9999999999</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Substituto</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Codigo Substituto</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>USR (Usuários)</td>
+      <th>TÍTULO</th>
+      <td>Recno SC9</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>UsrExist(M->Z02_SUBST) .AND. (M->Z02_SUBST # M->Z02_APROV)</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
+      <th>DESCRIÇÃO</th>
+      <td>Recno SC9</td>
     </tr>
   </tbody>
 </table>
@@ -3360,75 +4233,46 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z02_SUBNOM**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_RECDAK**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
       <td>08</td>
-      <th>Tamanho</th>
-      <td>40</td>
-      <th>Decimal</th>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>FORMATO</th>
+      <td>@E 9999999999</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Nome</td>
+      <th>TÍTULO</th>
+      <td>Recno DAK</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Nome Substituto</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
+      <th>DESCRIÇÃO</th>
+      <td>Recno DAK</td>
     </tr>
   </tbody>
 </table>
@@ -3437,383 +4281,46 @@ Codigo do Aprovador que esta sendo substituído temporariamente.
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z02_USERGI**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_RECDAI**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>-</td>
       <th>Ordem</th>
       <td>09</td>
-      <th>Tamanho</th>
-      <td>-</td>
-      <th>Decimal</th>
-      <td>-</td>
-      <th>Formato</th>
-      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>-</td>
-      <th>Propriedade</th>
-      <td>-</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
+      <th>TIPO</th>
+      <td>N</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">LOG de Inclusão</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">-</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z02_USERGA**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>-</td>
-      <th>Ordem</th>
+      <th>TAMANHO</th>
       <td>10</td>
-      <th>Tamanho</th>
-      <td>-</td>
-      <th>Decimal</th>
-      <td>-</td>
-      <th>Formato</th>
-      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>-</td>
-      <th>Propriedade</th>
-      <td>-</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">LOG de Alteração</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">-</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_COD**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>02</td>
-      <th>Tamanho</th>
-      <td>10</td>
-      <th>Decimal</th>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>FORMATO</th>
+      <td>@E 9999999999</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Codigo</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Codigo</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Codigo do movimento de alçadas
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_SEQ**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>03</td>
-      <th>Tamanho</th>
-      <td>2</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Sequencia</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Sequencia</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Sequencia da movimentação/transferência
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_DESC**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>04</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Virtual</td>
-      <th>Propriedade</th>
+      <th>PROPRIEDADE</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>S</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Desc. Proc.</td>
+      <th>TÍTULO</th>
+      <td>Recno DAI</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Descricao Processo</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Descrição dos processos referentes aos movimentos de alçadas
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>RetField("Z01",1,xFilial("Z01")+ZA0->ZA0_PROCES,"Z01->Z01_DESCRI")</td>
+      <th>DESCRIÇÃO</th>
+      <td>Recno DAI</td>
     </tr>
   </tbody>
 </table>
@@ -3822,159 +4329,46 @@ Descrição dos processos referentes aos movimentos de alçadas
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_DOC**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_RECGWN**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
-      <td>05</td>
-      <th>Tamanho</th>
       <td>10</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@E 9999999999</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
       <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>S</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Num. Doc.</td>
+      <th>TÍTULO</th>
+      <td>Recno GWN</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Numero do Documento</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Numero do documento que gerou o controle de alcadas.
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_STATUS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Status Aprov</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Status Aprovacao</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Status do movimento:<br>
-<strong>1</strong> - Aguardando Aprovacao<br>
-<strong>2</strong> - Aguardando Aprov. Nivel Anterior<br>
-<strong>3</strong> - Aprovado<br>
-<strong>4</strong> - Transferido p/ outro Aprovador<br>
-<strong>5</strong> - Reprovado<br>
-<strong>6</strong> - Nivel Anterior Reprovado
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
+      <th>DESCRIÇÃO</th>
+      <td>Recno GWN</td>
     </tr>
   </tbody>
 </table>
@@ -3983,383 +4377,46 @@ Status do movimento:<br>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_DESCRI**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_PESDAI**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>07</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Desc. Status</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Descricao Status</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Descrição dos status de movimentação de transferência
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_IDUSER**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>08</td>
-      <th>Tamanho</th>
-      <td>6</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Aprovador</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Aprovador</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Usuario aprovador dos movimentos de transferencia
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_NUSER**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>09</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Nome Aprov.</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Nome Aprovador</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Nome do Usuario Aprovador dos movimentos de transferência
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_NIVEL**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>10</td>
-      <th>Tamanho</th>
-      <td>2</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">NivelAprov.</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">NivelAprovacao</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Determina o nivel de aprovaçao, o sistema usara nivel de aprovação quando houver no minimo uma regra com dois níveis
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_DATAE**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>DATA</td>
       <th>Ordem</th>
       <td>11</td>
-      <th>Tamanho</th>
-      <td>8</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@E 9,999,999.9999</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Data Emissao</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Data Emissao</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Data de Emissão dos movimentos de alçadas
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
+      <th>TÍTULO</th>
+      <td>PESO DAI</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
+      <th>DESCRIÇÃO</th>
+      <td>PESO DAI</td>
     </tr>
   </tbody>
 </table>
@@ -4368,75 +4425,46 @@ Data de Emissão dos movimentos de alçadas
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_DATAM**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_PESDAK**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>DATA</td>
       <th>Ordem</th>
       <td>12</td>
-      <th>Tamanho</th>
-      <td>8</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@E 9,999,999.9999</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Data Movim.</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Data Movimentacao</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Data do movimento de transferência
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
+      <th>TÍTULO</th>
+      <td>Peso DAK</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
+      <th>DESCRIÇÃO</th>
+      <td>Peso DAK</td>
     </tr>
   </tbody>
 </table>
@@ -4445,75 +4473,46 @@ Data do movimento de transferência
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_HORAM**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_VLRDAK**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
       <td>13</td>
-      <th>Tamanho</th>
-      <td>5</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>99:99</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@E 99,999,999.99</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Hora Movim.</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Hora Movimentacao</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Horário de Movimentação dos movimentos de transferência
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
+      <th>TÍTULO</th>
+      <td>Valor DAK</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
+      <th>DESCRIÇÃO</th>
+      <td>Valor DAK</td>
     </tr>
   </tbody>
 </table>
@@ -4522,75 +4521,46 @@ Horário de Movimentação dos movimentos de transferência
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_OBS**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_PTODAK**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
       <td>14</td>
-      <th>Tamanho</th>
-      <td>100</td>
-      <th>Decimal</th>
+    </tr>
+    <tr>
+      <th>TIPO</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>TAMANHO</th>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>DECIMAL</th>
       <td>0</td>
-      <th>Formato</th>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
       <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
+      <th>CONTEXTO</th>
       <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>S</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Observacao</td>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
     </tr>
     <tr>
-      <th>Descrição</th>
-      <td colspan="7">Observacao</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Campo destinado a observações referentes aos movimentos de transferências
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
+      <th>TÍTULO</th>
+      <td>Ponto DAK</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
+      <th>DESCRIÇÃO</th>
+      <td>Ponto DAK</td>
     </tr>
   </tbody>
 </table>
@@ -4599,1199 +4569,60 @@ Campo destinado a observações referentes aos movimentos de transferências
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_IDOLD**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA4_PROC**</span>
 </summary>
 <div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
       <th>Ordem</th>
       <td>15</td>
-      <th>Tamanho</th>
-      <td>6</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Id Anterior</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Id Anterior (Transf.)</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Usuário Aprovador anterior aos movimentos de transferências
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_PROCES**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
+      <th>TIPO</th>
       <td>C</td>
-      <th>Ordem</th>
-      <td>16</td>
-      <th>Tamanho</th>
-      <td>8</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Cod. Regra</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Codigo Regra Alcada</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Codigo da Regra dos movimentos alçadas/transferencias
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_SOLICT**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>17</td>
-      <th>Tamanho</th>
-      <td>6</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Solicitante</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Cod. Usuario Solicitante</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Codigo do Usuario solicitante referentes aos movimentos de alçadas
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_CODAUS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>18</td>
-      <th>Tamanho</th>
-      <td>6</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Cod.Aus.Temp</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Cod. Ausencia Temporaria</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_TPLIB**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>19</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Tp.Liberacao</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Tipo de Liberacao</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_LINKWF**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>20</td>
-      <th>Tamanho</th>
-      <td>50</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Link Html WF</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Arquivo HTML Link do WF</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Informe o nome do arquivo html gerado pelo processo de worfklow que será utilizado no Link WF
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA0_ORIGAP**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>21</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Origem Aprov</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Origem da Aprovacao</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Indica a origem da Aprovação:<br>
-<strong>1</strong> - Manual pelo Sistema/ERP<br>
-<strong>2</strong> - Link do Workflow
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Sistema; 2=Workflow</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **C5_X_IDAL**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>Próxima Disponível</td>
-      <th>Tamanho</th>
-      <td>10</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">ID ALCADA</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">IDALC</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Identificador do Controle de Alcadas.
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **C5_X_DOC**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>Próxima Disponível</td>
-      <th>Tamanho</th>
-      <td>6</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Num. Doc.   </td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Número Documento.</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Numero/Codigo do Documento com integracao no Controle de Alcadas.
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **C5_X_STS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>Próxima Disponível</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Status Aprov</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Status da Aprovação</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Status do movimento de alçada:<br>
-<strong>1</strong> - Aguardando Aprovacao<br>
-<strong>2</strong> - Aguardando Aprov. Nivel Anterior<br>
-<strong>3</strong> - Aprovado<br>
-<strong>4</strong> - Transferido p/ outro Aprovador<br>
-<strong>5</strong> - Reprovado<br>
-<strong>6</strong> - Nivel Anterior Reprovado
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **C5_X_SOL**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>Próxima Disponível</td>
-      <th>Tamanho</th>
-      <td>6</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Solicitante</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Usuario Solicitante</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Codigo do Usuario Solicitante.
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **C5_X_OBS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>MEMO</td>
-      <th>Ordem</th>
-      <td>Próxima Disponível</td>
-      <th>Tamanho</th>
-      <td>-</td>
-      <th>Decimal</th>
-      <td>-</td>
-      <th>Formato</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>N</td>
-      <th>Browse</th>
-      <td>N</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">ObsSolicit.</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Observacao do Solicitante</td>
-    </tr>
-  </tbody>
-</table>
-
-#### **Help**
-<div class="help-box" markdown="1">
-Informe a Justificativa para solicitar a liberacao do documento.
-</div>
-
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-</div>
-</details>
-
-<!--############################################### 08 #######################################################-->
-
-<details class="custom-expand" markdown="1">
-<summary markdown="1">
-  <span class="summary-title"><span class="summary-number">08.</span> Parâmetros (SX6)</span>
-</summary>
-<div class="content-body" markdown="1">
-
-### <span style="display: none;">8. Parâmetros (SX6)</span>
-
-<table class="banks-table">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Tipo</th>
-      <th>Descrição</th>
-      <th>Conteúdo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>MV_X013T01</strong></td>
-      <td>Caracter</td>
-      <td>Tabela 01 Cabecalho Expedição.</td>
-      <td>ZA2</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013T02</strong></td>
-      <td>Caracter</td>
-      <td>Tabela 02 Itens Expedição.</td>
-      <td>ZA3</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013T03</strong></td>
-      <td>Caracter</td>
-      <td>Rest. Carga - Pedidos Excluídos.</td>
-      <td>ZA4</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013001</strong></td>
-      <td></td>
-      <td>Não utilizado. Manter para fins de compatibilidade.</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013002</strong></td>
-      <td></td>
-      <td>Não utilizado. Manter para fins de compatibilidade.</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013003</strong></td>
-      <td>Caracter</td>
-      <td>Usuario com permissao para alterar lote expedição e Liberar Faturamento.</td>
-      <td>Administrador</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013004</strong></td>
-      <td>Lógico</td>
-      <td>Alterar quantidade do Ped. Vendas de acordo com a quantidade expedida.</td>
-      <td>.T.</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013005</strong></td>
-      <td>Lógico</td>
-      <td>Fatura pedidos no encerramento da expedição.</td>
-      <td>.T.</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013006</strong></td>
-      <td>Caracter</td>
-      <td>Serie da Nota Fiscal emitida pela Expedicao.</td>
-      <td>001</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013007</strong></td>
-      <td>Numérico</td>
-      <td>% de tolerancia possivel a maior da quantidade total do Pedido de Vendas.</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013008</strong></td>
-      <td>Numérico</td>
-      <td>% de tolerancia possivel a menor da quantidade total do Pedido de Vendas.</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013009</strong></td>
-      <td>Caracter</td>
-      <td>Intervalo para identificar produto na etiqueta. Primeira posição = posição inicial, segunda posição = quantidade de caracteres.</td>
-      <td>1,6</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013010</strong></td>
-      <td>Caracter</td>
-      <td>Intervalo para identifcar numero do lote na etiqueta. Primeira posição = posição inicial, segunda posição = quantidade de caracteres.</td>
-      <td>7,1</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013011</strong></td>
-      <td>Caracter</td>
-      <td>Intervalo para identifcar o armazém do lote na etiqueta. Primeira posição = posição inicial, segunda posição = quantidade de caracteres.</td>
-      <td>11,3</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013012</strong></td>
-      <td>Caracter</td>
-      <td>Libera para expedicao com bloqueios de 1 Credito / 2 Estoque</td>
-      <td>SS</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013013</strong></td>
-      <td>Caracter</td>
-      <td>Numero sequencial da pre-separacao.</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013014</strong></td>
-      <td>Caracter</td>
-      <td>Busca endereco do produto do Pedido Vendas SC6 ou tabela endereco CBJ</td>
-      <td>CBJ</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013015</strong></td>
-      <td>Lógico</td>
-      <td>Ativa tela de selecao do portador para emissão de boleto bancario no final da expedição ao efetivar o faturamento efetivar o faturamento. (ADDOn CNAB Receber)</td>
-      <td>.T.</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013016</strong></td>
-      <td>Lógico</td>
-      <td>Ativa Transmissao automatica da NFe após o faturamento da exepdicao (encerramento).</td>
-      <td>.F.</td>
-    </tr>
-    <tr>
-      <td><strong>MV_X013017</strong></td>
-      <td>Numérico</td>
-      <td>Informe qual é o padrão da etiqueta para leitura na Expedição: <br>
-1=(Etiquetas separadas para Produto e Lote), <br>
-2=(Mesma etiqueta Produto e Lote)</td>
+      <th>TAMANHO</th>
       <td>1</td>
     </tr>
     <tr>
-      <td><strong>MV_X013018</strong></td>
-      <td>Caracter</td>
-      <td>Intervalo para identificar a quantidade (peso) para produtos pesáveis (etiquetas que iniciam com “2”.</td>
-      <td>25,1</td>
+      <th>DECIMAL</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>FORMATO</th>
+      <td>@!</td>
+    </tr>
+    <tr>
+      <th>CONTEXTO</th>
+      <td>Real</td>
+    </tr>
+    <tr>
+      <th>PROPRIEDADE</th>
+      <td>Visualizar</td>
+    </tr>
+    <tr>
+      <th>TÍTULO</th>
+      <td>Processado</td>
+    </tr>
+    <tr>
+      <th>DESCRIÇÃO</th>
+      <td>Processado</td>
     </tr>
   </tbody>
 </table>
-    
 </div>
 </details>
+
+</div> 
+</details> 
 
 <!--############################################### 09 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">09.</span> Gatilhos (SX7)</span>
-</summary>
-<div class="content-body" markdown="1">
-
-### <span style="display: none;">9. Gatilhos (SX7)</span>
-
-<table class="banks-table">
-  <thead>
-    <tr>
-      <th>Campo</th>
-      <th>Sequencia</th>
-      <th>Contra Dom.</th>
-      <th>Tipo</th>
-      <th>Regra</th>
-      <th>Posiciona</th>      
-      <th>Condicao</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>Z01_TPBUSC</strong></td>
-      <td>001</td>
-      <td>Z01_ALIAS</td>
-      <td>1 = Primário</td>
-      <td>-</td>
-      <td>N</td>      
-      <td>MM->Z01_TPBUSC='U'</td>
-    </tr>
-    <tr>
-      <td><strong>Z01_TPBUSC</strong></td>
-      <td>002</td>
-      <td>Z01_INDICE</td>
-      <td>1 = Primário</td>
-      <td>-</td>
-      <td>N</td>      
-      <td>M->Z01_TPBUSC='U'</td>
-    </tr>   
-    <tr>
-      <td><strong>Z01_TPBUSC</strong></td>
-      <td>003</td>
-      <td>Z01_CAMPO</td>
-      <td>1 = Primário</td>
-      <td>-</td>
-      <td>N</td>      
-      <td>M->Z01_TPBUSC='U'</td>
-    </tr>   
-    <tr>
-      <td><strong>Z01_TPBUSC</strong></td>
-      <td>004</td>
-      <td>Z01_IDUSER</td>
-      <td>1 = Primário</td>
-      <td>-</td>
-      <td>N</td>      
-      <td>M->Z01_TPBUSC="E"</td>
-    </tr>   
-    <tr>
-      <td><strong>Z01_TPBUSC</strong></td>
-      <td>005</td>
-      <td>Z01_NMUSER</td>
-      <td>1 = Primário</td>
-      <td>-</td>
-      <td>N</td>      
-      <td>M->Z01_TPBUSC="E"</td>
-    </tr>   
-    <tr>
-      <td><strong>Z01_TPLIB</strong></td>
-      <td>001</td>
-      <td>Z01_NIVEL</td>
-      <td>1 = Primário</td>
-      <td>01</td>
-      <td>N</td>      
-      <td>M->Z01_TPLIB='D'</td>
-    </tr>    
-    <tr>
-      <td><strong>Z02_APROV</strong></td>
-      <td>001</td>
-      <td>Z02_NOME</td>
-      <td>1 = Primário</td>
-      <td>U_FSP00101("USR",M->Z02_APROV)</td>
-      <td>N</td>      
-      <td>-</td>
-    </tr>   
-    <tr>
-      <td><strong>Z02_SUBST</strong></td>
-      <td>001</td>
-      <td>Z02_SUBNOM</td>
-      <td>1 = Primário</td>
-      <td>U_FSP00101("USR",M->Z02_SUBST)</td>
-      <td>N</td>      
-      <td>-</td>
-    </tr>   
-  </tbody>
-</table>
-
-</div>
-</details>
-
-<!--############################################### 10 #######################################################-->
-
-<details class="custom-expand" markdown="1">
-<summary markdown="1">
-  <span class="summary-title"><span class="summary-number">10.</span> Índices (SIX)</span>
+  <span class="summary-title"><span class="summary-number">09.</span> Índices (SIX)</span>
 </summary>
 <div class="content-body" markdown="1">
 
@@ -5809,100 +4640,90 @@ Informe a Justificativa para solicitar a liberacao do documento.
   </thead>
   <tbody>
     <tr>
-      <td><strong>Z00</strong></td>
+      <td><strong>ZA2</strong></td>
       <td>1</td>
-      <td>Z00_FILIAL+Z00_PROCES</td>
-      <td>Funcao</td>
-      <td></td>      
+      <td>ZA2_FILIAL+ZA2_PEDIDO</td>
+      <td>Pedido</td>
+      <td>ZA201</td>      
     </tr>    
     <tr>
-      <td><strong>Z01</strong></td>
-      <td>1</td>
-      <td>Z01_FILIAL+Z01_PROCES+Z01_SEQ</td>
-      <td>Processo + Sequencia</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>Z01</strong></td>
+      <td><strong>ZA2</strong></td>
       <td>2</td>
-      <td>Chave	Z01_FILIAL+Z01_PROCES+Z01_NIVEL</td>
-      <td>Processo + Nivel</td>
-      <td></td>      
+      <td>ZA2_FILIAL+ZA2_CARGA</td>
+      <td>Carga</td>
+      <td>ZA202</td>      
     </tr>  
     <tr>
-      <td><strong>Z01</strong></td>
+      <td><strong>ZA2</strong></td>
       <td>3</td>
-      <td>Z01_FILIAL+Z01_PROCES+Z01_STATUS</td>
-      <td>Processo + Regra Ativa?</td>
-      <td></td>      
+      <td>ZA2_FILIAL+ZA2_CODIGO</td>
+      <td>Código</td>
+      <td>ZA203</td>      
     </tr>  
     <tr>
-      <td><strong>Z01</strong></td>
+      <td><strong>ZA2</strong></td>
       <td>4</td>
-      <td>Chave	Z01_FILIAL+Z01_IDUSER</td>
-      <td>Aprovador</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>Z02</strong></td>
-      <td>1</td>
-      <td>Z02_FILIAL+Z02_COD</td>
-      <td>Codigo</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>Z02</strong></td>
-      <td>2</td>
-      <td>Z02_FILIAL+Z02_APROV</td>
-      <td>Aprovador</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>Z02</strong></td>
-      <td>3</td>
-      <td>Z02_FILIAL+Z02_SUBST</td>
-      <td>Substituto</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZA0</strong></td>
-      <td>1</td>
-      <td>ZA0_FILIAL+ZA0_COD+ZA0_SEQ+ZA0_NIVEL</td>
-      <td>Codigo + Sequencia + Nivel</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>Z03</strong></td>
-      <td>2</td>
-      <td>Z03_FILIAL+Z03_COD+Z03_IDUSER</td>
-      <td>Codigo + Aprovador</td>
-      <td></td>      
-    </tr>  
-    <tr>
-      <td><strong>ZA0</strong></td>
-      <td>3</td>
-      <td>ZA0_FILIAL+ZA0_COD+ZA0_NIVEL+ZA0_SEQ</td>
-      <td>Codigo + NivelAprov. + Sequencia</td>
-      <td></td>      
+      <td>ZA2_FILIAL+ZA2_DOC+ZA2_SERIE</td>
+      <td>Código + Série</td>
+      <td>ZA204</td>      
     </tr> 
     <tr>
-      <td><strong>SC5</strong></td>
-      <td>Proxima Disponível</td>
-      <td>C5_FILIAL+C5_X_IDAL</td>
-      <td>IDALC</td>
-      <td>SC5ALC</td>      
-    </tr>   
-  </tbody>
+      <td><strong>ZA3</strong></td>
+      <td>1</td>
+      <td>ZA3_FILIAL+ZA3_CODIGO+ZA3_SEQ</td>
+      <td>Codigo + Sequencia</td>
+      <td>ZA301</td>    
+    <tr>
+      <td><strong>ZA3</strong></td>
+      <td>2</td>
+      <td>ZA3_FILIAL+ZA3_PEDIDO+ZA3_ITEMPD</td>
+      <td>Pedido + Item Pedido</td>
+      <td>ZA302</td>   
+    </tr> 
+    <tr>
+      <td><strong>ZA3</strong></td>
+      <td>3</td>
+      <td>ZA3_FILIAL+ZA3_CARGA</td>
+      <td>Carga</td>
+      <td>ZA303</td>   
+    </tr> 
+    <tr>
+      <td><strong>ZA3</strong></td>
+      <td>4</td>
+      <td>ZA3_FILIAL+ZA3_DOC+ZA3_SERIE</td>
+      <td>Nota Fiscal + Série</td>
+      <td>ZA304</td>   
+    </tr> 
+        <tr>
+      <td><strong>ZA4</strong></td>
+      <td>1</td>
+      <td>ZA4_FILIAL+ZA4_C6NUM+ZA4_C6ITEM+ZA4_SEQ</td>
+      <td>Num PV + Item PV + Sequência</td>
+      <td>-</td>   
+    </tr>
+    <tr>
+      <td><strong>ZA4</strong></td>
+      <td>2</td>
+      <td>ZA4_FILIAL+ZA4_C6NUM+ZA4_SEQ</td>
+      <td>Num PV + Sequência</td>
+      <td>-</td>   
+    </tr>
+    <tr>
+      <td><strong>ZA4</strong></td>
+      <td>3</td>
+      <td>ZA4_FILIAL + ZA4_CARGA</td>
+      <td>Carga</td>
+      <td>-</td>   
+    </tr> 
 </table>
-
 </div>
 </details>
 
-<!--############################################### 11 #######################################################-->
+<!--############################################### 10 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">11.</span> Consulta Padrão (SXB)</span>
+  <span class="summary-title"><span class="summary-number">10.</span> Consulta Padrão (SXB)</span>
 </summary>
 <div class="content-body" markdown="1">
 
@@ -5920,22 +4741,14 @@ Informe a Justificativa para solicitar a liberacao do documento.
   </thead>
   <tbody>
     <tr>
-      <td><strong>US - Consulta Usuários</strong></td>
-      <td>USRZ01</td>
-      <td>UsuarioAlcadas</td>
-      <td>ID, FULLNAME</td>
-      <td>Nome Completo</td>      
+      <td><strong>Consulta Padrão</strong></td>
+      <td>ZA2013</td>
+      <td>Expedicao</td>
+      <td>Filial, Codigo, Pedido, Carga, Status, Data</td>
+      <td>Código</td>      
     </tr>    
-    <tr>
-      <td><strong>DB</strong></td>
-      <td>Z00</td>
-      <td>Destinatarios WF</td>
-      <td>Z00_PROCES, Z00_DESCRI, Z00_DEST</td>
-      <td>Z00->Z00_PROCES</td>      
-    </tr>      
-  </tbody>
+</tbody>
 </table>
-
 </div>
 </details>
 
