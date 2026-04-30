@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 
-# XML de Terceiros {.home-hero}
+# Controle de Cultivos {.home-hero}
 
 <!--############################################### 01 #######################################################-->
 
@@ -20,15 +20,21 @@ Através desta solução, é possível realizar o controle simplificado da gest�
 
 ### <span style="display: none;">1. Visão Geral</span>
 
-#### Tem por objetivo, efetuar o gerenciamento em torno dos arquivos XML emitidos por terceiros pertinentes a documentos fiscais do tipo: Notas Fiscais Eletrônicas - NFe e Conhecimento de Transporte Eletrônico - CTe
+#### Principais vantagens do produto:
 
-<strong>Principais vantagens do produto:</strong>
 
-- Cadastro de Contas de E-mails;
-- Cadastro de Usuários X Permissões;
-- Cadastro de Tags;
-- Movimentação de XML Terceiros;
-- Relatório de XML Terceiros;
+-   Gestão simplificada dos cultivos:<br>
+Permite controlar todo o ciclo agrícola (safra) de forma mais simples e organizada.
+-   Controle de insumos e recursos:<br>
+Acompanha tudo que foi utilizado no cultivo (insumos, materiais, etc.), ajudando no controle e redução de desperdícios.
+-   Rastreabilidade da produção:<br>
+Registra os volumes produzidos com detalhamento por Fazenda, Zona e Parcela, facilitando análises mais precisas.<br>
+-   Controle da colheita integrado ao processo:<br>
+Inclui o acompanhamento da colheita dentro da gestão, garantindo visão completa do ciclo produtivo.<br>
+-   Integração com o ERP (Totvs Protheus):<br>
+Os dados alimentam o backoffice, permitindo composição de custos e melhor controle financeiro.<br>
+-   Alternativa mais acessível ao PIMS Multicultivos:<br>
+Indicado para empresas com restrições financeiras ou estruturais, oferecendo uma solução mais leve e viável.
 
 </div>
 </details>
@@ -42,8 +48,6 @@ Através desta solução, é possível realizar o controle simplificado da gest�
 <div class="content-body" markdown="1">
 
 ### <span style="display: none;">2. Menu</span>
-
-No “Configurador (SIGACFG)”, opção “Ambiente/Cadastros/Menus” (CFGX013), inclua a(s)nova(s)  opções de menu (módulo de compras) conforme instruções a seguir:
 
 <table class="banks-table">
   <thead>
@@ -65,43 +69,8 @@ No “Configurador (SIGACFG)”, opção “Ambiente/Cadastros/Menus” (CFGX013
       <td>Compras</td>
       <td>03</td>
     </tr>   
-      <tr>
-      <td>Atualizações</td>
-      <td>ADD-ON de XML \ Cadastros</td>
-      <td>Usuários X Permissões</td>
-      <td>C004A02</td>
-      <td>Compras</td>
-      <td>03</td>
-    </tr>     
-      <tr>
-      <td>Atualizações</td>
-      <td>ADD-ON de XML \ Cadastros</td>
-      <td>Tags</td>
-      <td>C004A03</td>
-      <td>Compras</td>
-      <td>03</td>
-    </tr>   
-      <tr>
-      <td>Atualizações</td>
-      <td>ADD-ON de XML \ Movimentos</td>
-      <td>Xml Recebidos</td>
-      <td>M004A01</td>
-      <td>Compras</td>
-      <td>03</td>
-    </tr>   
-      <tr>
-      <td>Atualizações</td>
-      <td>ADD-ON de XML \ Relatórios</td>
-      <td>Listagem Xml Recebidos</td>
-      <td>R004A01</td>
-      <td>CONFIGURADOR</td>
-      <td>03</td>
-    </tr>   
   </tbody>
 </table>
-
-<strong>DICA:</strong> Verificar a sessão ADD-ON XML existente no arquivo de menu do módulo de compras o qual é disponibilizado junto ao pacote de aplicação do ADD-ON Xml de Terceiros.
-
 </div>
 </details>
 
@@ -129,28 +98,10 @@ No “Configurador (SIGACFG)”, opção “Ambiente/Cadastros/Menus” (CFGX013
       <td><strong>C004A01</strong></td>
       <td>Rotina para cadastro de contas de e-mails.</td>
     </tr>
-    <tr>
-      <td><strong>C004A02</strong></td>
-      <td>Rotina para cadastro de usuários X permissões.</td>
-    </tr>
-    <tr>
-      <td><strong>C004A03</strong></td>
-      <td>Rotina para cadastro de tags.</td>
-    </tr>
-    <tr>
-      <td><strong>M004A01</strong></td>
-      <td>Rotina de XML Terceiros recebidos.</td>
-    </tr>
-    <tr>
-      <td><strong>R004A01</strong></td>
-      <td>Relatório de Listagem XML Recebidos</td>
-    </tr>
-    <tr>
   </tbody>
 </table>
 </div>
 </details>
-
 
 <!--############################################### 04 #######################################################-->
 
@@ -201,103 +152,6 @@ EndIf
 RestArea(aArea)
 
 Return aBotoes
-
-<tr>
-    <td><strong>MATA061MVC</strong></td>
-    <td>
-      Ponto de Entrada na rotina MATA061 (Produto x Fornecedor), validação no campo A5_UNID.<br><br>
-      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MATA061MVC</span><br><br>
-    </td>
-    <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">Implementação</span>
-    <span class="filename">MATA061MVC</span>
-  </div>
-  <pre><code>
-User Function MATA061()
-
-Local lRet := .T.
-
-if ExistBlock("P004A01")
-   lRet := U_P004A01("MATA061MVC",PARAMIXB)
-endif
-
-Return(lRet)
-<tr>
-    <td><strong>MT103FIM</strong></td>
-    <td>
-     Ponto de entrada executado no término de gravação do documento de entrada.<br><br>
-      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MT103FIM</span><br><br>
-    </td>
-    <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">Implementação</span>
-    <span class="filename">MT103FIM</span>
-  </div>
-  <pre><code>
-User Function MT103FIM()
-   
-Local aArea := GetArea()
-Local nOpc  := PARAMIXB[1]
-Local nConfirmou := PARAMIXB[2]  
-
-If ExistBlock("P004A01")
-   U_P004A01("MT103FIM", nOpc, nConfirmou)   
-EndIf
-
-RestArea(aArea)
-
-Return
-
-<tr>
-    <td><strong>MT116AGR</strong></td>
-    <td>
-      Ponto de entrada executado após a gravação do conhecimento de frete.<br><br>
-      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MT116AGR</span><br><br>
-    </td>
-    <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">Implementação</span>
-    <span class="filename">MT116AGR</span>
-  </div>
-  <pre><code>
-User Function MT116AGR()
-   
-If ExistBlock("P004A01")
-   U_P004A01("MT116AGR")                  
-EndIf
-
-RestArea(aArea)
-
-Return
-
-<tr>
-    <td><strong>MT140SAI</strong></td>
-    <td>
-      Ponto de entrada após a gravação da operação sobre utilização de pré nota de entrada.<br><br>
-      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MT140SAI</span><br><br>
-    </td>
-    <td>
-<div class="advpl-editor">
-  <div class="header">
-    <span class="title">Implementação</span>
-    <span class="filename">MT140SAI</span>
-  </div>
-  <pre><code>
-UUser Function MT140SAI()
-   
-If ExistBlock("P004A01")
-    U_P004A01("MT140SAI", PARAMIXB[1], PARAMIXB[2], PARAMIXB[3], PARAMIXB[4], PARAMIXB[5], PARAMIXB[6], PARAMIXB[7])
-EndIf
-           
-RestArea(aArea)
-</div>
-</code></pre>
-</td>
-</tr>
   </tbody>
 </table>
 </div>
@@ -330,61 +184,6 @@ RestArea(aArea)
       <strong>2)</strong>Vetor aCols dos itens do documento</td>
           <td>Booleano (.T./.F.) valida avanço do processo.</td>
     </tr>
-    <tr>
-      <td><strong>PE004A02</strong></td>
-      <td>Ponto de entrada na  na tela de seleção de Itens do Pedido de Compra x item do documento fiscal, na validação do botão CONFIRMAR.</td>
-      <td><strong>1)</strong>Vetor aHeader dos pedidos<br>
-      <strong>2)</strong>Vetor aCols dos pedidos</td>
-          <td>Booleano (.T./.F.) valida avanço do processo.</td>
-    </tr>
-    <tr>
-      <td><strong>PE004A03</strong></td>
-      <td>Ponto de entrada para validação no botão Finalizar antes de iniciar a gravação do documento fiscal.</td>
-      <td>N/A</td>
-          <td>Booleano (.T./.F.) valida avanço do processo.</td>
-    </tr>
-    <tr>
-      <td><strong>PE004A04</strong></td>
-      <td>Executa ponto de entrada para complementar as regras de carga\vinculo do produto interno com o produto da NFe</td>
-      <td>N/A</td>
-          <td>N/A</td>
-    </tr>
-    <tr>
-    <td><strong>PE004A05</strong></td>
-      <td>Substituiu regras padrões de replicação da TE</td>
-      <td>N/A</td>
-          <td>N/A</td>
-    </tr>    
-    <tr>
-      <td><strong>PE004A06</strong></td>
-      <td>Ponto de entrada antes da gravação do registro na tabela de<br>arquivos XML (ZA1), permindo manipualção na filial a ser gravada.</td>
-      <td><strong>1)</strong>Filial atual a ser gravada<br>
-      <strong>2)</strong>Tipo do Documento (1=NFe,2=Cte)<br>
-      <strong>3)</strong>Objeto oXML</td>
-          <td>Filial a ser gravada.</td>
-    </tr>
-    <tr>
-      <td><strong>PE004A07</strong></td>
-      <td>Ponto de entrada antes da gravação do registro na tabela de<br>arquivos XML (ZA1), permindo efetuar validação e se necessário <br>não gravar o registro.</td>
-      <td><strong>1)</strong>Filial atual a ser gravada<br>
-      <strong>2)</strong>Tipo do Documento (1=NFe,2=Cte)<br>
-      <strong>3)</strong>Objeto oXML</td>
-          <td>Lógico.</td>
-    </tr>
-    <tr>
-      <td><strong>PE004A08</strong></td>
-      <td>Ponto de entrada após a gravação do registro na tabela de<br>arquivos XML (ZA1)</td>
-      <td><strong>1)</strong>Filial atual a ser gravada<br>
-      <strong>2)</strong>Tipo do Documento (1=NFe,2=Cte)<br>
-      <strong>3)</strong>Objeto oXML</td>
-          <td>Nenhum.</td>
-    </tr>
-     <tr>
-      <td><strong>PE004A09</strong></td>
-      <td>Ponto de entrada antes da exclusão do registro na tabela de arquivos XML (ZA1)</td>
-      <td>Nenhum.</td>
-          <td>Lógico.</td>
-    </tr>
   </tbody>
 </table>
 
@@ -401,8 +200,6 @@ RestArea(aArea)
 
 ### <span style="display: none;">6. Tabelas (SX2)</span> 
 
-No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/Base de Dados” (CFGX031), inclua a(s)nova(s)  configurações conforme instruções a seguir:
-
 <table class="banks-table">
   <thead>
     <tr>
@@ -415,34 +212,41 @@ No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/B
   </thead>
   <tbody>
     <tr>
-      <td><strong>Z04</strong></td>
-      <td>CONTAS DE E-MAILS</td>
+      <td><strong>SZK</strong></td>
+      <td>FAZENDAS</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
     </tr>
     <tr>
-      <td><strong>Z05</strong></td>
-      <td>USUÁRIOS X PERMISSÕES</td>
+      <td><strong>SZL</strong></td>
+      <td>FAZENDAS X BLOCOS</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
     </tr>
     <tr>
-      <td><strong>Z06</strong></td>
-      <td>TAGS</td>
+      <td><strong>SZM</strong></td>
+      <td>FAZENDAS X BLOCOS X QUADRAS</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
     </tr>
     <tr>
-      <td><strong>ZA1</strong></td>
-      <td>XML RECEBIDOS</td>
+      <td><strong>SZN</strong></td>
+      <td>FAZENDAS X CULTIVOS</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
       <td>Exclusivo</td>
     </tr>
-    
+    <tr>
+      <td><strong>SZO</strong></td>
+      <td>FAZENDAS X CULTIVOS X LOGS</td>
+      <td>Exclusivo</td>
+      <td>Exclusivo</td>
+      <td>Exclusivo</td>
+    </tr>
+
   </tbody>
 </table>
 </div>
@@ -457,5860 +261,42566 @@ No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/B
 
 ### <span style="display: none;">7. Campos (SX3)</span>
 
-No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/Base de Dados” (CFGX031), inclua a(s)nova(s)  configurações conforme instruções a seguir:
-
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_FILIAL**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **NN9_CODIGO**</span>
 </summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>01</td>
-      <th>Tamanho</th>
-      <td>2</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Filial</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Filial do Sistema</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
--
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_CODIGO**</span>
-</summary>
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>NN9</td>
       <th>Ordem</th>
       <td>02</td>
+      <th>Nível</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
       <td>6</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>-</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>x</td>
+    </tr>
+    <tr>
       <th>Browse</th>
       <td>S</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Código</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Código de Identificação</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>x xxxx</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Código</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Código</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Code</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Codigo do Servico</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Codigo del Servicio</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Service code</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>ExistChav(""NN9"",M->NN9_CODIGO)</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Código de identificação da conta de e-mail.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>GETSX8NUM("Z04", "Z04_CODIGO")</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>GetSX8Num(""NN9"",""NN9_CODIGO"")</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>N</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>1</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_DESC**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **NN9_DESCRI**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>NN9</td>
       <th>Ordem</th>
       <td>03</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
+      <th>Nível</th>
+      <td>1</td>
     </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Descrição</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Descrição do E-mail</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Descrição\identificação a respeito da conta de e-mail..
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_USER**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
     <tr>
       <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>04</td>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>15</td>
+      <td>40</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>-</td>
       <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
+      <td>x</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Usuário</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Login do E-mail</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Login do usuário da conta de e-mail.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_PASS**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>05</td>
-      <th>Tamanho</th>
-      <td>15</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Senha</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Senha da Conta</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Senha da conta de e-mail.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_SMTP**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>50</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
       <th>Browse</th>
       <td>S</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Smtp</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Servidor Smtp</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>x xxxx</td>
     </tr>
   </tbody>
 </table>
-#### **Help**
-<div class="help-box" markdown="1">
-Endereço Servidor Smtp
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_PSMTP**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>07</td>
-      <th>Tamanho</th>
-      <td>4</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@ 9999</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Porta</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Porta Smtp</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Porta de conexão smtp.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
+#### **Títulos (Multilíngue)**
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_RECBTO**</span>
-</summary>
-<div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>08</td>
-      <th>Tamanho</th>
-      <td>01</td>
-      <th>Decimal</th>
-      <td>0</td>
+      <th>Título (PT)</th>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Descripcion</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Description</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Descricao do Servico</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Descrip. del Servicio</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Description of service</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
       <th>Formato</th>
       <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Recebimento</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Protocolo de Recebimento</td>
+      <th>Validação</th>
+      <td>NaoVazio()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Define o protocolo utilizado para o recebimento de e-mails.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>U_C004AENV()</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>I= Imap; P= Pop</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>"P"</td>
-    </tr>
-    <tr>
+      <td>A</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>N</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>1</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_IMAP**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **B1_X_UCROM**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SB1</td>
       <th>Ordem</th>
-      <td>09</td>
+      <td>F9</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
       <th>Tamanho</th>
-      <td>50</td>
+      <td>7</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Um Romaneio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Um Romaneo</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Um Romaneio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Unidade Medida Romaneio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Unidade Medida Romaneo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Unidade Medida Romaneio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 9,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>9</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **B1_X_MCROM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SB1</td>
+      <th>Ordem</th>
+      <td>FA</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
       <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Imap</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Servidor Imap</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Fator Conv.</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Factor Conv.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Fator Conv.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Fator de Conversão</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Factor de Conversión</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Fator de Conversão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Endereço do servidor Imap.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>A</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Divisão;2=Multiplicação</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=División2=Multiplicación</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Divisão;2=Multiplicação</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""1""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>9</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_PIMAP**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **B1_X_TPINS**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SB1</td>
       <th>Ordem</th>
-      <td>10</td>
+      <td>FB</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>04</td>
+      <td>1</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
       <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Porta</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Porta Imap</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Tipo Insumo</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Tipo Insumo</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Tipo Insumo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Tipo de Insumo</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Tipo del Insumo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Tipo de Insumo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Porta de conexão Imap.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>A</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_POP**</span>
-</summary>
-<div class="content-body" markdown="1">
+#### **Listas de Opções (Multilíngue)**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>11</td>
-      <th>Tamanho</th>
-      <td>50</td>
-      <th>Decimal</th>
+      <th>Lista Opções (PT)</th>
+      <td>1=Fertilizante;2=Herbicida</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Fertilizante;2=Herbicida</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Fertilizante;2=Herbicida</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>9</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Pop</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Servidor Pop</td>
     </tr>
   </tbody>
 </table>
-#### **Help**
-<div class="help-box" markdown="1">
-Endereço do servidor Pop.
-</div>
-#### **Configurações adicionais**
+
+#### **Parâmetros de Sistema**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>F3</th>
-      <td>-</td>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_PPOP**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **C2_OBS**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SC2</td>
       <th>Ordem</th>
       <td>12</td>
+      <th>Nível</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>4</td>
+      <td>50</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@ 9999</td>
     </tr>
     <tr>
       <th>Contexto</th>
-      <td>Real</td>
+      <td>-</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>-</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Porta</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Porta Pop</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>x  x x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Observacao</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Observacion</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Notes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Observacao</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Observacion</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Notes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Porta de conexão Pop.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>A</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>S</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>2</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_TIMOUT**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **C2_CODSAF**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>N</td>
+      <th>Arquivo</th>
+      <td>SC2</td>
       <th>Ordem</th>
-      <td>13</td>
+      <td>AH</td>
+      <th>Nível</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>15</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>-</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>x   xx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Cod. Safra</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Cód. Cosecha</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Cd of Crop</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Safra</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la cosecha</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Code of Crop</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Vazio() .Or. ExistCpo('NJU')</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>NJU</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>130</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>N</td>
+      <th>Ortografia</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>2</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **C2_CODSAF**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SC2</td>
+      <th>Ordem</th>
+      <td>AI</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
       <td>2</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@E 99</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
       <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Timeout</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Timeout da Conta</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Fazenda</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Hacienda</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Informe o intervalo de tempo da conta de e-mail.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>SZK</td>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>60</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI1</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_SSL**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **C2_X_CDBLQ**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
+      <th>Arquivo</th>
+      <td>SC2</td>
+      <th>Ordem</th>
+      <td>AJ</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
       <th>Tipo</th>
-      <td>C</td>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>5</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Zona</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SZL</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI2</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **C2_X_CDTAL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SC2</td>
+      <th>Ordem</th>
+      <td>AK</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>5</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Quad.\Talhão</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Parcela</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Quad.\Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Talhão</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Parcela</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SZM</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI3</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **C2_X_CDSAF**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SC2</td>
+      <th>Ordem</th>
+      <td>AL</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Safra</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Zafra</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Safra</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Safra</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Zafra</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Safra</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@R 9999/9999</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>ZC0</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **C2_X_NRROM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SC2</td>
+      <th>Ordem</th>
+      <td>AM</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>15</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Romaneio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Romaneo</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Romaneio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Número do Romaneio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Numero del Romaneo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Número do Romaneio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>ZCB</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **D3_X_CFAZ**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SD3</td>
+      <th>Ordem</th>
+      <td>9Z</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Fazenda</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Hacienda</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SZK</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI1</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **D3_X_CBLQ**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SD3</td>
+      <th>Ordem</th>
+      <td>A0</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>5</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Zona</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SZL</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI2</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **D3_X_CTAL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SD3</td>
+      <th>Ordem</th>
+      <td>A1</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>5</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Quad.\Talhão</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Parcela</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Quad.\Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Quadra\Talhão</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Parcela</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Quadra\Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SZM</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI3</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **D3_X_CDAPL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SD3</td>
+      <th>Ordem</th>
+      <td>A2</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Aplicação</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Aplicación</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Aplicação</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Aplicação</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área de Aplicación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Aplicação</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Área Total;2=Área Cultivo;3=Área Semente;4=Área Reforma;5=Área Danos</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Área Total;2=Área Cultivo;3=Área Semilla;4=Área Reforma;5=Área Danos</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Área Total;2=Área Cultivo;3=Área Semente;4=Área Reforma;5=Área Danos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **D3_X_TMAPL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SD3</td>
+      <th>Ordem</th>
+      <td>A3</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Ap.</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Área Ap.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Ap.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área Aplicação</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área Aplicación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área Aplicação</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **D3_X_APLUN**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SD3</td>
+      <th>Ordem</th>
+      <td>A4</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>12</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Ap. Hectare</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Ap. Hectárea</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Ap. Hectare</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Aplicação por Hectare</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Aplicación por Hectárea</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Aplicação por Hectare</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **D3_X_SAFRA**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SD3</td>
+      <th>Ordem</th>
+      <td>A5</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Safra</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Zafra</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Safra</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Safra</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Zafra</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Safra</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@R 9999/9999</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>ZC0</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **D3_X_CODSV**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SD3</td>
+      <th>Ordem</th>
+      <td>A6</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Serviço</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Servicio</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Serviço</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Serviço</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Codigo del Servicio</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Serviço</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Vazio() .OR. ExistCpo(""NN9"")</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>NN9</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **D3_X_BLAPL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SD3</td>
+      <th>Ordem</th>
+      <td>A7</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Boletim</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Boletín</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Boletim</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Boletim de Aplicação</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Boletín de Aplicación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Boletim de Aplicação</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **D3_X_INATR**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SD3</td>
+      <th>Ordem</th>
+      <td>A8</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Indice ATR</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Indice ATR</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Indice ATR</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Indice Açucar Total Red.</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Indice Azúcar Total Red.</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Indice Açucar Total Red.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **D3_X_NRROM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SD3</td>
+      <th>Ordem</th>
+      <td>A9</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>15</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Romaneio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Romaneo</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Romaneio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Número Romaneio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Numero del Romaneo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Número Romaneio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>ZCB</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **F5_X_USAOP**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SF5</td>
+      <th>Ordem</th>
+      <td>20</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Utiliza OP?</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Utilice OP?</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Utiliza OP?</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Utiliza Ordem Produção?</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Utilice Orden Producción?</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Utiliza Ordem Produção?</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>1</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_FILIAL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
+      <th>Ordem</th>
+      <td>01</td>
+      <th>Nível</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Filial</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Sucursal</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Branch</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Filial do Sistema</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Sucursal</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Branch of the System</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>033</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_CODIGO**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
+      <th>Ordem</th>
+      <td>02</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Fazenda</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Hacienda</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI1</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_DESC**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
+      <th>Ordem</th>
+      <td>03</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>30</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Descripción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Descrição</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Descrição da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Descripción de la Haciend</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Descrição da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_SETOR**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
+      <th>Ordem</th>
+      <td>04</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Setor</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Sector</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Setor</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Setor da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Sector de la Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Setor da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_ORIGEM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
+      <th>Ordem</th>
+      <td>05</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Origem</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Origen</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Origem</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Origem da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Origen de la Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Origem da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Própria;2=Terceiros;3=Arrendada</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Propria;2=Terceros;3=Alquilado</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Própria;2=Terceiros;4=Arrendada</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""1""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_GERAPRD**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
+      <th>Ordem</th>
+      <td>06</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Produção</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Produção</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Produção</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Gera Produção</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Gera Producción</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Gera Produção</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""1""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U04</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_OPERA**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
+      <th>Ordem</th>
+      <td>07</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Operação</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Operación</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Operação</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Operação</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Operación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Operação</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Vazio() .OR. ExistCpo(""ZCT"")</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>ZCT</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>M->ZK_ORIGEM==""2""</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U04</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_FILROM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
+      <th>Ordem</th>
+      <td>08</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Filial Rom.</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Sucursal Rom</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Filial Rom.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Filial Registro Romaneios</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Sucursal del Romaneo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Filial Registro Romaneios</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SM0</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>Vazio() .OR. ExistCpo(""SM0"", cEmpAnt+M->ZK_FILROM)</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U04</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_NUMNFP**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
+      <th>Ordem</th>
+      <td>09</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Virtual</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Número Nfp</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Num. Factura</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Número Nfp</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Número NF Produtor</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Numero de la Factura</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Número NF Produtor</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>U_CESP01NFP()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>U_CESP01INF()</td>
+      <th>Grupo SXG</th>
+      <td>018</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U04</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_CODFOR**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
+      <th>Ordem</th>
+      <td>10</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Código</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Código</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Código</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Fornecedor</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código del Proveedor</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Fornecedor</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SA2</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>001</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_LOJFOR**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
+      <th>Ordem</th>
+      <td>11</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>4</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Loja</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Tienda</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Loja</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Loja do Fornecedor</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Tienda del Proveedor</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Loja do Fornecedor</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>002</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_NOMFOR**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
+      <th>Ordem</th>
+      <td>12</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>50</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Virtual</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Nome</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Nombre</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Nome</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Nome do Fornecedor</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Nombre del Proveedor</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Nome do Fornecedor</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>POSICIONE(""SA2"", 1, XFILIAL(""SA2"") + SZK->ZK_CODFOR + SZK->ZK_LOJFOR, ""A2_NOME"")</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>IIF(!INCLUI, POSICIONE(""SA2"", 1, XFILIAL(""SA2"") + M->ZK_CODFOR + M->ZK_LOJFOR, ""A2_NOME""), """")</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_AREATOT**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
+      <th>Ordem</th>
+      <td>13</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>16</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Total</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Area Total</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Total</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área Total da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Area Total de la Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área Total da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 9,999,999,999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U03</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_USERLGI**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZK</td>
       <th>Ordem</th>
       <td>14</td>
+      <th>Nível</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>17</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
       <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Utiliza SSL</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Utiliza SSL</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Log de Inclu</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Log de Inclu</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Log de Inclu</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Determina se o servidor utiliza SSL.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_TLS**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZK_USERLGA**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZK</td>
       <th>Ordem</th>
       <td>15</td>
+      <th>Nível</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>17</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
       <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Utiliza TLS</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Utiliza TLS</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Log de Alter</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Log de Alter</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Log de Alter</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Determina se o servidor utiliza TLS.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_TPIMP**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZL_FILIAL**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
+      <th>Arquivo</th>
+      <td>SZL</td>
+      <th>Ordem</th>
+      <td>01</td>
+      <th>Nível</th>
+      <td>1</td>
+    </tr>
+    <tr>
       <th>Tipo</th>
-      <td>C</td>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>-</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Filial</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Sucursal</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Branch</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Filial do Sistema</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Sucursal</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Branch of the System</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>-</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>033</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>-</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZL_CODIGO**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZL</td>
+      <th>Ordem</th>
+      <td>02</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Fazenda</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Hacienda</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Codigo de la Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI1</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZL_BLOCO**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZL</td>
+      <th>Ordem</th>
+      <td>03</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>5</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Bloco</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Zona</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Bloco</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Bloco</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Bloco</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI2</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZL_DESBLQ**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZL</td>
+      <th>Ordem</th>
+      <td>04</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>20</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Nome</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Nombre</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Nome</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Nome do Bloco</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Nombre de la Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Nome do Bloco</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZL_AREAPLT**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZL</td>
+      <th>Ordem</th>
+      <td>05</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Plantación</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área de Plantación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZM_FILIAL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZM</td>
+      <th>Ordem</th>
+      <td>01</td>
+      <th>Nível</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Filial</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Sucursal</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Branch</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Filial do Sistema</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Sucursal</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Branch of the System</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>033</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZM_CODIGO**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZM</td>
+      <th>Ordem</th>
+      <td>02</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Fazenda</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Hacienda</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI1</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZM_BLOCO**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZM</td>
+      <th>Ordem</th>
+      <td>03</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>5</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Zona</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI2</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZM_TALHAO**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZM</td>
+      <th>Ordem</th>
+      <td>04</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>5</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Talhão</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Parcela</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Talhão</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Codigo de la Parcela</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI3</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZM_NOME**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZM</td>
+      <th>Ordem</th>
+      <td>05</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>20</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Descripción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Descrição</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Descrição do Talhão</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Descripción de la Parcela</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Descrição do Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZM_DETAMB**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZM</td>
+      <th>Ordem</th>
+      <td>06</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Ambiente</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Entorno</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Ambiente</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Ambiente de Produção</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Entorno de Producción</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Ambiente de Produção</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>A=A;B=B;C=C;D=D;E=E</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>A=A;B=B;C=C;D=D;E=E</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>A=A;B=B;C=C;D=D;E=E</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZM_AREAPLT**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZM</td>
+      <th>Ordem</th>
+      <td>07</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Plantación</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área de Plantación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>Positivo()</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZM_ENTCTB**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZM</td>
+      <th>Ordem</th>
+      <td>08</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Contábil</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Contabilidad</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Contábil</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Entidade Contábil</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Entidad Contable</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Entidade Contábil</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>006</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZM_USERLGI**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZM</td>
+      <th>Ordem</th>
+      <td>09</td>
+      <th>Nível</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>17</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Log de Inclu</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Log de Inclu</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Log de Inclu</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZM_USERLGA**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZM</td>
+      <th>Ordem</th>
+      <td>10</td>
+      <th>Nível</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>17</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Log de Alter</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Log de Alter</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Log de Alter</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZM_DESBLQ**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZM</td>
+      <th>Ordem</th>
+      <td>10</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>20</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Nome</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Nombre</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Nome</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Nome do Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Nombre de la Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Nome do Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_FILIAL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>01</td>
+      <th>Nível</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Filial</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Sucursal</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Branch</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Filial do Sistema</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Sucursal</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Branch of the System</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>033</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_CODIGO**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>02</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Fazenda</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Hacienda</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>SZK->ZK_CODIGO</td>
+      <th>Grupo SXG</th>
+      <td>UI1</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DESC**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>03</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>30</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Virtual</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Descripción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Descrição</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Descrição da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Descripción del Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Descrição da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>SZK->ZK_DESC</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>SZK->ZK_DESC</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_SETOR**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>04</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Setor</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Sector</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Setor</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Setor da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Sector de la Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Setor da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_LAYOUT**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>05</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Layout</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Layout</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Layout</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Layout Controle de Custos</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Layout Control de Costos</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Layout Controle de Custos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Por Fazenda;2=Por Fazenda + Bloco\Zona;3=Por Fazenda + Bloco\Zona + Quadra\Talhão</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Por Hacienda;2=Por Fazenda + Zona;3=Por Fazenda + Zona + Talhão</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Por Fazenda;2=Por Fazenda + Bloco\Zona;3=Por Fazenda + Bloco\Zona + Quadra\Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_SAFRA**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>06</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Safra</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Zafra</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Safra</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Safra</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Zafra</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Safra</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@R 9999/9999</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Vazio() .OR. ExistCpo(""ZC0"")</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>ZC0</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>INCLUI</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_CODCLI**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>07</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Cliente</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Cliente</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Cliente</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Cliente</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código del Cliente</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Cliente</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SA1</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>001</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U04</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_LOJCLI**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>08</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>4</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Loja</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Tienda</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Loja</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Loja do Cliente</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Tienda del Cliente</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Loja do Cliente</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>002</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U04</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_NOMCLI**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>09</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>50</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Nome</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Nombre</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Nome</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Nome do Cliente</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Nombre del Cliente</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Nome do Cliente</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U04</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DISCLI**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>10</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Distância</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Distancia</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Distância</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Distância em Km</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Distancia en Km</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Distância em Km</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U04</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_BLOCO**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>11</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>5</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Zona</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI2</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DESBLQ**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>12</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>20</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Nome</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Nombre</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Nome</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Nome do Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Nombre de la Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Nome do Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_AREABLQ**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>13</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Plantación</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Area de Plantación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_ITEM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>14</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Item</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Iten</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Item</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Item</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Iten</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Item</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_TALHAO**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>15</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>5</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Talhão</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Parcela</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Talhão</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Parcela</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI3</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DESTAL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
       <th>Ordem</th>
       <td>16</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>20</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>x</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>-</td>
-       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Importação</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Utiliza Tipo de Importação</td>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Descripción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Descrição</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Descrição do Talhão</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Descripción de la Parcela</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Descrição do Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Define a regra de importação dos e-mails que será considerada para integração<br> 
-da conta de e-mail.<br> 
-<strong>1-</strong> Somente serão importados os arquivos XML onde o CNPJ do destinatário dos mesmos for igual a filial logada.<br>
-<strong>2-</strong>Serão importados todos os arquivos XML onde o CNPJ do destinatário seja<  igual ao CNPJ de qualquer empresa\filial existente no ambiente.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Filial Logada; 2=Todas as Filiais;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>"1"</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_EPROC**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DETAMB**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZN</td>
       <th>Ordem</th>
       <td>17</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
       <td>1</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
       <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Processados</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">E-mails Processados</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Ambiente</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Entorno</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Ambiente</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Ambiente de Produção</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Entorno de Producción</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Ambiente de Produção</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Determina a ação que deverá ser realizada com os e-mails processados que possuem arquivo XML de documentos fiscais que foram importados.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Excluir;2=Manter;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>"2"</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>A=A;B=B;C=C;D=D;E=E</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>A=A;B=B;C=C;D=D;E=E</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>A=A;B=B;C=C;D=D;E=E</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_EIGNOR**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_PRDCOL**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZN</td>
       <th>Ordem</th>
       <td>18</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>15</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
       <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Ignorados</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">E-mails Ignorados</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Cultivo</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Cultivo</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Produto de Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Producto de Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Produto de Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Vazio() .OR. ExistCpo(""SB1"")</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Determina a ação que deverá ser realizada com os e-mails recebidos que não possuem arquivo XML de documentos fiscais e com isto foram ignorados.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>SB1</td>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Excluir;2=Manter;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>"2"</td>
-    </tr>
-    <tr>
+      <td>A</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z04_MSBLQL**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DESCOL**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZN</td>
       <th>Ordem</th>
       <td>19</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>30</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
       <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>-</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Bloqueado?</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Registro bloqueado</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Descripción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Descrição</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Descrição do Produto</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Descripción del Producto</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Descrição do Produto</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Determina se a conta de e-mail esta bloqueada.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Sim;2=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>"2"</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_FILIAL**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_UM**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZN</td>
       <th>Ordem</th>
-      <td>01</td>
+      <td>20</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
       <td>2</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
       <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>-</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Filial</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Filial do Sistema</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Um</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Um</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Um</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Unidade de Medida</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Unidad de Medida</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Unidade de Medida</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Vazio() .OR. ExistCpo(""SAH"")</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
--
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>SAH</td>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>122</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_ID**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_TAMAREA**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZN</td>
       <th>Ordem</th>
-      <td>02</td>
+      <td>21</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Tam. Área</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Tam. Parcela</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Tam. Área</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Tamanho da Área</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Tamanho de la Parcela</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Tamanho da Área</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_AREACUL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>22</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Cultivo</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Área Cultivo</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área del Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_AREASEM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>23</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Semente</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Área Sem.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Semente</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Mudas</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área Semillas</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Mudas</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_AREAREF**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>24</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Reforma</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Área Renov.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Reforma</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Reforma</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área de Renovación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Reforma</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_AREADAN**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>25</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Danos</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Área Daños</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Danos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Danos</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área de Daños</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Danos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_FRACAO**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>26</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Fração</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fracción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Fração</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Fração de Produção</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fracción de Producción</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Fração de Produção</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_QTDAREA**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>27</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>15</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Qtd Prevista</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Ctd Prevista</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Qtd Prevista</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Qtd. Colheita Prevista</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Ctd. Cosecha Prevista</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Qtd. Colheita Prevista</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999,999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_ORDPROD**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>28</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
       <td>6</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>-</td>
-       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">ID Usuário</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">ID Usuário no Ambiente</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Código de identificação do usuário no ambiente.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>Usuários</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>U_X004A02("X004A0201")</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_LOGIN**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>03</td>
-      <th>Tamanho</th>
-      <td>15</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Login</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Login do Usuário</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
-#### **Help**
-<div class="help-box" markdown="1">
-Login do usuário no ambiente.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_NOME**</span>
-</summary>
-<div class="content-body" markdown="1">
+#### **Títulos (Multilíngue)**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>04</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
-      <td>0</td>
+      <th>Título (PT)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Ordem de Produção</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Orden de Produción</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Ordem de Produção</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
       <th>Formato</th>
       <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Nome</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Nome do Usuário</td>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Nome completo do usuário.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_EMAIL**</span>
-</summary>
-<div class="content-body" markdown="1">
+#### **Listas de Opções (Multilíngue)**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>05</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">E-mail</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">E-mail do Usuário.</td>
     </tr>
   </tbody>
 </table>
-#### **Help**
-<div class="help-box" markdown="1">
-E-mail do usuário.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_FUNCAO**</span>
-</summary>
-<div class="content-body" markdown="1">
+#### **Parâmetros de Sistema**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>20</td>
-      <th>Decimal</th>
+      <th>PR E C N O</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Função</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Função do Usuário.</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Função do usuário junto a empresa.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_DEPTO**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_AREATOT**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZN</td>
       <th>Ordem</th>
-      <td>07</td>
-      <th>Tamanho</th>
-      <td>20</td>
-      <th>Decimal</th>
+      <td>29</td>
+      <th>Nível</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>-</td>
-      <th>Browse</th>
-      <td>-</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Departamento</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Departamento do Usuário</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Departamento no qual o usuário esta inserido\vinculado.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG01**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
     <tr>
       <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>08</td>
+      <td>Numérico</td>
       <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Permissões</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Permissões</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso ao cadastro de Usuários X Permissões.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG02**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>09</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Contas de E-mail</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Contas de E-mail</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso ao cadastro de Conta de E-mail.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG03**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>10</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Importa XML</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Possibilita Importar XML</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso a importar XML.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>M=Manual;E=Email;T=Todos;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG04**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>11</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Exporta XML</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Possibilita Exportar XML</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso a exportar XML.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG05**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>12</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Exclui XML</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Possibilita Excluir XML</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso a excluir XML.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG06**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>13</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Processa XML</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Possibilita Processar XML</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso a processar XML.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG07**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>14</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>-</td>
-       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Fornecedor</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Inclui Fornecedor</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso a incluir fornecedor.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG08**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>15</td>
-      <th>Tamanho</th>
-      <td>1</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>s</td>
-      <th>Usado</th>
-      <td>s</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Produto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Inclui Produto</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Determina se o usuário possui acesso a incluir produto.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG09**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
       <td>16</td>
-      <th>Tamanho</th>
-      <td>1</td>
       <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>x</td>
+    </tr>
+    <tr>
       <th>Browse</th>
       <td>S</td>
-       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Prod X For</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Produto X Fornecedor</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Area Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área Total de Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Area Total de Plantación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área Total de Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 9,999,999,999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Determina se a amarração de Produto X Fornecedor será salva
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U03</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG10**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DTPLA**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZN</td>
       <th>Ordem</th>
+      <td>30</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data do Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha del Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data do Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_CODVAR**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>31</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Variedade</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Variedad</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Variedade</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Variedade</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Variedad</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Variedade</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>ZDKC1</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DESVAR**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>32</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>20</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Descripción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Descrição</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Descrição da Variedade</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Descripción Variedad</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Descrição da Variedade</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_ESPLIN**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>33</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Espaçamento</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Espacio</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Espaçamento</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Espaçamento do Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Distancia de Plantación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Espaçamento do Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_CODEST**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>34</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Estágio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fase</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Estágio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Estágio de Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fase del Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Estágio de Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>ZDKC2</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DESEST**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>35</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>20</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Descripción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Descrição</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Descrição do Estágio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Descripción del Estagio</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Descrição do Estágio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_CODSRV**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>36</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Serviço</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Servicio</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Serviço</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Serviço\Situação Atual</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Servicio\Situación Actual</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Serviço\Situação</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Vazio() .Or. ExistCpo(""NN9"")</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>NN9</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DESSRV**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>37</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>20</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Descripción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Descrição</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Descrição do Serviço</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Descripción del Servicio</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Descrição do Serviço</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DTFEC**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>38</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Término</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Termino</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Término</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data de Finalização</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha de Finalización</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data de Finalização</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DTSEM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>39</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Sementes</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Semilla</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Sementes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data de Colheita Sementes</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha de Cosecha Semilla</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data de Colheita Sementes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_QTSEM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>40</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>12</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Qt. Sementes</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Ctd. Semilla</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Qt. Sementes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Quantidade de Sementes</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Cantidad de Semillas</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Quantidade de Sementes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DTCOL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>41</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Colheita</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Cosecha</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Colheita</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data de Colheita</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha de la Cosecha</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data de Colheita</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_USERLGI**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>42</td>
+      <th>Nível</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
       <td>17</td>
-      <th>Tamanho</th>
-      <td>1</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
       <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Gerar Doc.</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Gerar Documento</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Log de Inclu</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Log de Inclu</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Log de Inclu</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Determina qual o tipo de documento o usuário poderá gerar sobre as NFe.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>P=Pre Nota;D=Documento Entrada;I=Informado no Momento;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z05_REG11**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_USERLGA**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZN</td>
       <th>Ordem</th>
-      <td>18</td>
+      <td>43</td>
+      <th>Nível</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>17</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
       <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Valida XML</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Validar XML</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Log de Alter</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Log de Alter</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Log de Alter</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Determina se deve validar o XML da NFe junto ao Sefaz antes do processamento
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>S=Sim;N=Não;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_FILIAL**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_MESCIC**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>44</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
       <th>Tipo</th>
-      <td>C</td>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Ciclo</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Ciclo</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Ciclo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Ciclo em Meses</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Meses del Ciclo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Ciclo em Meses</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DTADU**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>45</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Adubação</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Fert.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Adubação</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data Adubação</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha Fertilización</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data Adubação</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DIACUL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>46</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>5</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dias Cultivo</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Días Cultivo</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dias Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Dias de Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Días de Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Dias de Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 99999</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DTHER**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>47</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Herb.</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Herb.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Herb.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data Herbicida</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha Herbicida</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data Herbicida</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_DIAHER**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>48</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>5</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dias Herb.</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Días Herb.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dias Herb.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Dias de Herbicida</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Días de Herbicida</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Dias de Herbicida</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 99999</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZN_STATUS**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZN</td>
+      <th>Ordem</th>
+      <td>49</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Status</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Status</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Status</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Status Talhão\Safra</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Status Parcela\Zafra</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Status Talhão\Safra</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Planejado;2=Em Execução;3=Finalizado</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Planeado;2=En Ejecución;3=Finalizado</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Planejado;2=Em Execução;3=Finalizado</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""1""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_FILIAL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>01</td>
+      <th>Nível</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
       <td>2</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
-      <td>Real</td>
+      <td>-</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
       <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>-</td>
-       <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Filial</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Filial do Sistema.</td>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Filial</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Sucursal</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Branch</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Filial do Sistema</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Sucursal</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Branch of the System</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Filial do sistema.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
       <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>033</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>-</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_TIPO**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_CODIGO**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>02</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>2</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>x</td>
+    </tr>
+    <tr>
       <th>Browse</th>
       <td>S</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Tipo</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Tipo da Tag</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Fazenda</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Hacienda</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Tipo\aplicação da Tag.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Carga;2=Validação;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI1</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_DOC**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DESC**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>03</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>30</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
-      <td>Real</td>
+      <td>Virtual</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>x</td>
+    </tr>
+    <tr>
       <th>Browse</th>
       <td>S</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Documento</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Documento Referente a Tag.</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Descripción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Descrição</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Descrição da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Descripción del Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Descrição da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Determina para qual documento se aplica a definição de Tag.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=Nfe;2=Cte;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
+      <td>SZL->ZL_DESC</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_VERSAO**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_SAFRA**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>04</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>1</td>
+      <td>9</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>x</td>
+    </tr>
+    <tr>
       <th>Browse</th>
       <td>S</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Versão</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Versão do Documento</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Safra</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Zafra</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Safra</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Safra</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Zafra</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Safra</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@R 9999/9999</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Informe a versão do documento referente a tag.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>ZC0</td>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=2.0;3=3.10;Z=Todas;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>Vazio() .OR. ExistCpo(""ZC0"")</td>
+      <th>Inicializador</th>
+      <td>INCLUI</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_DESC**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_ITEM**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>05</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
       <th>Tipo</th>
-      <td>C</td>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Item</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Iten</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Item</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Item</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Iten</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Item</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_BLOCO**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>06</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>30</td>
+      <td>5</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>x</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Descrição</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Descrição da Tag</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
-#### **Help**
-<div class="help-box" markdown="1">
-Descrição\informações da tag.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_RAIZ**</span>
-</summary>
-<div class="content-body" markdown="1">
+#### **Títulos (Multilíngue)**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>06</td>
-      <th>Tamanho</th>
-      <td>50</td>
-      <th>Decimal</th>
-      <td>0</td>
+      <th>Título (PT)</th>
+      <td>Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Zona</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
       <th>Formato</th>
       <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Raiz</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Raiz da Tag</td>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Raiz de localização da tag dentro da estrutura do arquivo XML do documento.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI2</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_NIVEL**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DESBLQ**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>07</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>30</td>
+      <td>20</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>x</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
-       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Nivel 1</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Nivel 1 da Tag</td>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Descripción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Descrição</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Descrição Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Descripción de la Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Descrição Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Nível 1 da Tag no XML do documento fiscal.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_TAG**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_TALHAO**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>08</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>15</td>
+      <td>5</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>x</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Tag</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Tag de Dados</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Quadr\Talhão</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Parcela</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Quadr\Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Quadra\Talhão</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Parcela</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Quadra\Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Nome da tag presente no arquivo XML do documento fiscal.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI3</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_ALIAS**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DESTAL**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>09</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>20</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Descripción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Descrição</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Descrição Quadra\Talhão</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Descripción de la Parcela</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Descrição Quadra\Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_SEQ**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>10</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
       <td>3</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Alias</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Alias de Destino</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
-#### **Help**
-<div class="help-box" markdown="1">
-Informe o nome do alias de destino do conteúdo existente na tag junto ao XML.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_CAMPO**</span>
-</summary>
-<div class="content-body" markdown="1">
+#### **Títulos (Multilíngue)**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>10</td>
-      <th>Tamanho</th>
-      <td>10</td>
-      <th>Decimal</th>
-      <td>0</td>
+      <th>Título (PT)</th>
+      <td>Seq.</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Sec.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Seq.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Sequência do Log</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Secuencia del Log</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Sequência do Log</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
       <th>Formato</th>
       <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Campo</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Campo de Destino</td>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Campo presente no alias de destino no qual será encaminhado o conteúdo da tag.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_WHEN**</span>
-</summary>
-<div class="content-body" markdown="1">
+#### **Listas de Opções (Multilíngue)**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>12</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Modo Edição</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Modo Edição Tag\Campo</td>
     </tr>
   </tbody>
 </table>
-#### **Help**
-<div class="help-box" markdown="1">
-Regras de validação do modo de edição do campo de destino do conteúdo da tag na interface de processamento do XML.
-</div>
-#### **Configurações adicionais**
+
+#### **Parâmetros de Sistema**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>F3</th>
-      <td>-</td>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
     </tr>
     <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_VALID**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_PRDCOL**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>11</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>15</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Cultivo</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Cultivo</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Produto de Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Producto de Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Produto de Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>S</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SB1</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>Vazio() .OR. ExistCpo(""SB1"")</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DESCOL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>12</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
       <td>30</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Alterar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Validação</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Validação da Tag\Campo.</td>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Descrição</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Descripción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Descrição</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Descrição do Produto</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Descripción del Producto</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Descrição do Produto</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Validação da Tag\Campo executada na interface de processamento.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_VLDUSR**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_UM**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>13</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
+      <th>Nível</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Vld. Usuário</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Validação de Usuário
-</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Validação de usuário que será executada na edição da tag junto a interface de processamento do XML Terceiros.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_ORIGEM**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
     <tr>
       <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>13</td>
-      <th>Tamanho</th>
-      <td>C</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Alterar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Origem</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Origem da Tag</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Origem da tag existente no ADD-ON de XML Terceiros.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>P=Padrão;E=Específica;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **Z06_ID**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>14</td>
-      <th>Tamanho</th>
-      <td>6</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">ID da Tag</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Código do ID da Tag</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Código de identificação único da tag.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
-
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_FILIAL**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>01</td>
+      <td>Caracter</td>
       <th>Tamanho</th>
       <td>2</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Filial</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Código da Filial</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Um</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Um</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Um</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Unidade de Medida</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Unidad de Medida</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Unidade de Medida</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Vazio() .OR. ExistCpo(""SAH"")</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Código da filial
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>SAH</td>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>122</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_TIPO**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_TAMAREA**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
-      <td>02</td>
+      <td>14</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Tam. Área</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Tam. Parcela</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Tam. Área</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Tamanho da Área</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Tamanho de la Parcela</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Tamanho da Área</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_FRACAO**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>15</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Fração</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fracción</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Fração</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Fração de Produção</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fracción de Producción</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Fração de Produção</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_QTDAREA**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>16</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>15</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Qtd Prevista</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Ctd Prevista</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Qtd Prevista</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Qtd. Colheita Prevista</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Ctd. Cosecha Prevista</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Qtd. Colheita Prevista</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999,999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_ORDPROD**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>17</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Ordem de Produção</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Orden de Produción</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Ordem de Produção</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_AREATOT**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>18</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>16</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>x</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>S</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Area Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área Total de Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Area Total de Plantación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área Total de Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 9,999,999,999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U03</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_AREACUL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>19</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Cultivo</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Área Cultivo</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área del Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_AREASEM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>20</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Semente</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Área Sem.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Semente</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Mudas</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área Semillas</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Mudas</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_AREAREF**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>21</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Reforma</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Área Renov.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Reforma</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Reforma</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área de Renovación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Reforma</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_AREADAN**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>22</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Danos</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Área Daños</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Danos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Danos</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área de Daños</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Danos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DTPLA**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>23</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data do Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha del Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data do Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_CODVAR**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>24</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Variedade</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Variedad</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Variedade</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Variedade</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Variedad</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Variedade</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>#U_GCCBXZDK(""C1"")</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>#U_GCCBXZDK(""C1"")</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>#U_GCCBXZDK(""C1"")</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_ESPLIN**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>25</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Espaçamento</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Espacio</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Espaçamento</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Espaçamento do Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Distancia de Plantación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Espaçamento do Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_CODEST**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>26</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Estágio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fase</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Estágio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Estágio de Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fase del Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Estágio de Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>#U_GCCBXZDK(""C2"")</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>#U_GCCBXZDK(""C2"")</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>#U_GCCBXZDK(""C2"")</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_CODSRV**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>27</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Serviço</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Servicio</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Serviço</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Serviço\Situação Atual</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Servicio\Situación Actual</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Serviço\Situação</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Vazio() .Or. ExistCpo(""NN9"")</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>NN9</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DTFEC**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>28</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Término</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Termino</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Término</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data de Finalização</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha de Finalización</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data de Finalização</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DTSEM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>29</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Sementes</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Semilla</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Sementes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data de Colheita Sementes</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha de Cosecha Semilla</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data de Colheita Sementes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_QTSEM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>30</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>12</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Qt. Sementes</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Ctd. Semilla</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Qt. Sementes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Quantidade de Sementes</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Cantidad de Semillas</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Quantidade de Sementes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DTCOL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>31</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Colheita</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Cosecha</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Colheita</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data de Colheita</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha de la Cosecha</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data de Colheita</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_STATUS**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>32</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
       <td>1</td>
       <th>Decimal</th>
       <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Status</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Status</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Status</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Status Talhão\Safra</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Status Parcela\Zafra</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Status Talhão\Safra</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
       <th>Formato</th>
       <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Tipo</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Tipo do Documento</td>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Tipo do documento fiscal referente ao XML.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>1=NFe;2=Cte;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Planejado;2=Em Execução;3=Finalizado</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Planeado;2=En Ejecución;3=Finalizado</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Planejado;2=Em Execução;3=Finalizado</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""1""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_CHAVE**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DATA**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
-      <td>03</td>
+      <td>33</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
       <th>Tamanho</th>
-      <td>44</td>
+      <td>8</td>
       <th>Decimal</th>
       <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fecha</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Data</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data do Log</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha del Log</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data do Log</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_HORA**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>34</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Hora</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Tiempo</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Hora</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Horário do Log</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Tiempo del Log</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Horário do Log</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
       <th>Formato</th>
       <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Chave</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Chave da NFe\Cte</td>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Chave de acesso a NFe\Cte;
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_VERSAO**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_CODUSR**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
-      <td>04</td>
+      <td>35</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>03</td>
+      <td>6</td>
       <th>Decimal</th>
       <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Usuário</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Usuario</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Usuário</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Usuário</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Codido del Usuario</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Usuário</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
       <th>Formato</th>
       <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Versão</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Versão da NFe\Cte</td>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Versão da NFe\Cte;
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_XML**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_NOMUSR**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>M</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
-      <td>05</td>
+      <td>36</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>10</td>
+      <td>20</td>
       <th>Decimal</th>
       <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Nome</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Nombre</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Nome</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Nome do Usuário</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Nombre del Usuario</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Nome do Usuário</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
       <th>Formato</th>
       <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">XML</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Xml Original</td>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-XML original do documento fiscal.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DTEMIS**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_USERLGI**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
-      <td>06</td>
+      <td>37</td>
+      <th>Nível</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>08</td>
+      <td>17</td>
       <th>Decimal</th>
       <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Log de Inclu</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Log de Inclu</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Log de Inclu</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_USERLGA**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>38</td>
+      <th>Nível</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>17</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Log de Alter</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Log de Alter</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Log de Alter</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCB_X_CFAZ**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCB</td>
+      <th>Ordem</th>
+      <td>BB</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Fazenda</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Hacienda</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
       <th>Formato</th>
       <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Data Emissão</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Data de Emissão</td>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Data de emissão do documento fiscal.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>SZK</td>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>A</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI1</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_HREMIS**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCB_X_CBLQ**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>ZCB</td>
       <th>Ordem</th>
-      <td>07</td>
+      <td>BC</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>05</td>
+      <td>5</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@R !!:!!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Hora Emissão</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Hora de Emissão</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
-#### **Help**
-<div class="help-box" markdown="1">
-Horário de emissão do documento fiscal.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DTREC**</span>
-</summary>
-<div class="content-body" markdown="1">
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>Tipo</th>
-      <td>D</td>
-      <th>Ordem</th>
-      <td>08</td>
-      <th>Tamanho</th>
-      <td>08</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Data Recbto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Data de Recebimento</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Data de recebimento do XML da Nfe\Cte.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
+#### **Títulos (Multilíngue)**
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_HRREC**</span>
-</summary>
-<div class="content-body" markdown="1">
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>09</td>
-      <th>Tamanho</th>
-      <td>05</td>
-      <th>Decimal</th>
-      <td>0</td>
-      <th>Formato</th>
-      <td>@R !!:!!</td>
+      <th>Título (PT)</th>
+      <td>Bloco\Zona</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
+      <th>Título (ES)</th>
+      <td>Zona</td>
     </tr>
     <tr>
-      <th>Título</th>
-      <td colspan="7">Hora Recbto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Hora Recebimento</td>
+      <th>Título (EN)</th>
+      <td>Bloco\Zona</td>
     </tr>
   </tbody>
 </table>
-#### **Help**
-<div class="help-box" markdown="1">
-Hora do recebimento do XML da NFe\Cte.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_MODREC**</span>
-</summary>
-<div class="content-body" markdown="1">
+#### **Descrições (Multilíngue)**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
-      <th>Ordem</th>
-      <td>10</td>
-      <th>Tamanho</th>
-      <td>01</td>
-      <th>Decimal</th>
-      <td>0</td>
+      <th>Descrição (PT)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
       <th>Formato</th>
       <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Modo Recbto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Modo de Recebimento</td>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Modo de recebimento do XML da NFe\Cte.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>SZL</td>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>M=MANUAL; A=AUTOMATICO;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>A</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI2</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_EMAIL**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCB_X_CTAL**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>ZCB</td>
       <th>Ordem</th>
-      <td>11</td>
+      <td>BD</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>30</td>
+      <td>5</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>U</td>
       <th>Obrigatório</th>
       <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Email Recbto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">E-mail de Recebimento</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Quad.\Talhão</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Parcela</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Quad.\Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Quadra\Talhão</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Parcela</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Quadra\Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-E-mail pelo qual foi recebido o arquivo XML.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>SZM</td>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>A</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_XMLCAN**</span>
-</summary>
-<div class="content-body" markdown="1">
+#### **Listas de Opções (Multilíngue)**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>M</td>
-      <th>Ordem</th>
-      <td>12</td>
-      <th>Tamanho</th>
-      <td>10</td>
-      <th>Decimal</th>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI3</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
-    </tr>
-    <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">XML Canc</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Xml Cancelamento</td>
     </tr>
   </tbody>
 </table>
-#### **Help**
-<div class="help-box" markdown="1">
-XML de cancelamento do documento fiscal.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DTECAN**</span>
-</summary>
-<div class="content-body" markdown="1">
+#### **Parâmetros de Sistema**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>D</td>
-      <th>Ordem</th>
-      <td>13</td>
-      <th>Tamanho</th>
-      <td>08</td>
-      <th>Decimal</th>
+      <th>PR E C N O</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Data Canc.</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Data Cancelamento</td>
-    </tr>
-  </tbody>
-</table>
-#### **Help**
-<div class="help-box" markdown="1">
-Data de cancelamento do documento fiscal.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_HRECAN**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCB_X_OP**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>ZCB</td>
       <th>Ordem</th>
+      <td>BE</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
       <td>14</td>
-      <th>Tamanho</th>
-      <td>05</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@R !!:!!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Hora Canc.</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Hora de Cancelamento</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
-#### **Help**
-<div class="help-box" markdown="1">
-Horário de cancelamento do documento fiscal.
-</div>
-#### **Configurações adicionais**
-<table class="banks-table">
-  <tbody>
-    <tr>
-      <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Ini. Browse</th>
-      <td>-</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</details>
 
-<details class="field-expand" markdown="1">
-<summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DTRCAN**</span>
-</summary>
-<div class="content-body" markdown="1">
+#### **Títulos (Multilíngue)**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>D</td>
-      <th>Ordem</th>
-      <td>15</td>
-      <th>Tamanho</th>
-      <td>08</td>
-      <th>Decimal</th>
-      <td>0</td>
+      <th>Título (PT)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Ordem de Produção</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Orden de Producción</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Ordem de Produção</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
       <th>Formato</th>
       <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
     </tr>
     <tr>
-      <th>Contexto</th>
-      <td>Real</td>
-      <th>Propriedade</th>
-      <td>Visualizar</td>
-      <th>Obrigatório</th>
-      <td>S</td>
-      <th>Browse</th>
-      <td>S</td>
-      <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Data Recbto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Data de Recebimento</td>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
     </tr>
   </tbody>
 </table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Data de recebimento do cancelamento XML da Nfe\Cte.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_HRRCAN**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCB_X_ARM**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>ZCB</td>
       <th>Ordem</th>
-      <td>16</td>
+      <td>BF</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>05</td>
+      <td>3</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@R !!:!!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Hora Recbto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Hora Recebimento</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Armazém</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Deposito</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Armazém</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Armazém Saída Estoque</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Deposito Salida Stock</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Armazém Saída Estoque</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Hora do recebimento do cancelamento XML da NFe\Cte.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>NNR</td>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>024</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_MODCAN**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_SZK001**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>AT</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
       <th>Tipo</th>
-      <td>C</td>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Incluir</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Incluir Fazendas</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Incluir Haciendas</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Incluir Fazendas</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B10</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_SZK002**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>AU</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Alterar</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Modificar</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Alterar</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Alterar Fazendas</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Modificar Haciendas</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Alterar Fazendas</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B10</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_SZK003**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>AV</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Excluir</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Borrar</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Excluir</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Excluir Fazendas</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Borras Haciendas</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Excluir Fazendas</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B10</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_SZN001**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>AW</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Incluir</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Incluir Cultivos</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Incluir Cultivos</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Incluir Cultivos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B11</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_SZN002**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>AX</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Alterar</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Modificar</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Alterar</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Alterar Cultivos</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Modificar Cultivos</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Alterar Cultivos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B11</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_ORDPROD**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>17</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>01</td>
+      <td>6</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>S</td>
+      <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>S</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Modo Recbto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Modo de Recebimento</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Ordem de Produção</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Orden de Produción</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Ordem de Produção</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Modo de recebimento do cancelamento XML da NFe\Cte.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>M=MANUAL; A=AUTOMATICO;</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U02</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_EMAILC**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_AREATOT**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>18</td>
-      <th>Tamanho</th>
-      <td>30</td>
-      <th>Decimal</th>
+      <th>Nível</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>16</td>
+      <th>Decimal</th>
+      <td>2</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>U</td>
       <th>Obrigatório</th>
-      <td>-</td>
+      <td>x</td>
+    </tr>
+    <tr>
       <th>Browse</th>
       <td>S</td>
       <th>Usado</th>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Email Recbto</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">E-mail de Recebimento</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Area Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área Total de Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Area Total de Plantación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área Total de Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 9,999,999,999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-E-mail pelo qual foi recebido o arquivo XML de cancelamento do documento.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U03</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_DOC**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_AREACUL**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>19</td>
-      <th>Tamanho</th>
-      <td>09</td>
-      <th>Decimal</th>
+      <th>Nível</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>U</td>
       <th>Obrigatório</th>
       <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>-</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Documento</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Número do Documento</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Cultivo</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Área Cultivo</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área del Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Número do documento\nota fiscal o qual se refere o XML.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_SERIE**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_AREASEM**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>20</td>
-      <th>Tamanho</th>
-      <td>03</td>
-      <th>Decimal</th>
+      <th>Nível</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>U</td>
       <th>Obrigatório</th>
       <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>-</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Série</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Série do Documento</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Semente</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Área Sem.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Semente</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Mudas</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área Semillas</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Mudas</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Série do documento\nota fiscal o qual se refere o XML.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>A</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_CLIFOR**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_AREAREF**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>21</td>
-      <th>Tamanho</th>
-      <td>06</td>
-      <th>Decimal</th>
+      <th>Nível</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>U</td>
       <th>Obrigatório</th>
       <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>-</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Código</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Código do cliente\fornecedor.</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Reforma</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Área Renov.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Reforma</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Reforma</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área de Renovación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Reforma</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Código do cliente\fornecedor no ambiente referente ao documento fiscal.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>A</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_LOJA**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_AREADAN**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>22</td>
-      <th>Tamanho</th>
-      <td>02</td>
-      <th>Decimal</th>
+      <th>Nível</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>9</td>
+      <th>Decimal</th>
+      <td>2</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>U</td>
       <th>Obrigatório</th>
       <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>-</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Loja</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Loja do cliente\fornecedor.</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Área Danos</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Área Daños</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Área Danos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Área de Danos</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Área de Daños</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Área de Danos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Loja do cliente\fornecedor no ambiente referente ao documento fiscal.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>A</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_CGC**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DTPLA**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>SZO</td>
       <th>Ordem</th>
       <td>23</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Plantio</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data do Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha del Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data do Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_CODVAR**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>24</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Variedade</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Variedad</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Variedade</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Variedade</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Variedad</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Variedade</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>#U_GCCBXZDK(""C1"")</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>#U_GCCBXZDK(""C1"")</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>#U_GCCBXZDK(""C1"")</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_ESPLIN**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>25</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Espaçamento</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Espacio</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Espaçamento</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Espaçamento do Plantio</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Distancia de Plantación</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Espaçamento do Plantio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_CODEST**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>26</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Estágio</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fase</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Estágio</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Estágio de Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fase del Cultivo</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Estágio de Cultivo</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>#U_GCCBXZDK(""C2"")</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>#U_GCCBXZDK(""C2"")</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>#U_GCCBXZDK(""C2"")</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_CODSRV**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>27</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Serviço</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Servicio</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Serviço</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Serviço\Situação Atual</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Servicio\Situación Actual</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Serviço\Situação</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Vazio() .Or. ExistCpo(""NN9"")</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>NN9</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DTFEC**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>28</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Término</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Termino</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Término</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data de Finalização</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha de Finalización</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data de Finalização</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DTSEM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>29</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Sementes</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Semilla</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Sementes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data de Colheita Sementes</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha de Cosecha Semilla</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data de Colheita Sementes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_QTSEM**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>30</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Numérico</td>
+      <th>Tamanho</th>
+      <td>12</td>
+      <th>Decimal</th>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Qt. Sementes</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Ctd. Semilla</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Qt. Sementes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Quantidade de Sementes</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Cantidad de Semillas</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Quantidade de Sementes</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@E 999,999,999.99</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>Positivo()</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DTCOL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>31</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Dt. Colheita</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fc. Cosecha</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Dt. Colheita</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data de Colheita</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha de la Cosecha</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data de Colheita</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_STATUS**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>32</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Status</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Status</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Status</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Status Talhão\Safra</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Status Parcela\Zafra</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Status Talhão\Safra</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Planejado;2=Em Execução;3=Finalizado</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Planeado;2=En Ejecución;3=Finalizado</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Planejado;2=Em Execução;3=Finalizado</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""1""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>U01</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_DATA**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>33</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Data</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Data</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Fecha</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Data</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Data do Log</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Fecha del Log</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Data do Log</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_HORA**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>34</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>8</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Hora</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Tiempo</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Hora</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Horário do Log</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Tiempo del Log</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Horário do Log</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_CODUSR**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>35</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>6</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Usuário</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Usuario</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Usuário</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Usuário</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Codido del Usuario</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Usuário</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_NOMUSR**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>36</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>20</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Nome</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Nombre</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Nome</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Nome do Usuário</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Nombre del Usuario</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Nome do Usuário</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_USERLGI**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>37</td>
+      <th>Nível</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>17</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Log de Inclu</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Log de Inclu</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Log de Inclu</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Log de Inclusao</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZO_USERLGA**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>SZO</td>
+      <th>Ordem</th>
+      <td>38</td>
+      <th>Nível</th>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>17</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Log de Alter</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Log de Alter</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Log de Alter</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Log de Alteracao</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>-</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCB_X_CFAZ**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCB</td>
+      <th>Ordem</th>
+      <td>BB</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>2</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Fazenda</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Hacienda</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Hacienda</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Fazenda</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SZK</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI1</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCB_X_CBLQ**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCB</td>
+      <th>Ordem</th>
+      <td>BC</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>5</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Zona</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Zona</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código do Bloco\Zona</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SZL</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI2</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCB_X_CTAL**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCB</td>
+      <th>Ordem</th>
+      <td>BD</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>5</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Quad.\Talhão</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Parcela</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Quad.\Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Código da Quadra\Talhão</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Código de la Parcela</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Código da Quadra\Talhão</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>SZM</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>UI3</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCB_X_OP**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCB</td>
+      <th>Ordem</th>
+      <td>BE</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
       <td>14</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@R 99.999.999/9999-99</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>U</td>
       <th>Obrigatório</th>
       <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>-</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">CNPJ</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">CNPJ Cliente\Fornecedor</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Ord. Prod.</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Ordem de Produção</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Orden de Producción</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Ordem de Produção</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-CNPJ do cliente\fornecedor vinculado ao documento fiscal.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>V</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
 </table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 </div>
 </details>
 
 <details class="field-expand" markdown="1">
 <summary markdown="1">
-<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZA1_STATUS**</span>
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCB_X_ARM**</span>
 </summary>
+
 <div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
 <table class="banks-table">
   <tbody>
     <tr>
-      <th>Tipo</th>
-      <td>C</td>
+      <th>Arquivo</th>
+      <td>ZCB</td>
       <th>Ordem</th>
-      <td>24</td>
+      <td>BF</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
       <th>Tamanho</th>
-      <td>01</td>
+      <td>3</td>
       <th>Decimal</th>
       <td>0</td>
-      <th>Formato</th>
-      <td>@!</td>
     </tr>
     <tr>
       <th>Contexto</th>
       <td>Real</td>
       <th>Propriedade</th>
-      <td>Visualizar</td>
+      <td>U</td>
       <th>Obrigatório</th>
       <td>-</td>
+    </tr>
+    <tr>
       <th>Browse</th>
-      <td>-</td>
+      <td>N</td>
       <th>Usado</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Título</th>
-      <td colspan="7">Status</td>
-    </tr>
-    <tr>
-      <th>Descrição</th>
-      <td colspan="7">Status do XML</td>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
     </tr>
   </tbody>
 </table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Armazém</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Deposito</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Armazém</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Armazém Saída Estoque</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Deposito Salida Stock</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Armazém Saída Estoque</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
 #### **Help**
+
 <div class="help-box" markdown="1">
-Status do registro do XML de Terceiros.
+Memo
 </div>
-#### **Configurações adicionais**
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>NNR</td>
+      <th>Modo Edição</th>
+      <td>V</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>024</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>-</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>-</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_SZK001**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>AT</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Incluir</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Incluir Fazendas</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Incluir Haciendas</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Incluir Fazendas</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
 <table class="banks-table">
   <tbody>
     <tr>
       <th>F3</th>
       <td>-</td>
-    </tr>
-    <tr>
       <th>Modo Edição</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Val. Usuário</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Lista Opções</th>
-      <td>-</td>
-    </tr>
-    <tr>
-      <th>Inicializador</th>
-      <td>-</td>
-    </tr>
-    <tr>
+      <td>A</td>
       <th>Ini. Browse</th>
       <td>-</td>
     </tr>
   </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B10</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_SZK002**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>AU</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Alterar</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Modificar</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Alterar</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Alterar Fazendas</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Modificar Haciendas</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Alterar Fazendas</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B10</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_SZK003**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>AV</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Excluir</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Borrar</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Excluir</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Excluir Fazendas</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Borras Haciendas</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Excluir Fazendas</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B10</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_SZN001**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>AW</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Incluir</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Incluir Cultivos</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Incluir Cultivos</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Incluir Cultivos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B11</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_SZN002**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>AX</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Alterar</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Modificar</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Alterar</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Alterar Cultivos</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Modificar Cultivos</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Alterar Cultivos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B11</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_SZN003**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>AY</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Excluir</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Borrar</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Excluir</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Excluir Cultivos</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Borrar Cultivos</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Excluir Cultivos</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B11</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_NN9001**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>AZ</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Incluir</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Incluir Serviços</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Incluir Servicios</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Incluir Serviços</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B12</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_NN9002**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>B0</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Alterar</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Modificar</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Alterar</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Alterar Serviços</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Modificar Servicios</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Alterar Serviços</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B12</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_NN9003**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>B1</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Excluir</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Borrar</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Excluir</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Excluir Serviços</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Borrar Servicios</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Excluir Serviços</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>2</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>B12</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_SD3BE1**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>B2</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Incluir</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Incluir Baixas Estoque</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Incluir Bajas del Stock</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Incluir Baixas Estoque</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>""2""</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>8</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>G06</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Campo</span> **ZCU_SD3AC1**</span>
+</summary>
+
+<div class="content-body" markdown="1">
+
+#### **Informações Básicas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Arquivo</th>
+      <td>ZCU</td>
+      <th>Ordem</th>
+      <td>B3</td>
+      <th>Nível</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tipo</th>
+      <td>Caracter</td>
+      <th>Tamanho</th>
+      <td>1</td>
+      <th>Decimal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Contexto</th>
+      <td>Real</td>
+      <th>Propriedade</th>
+      <td>U</td>
+      <th>Obrigatório</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Browse</th>
+      <td>N</td>
+      <th>Usado</th>
+      <td>x       x       x       x       x       x       x       x       x       x       x       x       x       x       x x</td>
+      <th>Reservado</th>
+      <td>xxxxxx x</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Títulos (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Título (PT)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (ES)</th>
+      <td>Incluir</td>
+    </tr>
+    <tr>
+      <th>Título (EN)</th>
+      <td>Incluir</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Descrições (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Descrição (PT)</th>
+      <td>Incluir Ap. Colheita</td>
+    </tr>
+    <tr>
+      <th>Descrição (ES)</th>
+      <td>Incluir Ap. Cosecha</td>
+    </tr>
+    <tr>
+      <th>Descrição (EN)</th>
+      <td>Incluir Ap. Colheita</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Formato e Validação**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Formato</th>
+      <td>@!</td>
+      <th>Pict. Variável</th>
+      <td>-</td>
+      <th>Pict. Browse</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Validação</th>
+      <td>-</td>
+      <th>Check</th>
+      <td>-</td>
+      <th>Trigger</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Help**
+
+<div class="help-box" markdown="1">
+Memo
+</div>
+
+#### **Configurações de Browse e Edição**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>F3</th>
+      <td>-</td>
+      <th>Modo Edição</th>
+      <td>A</td>
+      <th>Ini. Browse</th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Listas de Opções (Multilíngue)**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Lista Opções (PT)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (ES)</th>
+      <td>1=Si;2=No</td>
+    </tr>
+    <tr>
+      <th>Lista Opções (EN)</th>
+      <td>1=Sim;2=Não</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Configurações Avançadas**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>Val. Usuário</th>
+      <td>-</td>
+      <th>Inicializador</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Relação</th>
+      <td>-</td>
+      <th>Grupo SXG</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Folder</th>
+      <td>8</td>
+      <th>PYME</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Cond. SQL</th>
+      <td>-</td>
+      <th>Chk SQL</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Idx Servidor</th>
+      <td>-</td>
+      <th>Ortografia</th>
+      <td>N</td>
+    </tr>
+    <tr>
+      <th>Idx Campo</th>
+      <td>N</td>
+      <th>Tela</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Agrupamento</th>
+      <td>G07</td>
+      <th>Posição LGT</th>
+      <td>-</td>
+    </tr>
+    <tr>
+      <th>Modal</th>
+      <td>-</td>
+      <th>PF L A G</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
+#### **Parâmetros de Sistema**
+
+<table class="banks-table">
+  <tbody>
+    <tr>
+      <th>PR E C N O</th>
+      <td>0</td>
+      <th>PM 0 E M P</th>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>ID Package</th>
+      <td>000003</td>
+      <th></th>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+</details>
+</tbody>
 </table>
 </div>
 </details>
@@ -6327,10 +42837,6 @@ Status do registro do XML de Terceiros.
 
 ### <span style="display: none;">8. Criação no arquivo SIX - Índices</span>
 
-No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/Base de Dados” (CFGX031), inclua a(s)nova(s)  configurações conforme instruções a seguir:
-
-<strong>TABELA: ZA4 - CONTAS E-MAILS</strong>
-
 <table class="banks-table">
   <thead>
     <tr>
@@ -6343,126 +42849,45 @@ No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/B
   </thead>
   <tbody>
     <tr>
-      <td><strong>Z04</strong></td>
+      <td><strong>SZK</strong></td>
       <td>1</td>
-      <td>Z04_FILIAL+Z04_CODIGO</td>
-      <td>Codigo</td>
-      <td>Z0401</td>
+      <td>ZK_FILIAL+ZK_CODIGO</td>
+      <td>Fazenda</td>
+      <td>SZK01</td>
       <tr>
-      <td><strong>Z04</strong></td>
+      <td><strong>SZK</strong></td>
       <td>2</td>
-      <td>Z04_FILIAL+Z04_DESC</td>
+      <td>ZK_FILIAL+ZK_DESC</td>
       <td>Descricao</td>
-      <td>Z0402</td>
+      <td>SZK02</td>
       </tr>
-       </tbody>
-  </thead>
-</table>
-  
-<strong>TABELA: ZA5 - USUÁRIOS X PERMISSÕES</strong>
- <table class="banks-table">
-  <thead>
-    <tr>
-      <th>Indice</th>
-      <th>Ordem</th>
-      <th>Chave</th>
-      <th>Descrição</th>
-      <th>NickName</th>
-    </tr>
-  </thead>
-  <tbody>
    <tr>
-      <td><strong>Z05</strong></td>
+      <td><strong>SZL</strong></td>
       <td>1</td>
-      <td>Z05_FILIAL+Z05_ID</td>
-      <td>ID Usuario</td>
-      <td>Z0501</td>
+      <td>ZL_FILIAL+ZL_CODIGO+ZL_BLOCO</td>
+      <td>Fazenda+Bloco</td>
+      <td>SZL01</td>
     </tr>
-</tbody>
-</thead>
-</table>
-
-<table class="banks-table">
-  <thead>
     <tr>
-      <th>Indice</th>
-      <th>Ordem</th>
-      <th>Chave</th>
-      <th>Descrição</th>
-      <th>NickName</th>
-    </tr>
-  </thead>
- <strong>TABELA: ZA5 - TAGS</strong>
- <thead>
-    <tr>
-      <td><strong>Z06</strong></td>
+      <td><strong>SZM</strong></td>
       <td>1</td>
-      <td>Z06_FILIAL+Z06_TAG</td>
-      <td>Tag</td>
-      <td>Z0601</td>
+      <td>ZM_FILIAL+ZM_CODIGO+ZM_BLOCO+ZM_TALHAO</td>
+      <td>Fazenda+Bloco\Zona+Talhão</td>
+      <td>SZM01</td>
     </tr>
     <tr>
-      <td><strong>Z06</strong></td>
-      <td>2</td>
-      <td>Z06_FILIAL+Z06_TIPO+Z06_TAG</td>
-      <td>Tipo+Tag</td>
-      <td>Z0602</td>
-    </tr>
-    <tr>
-      <td><strong>Z06</strong></td>
-      <td>3</td>
-      <td>Z06_FILIAL+Z06_CAMPO</td>
-      <td>Campo</td>
-      <td>Z0603</td>
-     <tr>
-      <td><strong>Z06</strong></td>
-      <td>4</td>
-      <td>Z06_FILIAL+Z06_ALIAS</td>
-      <td>Alias</td>
-      <td>Z0604</td>
-    </tr>
-    <tr>
-      <td><strong>Z06</strong></td>
-      <td>5</td>
-      <td>Z06_FILIAL+Z06_ID</td>
-      <td>ID da Tag</td>
-      <td>Z0605</td>
-    </tr>
-   </tbody>
-</table>
-
-<strong>TABELA: ZA1 - XML RECEBIDOS</strong>
- <table class="banks-table">
-  <thead>
-    <tr>
-      <th>Indice</th>
-      <th>Ordem</th>
-      <th>Chave</th>
-      <th>Descrição</th>
-      <th>NickName</th>
-    </tr>
-  </thead>
-  <tbody>
-   <tr>
-      <td><strong>ZA1</strong></td>
+      <td><strong>SZN</strong></td>
       <td>1</td>
-      <td>ZA1_FILIAL+ZA1_CHAVE</td>
-      <td>Chave</td>
-      <td>ZA101</td>
+      <td>ZN_FILIAL+ZN_CODIGO+ZN_SAFRA+ZN_BLOCO+ZN_TALHAO</td>
+      <td>Fazenda+Safra+Bloco\Zona+Talhão</td>
+      <td>SZN01</td>
     </tr>
     <tr>
-      <td><strong>ZA1</strong></td>
-      <td>2</td>
-      <td>ZA1_FILIAL+ZA1_CLIFOR+ZA1_LOJA</td>
-      <td>Codigo+Loja</td>
-      <td>ZA102</td>
-    </tr>
-    <tr>
-      <td><strong>ZA1</strong></td>
-      <td>3</td>
-      <td>ZA1_FILIAL+ZA1_DOC+ZA1_SERIE+ZA1_CLIFOR+ZA1_LOJA</td>
-      <td>Documento+Serie+Codigo+Loja</td>
-      <td>ZA103</td>
+      <td><strong>SZO</strong></td>
+      <td>1</td>
+      <td>ZO_FILIAL+ZO_CODIGO+ZO_BLOCO+ZO_TALHAO+ZO_SAFRA+ZO_SEQ</td>
+      <td>Fazenda+Bloco\Zona+Quadr\Talhão+Safra+Seq.</td>
+      <td>SZO01</td>
     </tr>
 </tbody>
 </thead>
@@ -6480,8 +42905,6 @@ No “Configurador (SIGACFG)”, opção “Ambiente/Base de Dados/Dicionário/B
 
 ### <span style="display: none;">9. Parâmetros (SX6)</span>
 
-No “Configurador (SIGACFG)”, opção “Ambiente/Cadastros/Parâmetros” (CFGX017), inclua\verifique a(s)nova(s)  configurações conforme instruções a seguir:
-
 <table class="banks-table">
   <thead>
     <tr>
@@ -6493,151 +42916,1914 @@ No “Configurador (SIGACFG)”, opção “Ambiente/Cadastros/Parâmetros” (C
   </thead>
   <tbody>
     <tr>
-      <td><strong>MV_X004000</strong></td>
-      <td>Lógico</td>
-      <td>Determina se o ADD-ON de XML recebidos de terceiros está disponível para a empresa\filial.</td>
-      <td>.T.</td>
+      <td><strong>MV_XCESP00</strong></td>
+      <td>C</td>
+      <td>Caractere inicial de composição da identificação.</td>
+      <td>F</td>
     </tr>
     <tr>
-      <td><strong>MV_X004001</strong></td>
-      <td>Caracter</td>
-      <td>Alias utilizado para a rotina de cadastro de conta de e-mail. ADD-ON XML Terceiros.</td>
-      <td>Z04</td>
+      <td><strong>MV_XCESP01</strong></td>
+      <td>C</td>
+      <td>Tipo de movimentacao utilizado para entrada.</td>
+      <td>001</td>
     </tr>   
     <tr>
-      <td><strong>MV_X004002</strong></td>
-      <td>Caracter</td>
-      <td>Alias utilizado para a rotina de cadastro de usuários x permissões. ADD-ON XML Terceiros.</td>
-      <td>Z05</td>
+      <td><strong>MV_XCESP02</strong></td>
+      <td>C</td>
+      <td>Tipo de movimentação utilizado para requisição.</td>
+      <td>501</td>
     </tr>   
     <tr>
-      <td><strong>MV_X004003</strong></td>
-      <td>Caracter</td>
-      <td>Alias utilizado para a rotina de cadastro de tags.</td>
-      <td>Z06</td>
+      <td><strong>MV_XCESP03</strong></td>
+      <td>C</td>
+      <td>Identificação inicial para composição de Centro.</td>
+      <td>SAF</td>
     </tr>   
     <tr>
-      <td><strong>MV_X004004</strong></td>
-      <td>Caracter</td>
-      <td>Alias utilizado para a rotina de XML recebidos.</td>
-      <td>ZA1</td>
+      <td><strong>MV_XCESP04</strong></td>
+      <td>C</td>
+      <td>Identificação de Grupo\Produtos para composição.</td>
+      <td>CPA</td>
     </tr>   
     <tr>
-      <td><strong>MV_X004005</strong></td>
-      <td>Caracter</td>
-      <td>Nome do campo da tabela SD1 referente a descrição dos produtos.</td>
-      <td>D1_X_DESC</td>
+      <td><strong>MV_XCESP05</strong></td>
+      <td>C</td>
+      <td>Conta Contábil para vinculo ao Produto utilizado.</td>
+      <td>-</td>
     </tr>   
     <tr>
-      <td><strong>MV_X004006</strong></td>
-      <td>Caracter</td>
-      <td>Determina se deve adicionar zeros a esquerda no número do documento (1), série (2) ou ambos (3)no processamento do XML Terceiros.</td>
-      <td>3</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004007</strong></td>
-      <td>Lógico</td>
-      <td>Determina se deve carregar a natureza financeira vinculada ao cadastro do cliente\fornecedor para o processamento do XML Terceiros.</td>
-      <td>.T.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004008</strong></td>
-      <td>Caracter</td>
-      <td>Determina se deve carregar a conta contábil (1)centro de custos (2) ou ambos (3) do cadastro do produto ao item do XML Terceiros.</td>
-      <td>3</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004009</strong></td>
-      <td>Lógico</td>
-      <td>Determina se considera a condição de pagamento dos pedidos de compra no processamento XML Terceiros.</td>
-      <td>.T.</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004010</strong></td>
-      <td>Numérico</td>
-      <td>Determina o percentual de tolerância da quantidade F x saldo Pedido de Compras.
-       <br>Para desativar, informar 999.   </td>
- <td>999</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004011</strong></td>
-      <td>Númerico</td>
-      <td>ADetermina o percentual de tolerância do valor unitário NF x Pedido de Compras (a maior)<br>
-      Para desativar, informar 999.   </td>
-      <td>999</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004012</strong></td>
-      <td>Numérico</td>
-      <td>Determina o percentual de tolerância no valor total da NF e valor total do XML. (a maior ou menor) <br>
-      Para desativar, informar 999.</td>
-      <td>999</td>
-    </tr>   
-    <tr>
-      <td><strong>MV_X004013</strong></td>
-      <td>Lógico</td>
-      <td>Preenchimento do Valor Unitário na Pré-Nota/NF
-      <br><strong>.T.</strong> =  Considera o valor do xml.<br><strong>.F. </strong> = Considera o valor do Pedido de Compras (padrão)</td>
+      <td><strong>MV_XCESP06</strong></td>
+      <td>L</td>
+      <td>Executa apontamento de produção.</td>
       <td>.F.</td>
     </tr>   
     <tr>
-      <td><strong>MV_X004014</strong></td>
-      <td>Lógico</td>
-      <td>Considera regras personalizadas para garantir que o valor do ICMS e ICMS ST do XML seja aplicado no Documento de Entrada.
-      <br><strong>.T.</strong> = Considera as regras.<br><strong>.F. </strong> = Não considera as regras</td>
-      <td>.F.</td>    
+      <td><strong>MV_XCESP07</strong></td>
+      <td>L</td>
+      <td>Deve cancelar Romaneio quando é estornado.</td>
+      <td>.F.</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_XCESP08</strong></td>
+      <td>C</td>
+      <td>Entidade contábil auxiliar referente à Fazendas.</td>
+      <td>05</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_XCESP09</strong></td>
+      <td>C</td>
+      <td>Entidade contábil auxiliar referente à Safras.</td>
+      <td>06</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_XCESP10</strong></td>
+      <td>C</td>
+      <td>Tipo de movimentação utilizado para apontamento.</td>
+ <td>010</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_XCESP11</strong></td>
+      <td>L</td>
+      <td>Permite modificar denifições de plantio.</td>
+      <td>.T.</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_XCESP12</strong></td>
+      <td>C</td>
+      <td>Tipo de movimentação utilizado na rotina de Baixa.</td>
+      <td>501</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_XCESP13</strong></td>
+      <td>C</td>
+      <td>Código do serviço vinculado aos apontamentos.</td>
+      <td>-</td>
+    </tr>   
+    <tr>
+      <td><strong>MV_XCESP14</strong></td>
+      <td>C</td>
+      <td>Determina se haverá incidência de produção</td>
+      <td>1</td>    
     </tr>   
     </tr>   
     <tr>
-      <td><strong>MV_X004015</strong></td>
-      <td>Caracter</td>
-      <td>Efetua a importação de arquivo .xml CTe que possua uma Nota Referenciada já incluída por outro Cte.
-      <br><strong>S</strong> = Sim<br><strong>N </strong> = Não</td>
-      <td>S</td>    
-    </tr>   
-    <tr>
-      <td><strong>MV_X004016</strong></td>
-      <td>Lógico</td>
-      <td>Exibe mensagem na importação XML de divergência de CNPJ de importação diferente do XML.</td>
+      <td><strong>MV_XCESP15</strong></td>
+      <td>L</td>
+      <td>Utiliza cadastro de Serviços nas baixas de estoque</td>
       <td>.T.</td>    
     </tr>   
-     <tr>
-      <td><strong>MV_X004017</strong></td>
-      <td>Caracter</td>
-      <td>Filtra pedidos de compras para consumir na importação, considerando Filial de Inclusão Pedido de Compras ou Filial de Entrega.
-      <br><strong>I</strong> = Inclusão <br><strong>E </strong> = Entrega</td>
-      <td>Default = I</td>    
+    <tr>
+      <td><strong>MV_XCESP16</strong></td>
+      <td>N</td>
+      <td>Define o layout fixo (1, 2 ou 3).</td>
+      <td>3</td>    
     </tr>   
-    <tr>
-      <td><strong>MV_XMLDIR</strong></td>
-      <td>Caracter</td>
-      <td>Diretório dos XMLs para importação manual via SIGAGFE.</td>
-      <td>\XML\SIGAGFE\CTE\</td>    
-    </tr> 
      <tr>
-      <td><strong>MV_RESTNFE</strong></td>
-      <td>Caracter</td>
-      <td>Indica se restringe o uso de pedidos bloqueados pelo controle de alçadas do recebimento de materiais.</td>
-      <td>N</td>    
-    </tr>    
-    <tr>
-      <td><strong>MV_ALTPRCC</strong></td>
-      <td>Caracter</td>
-      <td>Permite configurar se o preço unitário do produto pode ser alterado no registro da entrada da nota fiscal ou na inclusão da autorização de entrega, mesmo que os valores tenham sido informados no pedido compras, na autorização de entrega ou no contrato de parceria.<br>
-      O conteúdo desse parâmetro pode ser configurado com as seguintes opções:<br>
-      <strong>0 - </strong> Desabilitado; O preço unitário do produto pode ser alterado em qualquer situação.<br>
-      <strong>1 - </strong>Valida o preço informado no pedido de compras, ou seja, no registro da entrada da nota fiscal (rotina Documento de Entrada) e não permite que seja alterado o preço unitário do produto quando relacionado a um pedido de compras.<br>
-      <strong>2 –</strong>Valida o preço informado na autorização de entrega, ou seja, no registro da entrada da nota fiscal (rotina Documento de Entrada) e não permite que seja alterado o preço unitário do produto quando relacionado a uma autorização de entrega.<br>
-      <strong>3 – </strong> = Valida o preço informado no pedido de compras e na autorização de entrega (ambos) e no registro da entrada da nota fiscal (rotina Documento de Entrada). Não permite que seja alterado o preço unitário do produto quando relacionado a um pedido de compras ou a uma autorização de entrega.<br>
-      <strong>4 – </strong> Valida o preço informado no contrato de parceria, ou seja, na inclusão da autorização de entrega e não permite que seja alterado o preço unitário do produto relacionado ao contrato.<br>
-      <strong>5 –</strong>  Valida o preço informado no contrato de parceria e na autorização de entrega.<br>
-      <strong>6 –</strong>  Valida o preço informado no pedido de compras, na autorização de entrega e no contrato de parceria.</td>
-      <td>0</td>    
-    </tr>    
+      <td><strong>MV_XCESP17</strong></td>
+      <td>L</td>
+      <td>Utiliza tela de escolha do local de estoque.</td>
+      <td>.F.</td>    
+    </tr>       
   </tbody>
 </table>
 </div>
 </details>
+
+<!--############################################### 10 #######################################################-->
+
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">10.</span> Pastas (SXA)</span>
+</summary>
+<div class="content-body" markdown="1">
+
+### <span style="display: none;">10.  Pastas (SXA)</span>
+
+<table class="banks-table">
+  <thead>
+    <tr>
+      <th>Alias</th>
+      <th>Ordem</th>
+      <th>Descrição</th>
+      <th>Agrupamento</th>
+      <th>Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>SZK</strong></td>
+      <td>1</td>
+      <td>Cadastrais</td>
+      <td>U01</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>SZK</strong></td>
+      <td>2</td>
+      <td>Fornecedor</td>
+      <td>U02</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>SZK</strong></td>
+      <td>3</td>
+      <td>Área Total</td>
+      <td>U03</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>SZK</strong></td>
+      <td>4</td>
+      <td>Controle</td>
+      <td>U04</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>SZN</strong></td>
+      <td>1</td>
+      <td>Definição de Plantio</td>
+      <td>U01</td>
+      <td>2 </td>
+    </tr>
+    <tr>
+      <td><strong>SZN</strong></td>
+      <td>2</td>
+      <td>Cultivo</td>
+      <td>UO2</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>SZN</strong></td>
+      <td>3</td>
+      <td>Área Total</td>
+      <td>UO3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>SZN</strong></td>
+      <td>4</td>
+      <td>Cliente</td>
+      <td>UO3</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>ZCB</strong></td>
+      <td>2</td>
+      <td>Cliente/ Fornecedor</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>ZCU</strong></td>
+      <td>2</td>
+      <td>Ca&dastros Cereais</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>ZCU</strong></td>
+      <td>8</td>
+      <td>&Movimentos</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>ZCU</strong></td>
+      <td>X</td>
+      <td>Fazendas</td>
+      <td>B10</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>ZCU</strong></td>
+      <td>Y</td>
+      <td>Cultivos</td>
+      <td>B11</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>ZCU</strong></td>
+      <td>Z</td>
+      <td>Serviços</td>
+      <td>B12</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>ZCU</strong></td>
+      <td>Z</td>
+      <td>Baixas do Estoque</td>
+      <td>G06</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td><strong>ZCU</strong></td>
+      <td>Z</td>
+      <td>Apontamento de Colheita</td>
+      <td>G07</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</details>
+
+<!--############################################### 11 #######################################################-->
+
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">11.</span> Perguntas Relatórios</span>
+</summary>
+<div class="content-body" markdown="1">
+
+### <span style="display: none;">11.  Perguntas Relatórios</span>
+
+<table class="banks-table">
+   <thead>
+      <tr>
+         <th>Grupo</th>
+         <th>Ordem</th>
+         <th>Pergunta</th>
+         <th>Tipo</th>
+         <th>Tamanho</th>
+         <th>Decimal</th>
+         <th>Validação</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><strong>CMESP001CM</strong></td>
+         <td>1.0</td>
+         <td>Fazenda De ?</td>
+         <td>C</td>
+         <td>2</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CMESP001CM</strong></td>
+         <td>2.0</td>
+         <td>Fazenda Até ?</td>
+         <td>C</td>
+         <td>2</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CMESP001CM</strong></td>
+         <td>3.0</td>
+         <td>Bloco\Zona De ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CMESP001CM</strong></td>
+         <td>4.0</td>
+         <td>Bloco\Zona Até ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CMESP001CM</strong></td>
+         <td>5.0</td>
+         <td>Talhão\Quadra De ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CMESP001CM</strong></td>
+         <td>6.0</td>
+         <td>Talhão\Quadra Até ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CMESP001CM</strong></td>
+         <td>7.0</td>
+         <td>Safra De ?</td>
+         <td>C</td>
+         <td>9</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CMESP001CM</strong></td>
+         <td>8.0</td>
+         <td>Safra Até ?</td>
+         <td>C</td>
+         <td>9</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CMESP001CM</strong></td>
+         <td>9.0</td>
+         <td>Produto ?</td>
+         <td>C</td>
+         <td>15</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CMESP001CM</strong></td>
+         <td>10.0</td>
+         <td>Local ?</td>
+         <td>C</td>
+         <td>6</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CMESP001CM</strong></td>
+         <td>11.0</td>
+         <td>Serviço ?</td>
+         <td>C</td>
+         <td>6</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CMESP001CM</strong></td>
+         <td>12.0</td>
+         <td>Métrica ?</td>
+         <td>N</td>
+         <td>1</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>1.0</td>
+         <td>Filial De ?</td>
+         <td>C</td>
+         <td>2</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>2.0</td>
+         <td>Filial Até ?</td>
+         <td>C</td>
+         <td>2</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>3.0</td>
+         <td>Produto De ?</td>
+         <td>C</td>
+         <td>15</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>4.0</td>
+         <td>Produto Até ?</td>
+         <td>C</td>
+         <td>15</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>5.0</td>
+         <td>Grupo De ?</td>
+         <td>C</td>
+         <td>4</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>6.0</td>
+         <td>Grupo Até ?</td>
+         <td>C</td>
+         <td>4</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>7.0</td>
+         <td>Fornecedor De ?</td>
+         <td>C</td>
+         <td>9</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>8.0</td>
+         <td>Fornecedor Até ?</td>
+         <td>C</td>
+         <td>9</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>9.0</td>
+         <td>Loja De ?</td>
+         <td>C</td>
+         <td>4</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>10.0</td>
+         <td>Loja Até ?</td>
+         <td>C</td>
+         <td>4</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>11.0</td>
+         <td>Parceria De ?</td>
+         <td>C</td>
+         <td>6</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>12.0</td>
+         <td>Parceria Até ?</td>
+         <td>C</td>
+         <td>6</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>13.0</td>
+         <td>Safra De ?</td>
+         <td>C</td>
+         <td>9</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>14.0</td>
+         <td>Safra Até ?</td>
+         <td>C</td>
+         <td>9</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>15.0</td>
+         <td>Data De ?</td>
+         <td>D</td>
+         <td>8</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>16.0</td>
+         <td>Data Até ?</td>
+         <td>D</td>
+         <td>8</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>17.0</td>
+         <td>Operação De ?</td>
+         <td>C</td>
+         <td>2</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>18.0</td>
+         <td>Operação Até ?</td>
+         <td>C</td>
+         <td>2</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>19.0</td>
+         <td>Ct. Compra De ?</td>
+         <td>C</td>
+         <td>13</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>20.0</td>
+         <td>Ct. Compra Até ?</td>
+         <td>C</td>
+         <td>13</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>21.0</td>
+         <td>Ct. Serviço De ?</td>
+         <td>C</td>
+         <td>13</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>22.0</td>
+         <td>Ct. Serviço Até ?</td>
+         <td>C</td>
+         <td>13</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>23.0</td>
+         <td>Placa De ?</td>
+         <td>C</td>
+         <td>13</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>24.0</td>
+         <td>Placa Até ?</td>
+         <td>C</td>
+         <td>13</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>25.0</td>
+         <td>Fazenda De ?</td>
+         <td>C</td>
+         <td>2</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>26.0</td>
+         <td>Fazenda Até ?</td>
+         <td>C</td>
+         <td>2</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>27.0</td>
+         <td>Bloco\Zona De ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>28.0</td>
+         <td>Bloco\Zona Até ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>29.0</td>
+         <td>Quadra\Talhão De ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>30.0</td>
+         <td>Quadra\Talhão Até ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>31.0</td>
+         <td>Romaneios ?</td>
+         <td>N</td>
+         <td>1</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP001CR</strong></td>
+         <td>32.0</td>
+         <td>Listar Análises ?</td>
+         <td>N</td>
+         <td>1</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>1.0</td>
+         <td>Produto De ?</td>
+         <td>C</td>
+         <td>15</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>2.0</td>
+         <td>Produto Até ?</td>
+         <td>C</td>
+         <td>15</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>3.0</td>
+         <td>Grupo De ?</td>
+         <td>C</td>
+         <td>4</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>4.0</td>
+         <td>Grupo Até ?</td>
+         <td>C</td>
+         <td>4</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>5.0</td>
+         <td>Fazenda De ?</td>
+         <td>C</td>
+         <td>2</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>6.0</td>
+         <td>Fazenda Até ?</td>
+         <td>C</td>
+         <td>2</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>7.0</td>
+         <td>Bloco\Zona De ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>8.0</td>
+         <td>Bloco\Zona Até ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>9.0</td>
+         <td>Quadra\Talhão De ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>10.0</td>
+         <td>Quadra\Talhão Até ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>11.0</td>
+         <td>Safra De ?</td>
+         <td>C</td>
+         <td>9</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>12.0</td>
+         <td>Safra Até ?</td>
+         <td>C</td>
+         <td>9</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>13.0</td>
+         <td>Listar Fazendas ?</td>
+         <td>C</td>
+         <td>3</td>
+         <td>0</td>
+         <td>U_XESP0101("ZK_ORIGEM", 3)</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>14.0</td>
+         <td>Ordem Produção De ?</td>
+         <td>C</td>
+         <td>6</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>15.0</td>
+         <td>Ordem Produção Até ?</td>
+         <td>C</td>
+         <td>6</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>16.0</td>
+         <td>Data Emissão De ?</td>
+         <td>D</td>
+         <td>10</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>17.0</td>
+         <td>Data Emissão Até ?</td>
+         <td>D</td>
+         <td>10</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>18.0</td>
+         <td>Serviço De ?</td>
+         <td>C</td>
+         <td>6</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>19.0</td>
+         <td>Serviço Até ?</td>
+         <td>C</td>
+         <td>6</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>20.0</td>
+         <td>Data Movimentos De ?</td>
+         <td>D</td>
+         <td>10</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>21.0</td>
+         <td>Data Movimentos Até ?</td>
+         <td>D</td>
+         <td>10</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP002CR</strong></td>
+         <td>22.0</td>
+         <td>Listar Ordens de Produção ?</td>
+         <td>C</td>
+         <td>3</td>
+         <td>0</td>
+         <td>U_XESP0101("ZN_STATUS", 3)</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP003CR</strong></td>
+         <td>1.0</td>
+         <td>Fazenda De ?</td>
+         <td>C</td>
+         <td>2</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP003CR</strong></td>
+         <td>2.0</td>
+         <td>Fazenda Até ?</td>
+         <td>C</td>
+         <td>2</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP003CR</strong></td>
+         <td>3.0</td>
+         <td>Bloco\Zona De ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP003CR</strong></td>
+         <td>4.0</td>
+         <td>Bloco\Zona Até ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP003CR</strong></td>
+         <td>5.0</td>
+         <td>Talhão\Quadra De ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP003CR</strong></td>
+         <td>6.0</td>
+         <td>Talhão\Quadra Até ?</td>
+         <td>C</td>
+         <td>5</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP003CR</strong></td>
+         <td>7.0</td>
+         <td>Safra De ?</td>
+         <td>C</td>
+         <td>9</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP003CR</strong></td>
+         <td>8.0</td>
+         <td>Safra Até ?</td>
+         <td>C</td>
+         <td>9</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>CRESP003CR</strong></td>
+         <td>9.0</td>
+         <td>Listar Mov. Produção ?</td>
+         <td>N</td>
+         <td>1</td>
+         <td>0</td>
+         <td>-</td>
+      </tr>
+   </tbody>
+</table>
+</div>
+</details>
+
+<!--############################################### 12 #######################################################-->
+
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">12.</span> Gatilhos</span>
+</summary>
+<div class="content-body" markdown="1">
+
+### <span style="display: none;">12.  Gatilhos</span>
+
+<table class="banks-table">
+   <thead>
+      <tr>
+         <th>Campo</th>
+         <th>Sequencia</th>
+         <th>Regra</th>
+         <th>Dominio</th>
+         <th>Tipo</th>
+         <th>SEEK</th>
+         <th>Alias</th>
+         <th>Ordem</th>
+         <th>Chave</th>
+         <th>Propriedade</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><strong>ZK_ORIGEM</strong></td>
+         <td>001</td>
+         <td>CRIAVAR("ZK_OPERA")</td>
+         <td>ZK_OPERA</td>
+         <td>P</td>
+         <td>N</td>
+         <td>-</td>
+         <td>0</td>
+         <td>-</td>
+         <td>U</td>
+      </tr>
+<tr>
+         <td><strong>ZN_PRDCOL</strong></td>
+         <td>001</td>
+         <td>SB1->B1_DESC</td>
+         <td>ZN_DESCOL</td>
+         <td>P</td>
+         <td>S</td>
+         <td>SB1</td>
+         <td>1</td>
+         <td></td>
+         <td>xFilial("SB1") + M->ZN_PRDCOL</td>
+      </tr>
+   </tbody>
+</table>
+</div>
+</details>
+
+<!--############################################### 13 #######################################################-->
+
+<details class="custom-expand" markdown="1">
+<summary markdown="1">
+  <span class="summary-title"><span class="summary-number">13.</span> Consultas Padrões</span>
+</summary>
+<div class="content-body" markdown="1">
+
+### <span style="display: none;">13.  Consultas Padrões</span>
+
+<table class="banks-table">
+   <thead>
+      <tr>
+         <th>XB_ALIAS</th>
+         <th>XB_TIPO</th>
+         <th>XB_SEQ</th>
+         <th>XB_COLUNA</th>
+         <th>XB_DESCRI</th>
+         <th>XB_DESCSPA</th>
+         <th>XB_DESCENG</th>
+         <th>XB_CONTEM</th>
+       </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><strong>SC2CL</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>DB</td>
+         <td>Ord. Prod. - Safras</td>
+         <td>Ord. Prod. - Zafras</td>
+         <td>Ord. Prod. - Safras</td>
+         <td>SC2</td>
+      </tr>
+      <tr>
+         <td><strong>SC2CL</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Numero da Op + Item</td>
+         <td>Nro.ord.prod + Item</td>
+         <td>P.o. No. + Item + Se</td>
+         <td>-</td>
+      </tr>
+      <tr>
+         <td><strong>SC2CL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda</td>
+         <td>Hacienda</td>
+         <td>Fazenda</td>
+         <td>C2_X_CDFAZ</td>
+      </tr>
+      <tr>
+         <td><strong>SC2CL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>02</td>
+         <td>Talhão</td>
+         <td>Parcela</td>
+         <td>Talhão</td>
+         <td>C2_X_CDTAL</td>
+      </tr>
+      <tr>
+         <td><strong>SC2CL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>03</td>
+         <td>Safra</td>
+         <td>Zafra</td>
+         <td>Safra</td>
+         <td>C2_X_CDSAF</td>
+      </tr>
+      <tr>
+         <td><strong>SC2CL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>04</td>
+         <td>Numero da OP</td>
+         <td>Nro.Ord.Prod</td>
+         <td>P.O. No.</td>
+         <td>C2_NUM</td>
+      </tr>
+      <tr>
+         <td><strong>SC2CL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>05</td>
+         <td>Produto</td>
+         <td>Producto</td>
+         <td>Product</td>
+         <td>C2_PRODUTO</td>
+      </tr>
+      <tr>
+         <td><strong>SC2CL</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>SC2->C2_NUM+SC2->C2_ITEM+SC2->C2_SEQUEN</td>
+      </tr>
+      <tr>
+         <td><strong>SZK</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>DB</td>
+         <td>Fazendas</td>
+         <td>Haciendas</td>
+         <td>Fazendas</td>
+         <td>SZK</td>
+      </tr>
+      <tr>
+         <td><strong>SZK</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>SZK01</td>
+      </tr>
+      <tr>
+         <td><strong>SZK</strong></td>
+         <td>2</td>
+         <td>02</td>
+         <td>02</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>SZK02</td>
+      </tr>
+      <tr>
+         <td><strong>SZK</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>ZK_CODIGO</td>
+      </tr>
+      <tr>
+         <td><strong>SZK</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>02</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>ZK_DESC</td>
+      </tr>
+      <tr>
+         <td><strong>SZK</strong></td>
+         <td>4</td>
+         <td>02</td>
+         <td>01</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>ZK_DESC</td>
+      </tr>
+      <tr>
+         <td><strong>SZK</strong></td>
+         <td>4</td>
+         <td>02</td>
+         <td>02</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>ZK_CODIGO</td>
+      </tr>
+      <tr>
+         <td><strong>SZK</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>SZK->ZK_CODIGO</td>
+      </tr>
+      <tr>
+         <td><strong>SZK</strong></td>
+         <td>6</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>IIF(ISINCALLSTACK("U_GCMOV001"), IIF(M->ZCB_OPERAC == "CL", EMPTY(SZK->ZK_OPERA), M->ZCB_OPERAC == SZK->ZK_OPERA), .T.)</td>
+      </tr>
+      <tr>
+         <td><strong>SZKEST</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>DB</td>
+         <td>Fazendas</td>
+         <td>Haciendas</td>
+         <td>Fazendas</td>
+         <td>SZK</td>
+      </tr>
+      <tr>
+         <td><strong>SZKEST</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>SZK01</td>
+      </tr>
+      <tr>
+         <td><strong>SZKEST</strong></td>
+         <td>2</td>
+         <td>02</td>
+         <td>02</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>SZK02</td>
+      </tr>
+      <tr>
+         <td><strong>SZKEST</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>ZK_CODIGO</td>
+      </tr>
+      <tr>
+         <td><strong>SZKEST</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>02</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>ZK_DESC</td>
+      </tr>
+      <tr>
+         <td><strong>SZKEST</strong></td>
+         <td>4</td>
+         <td>02</td>
+         <td>01</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>ZK_DESC</td>
+      </tr>
+      <tr>
+         <td><strong>SZKEST</strong></td>
+         <td>4</td>
+         <td>02</td>
+         <td>02</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>ZK_CODIGO</td>
+      </tr>
+      <tr>
+         <td><strong>SZKEST</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>SZK->ZK_CODIGO</td>
+      </tr>
+      <tr>
+         <td><strong>SZKEST</strong></td>
+         <td>6</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>SZK->ZK_ORIGEM != "2"</td>
+      </tr>
+      <tr>
+         <td><strong>SZKREL</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>DB</td>
+         <td>Fazendas</td>
+         <td>Haciendas</td>
+         <td>Fazendas</td>
+         <td>SZK</td>
+      </tr>
+      <tr>
+         <td><strong>SZKREL</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>SZK01</td>
+      </tr>
+      <tr>
+         <td><strong>SZKREL</strong></td>
+         <td>2</td>
+         <td>02</td>
+         <td>02</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>SZK02</td>
+      </tr>
+      <tr>
+         <td><strong>SZKREL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>ZK_CODIGO</td>
+      </tr>
+      <tr>
+         <td><strong>SZKREL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>02</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>ZK_DESC</td>
+      </tr>
+      <tr>
+         <td><strong>SZKREL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>03</td>
+         <td>Filial Rom.</td>
+         <td>Filial Rom.</td>
+         <td>Filial Rom.</td>
+         <td>ZK_FILROM</td>
+      </tr>
+      <tr>
+         <td><strong>SZKREL</strong></td>
+         <td>4</td>
+         <td>02</td>
+         <td>01</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>Descrição</td>
+         <td>ZK_DESC</td>
+      </tr>
+      <tr>
+         <td><strong>SZKREL</strong></td>
+         <td>4</td>
+         <td>02</td>
+         <td>02</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>ZK_CODIGO</td>
+      </tr>
+      <tr>
+         <td><strong>SZKREL</strong></td>
+         <td>4</td>
+         <td>02</td>
+         <td>03</td>
+         <td>Filial Rom.</td>
+         <td>Filial Rom.</td>
+         <td>Filial Rom.</td>
+         <td>ZK_FILROM</td>
+      </tr>
+      <tr>
+         <td><strong>SZKREL</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>SZK->ZK_CODIGO</td>
+      </tr>
+      <tr>
+         <td><strong>SZL</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>DB</td>
+         <td>Fazendas - Zonas</td>
+         <td>Haciendas - Zonas</td>
+         <td>Fazendas - Zonas</td>
+         <td>SZL</td>
+      </tr>
+      <tr>
+         <td><strong>SZL</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda+bloco</td>
+         <td>Hacienda+zona</td>
+         <td>Fazenda+zona</td>
+         <td>SZL01</td>
+      </tr>
+      <tr>
+         <td><strong>SZL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Bloco</td>
+         <td>Zona</td>
+         <td>Bloco</td>
+         <td>ZL_BLOCO</td>
+      </tr>
+      <tr>
+         <td><strong>SZL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>02</td>
+         <td>Nome</td>
+         <td>Nombre</td>
+         <td>Nome</td>
+         <td>ZL_DESBLQ</td>
+      </tr>
+      <tr>
+         <td><strong>SZL</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>SZL->ZL_BLOCO</td>
+      </tr>
+      <tr>
+         <td><strong>SZL</strong></td>
+         <td>6</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>IIF(ISINCALLSTACK("U_GCMOV001"), SZL->ZL_CODIGO==M->ZCB_X_CBLQ, .T.)</td>
+      </tr>
+      <tr>
+         <td><strong>SZLEST</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>RE</td>
+         <td>Blocos X Romaneios</td>
+         <td>Zonas X Romaneos</td>
+         <td>Blocos X Romaneios</td>
+         <td>SZN</td>
+      </tr>
+      <tr>
+         <td><strong>SZLEST</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>U_CESP2BLQ()</td>
+      </tr>
+      <tr>
+         <td><strong>SZLEST</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>__cCodSZN</td>
+      </tr>
+      <tr>
+         <td><strong>SZLREL</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>DB</td>
+         <td>Zonas</td>
+         <td>Zonas</td>
+         <td>Zonas</td>
+         <td>SZL</td>
+      </tr>
+      <tr>
+         <td><strong>SZLREL</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda+bloco</td>
+         <td>Hacienda+zona</td>
+         <td>Fazenda+zona</td>
+         <td>SZL01</td>
+      </tr>
+      <tr>
+         <td><strong>SZLREL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda</td>
+         <td>Hacienda</td>
+         <td>Fazenda</td>
+         <td>ZL_CODIGO</td>
+      </tr>
+      <tr>
+         <td><strong>SZLREL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>02</td>
+         <td>Bloco</td>
+         <td>Zona</td>
+         <td>Bloco</td>
+         <td>ZL_BLOCO</td>
+      </tr>
+      <tr>
+         <td><strong>SZLREL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>03</td>
+         <td>Nome</td>
+         <td>Nombre</td>
+         <td>Nome</td>
+         <td>ZL_DESBLQ</td>
+      </tr>
+      <tr>
+         <td><strong>SZLREL</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>SZL->ZL_BLOCO</td>
+      </tr>
+      <tr>
+         <td><strong>SZM</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>DB</td>
+         <td>Fazendas - Talhões</td>
+         <td>Haciendas - Parcelas</td>
+         <td>Fazendas - Talhões</td>
+         <td>SZM</td>
+      </tr>
+      <tr>
+         <td><strong>SZM</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda+talhão</td>
+         <td>Fazenda+talhão</td>
+         <td>Fazenda+talhão</td>
+         <td>SZM01</td>
+      </tr>
+      <tr>
+         <td><strong>SZM</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Talhão</td>
+         <td>Talhão</td>
+         <td>Talhão</td>
+         <td>ZM_TALHAO</td>
+      </tr>
+      <tr>
+         <td><strong>SZM</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>02</td>
+         <td>Nome</td>
+         <td>Nome</td>
+         <td>Nome</td>
+         <td>ZM_NOME</td>
+      </tr>
+      <tr>
+         <td><strong>SZM</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>SZM->ZM_TALHAO</td>
+      </tr>
+      <tr>
+         <td><strong>SZM</strong></td>
+         <td>6</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>IIF(ISINCALLSTACK("U_GCMOV001"), SZM->ZM_CODIGO==M->ZCB_X_CFAZ, .T.)</td>
+      </tr>
+      <tr>
+         <td><strong>SZMREL</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>DB</td>
+         <td>Talhões</td>
+         <td>Haciendas - Parcelas</td>
+         <td>Talhões</td>
+         <td>SZM</td>
+      </tr>
+      <tr>
+         <td><strong>SZMREL</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda+talhão</td>
+         <td>Fazenda+talhão</td>
+         <td>Fazenda+talhão</td>
+         <td>SZM01</td>
+      </tr>
+      <tr>
+         <td><strong>SZMREL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>Fazenda</td>
+         <td>ZM_CODIGO</td>
+      </tr>
+      <tr>
+         <td><strong>SZMREL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>02</td>
+         <td>Talhão</td>
+         <td>Talhão</td>
+         <td>Talhão</td>
+         <td>ZM_TALHAO</td>
+      </tr>
+      <tr>
+         <td><strong>SZMREL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>03</td>
+         <td>Nome</td>
+         <td>Nome</td>
+         <td>Nome</td>
+         <td>ZM_NOME</td>
+      </tr>
+      <tr>
+         <td><strong>SZMREL</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>04</td>
+         <td>Área Plantio</td>
+         <td>Área Plantio</td>
+         <td>Área Plantio</td>
+         <td>ZM_AREAPLT</td>
+      </tr>
+      <tr>
+         <td><strong>SZMREL</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>SZM->ZM_TALHAO</td>
+      </tr>
+      <tr>
+         <td><strong>SZN</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>DB</td>
+         <td>Fazendas X Plantios</td>
+         <td>Haciend X Plantación</td>
+         <td>Fazendas X Plantios</td>
+         <td>SZN</td>
+      </tr>
+      <tr>
+         <td><strong>SZN</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Fazenda+safra+talhão</td>
+         <td>Fazenda+safra+talhão</td>
+         <td>Fazenda+safra+talhão</td>
+         <td>SZN01</td>
+      </tr>
+      <tr>
+         <td><strong>SZN</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>01</td>
+         <td>Talhão</td>
+         <td>Talhão</td>
+         <td>Talhão</td>
+         <td>ZN_TALHAO</td>
+      </tr>
+      <tr>
+         <td><strong>SZN</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>02</td>
+         <td>Colheita</td>
+         <td>Colheita</td>
+         <td>Colheita</td>
+         <td>ZN_PRDCOL</td>
+      </tr>
+      <tr>
+         <td><strong>SZN</strong></td>
+         <td>4</td>
+         <td>01</td>
+         <td>03</td>
+         <td>Descrição</td>
+         <td>Descripción</td>
+         <td>Descrição</td>
+         <td>ZN_DESCOL</td>
+      </tr>
+      <tr>
+         <td><strong>SZN</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>SZN->ZN_TALHAO</td>
+      </tr>
+      <tr>
+         <td><strong>SZN</strong></td>
+         <td>6</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>SZN->ZN_CODIGO==M->ZCB_X_CFAZ .AND. SZN->ZN_SAFRA==M->ZCB_SAFRA .AND. IIF(ALLTRIM(M->ZCB_OPERAC) == "CL", !EMPTY(SZN->ZN_ORDPROD), !EMPTY(SZN->ZN_PRDCOL))</td>
+      </tr>
+      <tr>
+         <td><strong>SZNCOL</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>RE</td>
+         <td>Faz. X Ap. Colheita</td>
+         <td>Hac. X Ap. Cosecha</td>
+         <td>Faz. X Ap. Colheita</td>
+         <td>SZN</td>
+      </tr>
+      <tr>
+         <td><strong>SZNCOL</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>U_CESP2PRD()</td>
+      </tr>
+      <tr>
+         <td><strong>SZNCOL</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>__cCodFaz</td>
+      </tr>
+      <tr>
+         <td><strong>SZNCOL</strong></td>
+         <td>5</td>
+         <td>02</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>__cCodSaf</td>
+      </tr>
+      <tr>
+         <td><strong>SZNEST</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>RE</td>
+         <td>Talhões X Romaneios</td>
+         <td>Parcelas X Romaneos</td>
+         <td>Talhões X Romaneios</td>
+         <td>SZN</td>
+      </tr>
+      <tr>
+         <td><strong>SZNEST</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>U_CESP2ROM()</td>
+      </tr>
+      <tr>
+         <td><strong>SZNEST</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>__cCodSZN</td>
+      </tr>
+      <tr>
+         <td><strong>SZNROM</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>RE</td>
+         <td>Talhões X Romaneios</td>
+         <td>Parcelas X Romaneos</td>
+         <td>Talhões X Romaneios</td>
+         <td>SZN</td>
+      </tr>
+      <tr>
+         <td><strong>SZNROM</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>U_CESP2ROM()</td>
+      </tr>
+      <tr>
+         <td><strong>SZNROM</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>__cCodSZN</td>
+      </tr>
+      <tr>
+         <td><strong>ZDKC1</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>RE</td>
+         <td>Variedades</td>
+         <td>Variedad</td>
+         <td>Variedades</td>
+         <td>ZDK</td>
+      </tr>
+      <tr>
+         <td><strong>ZDKC1</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>U_GCCPZDK("C1")</td>
+      </tr>
+      <tr>
+         <td><strong>ZDKC1</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>__cNumZDK</td>
+      </tr>
+      <tr>
+         <td><strong>ZDKC2</strong></td>
+         <td>1</td>
+         <td>01</td>
+         <td>RE</td>
+         <td>Estágios de Corte</td>
+         <td>Estagio del Corte</td>
+         <td>Estágios de Corte</td>
+         <td>ZDK</td>
+      </tr>
+      <tr>
+         <td><strong>ZDKC2</strong></td>
+         <td>2</td>
+         <td>01</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>U_GCCPZDK("C2")</td>
+      </tr>
+      <tr>
+         <td><strong>ZDKC2</strong></td>
+         <td>5</td>
+         <td>01</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>-</td>
+         <td>__cNumZDK</td>
+      </tr>
+   </tbody>
+</table>
+</div>
+</details>
+
 <!--############################################### 10 #######################################################-->
 
 <details class="custom-expand" markdown="1">
