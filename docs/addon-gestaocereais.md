@@ -63,11 +63,75 @@ Indicado para empresas com restrições financeiras ou estruturais, oferecendo u
   <tbody>
     <tr>
       <td>Atualizações</td>
-      <td>ADD-ON de XML \ Cadastros</td>
-      <td>Contas de E-mail</td>
-      <td>C004A01</td>
+      <td>Cadastros de Cereais</td>
+      <td>Fazendas</td>
+      <td>CCESP01</td>
       <td>Compras</td>
-      <td>03</td>
+      <td>Função de Usuário</td>
+    </tr>   
+    <tr>
+      <td>Atualizações</td>
+      <td>Cadastros de Cereais</td>
+      <td>Serviços</td>
+      <td>CCESP03</td>
+      <td>Compras</td>
+      <td>Função de Usuário</td>
+    </tr>   
+    <tr>
+      <td>Atualizações</td>
+      <td>Cadastros de Cereais</td>
+      <td>Variedades</td>
+      <td>CCESP04</td>
+      <td>Compras</td>
+      <td>Função de Usuário</td>
+    </tr>   
+    <tr>
+      <td>Atualizações</td>
+      <td>Cadastros de Cereais</td>
+      <td>Estágios de Cultivo</td>
+      <td>CCESP05</td>
+      <td>Compras</td>
+      <td>Função de Usuário</td>
+    </tr>   
+    <tr>
+      <td>Atualizações</td>
+      <td>Movimentos</td>
+      <td>Baixas de Estoque</td>
+      <td>CMESP01</td>
+      <td>Estoque/Custos</td>
+      <td>Função de Usuário</td>
+    </tr>   
+    <tr>
+      <td>Atualizações</td>
+      <td>Movimentos</td>
+      <td>Apontamentos de Colheita</td>
+      <td>CMESP02</td>
+      <td>Compras</td>
+      <td>Função de Usuário</td>
+    </tr>   
+    <tr>
+      <td>Relatórios</td>
+      <td>Apurações</td>
+      <td>Detalhamento de Cultivo</td>
+      <td>CRESP02</td>
+      <td>Compras</td>
+      <td>Função de Usuário</td>
+    </tr>   
+    <tr>
+      <td>Relatórios</td>
+      <td>Apurações</td>
+      <td>Cultivo X Produtividade</td>
+      <td>CRESP03</td>
+      <td>Compras</td>
+      <td>Função de Usuário</td>
+    </tr>   
+    <tr>
+      <td>Relatórios</td>
+      <td>Balança</td>
+      <td>Mov. Diária Colheita</td>
+      <td>CRESP01</td>
+      <td>Compras</td>
+      <td>Função de Usuário</td>
     </tr>   
   </tbody>
 </table>
@@ -95,8 +159,40 @@ Indicado para empresas com restrições financeiras ou estruturais, oferecendo u
   </thead>
   <tbody>
     <tr>
-      <td><strong>C004A01</strong></td>
-      <td>Rotina para cadastro de contas de e-mails.</td>
+      <td><strong>CCESP01</strong></td>
+      <td>Rotina para cadastro de Fazendas.</td>
+    </tr>
+    <tr>
+      <td><strong>CCESP03</strong></td>
+      <td>Rotina para cadastro de Serviços.</td>
+    </tr>
+    <tr>
+      <td><strong>CCESP04</strong></td>
+      <td>Rotina para cadastro de Variedades.</td>
+    </tr>
+    <tr>
+      <td><strong>CCESP05</strong></td>
+      <td>Rotina para cadastro de Estágios de Cultivo.</td>
+    </tr>
+    <tr>
+      <td><strong>CMESP01</strong></td>
+      <td>Rotina para movimentos de Baixa de Estoque.</td>
+    </tr>
+    <tr>
+      <td><strong>CMESP02</strong></td>
+      <td>Rotina para movimentos de Apontamentos de Colheita.</td>
+    </tr>
+    <tr>
+      <td><strong>CRESP02</strong></td>
+      <td>Rotina para emissão de relatório de Detalhamento de Cultivo.</td>
+    </tr>
+    <tr>
+      <td><strong>CRESP03</strong></td>
+      <td>Rotina para emissão de relatório de Cultivo X Produtividade.</td>
+    </tr>
+    <tr>
+      <td><strong>CRESP01</strong></td>
+      <td>Rotina para emissão de relatório de Mov. Diária Colheita.</td>
     </tr>
   </tbody>
 </table>
@@ -128,31 +224,321 @@ Pontos de Entrada que devem ser personalizados integração com às funções de
   </thead>
   <tbody>
   <tr>
-    <td><strong>MA103OPC</strong></td>
+    <td><strong>MA650TOK</strong></td>
     <td>
-      Ponto de entrada utilizado para disponibilizar novos itens no aRotina documento de entrada.<br><br>
-      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MA103OPC</span><br><br>
+      Ponto de entrada executado na confirmação da interface da rotina de Ordens de Produção.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MA650TOK</span><br><br>
     </td>
     <td>
 <div class="advpl-editor">
   <div class="header">
     <span class="title">Implementação</span>
-    <span class="filename">MA103OPC</span>
+    <span class="filename">MA650TOK</span>
   </div>
   <pre><code>
-User Function MA103OPC()
+User Function MA650TOK()
 
-Local aArea    := GetArea()
-Local aBotoes := {}
-     
-If ExistBlock("P004A01")
-   aBotoes := U_P004A01("MA103OPC", aBotoes)                  
+Local lRet		:= .T.
+Local aArea		:= GetArea()
+
+If !EMPTY(SC2->C2_X_CDFAZ) .AND. !EMPTY(SC2->C2_X_CDSAF)
+If !ISINCALLSTACK("U_CCESP02")
+	Help(NIL, NIL, OemToAnsi(STR0001), NIL, OemToAnsi(STR0002) + " " + ALLTRIM(SC2->C2_X_CDFAZ) + " " + OemToAnsi(STR0003) + " " + ALLTRIM(SC2->C2_X_CDTAL) + " " + OemToAnsi(STR0004) + " " + ALLTRIM(TRANSFORM(SC2->C2_X_CDSAF, PESQPICT("SC2", "C2_X_CDSAF"))) + ".", 1, 0, NIL, NIL, NIL, NIL, NIL, {OemToAnsi(STR0005)})
+	lRet := .F.
+EndIf
 EndIf
 
 RestArea(aArea)
 
-Return aBotoes
-  </tbody>
+Return lRet
+</tr>
+<tr>
+    <td><strong>MT241TOK</strong></td>
+    <td>
+      Ponto de entrada executado na confirmação de inclusão de Mov. Multiplas.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MT241TOK</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Implementação</span>
+    <span class="filename">MT241TOK</span>
+  </div>
+  <pre><code>
+User Function MT241TOK()
+
+Local lRet  := .T.
+
+If lRet
+   lRet := U_CXESP04()
+EndIf
+
+Return lRet
+
+</tr>
+<tr>
+    <td><strong>MT250GREST</strong></td>
+    <td>
+      Ponto de entrada executado na gravação do estorno de Ap. de Produção.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MT250GREST</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Implementação</span>
+    <span class="filename">MT250GREST</span>
+  </div>
+  <pre><code>
+User Function MT250GREST()
+
+Local aArea		:= GetArea()
+Local lCanRom	:= GETMV("MV_XCESP07",, .F.)
+
+dbSelectArea("SD3")
+If !EMPTY(SD3->D3_X_NRROM)
+	dbSelectArea("ZCB")
+	ZCB->(dbSetOrder(1))
+	ZCB->(dbGoTop())
+If ZCB->(dbSeek(xFilial("ZCB") + SD3->D3_X_NRROM))
+
+If lCanRom
+	RECLOCK("ZCB", .F.)
+	ZCB->ZCB_USRCAN := __cUserId
+	ZCB->ZCB_NOMCAN := ALLTRIM(UPPER(cUserName))
+	ZCB->ZCB_DTCAN  := dDataBase
+	ZCB->ZCB_HRCAN  := SUBSTR(Time(), 1, 5)
+	ZCB->ZCB_STATUS := "9"
+	ZCB->ZCB_MOTIVO := "99"
+	ZCB->ZCB_DESMOT := OemToAnsi(STR0002)
+	ZCB->ZCB_OBSCAN := OemToAnsi(STR0003) + " " + ALLTRIM(SD3->D3_OP)
+	ZCB->(MSUNLOCK())
+		
+	dbSelectArea("ZCE")
+	ZCE->(dbSetOrder(1))
+	ZCE->(dbGoTop())
+If ZCE->(dbSeek(xFilial("ZCE") + ZCB->ZCB_NUM))
+	While ZCE->(!EOF()) .AND. ZCE->ZCE_FILIAL == xFilial("ZCE") .AND. ZCE->ZCE_NUMROM == ZCB->ZCB_NUM
+	RECLOCK("ZCE", .F.)
+	ZCE->ZCE_OPERA := "RC"
+	ZCE->(MSUNLOCK())
+					
+	ZCE->(dbSkip())
+	End
+	EndIf
+	Help(NIL, NIL, OemToAnsi(STR0001), NIL, OemToAnsi(STR0004) + " " + ALLTRIM(SD3->D3_X_NRROM) + " " + OemToAnsi(STR0005), 1, 0, NIL, NIL, NIL, NIL, NIL, {OemToAnsi(STR0006)})
+	Else
+	RECLOCK("ZCB", .F.)
+	ZCB->ZCB_STATUS := "2"
+	ZCB->(MSUNLOCK())
+	Help(NIL, NIL, OemToAnsi(STR0001), NIL, OemToAnsi(STR0010) + " " + ALLTRIM(SD3->D3_X_NRROM) + " " + OemToAnsi(STR0011), 1, 0, NIL, NIL, NIL, NIL, NIL, {OemToAnsi(STR0012)})
+	EndIf
+	Else
+	lRet := .F.
+  Help(NIL, NIL, OemToAnsi(STR0001), NIL, OemToAnsi(STR0007) + " " + ALLTRIM(SD3->D3_X_NRROM) + " " + OemToAnsi(STR0008), 1, 0, NIL, NIL, NIL, NIL, NIL, {OemToAnsi(STR0009)})
+	EndIf
+EndIf
+
+RestArea(aArea)
+
+Return
+</tr>
+
+<tr>
+    <td><strong>MTA241MNU</strong></td>
+    <td>
+      Ponto de entrada para manipular as opções disponíveis no browse da rotina de Mov. Multiplo.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MTA241MNU</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Implementação</span>
+    <span class="filename">MTA241MNU</span>
+  </div>
+  <pre><code>
+User Function MTA241MNU()
+
+Local aArea     := GetArea()
+Local nI        := 0
+
+If ISINCALLSTACK("U_CMESP01") .AND. !l241Auto
+  cCadastro := OemToAnsi(STR0001)
+  For nI := 1 To Len(aRotina)
+ If ALLTRIM(UPPER(aRotina[nI][2])) == "A241INCLUI"
+  aRotina[nI][2] := "U_CMESP1INC"
+  exit
+  EndIf
+  Next nI
+EndIf
+
+RestArea(aArea)
+
+Return
+</tr>
+
+<tr>
+    <td><strong>MTA250MNU</strong></td>
+    <td>
+      Ponto de entrada para manipular as opções disponíveis no browse da rotina Apontar Produção.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MTA250MNU</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Implementação</span>
+    <span class="filename">MTA250MNU</span>
+  </div>
+  <pre><code>
+User Function MTA250MNU()
+
+Local aArea     := GetArea()
+Local nI        := 0
+
+If ISINCALLSTACK("U_CMESP02") .AND. !l250Auto
+  cCadastro := OemToAnsi(STR0001)
+  For nI := 1 To Len(aRotina)
+If ALLTRIM(UPPER(aRotina[nI][2])) == "A250INCLUI"
+  aRotina[nI][2] := "U_CMESP2INC"
+  exit
+  EndIf
+  Next nI
+EndIf
+
+RestArea(aArea)
+
+Return
+</tr>
+<tr>
+    <td><strong>MTA650ALT</strong></td>
+    <td>
+      Ponto de entrada responsável pela definição de campos que podem ser alterados na rotina de Ordens de Produção.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MTA650ALT</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Implementação</span>
+    <span class="filename">MTA650ALT</span>
+  </div>
+  <pre><code>
+User Function MTA650ALT()
+
+Local aCpoAlt   := PARAMIXB[1]
+Local lEdPlan   := GETMV("MV_XCESP11",, .F.)
+
+If lEdPlan
+AADD(aCpoAlt, "C2_QUANT")
+EndIf
+
+Return aCpoAlt
+</tr>
+
+<tr>
+    <td><strong>MTA650E</strong></td>
+    <td>
+      Ponto de entrada executado para validar à exclusão de ordens de produção.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MTA650E</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Implementação</span>
+    <span class="filename">MTA650E</span>
+  </div>
+  <pre><code>
+User Function MTA650E()
+
+Local lRet		:= .T.
+Local aArea		:= GetArea()
+
+If !EMPTY(SC2->C2_X_CDFAZ) .AND. !EMPTY(SC2->C2_X_CDSAF)
+If !ISINCALLSTACK("U_CCESP02")
+   Help(NIL, NIL, OemToAnsi(STR0001), NIL, OemToAnsi(STR0002) + " " + ALLTRIM(SC2->C2_X_CDFAZ) + " " + OemToAnsi(STR0003) + " " + ALLTRIM(SC2->C2_X_CDTAL) + " " + OemToAnsi(STR0004) + " " + ALLTRIM(TRANSFORM(SC2->C2_X_CDSAF, PESQPICT("SC2", "C2_X_CDSAF"))) + ".", 1, 0, NIL, NIL, NIL, NIL, NIL, {OemToAnsi(STR0005)})
+   	lRet := .F.
+EndIf
+EndIf
+
+RestArea(aArea)
+
+Return lRet
+</tr>
+
+<tr>
+    <td><strong>MTGRDVW</strong></td>
+    <td>
+      Ponto de entrada utilizado para adicionar novas informações a interface de consulta estoque no cadastro do produto.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">MTGRDVW</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Implementação</span>
+    <span class="filename">MTGRDVW</span>
+  </div>
+  <pre><code>
+User Function MTGRDVW()
+
+Local nI			:= 0
+Local nY			:= 0
+Local aViewB2		:= PARAMIXB[1]
+Local oListBox		:= PARAMIXB[2]
+Local oDlg			:= PARAMIXB[3]
+Local aHeader		:= oListBox:aHeaders
+Local aItens		:= oListBox:aArray
+Local aNewItens		:= {}
+Local aNewHeader	:= {}
+
+For nI := 1 To Len(aHeader)
+If nI == 2
+	AADD(aNewHeader, OemToAnsi(STR0001))
+	EndIf
+	AADD(aNewHeader, aHeader[nI])
+  Next nI
+
+For nI := 1 To Len(aItens)
+	dbSelectArea("NNR")
+	NNR->(dbSetOrder(1))
+	NNR->(dbGoTop())
+	NNR->(dbSeek(xFilial("NNR") + aItens[nI][1]))
+	
+  AADD(aNewItens, ARRAY(Len(aItens[1]) + 1))
+	
+	For nY := 1 To Len(aItens[nI])
+	aNewItens[Len(aNewItens)][2]						:= NNR->NNR_DESCRI
+	aNewItens[Len(aNewItens)][nY + IIF(nY >= 2, 1, 0)]	:= aItens[nI][nY]
+  Next nY
+Next nI
+
+oListBox:aArray   := aNewItens
+oListBox:aHeaders := aNewHeader
+oListBox:bLine    := {|| aNewItens[oListBox:nAT]}
+oListBox:nAt	  := 1
+oListBox:Refresh()
+</tr>
+
+<tr>
+    <td><strong>FTMSREL</strong></td>
+    <td>
+      Ponto de entrada o qual adiciona em vetor os relacionamentos de tabelas para a utilizacao da rotina de conhecimento.<br><br>
+      <strong>Programa Fonte:</strong> <span style="color:#FF6000">FTMSREL</span><br><br>
+    </td>
+    <td>
+<div class="advpl-editor">
+  <div class="header">
+    <span class="title">Implementação</span>
+    <span class="filename">FTMSREL</span>
+  </div>
+  <pre><code>
+User Function FTMSREL()
+
+Local aEntidades := {}
+                    
+AADD(aEntidades, {"SZK", {"ZK_CODIGO"}, {|| SZK->ZK_CODIGO}})
+
+Return aEntidades  
+
+</tr>
+</tbody>
 </table>
 </div>
 </details>
@@ -161,32 +547,329 @@ Return aBotoes
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">05.</span> Pontos de Entradas Disponiveis para Desenvolvimento</span>
+  <span class="summary-title"><span class="summary-number">05.</span>Pontos de entradas disponiveis para desenvolvimento</span>
 </summary>
+
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">5. Pontos de Entradas Disponiveis para Desenvolvimento</span>  
+### <span style="display: none;">5. Pontos de entradas disponiveis para desenvolvimento</span>
 
-<table class="banks-table">
-  <thead>
-    <tr>
-      <th>P.E</th>
-      <th>Descrição</th>
-      <th>Parâmetros de Entrada</th>
-      <th>Retorno</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>PE004A01</strong></td>
-      <td>Ponto de entrada na  na tela de Processamento de XML Recebidos – na sessão de geração do documento fiscal na análise dos itens/produtos do documento fiscal – validação no click AVANÇAR. Esta chamada é realizada após todas validações do ADD-ON referente aos itens/produtos.</td>
-      <td><strong>1)</strong>Vetor aHeader dos itens do documento<br>
-      <strong>2)</strong>Vetor aCols dos itens do documento</td>
-          <td>Booleano (.T./.F.) valida avanço do processo.</td>
-    </tr>
-  </tbody>
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+	<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **GCMV1ART**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de entrada executado no "Faturar" junto à rotina de Romaneios, quando não existem Rateios de Renda válidos.</td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>GCMV1ART</td>
+</tr>  
+<tr>
+<tr>
+<td>Exemplo</td>
+<td>
+<div class="advpl-editor">
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">GCMV1ART</span>
+</div>
+<pre><code>
+User Function GCMV1ART()
+dbSelectArea("ZCB")
+If ZCB->ZCB_STATUS == "2" .AND. ZCB->ZCB_OPERAC == "CL"
+    If MSGYESNO(OemToAnsi(STR0002), OemToAnsi(STR0001))
+        U_CXESP02()
+    EndIf
+Else
+    Help(NIL, NIL, OemToAnsi(STR0001), NIL, OemToAnsi(STR0003), 1, 0, NIL, NIL, NIL, NIL, NIL, {OemToAnsi(STR0004)})
+EndIf
+
+Return
+</code></pre>
+</div>          
+</td>          
+</tr>      
+</tbody>
 </table>
+</div>
+</details>
 
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **MOV01CGR**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de entrada executado na gravação de Romaneios.<br>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>MOV01CGR</td>
+</tr>  
+<tr>
+<td>Exemplo</td>
+<td>
+<div class="advpl-editor">
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">MOV01CGR</span>
+</div>
+<pre><code>
+User Function MOV01CGR()
+
+Local aArea := GetArea()
+If ISINCALLSTACK("U_MOV001ALT") .AND. ZCB->ZCB_TPROMA == "1" .AND. ZCB->ZCB_OPERAC == "CL"
+    RECLOCK("ZCB", .F.)
+        ZCB->ZCB_STATUS := "2"
+    ZCB->(MSUNLOCK())
+EndIf
+
+RestArea(aArea)
+
+Return
+</code></pre>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **MOV01CTL**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de entrada executado após à informação da operação na rotina de Romaneios de Pesagem.</td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>MOV01CTL</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
+<div class="advpl-editor">
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">MOV01CTL</span>
+</div>
+<pre><code>
+User Function MOV01CTL()
+
+Local lRet		:= .T.
+Local lShwTela	:= .F.
+
+If M->ZCB_TPROMA == "1" .AND. !EMPTY(M->ZCB_OPERAC)
+If ALLTRIM(M->ZCB_OPERAC) == "CL"
+		lShwTela := .T.
+	Else
+		dbSelectArea("SZL")
+		SZL->(dbSetOrder(1))
+		SZL->(dbGoTop())
+		SZL->(dbSeek(xFilial("SZL")))
+		While SZL->(!EOF()) .AND. SZL->ZL_FILIAL == xFilial("SZL")
+If ALLTRIM(SZL->ZL_OPERA) == ALLTRIM(M->ZCB_OPERAC)
+				lShwTela := .T.
+				exit
+EndIf
+
+			SZL->(dbSkip())
+		End
+EndIf
+If lShwTela
+		lRet := U_CXESP01()	
+	EndIf
+EndIf
+
+Return lRet
+</code></pre>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **MOV01PVD**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de entrada executado antes da apresentação do Pedido de Venda no faturamento de Romaneios. <br>
+Utilizado para complementar as informações do pedido antes da apresentação da tela ao usuário.</td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>MOV01PVD</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
+<div class="advpl-editor">
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">MOV01PVD</span>
+</div>
+<pre><code>
+User Function MOV01PVD()
+
+Local aArea		:= GetArea()
+Local nI		:= 0
+Local nPosArm	:= GDFieldPos("C6_LOCAL", aHeader)
+
+If !EMPTY(ZCB->ZCB_X_ARM)
+	For nI := 1 To Len(aCols)
+		aCols[nI][nPosArm] := ZCB->ZCB_X_ARM
+	Next nI
+EndIf
+
+RestArea(aArea)
+
+Return
+</code></pre>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **MOV01TOK**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de entrada executado na confirmação da interface referente as principais funcionalidades da rotina de Romaneios.</td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>MOV01TOK</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
+<div class="advpl-editor">
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">MOV01TOK</span>
+</div>
+<pre><code>
+User Function MOV01TOK()
+
+Local lRet		:= .T.
+Local aArea		:= GetArea()
+If ISINCALLSTACK("U_MOV001ALT") .OR. ISINCALLSTACK("U_MOV001FEC")
+	lRet := U_CXESP03()
+EndIf
+
+RestArea(aArea)
+
+Return lRet
+
+</code></pre>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
+
+<details class="field-expand" markdown="1">
+<summary markdown="1">
+<span class="summary-title-sub"><span class="summary-number" style="color: #FF6000;">Nome</span> **MOV01VFA**</span>
+</summary>
+<div class="content-body" markdown="1">
+<table class="pe-table-modern">  
+<tbody>
+<tr>
+<td>Descrição</td>
+<td>Ponto de entrada executado no faturamento automático dos romaneios após o fechamento.</td>
+</tr>
+<tr>
+<td>Programa Fonte</td>
+<td>MOV01VFA</td>
+</tr>  
+<tr>
+<td>Sintaxe</td>
+</tr>
+<tr>
+<td>Exemplo</td>
+<td>
+<div class="advpl-editor">
+<div class="header">
+<span class="title">ADVPL</span>
+<span class="filename">MOV01VFA</span>
+</div>
+<pre><code>
+User Function MOV01VFA()
+
+Local lRet		:= PARAMIXB
+Local lApPrd	:= GETMV("MV_XCESP06",, .F.)
+If ZCB->ZCB_TPROMA == "1" .AND. ZCB->ZCB_OPERAC == "CL" .AND. ISINCALLSTACK("U_MOV001FEC")
+	lRet := .F.
+	dbSelectArea("SZK")
+	SZK->(dbSetOrder(1))
+	SZK->(dbGoTop())
+	If SZK->(dbSeek(xFilial("SZK") + ZCB->ZCB_X_CFAZ))
+	If SZK->ZK_ORIGEM $ "1\3" .AND. SZK->ZK_GERAPRD == "1"
+        If lApPrd
+				U_CXESP02()
+			Else
+					RECLOCK("ZCB", .F.)
+					ZCB->ZCB_STATUS := "2"
+				ZCB->(MSUNLOCK())
+			EndIf
+		Else
+			RECLOCK("ZCB", .F.)
+				ZCB->ZCB_STATUS := "3"
+			ZCB->(MSUNLOCK())
+		EndIf
+	EndIf
+EndIf
+
+Return lRet
+</code></pre>
+</div>          
+</td>          
+</tr>      
+</tbody>
+</table>
+</div>
+</details>
 </div>
 </details>
 
@@ -44824,127 +45507,416 @@ Memo
 </div>
 </details>
 
-<!--############################################### 10 #######################################################-->
+<!--############################################### 14 #######################################################-->
 
 <details class="custom-expand" markdown="1">
 <summary markdown="1">
-  <span class="summary-title"><span class="summary-number">10.</span> Manual de operação</span>
+  <span class="summary-title"><span class="summary-number">14.</span> Manual de operação</span>
 </summary>
 <div class="content-body" markdown="1">
 
-### <span style="display: none;">10. Manual de operação</span>
+### <span style="display: none;">14. Manual de operação</span>
 
-Este ADDON tem por objetivo efetuar o gerenciamento em torno dos arquivos XML emitidos por terceiros pertinentes a documentos fiscais do tipo:<br>
-•	Notas Fiscais Eletrônicas - NFe<br>
-•	Conhecimento de Transporte Eletrônico - CTe<br>
+Realizado à implementação de conjunto de rotinas e validações personalizadas, as quais aplicam-se à utilização junto com o Addon Gestão de Cereais. Estas regras, disponibilizam processo para controle\composição de custos diretos\indiretos referentes ao cultivo de cereais diretamente no ERP Protheus. Na sequência deste documento, serão apresentadas as informações referentes as implementações realizadas.
 
-A partir da importação dos arquivos XML para uma tabela do banco de dados do ERP Protheus, posteriormente, estes arquivos XML podem ser utilizados no processo de lançamento dos documentos fiscais abaixo junto ao ERP:<br>
-•	Documento de Entrada<br>
-•	Conhecimento de Transporte<br>
+#### 1. AMBIENTE
 
-Vale ressaltar, que não é realizado nenhum tipo de validação em torno dos totais\tributos do documento fiscal lançado no ERP Protheus em relação as informações presentes no XML, ou seja, as informações do XML são utilizadas apenas com o objetivo de agilizar o lançamento dos documentos fiscais no ERP, ou seja, caberá ao usuário efetuar a validação dos totais\tributos do documento fiscal que está sendo lançado.
+Para que seja possível utilizar as rotinas\processos demonstrados neste documento, deve-se previamente, realizar as atividades de atualização do ambiente do ERP Protheus conforme apresentado à seguir:<br>
 
-Processos deste Pacote:<br>
-<strong>1)</strong>	Cadastro de Contas de E-mails;<br>
-<strong>2)</strong>	Cadastro de Usuários X Permissões;<br>
-<strong>3)</strong>	Cadastro de Tags;<br>
-<strong>4)</strong>	Movimentação de XML Terceiros;<br>
-<strong>5)</strong>	Relatório de XML Terceiros;<br>
+* <strong>1.</strong>Adicionar os includes abaixo no projeto de personalização do cliente.
+   * <strong>a)</strong> \INCLUDES\
+      *  GCMV1ART.CH
+      *  MA650TOK.CH 
+      *  MT250GREST.CH
+      *  MTA241MNU.CH
+      *  MTA250MNU.CH
+      *  MTA650E.CH
+      *  MTGRDVW.CH
 
-Este manual tem como objetivo auxiliar na utilização das novas funcionalidades disponibilizadas pelo Pacote no módulo de COMPRAS.
+* <strong>2.</strong>Realizar à compatibilização dos pontos de entrada abaixo com o projeto de customizações do cliente.
+   * <strong>a)</strong> \RDMAKES\SIGAESP\PE\
+      *  GCMV1ART.PRW
+      *  GCMV1ART_ES.TRES 
+      *  GCMV1ART_PT-BR.TRES
+      *  MOV01CGR.PRW
+      *  MOV01CTL.PRW
+      *  MOV01PVD.PRW
+      *  MOV01TOK.PRW
+      * MOV01VFA.PRW
+* <strong>b)</strong> \RDMAKES\SIGAEST\PE\
+      *  MA650TOK.PRW
+      * MA650TOK_ES.TRES
+      * MA650TOK_PT-BR.TRES
+      * MT241TOK.PRW
+      * MT250GREST.PRW
+      * MT250GREST_ES.TRES
+      * MT250GREST_PT-BR.TRES
+      * MTA241MNU.PRW
+      * MTA241MNU_ES.TRES
+      * MTA241MNU_PT-BR.TRES
+      * MTA250MNU.PRW
+      * MTA250MNU_ES.TRES
+      * MTA250MNU_PT-BR.TRES
+      * MTA650ALT.PRW
+      * MTA650E.PRW
+      * MTA650E_ES.TRES
+      * MTA650E_PT-BR.TRES
+      * MTGRDVW.PRW
+      * MTGRDVW_ES.TRES
+      * MTGRDVW_PT-BR.TRES
+* <strong>c)</strong> \RDMAKES\SIGAGEN\PE\
+      * FTMSREL.PRW
 
-<strong>OBSERVAÇÃO:</strong> Antes de utilizar as rotinas do ADDON XML Terceiros, certifique-se que foram efetuados os procedimentos de aplicação do ADDON junto ao ambiente conforme boletim técnico que acompanha o pacote do ADDON.
+* <strong>3.</strong> Através da ferramenta de desenvolvimento (Ex: VSCode), deve-se recompilar todos os rdmakes mencionados anteriormente, após à execução das atividades de compatibilização e adição ao projeto de customizações do cliente. <br>
+
+* <strong>4.</strong> Através da ferramenta de desenvolvimento (Ex: VSCode), deve-se aplicar o patch de atualização disponibilizado com o pacote de atualização.
+
+* <strong>5.</strong> Realizar à atualização do dicionário de dados através da execução do compatibilizador UPDDISTR.
+    * <strong>a)</strong> Devem ser utilizados os artefatos disponibilizados junto com o pacote de atualização, atualizando os mesmos no diretório \SYSTEMLOAD\ do ambiente do ERP Protheus.
+
+![](./assets/controlecultivos/Imagem1.png){.flow-image}
+
+![](./assets/controlecultivos/Imagem2.png){.flow-image}
+
+![](./assets/controlecultivos/Imagem3.png){.flow-image}
+
+![](./assets/controlecultivos/Imagem4.png){.flow-image}
+
+<strong>Atenção</strong>: As rotinas disponibilizadas, estão suportadas para os idiomas Espanhol e Português do ERP Protheus.
+
+#### 2. CONFIGURADOR
+
+Através do ambiente Configurador (SIGACFG), deve-se adicionar as rotinas abaixo no menu do Addon GC:
+
+#### 2.1 AMBIENTE\CADASTROS\MENUS 
+
+  * \ATUALIZAÇÕES\CADASTROS CEREAIS\FAZENDAS 
+
+![](./assets/controlecultivos/Imagem5.png){.flow-image}
+
+  *	\ATUALIZAÇÕES\CADASTROS CEREAIS\SERVIÇOS
+
+![](./assets/controlecultivos/Imagem6.png){.flow-image}
+
+  *	\ATUALIZAÇÕES\CADASTROS CEREAIS\VARIEDADES
+
+![](./assets/controlecultivos/Imagem7.png){.flow-image}
+
+  *	\ATUALIZAÇÕES\CADASTROS CEREAIS\ESTÁGIOS DE CULTIVO 
+
+![](./assets/controlecultivos/Imagem8.png){.flow-image}
+
+  *	\ATUALIZAÇÕES\MOVIMENTOS\BAIXAS DE ESTOQUE 
+
+![](./assets/controlecultivos/Imagem9.png){.flow-image}
+
+  *	\ATUALIZAÇÕES\MOVIMENTOS\APONTAMENTOS DE COLHEITA
+
+![](./assets/controlecultivos/Imagem10.png){.flow-image}   
+
+  *	\RELATÓRIOS\APURAÇÕES\DETALHAMENTO DE CULTIVO 
+
+![](./assets/controlecultivos/Imagem11.png){.flow-image}  
+
+  *	\RELATÓRIOS\APURAÇÕES\CULTIVO X PRODUTIVIDADE
+
+![](./assets/controlecultivos/Imagem12.png){.flow-image}  
+
+  *	\RELATÓRIOS\BALANÇA\MOV. DIÁRIA COLHEITA
+
+![](./assets/controlecultivos/Imagem13.png){.flow-image}  
+
+#### 2.2 AMBIENTE\CADASTROS\PARÂMETROS
+
+* <strong>MV_XCESP00</strong>: 
+    * Caractere inicial de composição da identificação da Fazenda em Armazéns e Série Fiscal.<br>
+    * Ex: F ou H.<hr>
+
+* <strong>MV_XCESP01</strong>: 
+    * Tipo de movimentação (SF5) utilizado para entrada das ocorrências de subproduto nos romaneios referentes a recebimento de cereais referente a colheita (CL).
+    * EX: 001.<hr>
+
+* <strong>MV_XCESP02</strong>: 
+    * Tipo de movimentação (SF5) utilizado para requisição do custo de produção (custos indiretos) nos romaneios referentes à recebimento de cereais referente à colheita (CL).
+    * EX: 501.<hr>
+
+* <strong>MV_XCESP03</strong><br>
+    * Identificação inicial para composição de Centro de Custos para composição de custos indiretos.<br>
+        *	Se deixar o parâmetro em branco, não será gerado Centro de Custos.
+    * EX: SAF.<hr>
+
+* <strong>MV_XCESP04</strong><br>
+    * Identificação de Grupo\Produtos para composição de Entidade Contábil de custos indiretos.<br>
+        * Se deixar o parâmetro em branco, não serão gerados o Grupo\Produto para custos indiretos. <br>
+    * EX: CPA.<hr>
+
+* <strong>MV_XCESP05</strong><br>
+    * Conta Contábil para vínculo ao Produto utilizado na composição dos custos indiretos de cultivo.<br>
+        * Se deixar o parâmetro em branco, não será vinculado Conta Contábil ao Produto correspondente à composição dos custos indiretos.<br><hr>
+
+* <strong>MV_XCESP06</strong><br>
+    *	Executa apontamento de produção referente há recebimento de colheita ao fechar o Romaneio.<br>
+      * EX: .F.<br><hr>
+
+* <strong>MV_XCESP07</strong><br>
+    * Deve cancelar o Romaneio quando é estornado o Ap. de Produção de Recebimento de Colheita.<br>
+      * EX: .F.<br><hr>
+
+* <strong>MV_XCESP08</strong><br>
+    * Entidade contábil auxiliar referente à Fazendas.<br>
+      * EX: 05.<br><hr>
+
+* <strong>MV_XCESP09</strong><br>
+    * Entidade contábil auxiliar referente à Safras. .<br>
+      * EX: 06.<br><hr>
+
+* <strong>MV_XCESP10</strong><br>
+    * Tipo de movimentação utilizado para apontamento de produção referente há colheita.<br>
+        * Se não for parametrizado, irá utilizar conforme definido em MV_TMPAD. 
+    * EX: 020.<br><hr>
+
+* <strong>MV_XCESP11</strong><br>
+    * Permite modificar definições de plantio que tenham Ordem de Produção.<br>
+      * Permite modificar a “quantidade estimada” caso não seja inferior à quantidade já produzida.
+      *	Permite modificar o “produto de cultivo” caso não exista apontamento de produção na OP.<br><hr>
+
+* <strong>MV_XCESP12</strong><br>
+    * Tipo de movimentação utilizado na rotina de Baixa de Estoque.<br>
+      * EX:501.<br><hr>
+
+* <strong>MV_XCESP13</strong><br>
+    * Código do serviço vinculado aos apontamentos de produção gerados pela rotina de Romaneios.<br>
+      * EX: 000005.<br><hr>
+
+* <strong>MV_XCESP14</strong><br>
+    * Determina se haverá incidência de produção à partir dos Romaneios vinculados ao cadastro da Fazenda.<br>
+      * EX:.F.<br><hr>
+
+* <strong>MV_XCESP15</strong><br>
+    * Utiliza cadastro de Serviços nas baixas de estoque sob definições de cultivo das Fazendas.<br>
+      * EX:.T.<br><hr>
+
+* <strong>MV_XCESP16</strong><br>
+    * Define o layout fixo (1, 2 ou 3) aplicado à funcionalidade Cultivos na rotina de Fazendas.<br>
+      * EX: 0.<br><hr>
+
+* <strong>MV_XCESP17</strong><br>
+    *	Utiliza tela de escolha do local de estoque ao fechar Romaneios que não sejam Venda Direta (GA).<br>
+      * EX: .F.<br><hr>
 
 
-#### 1. CADASTRO CONTAS DE E-MAILS
+#### 3. ADDON GESTÃO DE CEREAIS
+Na sequência deste documento, serão listadas as informações referentes à utilização do processo personalizado junto ao Addon Gestão de Cereais.<br>
 
-Esta rotina tem por objetivo o cadastro das contas de e-mail utilizadas pela empresa\filiais para recebimento de arquivos XML emitidos por terceiros contra  empresa\filial.
+#### 3.1 ATUALIZAÇÕES\CADASTROS CEREAIS\USUÁRIOS X PERMISSÕES
+
+Disponibilizado, novos campos de controle de permissões dos usuários, junto à rotina de Usuários X Permissões – GCCAD013.PRW.
+
+![](./assets/controlecultivos/Imagem14.png){.flow-image} 
+
+Existem campos de controle de permissão, junto à sessão “Cadastros Cereais”.
+
+![](./assets/controlecultivos/Imagem15.png){.flow-image} 
+
+Também se encontram disponíveis, novos campos junto à sessão de “Movimentos”.
+
+![](./assets/controlecultivos/Imagem16.png){.flow-image} 
+
+#### 3.2 ATUALIZAÇÕES\CADASTROS CEREAIS\FAZENDAS
+
+Disponibilizado, rotina personalizada denominada Fazendas. Ao acessar à rotina, é apresentado o browse e suas funcionalidades.
+
+![](./assets/controlecultivos/Imagem17.png){.flow-image} 
+
+Através da funcionalidade “Incluir”, é disponibilizado interface para definição das informações do cabeçalho referente à identificação da Fazenda e abaixo, grids para composição dos Blocos\Zonas e Talhões\Quadras conforme exemplo.
+
+![](./assets/controlecultivos/Imagem18.png){.flow-image} 
+
+No cabeçalho, além da descrição da Fazenda, deve-se informar sua “origem” e “setor”, bem como, o cadastro de Fornecedor que será utilizado para registro dos Romaneios de pesagem referente à colheita na respectiva fazenda.
+
+![](./assets/controlecultivos/Imagem19.png){.flow-image} 
+
+No grid presente na interface, devem ser vinculadas as informações referentes à cada um dos Blocos\Zonas e para estes, seus respectivos Talhões\Quadras os quais compõe à Fazenda.
+
+![](./assets/controlecultivos/Imagem20.png){.flow-image} 
+
+Referente à “Origem” da Fazenda:<br>
+
+* <strong>PRÓPRIA</strong><br>
+    * Fazenda própria, sob à qual é possível compor custos de cultivo por safra e pesagens.<br>
+* <strong>TERCEIROS</strong><br>
+    * Fazenda de terceiros, não se aplica à composição de custos de cultivo, apenas pesagens.<br>
+* <strong>ARRENDADA</strong><br>
+    * Fazenda de terceiros, sob à qual é possível compor custos de cultivo por safra e pesagens.<br>
+Após à definição das informações com relação ao cadastro da Fazenda, basta confirmar à inclusão.
+
+![](./assets/controlecultivos/Imagem21.png){.flow-image} 
+
+Ao retornar ao browse da rotina, será apresentado registro referente ao cadastro que foi adicionado.
+
+![](./assets/controlecultivos/Imagem22.png){.flow-image} 
+
+Quando é realizado à inclusão\alteração do cadastro de Fazendas, também são gerados registros vinculados à mesma em rotinas padrões do ERP Protheus. <br>
+
+Ao “Visualizar” ou “Alterar” o cadastro de Fazendas, encontra-se disponível em “Outras Ações”, à opção denominada “Conhecimento”.
+
+![](./assets/controlecultivos/Imagem23.png){.flow-image} 
+
+Trata-se da funcionalidade padrão do ERP Protheus, denominada “Banco de Conhecimento”.
+
+![](./assets/controlecultivos/Imagem24.png){.flow-image} 
+
+Este recurso, permite que sejam vinculados ao cadastro da Fazenda manipulado, arquivos de qualquer extensão, onde posteriormente, qualquer usuário com acesso à rotina, poderá acessar estes arquivos, realizando o download dos mesmos e\ou adicionado novos arquivos.
+
+<strong>LOCAIS DE ESTOQUE (ESTOQUE\CUSTOS)</strong><br>
+
+Os registros gerados na rotina de Locais de Estoque (NNR), tem o código composto pelo caractere de identificação de Fazenda (MV_XCESP00) + Código da Fazenda.
+
+![](./assets/controlecultivos/Imagem25.png){.flow-image} 
+
+<strong>CLASSE DE VALOR \ ENTIDADE CONTABIL AUXILIAR (CONTABILIDADE GERENCIAL)</strong><br>
+
+Os registros gerados na rotina de Classe de Valor (CTH) ou Entidade Contábil Auxiliar (CT0), tem o código composto pelo caractere de identificação da Fazenda (MV_XCESP00) + Código da Fazenda. Neste caso, são criados registros de Classe de Valor para cada uma das Parcelas\Talhões vinculados à estrutura da Fazenda manipulada.
+
+![](./assets/controlecultivos/Imagem26.png){.flow-image} 
+
+Além das opções padrões de manipulação de cadastros de Fazendas, encontra-se disponível na rotina, em “Outras Ações” à funcionalidade denominada “Cultivos”.
+
+![](./assets/controlecultivos/Imagem27.png){.flow-image} 
+
+Ao acionar esta funcionalidade, é disponibilizado um novo browse com o histórico de todas as definições de cultivo existentes para o cadastro da Fazenda posicionado anteriormente.
+
+![](./assets/controlecultivos/Imagem28.png){.flow-image} 
+
+Esta funcionalidade, disponibiliza regras para que seja realizado à definição de quais produtos (cereais) serão cultivados na safra em cada um dos Blocos\Zonas e seus Talhões\Quadras da Fazenda. Através da realização deste planejamento de cultivo\plantio, serão geradas Ordens de Produção (SC2) junto ao módulo de Estoque\Custos, para baixa do estoque que será utilizado durante o ciclo de cultivo em cada uma das áreas da Fazenda, compondo assim, os custos diretos de cultivo.
 <br>
-As contas de e-mail cadastradas através desta rotina, poderão ser posteriormente utilizadas para sincronização\download dos arquivos de XML recebidos através de e-mail.
-<br>
-Para cadastrar a conta de e-mail em questão, deverá ter de posse os dados técnicos em torno da comunicação\conexão junto a conta de e-mail.
+Ao acionar à funcionalidade “Incluir”, caso o parâmetro MV_XCESP016 esteja configurado como “0”, será disponibilizado interface para que seja escolhido qual o layout de tela que será utilizado para registro da definição de cultivo.
 
-![](./assets/xmlterceiros/Imagem1.png){.flow-image}
+![](./assets/controlecultivos/Imagem29.png){.flow-image} 
 
-As definições técnicas a respeito da configuração das contas de e-mail que serão integradas com o addon XML Terceiros para o recebimento de arquivos XML estão organizadas em pastas conforme a sua aplicação\finalidade.<br>
-Abaixo, seguem informações especificas em torno de alguns dos campos presentes junto ao cadastro de contas de e-mail:
+Abaixo, são apresentadas maiores informações à respeito de cada uma das opções disponíveis:<br>
 
-* <strong>Bloqueado (Z04_MSBLQL)</strong>: 
-    * Determina se a conta de e-mail está bloqueada.<br>
-    * Contas de e-mail definidas como bloqueadas não serão disponibilizadas para integração com a rotina de XML Recebidos.<hr>
-* <strong>Utiliza SSL (Z04_SSL)</strong>: 
-    * Determina se a conta de e-mail utiliza autenticação do tipo SSL.
-<hr>
-* <strong>Utiliza TLS (Z04_TLS)</strong>: 
-    * Determina se a conta de e-mail utiliza autenticação do tipo TLS.
-<hr>
-* <strong>Recebimento (Z04_RECBTO)</strong><br>
-    * <strong>I – Imap</strong>: <br>
-        * Determina que o protocolo de recebimento de e-mails para a conta é IMAP.<br>
-        * Deve-se considerar os campos abaixo para configuração deste protocolo:
-            * <strong>Pop (Z04_IMAP)</strong>
-                * Endereço do servidor IMAP.
-            * <strong>Porta (Z04_PIMAP)</strong>
-                * Porta de comunicação do servidor IMAP.
-        * Ao utilizar contas de e-mail com protocolo de recebimento IMAP, certifique-se que foram adicionadas as configurações abaixo junto ao arquivo de configuração do server do ERP Protheus (appserver.ini):<br><br>
-          <strong>[MAIL]</strong><br>
-          authLogin=1<br>
-          protocol=IMAP<br>
-          authNTLM=1<br>
-          authPlain=0<br>
-          ExtendSMTP=1<br>
-          SSLVersion=2<br>
-          TLSVersion=3<br><br>
-          <strong>[SSLConfigure]</strong><br>
-          SSL2=2<br>
-      * <strong>P – Pop</strong>: <br>
-        * Determina que o protocolo de recebimento de e-mails para a conta é POP.
-        * Deve-se considerar os campos abaixo para configuração deste protocolo:
-            * <strong>Pop (Z04_POP)</strong>
-                * Endereço do servidor POP.
-            * <strong>Porta (Z04_PPOP)</strong>
-                * Porta de comunicação do servidor POP.
-        * Ao utilizar contas de e-mail com protocolo de recebimento POP, certifique-se que foram adicionadas as configurações abaixo junto ao arquivo de configuração do server do ERP Protheus (appserver.ini):<br><br>
-            <strong>[MAIL]</strong><br>
-            protocol=POP
-<hr>
-* <strong>Importação (Z04_TPIMP)</strong><br>
-  * <strong>1 – Filial Logada</strong>: <br>
-    * Nesta configuração, somente serão importados os arquivos XML cujo o CNPJ do destinatário seja igual  empresa\filial logada.<br>
-  * <strong>2 – Todas as Filiais</strong>: <br>
-    * A partir desta configuração, serão importados os arquivos XML vinculados  e-mails da conta onde o CNPJ do destinatário seja igual ao CNPJ de qualquer empresa\filial do ERP Protheus.
-<hr>
-* <strong>Processados (Z04_EPROC)</strong><br>
-  * <strong>1 – Excluir</strong>: <br>
-    * Caso tenha sido importado um ou mais XML a partir do e-mail processado, será realizado a exclusão do e-mail junto a conta de e-mail processada.<br>
-  * <strong>2 – Manter</strong>: <br>
-    * Caso tenha sido importado um ou mais XML a partir do e-mail processado, será mantido o e-mail junto a conta de e-mail processada.<br>
-        * Ao utilizar esta opção, vale ressaltar que em nova integração com a conta de e-mail, os e-mails já lidos serão novamente avaliados, logo, este cenário poderá afetar no tempo de processamento da integração com a conta de e-mail.
-<hr>
-* <strong>Ignorados (Z04_EIGNOR)</strong><br>
-  * <strong>1 – Excluir</strong>: <br>
-    * Caso não tenha sido importado nenhum XML a partir do e-mail processado, será realizado a exclusão do e-mail junto a conta de e-mail processada.<br>
-  * <strong>2 – Manter</strong>: <br>
-    * Caso não tenha sido importado nenhum XML a partir do e-mail processado, será mantido o e-mail junto a conta de e-mail processada.<br>
-        * Ao utilizar esta opção, vale ressaltar que em nova integração com a conta de e-mail, os e-mails já lidos serão novamente avaliados, logo, este cenário poderá afetar no tempo de processamento da integração com a conta de e-mail.
+* <strong>FAZENDA:</strong>
+    * Ao utilizar esta opção, será possível definir um único produto e ordem de produção, aplicado de modo total à Fazenda para à safra de referência.<br>
+    * Para sempre utilizar este layout, basta configurar o parâmetro <strong>MV_XCESP016 = 1</strong>.<br>
 
-#### 2. CADASTRO USUÁRIOS X PERMISSÕES
-A rotina de Usuários X Permissões foi desenvolvida com o objetivo de efetuar o controle em torno das permissões que os usuários do ERP Protheus terão em relação aos recursos presentes nas rotinas do ADDON XML de Terceiros.
-<br>
-Não será possível aos usuários, utilizar os recursos do ADDON caso não possua registro de definição de permissões.
-<br>
-Para cadastrar as permissões, é necessário inicialmente vincular o cadastro do usuário do ERP Protheus o qual foi previamente definido através do ambiente Configurador.
+* <strong>FAZENDA + BLOCO\ZONA:</strong>
+    * Nesta modalidade, à definição do produto cultivado, será por Bloco\Zona. Portanto, se à Fazenda possui por exemplo, 3 Blocos\Zonas, cada um destes, poderá ter um produto distinto, sendo gerado uma ordem de produção para cada Bloco\Zona que tiver produto de cultivo definido para à safra de referência.<br>
+    * Para sempre utilizar este layout, basta configurar o parâmetro <strong>MV_XCESP016 = 2</strong>.<br>
 
-![](./assets/xmlterceiros/Imagem2.png){.flow-image}
+* <strong>FAZENDA + BLOCO\ZONA + QUADRA\TALHÃO</strong>
+    * Por final, ao utilizar esta opção, será possível definir o produto e será gerado ordem de produção individual, para
+  cada Quadra\Talhão de cada um dos Blocos\Zonas da Fazenda para à safra de referência. <br>
+    * Para sempre utilizar este layout, basta configurar o parâmetro <strong>MV_XCESP016 = 3</strong>.
 
-Posteriormente, definem-se as permissões para o usuário em questão em relação aos recursos existentes no ADDON XML de Terceiros.<br>
-Para cada um dos recursos existentes nas rotinas do ADDON, existem campos específicos no cadastro de Usuários X Permissões conforme exemplo abaixo.
+Após à definição do layout de controle do cultivo, será disponibilizado à interface para registro das definições aplicadas ao cultivo, conforme as características detalhadas anteriormente. Para fins de exemplo, neste documento, está sendo aplicado definição de cultivo com layout por FAZENDA (MV_XCESP016 = 1).
 
-![](./assets/xmlterceiros/Imagem3.png){.flow-image}
+![](./assets/controlecultivos/Imagem30.png){.flow-image} 
 
-Ao realizar o cadastramento das permissões, verifique o help dos campos para obter demais informações sobre a permissão em questão.<br>
-<strong>DICA:</strong> não é necessário realizar a inclusão do cadastro de Usuários X Permissões para o usuário ADMINISTRADOR do ERP Protheus, afinal, o mesmo possui acesso total a todos os recursos do ADDON de modo padrão.
-<br>
+Junto ao cabeçalho, deve-se informar à Safra referente ao cultivo e também, o cadastro do Produto que será cultivado na área.
+
+![](./assets/controlecultivos/Imagem31.png){.flow-image} 
+
+No grid presente na base inferior da tela, serão disponibilizadas as informações referentes há todas as definições de Blocos\Zonas com seus respectivos Talhões\Quadras, conforme as definições atuais do cadastro da Fazenda.
+
+![](./assets/controlecultivos/Imagem32.png){.flow-image} 
+
+Por padrão, à definição do “Tam. Área” de cada Talhão\Quadra, será sugerido como “Área Cultivo”. No entanto, conforme necessário, é possível editar os campos “Área Semente”, “Área Reforma” e “Área Danos” de modo que, o tamanho de área (hectare) informado nestes campos, será subtraído do campo “Área Cultivo”.
+
+![](./assets/controlecultivos/Imagem33.png){.flow-image}
+
+Através do campo “Fração”, deve-se informar no Bloco\Zona e Talhão\Quadra, à quantidade de produção estimada por hectare. Assim, o campo “Qtd. Prevista” será automaticamente calculado considerando o campo “Área Cultivo”.
+
+![](./assets/controlecultivos/Imagem34.png){.flow-image}
+
+Junto ao grid da tela, encontram-se disponíveis outros campos informativos e de controle do cultivo.
+
+![](./assets/controlecultivos/Imagem35.png){.flow-image}
+
+Após finalizar as definições do Cultivo, basta confirmar à interface.
+
+![](./assets/controlecultivos/Imagem36.png){.flow-image}
+
+Assim, ocorrerá a gravação das definições de cultivo, neste momento, também serão executadas as regras referentes a geração de ordem de produção para controle\composição dos custos de cultivo, conforme às regras de definição do layout utilizado, conforme mencionado anteriormente.
+
+![](./assets/controlecultivos/Imagem37.png){.flow-image}
+
+<strong>ATENÇÃO:</strong> a Fazenda, Bloco\Zona, Talhão\Quadra e Safra, somente serão disponibilizados para movimentação, caso o status seja modificado para “Em Execução”.
+
+<strong>IMPRIMIR \ DETALHAMENTO DE CULTIVO:</strong>
+
+Junto ao browse da funcionalidade de “Plantios” na rotina de Fazendas, existe em “Outras Ações” a funcionalidade “Imprimir\Det. Cultivo”. Trata-se de relatório para apresentação das movimentações de estoque\produção\colheita, vinculadas as definições de plantio posicionada no browse.
+
+![](./assets/controlecultivos/Imagem38.png){.flow-image}
+
+O relatório, será gerado considerando todos os talhões com definição de cultivo conforme o registro posicionado no browse no ato da execução. Portanto, não existem parâmetros para definição no relatório quando a sua execução é realizada pela funcionalidade de “Plantios”.
+
+![](./assets/controlecultivos/Imagem39.png){.flow-image}
+
+<strong>ORDENS DE PRODUÇÃO (ESTOQUE\CUSTOS)</strong>
+
+Através da rotina padrão de Ordens de Produção, é possível consultar os detalhes à respeito de cada um dos registros gerados devido à inclusão do Planejamento de Cultivo\Plantio mencionado anteriormente.
+
+![](./assets/controlecultivos/Imagem40.png){.flow-image}
+
+Ao visualizar uma destas Ordens de Produção, é possível identificar informações correspondentes ao planejamento de Cultivo vinculado.
+
+![](./assets/controlecultivos/Imagem41.png){.flow-image}
+
+Visando manter à integridade do processo, não é permito que sejam realizadas alterações\exclusões das Ordens de Produção geradas pelo Planejamento de Cultivo\Plantio. Ao tentar realizar alguma destas ações, será apresentado mensagem alertando à respeito.
+
+![](./assets/controlecultivos/Imagem42.png){.flow-image}
+
+Caso seja necessário alterar o produto\quantidade ou até mesmo excluir as Ordens de Produção, deve-se utilizar as funcionalidades “Alterar” e\ou “Excluir” disponíveis junto ao browse do recurso de “Cultivos” na rotina de Fazendas.
+
+#### 3.3	ATUALIZAÇÕES\CADASTROS CEREAIS\SERVIÇOS
+
+Disponibilizado, rotina personalizada denominada Serviços. Ao acessar à rotina, é apresentado o browse e suas funcionalidades.
+
+![](./assets/controlecultivos/Imagem43.png){.flow-image}
+
+Através das funcionalidades disponíveis no browse, deve-se realizar à composição do cadastro de todos os tipos de serviços que podem ser utilizados durante o ciclo de cultivo de cada safra.
+
+![](./assets/controlecultivos/Imagem44.png){.flow-image}
+
+O cadastro de Serviços, será aplicado à realização das Baixas de Estoque referente ao vínculo de insumos e custos indiretos no ciclo de cultivo.
+
+![](./assets/controlecultivos/Imagem45.png){.flow-image}
+
+#### 3.4	ATUALIZAÇÕES\CADASTROS CEREAIS\VARIEDADES
+
+Disponibilizado, rotina personalizada denominada Variedades. Ao acessar à rotina, é apresentado o browse e suas funcionalidades.
+
+![](./assets/controlecultivos/Imagem46.png){.flow-image}
+
+Através das funcionalidades disponíveis no browse, deve-se realizar à composição do cadastro de todas as variedades que podem ser utilizados durante o ciclo de cultivo de cada safra.
+
+![](./assets/controlecultivos/Imagem47.png){.flow-image}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### 3. CADASTRO DE TAGS
 A rotina de Cadastro de Tags está presente no ADDON XML de Terceiros com o objetivo de flexibilizar a evolução do ADDON em relação a alterações na estrutura dos arquivos XML pertinentes aos documentos fiscais abaixo:
