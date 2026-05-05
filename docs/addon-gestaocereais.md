@@ -45841,7 +45841,7 @@ Assim, ocorrerá a gravação das definições de cultivo, neste momento, també
 
 ![](./assets/controlecultivos/Imagem37.png){.flow-image}
 
-<strong>ATENÇÃO:</strong> a Fazenda, Bloco\Zona, Talhão\Quadra e Safra, somente serão disponibilizados para movimentação, caso o status seja modificado para “Em Execução”.
+<strong>ATENÇÃO:</strong> A Fazenda, Bloco\Zona, Talhão\Quadra e Safra, somente serão disponibilizados para movimentação, caso o status seja modificado para “Em Execução”.
 
 <strong>IMPRIMIR \ DETALHAMENTO DE CULTIVO:</strong>
 
@@ -45893,294 +45893,338 @@ Através das funcionalidades disponíveis no browse, deve-se realizar à composi
 
 ![](./assets/controlecultivos/Imagem47.png){.flow-image}
 
+O cadastro de Variedades, é aplicado à funcionalidade de “Cultivos” presente na rotina de “Fazendas”.
+
+![](./assets/controlecultivos/Imagem48.png){.flow-image}
+
+#### 3.5 ATUALIZAÇÕES\CADASTROS CEREAIS\ESTÁGIOS DE CULTIVO
+
+Disponibilizado, rotina personalizada denominada Estágios de Cultivo. Ao acessar à rotina, é apresentado o browse e suas funcionalidades.
+
+![](./assets/controlecultivos/Imagem49.png){.flow-image}
+
+Através das funcionalidades disponíveis no browse, deve-se realizar à composição do cadastro de todos os estágios de cultivo, que podem ser utilizados durante o ciclo de cultivo de cada safra.
+
+![](./assets/controlecultivos/Imagem50.png){.flow-image}
+
+O cadastro de Estágios de Cultivo, é aplicado à funcionalidade de “Cultivos” presente na rotina de “Fazendas”.
+
+![](./assets/controlecultivos/Imagem51.png){.flow-image}
+
+#### 3.6 ATUALIZAÇÕES\MOVIMENTOS\BAIXAS DE ESTOQUE
+
+Disponibilizado, rotina personalizada denominada Baixas de Estoque. Ao acessar à rotina, é apresentado o browse e suas funcionalidades.
+
+![](./assets/controlecultivos/Imagem52.png){.flow-image}
+
+<strong>INCLUIR - MANUALMENTE</strong>
+
+Ao acionar à funcionalidade “Incluir”, será disponibilizado interface para definição dos movimentos de baixa de estoque a serem realizados pelo usuário.
+
+![](./assets/controlecultivos/Imagem53.png){.flow-image}
+
+No cabeçalho, deve ser informado à data utilizada para realização da baixa de estoque dos produtos e caso exista, o número do boletim de aplicação.
+
+![](./assets/controlecultivos/Imagem54.png){.flow-image}
+
+Junto ao grid central, deve-se informar à relação de produtos, local de estoque e suas respectivas quantidades, conforme à baixa necessária dos mesmos junto ao estoque.
+
+![](./assets/controlecultivos/Imagem55.png){.flow-image}
+
+Ao informar o código do produto no grid central, será disponibilizado interface para definição das informações correspondentes à “aplicação” do respectivo produto.
+
+![](./assets/controlecultivos/Imagem56.png){.flow-image}
+
+Junto à interface secundária, deve-se determinar à “Fazenda” e a partir desta, devem ser informadas outras características envolvidas na aplicação do insumo que está sendo baixado. Vale ressaltar, que somente serão disponibilizadas para o processo, as definições de cultivo que estejam com status “Em Execução”.
+
+![](./assets/controlecultivos/Imagem57.png){.flow-image}
+
+A partir da definição de Fazenda, Bloco\Zona e Talhão\Quadra, basta na sequência, que seja informado o código de identificação do Serviço vinculado à baixa do estoque do produto manipulado.
+
+![](./assets/controlecultivos/Imagem58.png){.flow-image}
+
+Após informar os dados solicitados, o foco é direcionado ao botão “Confirmar”, para que seja retornado ao grid principal, para definição da quantidade do produto.
+
+![](./assets/controlecultivos/Imagem59.png){.flow-image}
+
+Retornando ao grid principal de Produtos, deve-se informar os demais dados referentes à baixa do produto, tais como: local de estoque, quantidade e lote (caso exista).
+
+![](./assets/controlecultivos/Imagem60.png){.flow-image}
+
+A partir do item posicionado no grid de Produtos, será apresentado no grid inferior – Aplicação, as informações correspondentes à Fazenda, Bloco\Zona, Talhão\Quadra, Safra e Serviço vinculados à baixa do respectivo produto.
+
+![](./assets/controlecultivos/Imagem61.png){.flow-image}
+
+Desta forma, deve-se realizar à definição de todos os produtos correspondentes à realização da baixa de estoque na data informada. Após finalizar à definição dos produtos, basta confirmar à interface.
+
+![](./assets/controlecultivos/Imagem62.png){.flow-image}
+
+Ao confirmar à interface, ocorrerá à geração dos movimentos de baixa de estoque dos produtos conforme as definições da tela. Ao finalizar à movimentação, será apresentado mensagem à respeito, sendo retornado para o browse.
+
+![](./assets/controlecultivos/Imagem63.png){.flow-image}
+
+<strong>INCLUIR – BAIXA AUTOMATICA</strong>
+
+Junto à funcionalidade “Incluir” na rotina de Baixas de Estoque, existe funcionalidade denominada “Baixa Automática”. Esta funcionalidade, está disponível em “Outras Ações”.
+
+![](./assets/controlecultivos/Imagem64.png){.flow-image}
+
+Esta funcionalidade, tem por objetivo automatizar à composição do grid de Produtos da tela, à partir dos parâmetros disponibilizados para sua execução.
+
+![](./assets/controlecultivos/Imagem65.png){.flow-image}
+
+A partir dos parâmetros informados, será atualizado o grid de Produtos da interface.
+
+![](./assets/controlecultivos/Imagem66.png){.flow-image}
+
+A funcionalidade de Baixa Automática, foi implementada principalmente para situações em que seja necessário realizar à baixa de estoque referente à produtos vinculados à composição\rateio de custos indiretos.
+
+<strong>ESTORNAR</strong>
+
+Caso seja necessário excluir alguma baixa de estoque realizada de forma divergente, deve-se posicionar no browse sob um dos registros desejados e em seguida, executar à funcionalidade “Estornar” presente em “Outras Ações”.
+
+![](./assets/controlecultivos/Imagem67.png){.flow-image}
+
+Em seguida, será apresentado à tela com os movimentos vinculados à baixa de estoque do item posicionado, para que seja realizado o estorno, basta confirmar à tela.
+
+![](./assets/controlecultivos/Imagem68.png){.flow-image}
 
 
+#### 3.7 ATUALIZAÇÕES\MOVIMENTOS\APONTAMENTO DE COLHEITA
 
+Caso não seja adotado à realização de pesagem das cargas obtidas na colheita, deve-se adotar à utilização da rotina Apontamento de Colheita – CMESP02.PRW para que seja realizado o registro da produção obtida. 
 
+![](./assets/controlecultivos/Imagem69.png){.flow-image}
 
+<strong>INCLUIR</strong>
 
+Através da funcionalidade “Incluir”, será disponibilizado interface específica, para auxiliar na realização do apontamento de colheita.
 
+![](./assets/controlecultivos/Imagem70.png){.flow-image}
 
+No cabeçalho, devem ser informados primeiramente, o campo de identificação do número do documento referente ao apontamento realizado. Em seguida, deve-se informar à Fazenda\Safra.
 
+![](./assets/controlecultivos/Imagem71.png){.flow-image}
 
+Em seguida, deve-se informar o volume\quantidade total da colheita na respectiva Fazenda\Safra.
 
+![](./assets/controlecultivos/Imagem72.png){.flow-image}
 
+Após informar à Fazenda, Safra e Qtd. Colheita, será apresentado tela com os Blocos\Zonas da respectiva Fazenda conforme as definições de cultivo da Safra informada. Portanto, deve-se selecionar os Blocos\Zonas os quais serão considerados para realização do apontamento de colheita.
 
+![](./assets/controlecultivos/Imagem73.png){.flow-image}
 
+Confirmando à tela, será realizado à carga no grid principal da tela, dos Blocos\Zonas selecionados e seus respectivos Talhões\Quadras, sendo que, o valor informado no campo “Qtd. Colheita”, será rateado entre os registros do grid, de forma proporcional ao “Tam. Área” de cada Talhão\Quadra.
 
+![](./assets/controlecultivos/Imagem74.png){.flow-image}
 
+Caso seja necessário, é possível realizar ajustes no campo “Qtd. Colheita” no grid de itens. A partir das alterações realizadas neste campo, será atualizado o campo de “Qtd. Colheita” presente no cabeçalho da tela de inclusão do apontamento de colheita.
 
+![](./assets/controlecultivos/Imagem75.png){.flow-image}
 
+Finalizando a realização do apontamento de colheita, basta realizar à confirmação da tela.
 
+![](./assets/controlecultivos/Imagem76.png){.flow-image}
 
+Assim, serão executadas as regras de inclusão dos apontamentos de produção, nas ordens de produção vinculadas à cada Bloco\Zona e Talhão\Quadra, considerados na inclusão do apontamento de colheita.
 
+![](./assets/controlecultivos/Imagem77.png){.flow-image}
 
+Será então, retornado ao browse da rotina, onde poderão ser identificados\visualizados os registros de produção gerados pela ação de inclusão.
 
+![](./assets/controlecultivos/Imagem78.png){.flow-image}
 
+<strong>ESTORNAR</strong>
 
-#### 3. CADASTRO DE TAGS
-A rotina de Cadastro de Tags está presente no ADDON XML de Terceiros com o objetivo de flexibilizar a evolução do ADDON em relação a alterações na estrutura dos arquivos XML pertinentes aos documentos fiscais abaixo:
+Caso seja necessário, reverter um apontamento de colheita, deve-se utilizar à funcionalidade “Estornar” presente no browse da rotina em “Outras Ações”.
+
+![](./assets/controlecultivos/Imagem79.png){.flow-image}
+
+Será então, realizado à apresentação de tela com informações do apontamento de colheita posicionado no browse quando foi executado à funcionalidade “Estornar”. Para que o apontamento seja estornado, deve-se confirmar à tela.
+
+![](./assets/controlecultivos/Imagem80.png){.flow-image}
+
+Ao realizar o estorno do registro, será modificado à legenda do mesmo junto ao browse da rotina de Apontamento de Colheita.
+
+![](./assets/controlecultivos/Imagem81.png){.flow-image}
+
+#### 3.8	ATUALIZAÇÕES\MOVIMENTOS\ROMANEIOS
+
+Passado o período referente ao ciclo de cultivo das áreas de plantio, é chegado o momento da colheita. Para que seja realizado o registro das cargas obtidas na colheita, será utilizada à rotina de Romaneios – GCMOV001.PRW presente no Addon Gestão de Cereais.
+
+![](./assets/controlecultivos/Imagem82.png){.flow-image}
+
+Através da funcionalidade “Abrir”, será iniciado o registro referente ao recebimento de uma carga originada do processo de colheita.
+
+![](./assets/controlecultivos/Imagem83.png){.flow-image}
+
+Para registro destas cargas, deve-se utilizar Romaneios de Entrada com à Op. Cereais – CL Recebimento de Colheita. Ao informar à operação, será disponibilizado interface secundária, para identificação da Fazenda, Parcela e Placa do Veículo referentes à carga.
+
+![](./assets/controlecultivos/Imagem84.png){.flow-image}
+
+Ao confirmar à interface, será carregado o Fornecedor\Loja vinculado ao cadastro da Fazenda. Caso não exista, será verificado à existência de cadastro de Fornecedor (SA2) com o mesmo CPF\CNPJ correspondente à Empresa\Filial do ERP Protheus em que está ocorrendo o registro do Romaneio. Caso não exista nenhum cadastro de Fornecedor que atenda à este critério, será apresentado mensagem impedindo o registro do Romaneio.
+
+![](./assets/controlecultivos/Imagem85.png){.flow-image}
+
+Portanto, é necessário que seja realizado à inclusão de cadastro de Fornecedor com o mesmo CPF\CNPJ vinculado à Empresa\Filial na qual será registrado o Romaneio. Este Fornecedor, será automaticamente vinculado aos Romaneios gerados correspondentes à operação CL – Recebimento de Colheita.
+<br>
+Uma vez que os pontos mencionados anteriormente estejam válidos, deve-se proceder com o registro das demais informações pertinentes à abertura do Romaneio correspondente à carga gerada do processo de colheita.
+
+![](./assets/controlecultivos/Imagem86.png){.flow-image}
+
+Finalizando à definição das informações, será confirmado à interface gravando, portanto, a abertura do Romaneio referente à carga recebida.
+
+![](./assets/controlecultivos/Imagem87.png){.flow-image}
+
+Após realizar o processo de descarga do veículo, este retorna para balança para que seja realizado uma nova pesagem (tara). Neste caso, deve-se posicionar sob o Romaneio e utilizar à funcionalidade “Fechar” presente no browse.
+
+![](./assets/controlecultivos/Imagem88.png){.flow-image}
+
+Deve-se proceder com o registro da pesagem de saída do veículo e em seguida, confirmar à interface da funcionalidade de encerramento do registro do Romaneio.
+
+![](./assets/controlecultivos/Imagem89.png){.flow-image}
+
+Teremos então, à finalização do registro da pesagem da carga de cereais obtida do processo de colheita. Caso o parâmetro MV_XCESP06 esteja habilitado (.T.), ao realizar o encerramento do Romaneio referente à operação CL – Recebimento de Colheita, será automaticamente executado as regras referentes ao Apontamento de Produção sob à Ordem de Produção vinculada à Fazenda\Talhão\Safra registrados no Romaneio. Uma vez que o parâmetro esteja desativado (.F.), o Romaneio ficará apenas “Fechado”, estando pendente de execução deste apontamento.
+
+![](./assets/controlecultivos/Imagem90.png){.flow-image}
+
+Para que o Apontamento de Produção referente aos Romaneios de colheita (CL) seja realizado posteriormente ao seu encerramento (Fechar), deve-se posicionar sob o Romaneio e acionar à funcionalidade “Faturar”, presente no browse em “Outras Ações”.
+
+![](./assets/controlecultivos/Imagem91.png){.flow-image}
+
+Será apresentado mensagem ao usuário, para que confirme à realização do Apontamento de Produção conforme descrito anteriormente. Deve-se portanto, confirmar à mensagem e aguardar o processamento.
+
+![](./assets/controlecultivos/Imagem92.png){.flow-image}
+
+<strong>DICA:</strong> para correta execução das regras automáticas de Apontamento de Produção, deve-se através da rotina de Tipos de Movimentação (Estoque\Custos), realizar à inclusão de cadastro de Tipo de Movimentação de Produção, com o código “010”. Este, será utilizado automaticamente para execução dos respectivos apontamentos conforme abordado anteriormente.
 <br>
 
-* <strong>NF-e</strong><br>
-* <strong>CT-e</strong><br>
+Quando é finalizado à execução das regras de Apontamento de Produção, o Romaneio tem o seu status atualizado, indicando que está finalizado\faturado.
 
-Por padrão, o ADDON XML de Terceiros já contempla uma carga de tags pré-definidas as quais são de utilização exclusiva do próprio ADDON. As definições de tags são utilizadas no recurso de processamento dos arquivos XML recebidos, ou seja, na funcionalidade a qual através do XML possibilita um assistente para maior agilidade na inclusão dos documentos fiscais no ambiente.
+![](./assets/controlecultivos/Imagem93.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem4.png){.flow-image}
+A partir da configuração dos parâmetros: MV_XCESP02, MV_XCESP03, MV_XCESP04 e MV_XCESP05, quando é realizado o primeiro Apontamento de Produção para à Safra, serão criados:
 
-Junto ao cadastro de tags são definidas as tags presentes no XML que está sendo processado bem como qual a tabela\campo do ERP Protheus no qual o conteúdo será direcionado quando do processamento do XML - inclusão do documento fiscal de entrada \ conhecimento de frete.<br>
+  * <strong>CENTRO DE CUSTOS</strong>
+      *	Utilizado para apropriação dos custos indiretos referentes à Safra;
 
-Não é possível alterar as tags padrões do ADDON, porém, caso seja necessário efetuar tratamento de algum campo personalizado existente por exemplo na tabela SD1 (Itens Doc. Entrada) durante o processamento do XML, poderá ser incluído uma tag personalizada, ou seja, especifica da empresa\filial.<br>
+* <strong>GRUPO DE PRODUTOS</strong>
+      *	Referente à organização dos produtos para apuração de custos indiretos;
 
-<strong>OBSERVAÇÃO:</strong> Caso seja de interesse, considerar que o valor do ICMS e ICMS ST presentes no XML seja considerado para o Documento de Entrada no processamento do XML, deve-se apendar ao cadastro de tags, tags personalizadas para este processo as quais estão disponíveis junto ao pacote deste Addon. Além disto, é necessário que seja ativado o parâmetro <strong>MV_X004014</strong> (.T.). Com isto, ao processar o XML gerando Documento de Entrada, desde que o TES esteja parametrizado para calcular ICMS, serão replicados os valores do ICMS e ICMS ST presentes nos itens do XML do documento fiscal, para os itens na rotina de Documento de Entrada.
+* <strong>PRODUTO</strong>
+      * Utilizado para apropriação dos custos indiretos referentes à Safra;
 
-![](./assets/xmlterceiros/Imagem5.png){.flow-image}
-
-Ao realizar a inclusão de tags especificas\próprias, observe com atenção o help dos campos. Além disto, poderá estar verificando a partir das próprias tags padrões do ADDON como os campos devem ser preenchidos. 
+Caso as regras acima estejam ativas, será necessário disponibilizar através da rotina padrão de Tipos de Movimentos (Estoque\Custos), cadastro de Tipo de Movimento de Requisição, que será utilizado para inclusão de Mov. Interno Múltiplo automático no ato da geração do Apontamento de Produção apresentado anteriormente, referente ao consumo\apropriação do Produto correspondente aos “custos indiretos” para à respectiva Safra.
+<br>			
+O Tipo de Movimentação de Requisição em questão, deve ter o seu código vinculado ao parâmetro MV_XCESP02 no ambiente Configurador (SIGACFG).
+<br>
+Ainda referente aos “custos indiretos”, é necessário prover as demais regras junto ao ERP Protheus, envolvendo outros módulos, para que seja realizado à composição destes custos nas entidades contábeis criadas e após isto, através do processo de Recálculo do Custo Médio – MATA330.PRW presente no módulo de Estoque\Custos, ocorrerá o recalculo\distribuição dos custos indiretos em cada uma das Ordens de Produção conforme os Apontamentos de Produção realizados.
 <br>
 
-* <strong>Vld. Usuário (Z06_VLDUSR)</strong><br>
-  * Este campo existente no Cadastro de Tags pode ser utilizado para que sejam vinculadas regras personalizadas do cliente as quais serão executadas quando da edição do referido campo\tag na interface (wizard) de processamento do XML Terceiros.<br>
-  * O seu retorno deve ser do tipo lógico (.T. \ .F.) o qual irá determinar se o conteúdo manipulado será aceito ou não.
-<br>
-<br>
-<strong>OBSERVAÇÃO:</strong> as definições de tags padrão do ADDON poderão sofrer alterações em atualizações futuras, desta forma, particularidades da empresa\filial devem ser tratadas através de tags personalizadas\especificas. As tags da NF-e contemplavalidação para notas emitidas por fornecedorsendo CNPJ ou CPF.
-<br>
+#### 3.9	RELATÓRIOS\APURAÇÕES\DETALHAMENTO DE CULTIVO
 
-#### 4. ROTINA XML RECEBIDOS
-Através da rotina de XML Recebidos, é realizado toda a gestão em torno do recebimento\processamento do XML de Terceiros emitidos para a empresa\filial.<br>
-Inicialmente, ao acessar a rotina é apresentado o browse com as funcionalidades disponíveis bem como, o browse com as principais informações de cada XML Terceiros previamente importado.
+Disponibilizado relatório denominado Detalhamento de Cultivo – CRESP02.PRW. 
 
-![](./assets/xmlterceiros/Imagem6.png){.flow-image}
+![](./assets/controlecultivos/Imagem94.png){.flow-image}
 
-Na parte superior do browse, são disponibilizados filtros pré-configurados com base nos possíveis status em que os XML Terceiros podem assumir:
+Este relatório, tem por objetivo apresentar as principais informações vinculadas à baixa de produtos (insumos\mão de obra\etc) e registro de produção (romaneios de colheita) realizados sob as definições de cultivo.
 
-![](./assets/xmlterceiros/Imagem7.png){.flow-image}
+![](./assets/controlecultivos/Imagem95.png){.flow-image}
 
-Na sequência, serão abordados os recursos presentes na rotina de XML Recebidos.
+#### 3.10	RELATÓRIOS\APURAÇÕES\CULTIVO X PRODUTIVIDADE
 
-#### 4.1. IMPORTAR
-Ações Relacionadas\Importar
-    
-* <strong>MANUAL</strong>: através desta opção, será apresentado interface para que seja apontado arquivo de XML Terceiros o qual deverá ser importado para o ADDON.
+Disponibilizado relatório denominado Cultivo X Produtivo – CRESP03.PRW. 
 
-![](./assets/xmlterceiros/Imagem8.png){.flow-image}
+![](./assets/controlecultivos/Imagem96.png){.flow-image}
 
- Ao confirmar a interface, serão executadas as regras de análise\importação do XML para o ADDON XML de Terceiros. Caso seja importado o XML com sucesso, será apresentado mensagem em torno da importação:<br>
+Este relatório, tem por objetivo apresentar as principais informações vinculadas aos registros de colheita\produção, realizados sob as definições de cultivo\safra das fazendas.
 
-![](./assets/xmlterceiros/Imagem9.png){.flow-image}
+![](./assets/controlecultivos/Imagem97.png){.flow-image}
 
-Consequentemente, será disponibilizado no Browse, registro do XML o qual foi importado.
+#### 3.11	RELATÓRIOS\BALANÇA\MOV. DIÁRIA COLHEITA
 
-![](./assets/xmlterceiros/Imagem10.png){.flow-image}
+Disponibilizado relatório denominado Mov. Diária Colheita – CRESP01.PRW. 
 
-<strong>E-MAIL:</strong> ao utilizar esta opção, será efetuado verificação em torno da existência de contas de e-mail junto a empresa\filial logada.<br>
-Caso existam contas cadastradas, ocorrerá a comunicação com a conta de e-mail sendo verificado a existência de e-mails com XML de Terceiros.
+![](./assets/controlecultivos/Imagem98.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem11.png){.flow-image}
+Este relatório, tem por objetivo apresentar as principais informações vinculadas aos registros de colheita\produção através da pesagem das cargas de grãos, realizadas durante o ciclo de cultivo da fazenda.
 
-Havendo e-mails válidos, ou seja, com XML de NFe\CTe, estes serão importados, sendo consequentemente disponibilizados no browse da rotina de XML Recebidos.
-<br>
-<strong>DICA:</strong> independentemente de efetuar a importação do XML de forma manual ou automática, quando um XML é importado ao ADDON de XML Terceiros, o arquivo .XML considerado na importação (arquivo original) é copiado para a pasta PROTHEUS_DATA do ambiente do ERP Protheus.
-<br>
+![](./assets/controlecultivos/Imagem99.png){.flow-image}
 
-Neste processo, é criado uma pasta denominada \XMLS\ junto ao PROTHEUS_DATA. Posteriormente, abaixo desta pasta, são declaradas subpastas com o CNPJ\CPF do emissor do XML que foi importado sendo vinculado a esta pasta os arquivos originais.<br>
-Com este recurso, posteriormente caso seja necessário, é possível consultar os arquivos originais. Basta solicitar ao departamento de TI.<br>
-Além das regras acima elencadas, caso o ambiente do ERP Protheus utilize-se do módulo de Gestão de Frete Embarcador - SIGAGFE, será analisado a configuração do parâmetro MV_XMLDIR.<br>
-Através deste parâmetro, é determinado diretório (dentro do Protheus_Data) no qual o SIGAGFE estará realizando a leitura de arquivos XML pertinentes a CTe (Conhecimento de Transporte Eletrônico). Em resumo, caso o parâmetro <strong>MV_XMLDIR</strong> esteja preenchido e o diretório informado no mesmo exista abaixo do Protheus_Data, ocorrerá a cópia do arquivo XML dos CTe os quais foram importados tanto de forma manual como automática também para esta pasta.<br>
-O sistema pode verificar se as Notas Fiscais de Entrada referenciadas no Cte já foram informadas em outro Cte. Para tanto, é verificada a tabela SF8 - Amarracao NF OrigINAL x NF Importação ou Frete.<br>
-Na hipótese do parâmetro <strong>MV_X004015</strong> configurado como <strong>N</strong>=Não, e alguma das notas referenciadas no .xml já estiver sido referenciada em outro CTe, não será possível efetuar a importação para futuro pocessamento do arquivo.
-<br>
-<br>
-<strong>DICA:</strong> Ao realizar a importação de um XML Terceiros, caso já exista documento de entrada\conhecimento de frete com a chave do documento fiscal presente no XML em questão, o mesmo já será automaticamente vinculado ao documento fiscal existente no ERP Protheus, ou seja, o status do registro do XML junto ao ADDON ficará como Documento Entrada.
-<br>
+#### 4. ESTOQUE\CUSTOS
 
-#### 4.2. EXPORTAR
-Ações Relacionadas\Exportar<br>
-Utilizando-se deste recurso, é possível realizar a exportação dos XML Terceiros existentes no ADDON de XML para arquivos.<br>
+#### 4.1	ATUALIZAÇÕES\CADASTROS\MOVIMENTAÇÕES\INTERNAS
 
-Para isto, deve-se parametrizar os parâmetros visando que sejam exportados os XML existentes no ADDON conforme as regras de filtro definidas.
+Para que seja possível realizar o apontamento do consumo de estoque em cada uma das áreas de plantio em que os insumos foram utilizados, é necessário que seja previamente cadastro um “Tipo de Movimentação” do Tipo = Requisição.
 
-![](./assets/xmlterceiros/Imagem12.png){.flow-image}
+![](./assets/controlecultivos/Imagem100.png){.flow-image}
 
-Ao efetuar a exportação dos XML existentes, estes serão salvos na unidade C:\ do terminal que está sendo utilizado. O nome dos arquivos será composto pela chave do documento fiscal referente ao XML em questão.
+Além dos campos padrões, encontra-se disponível campo de controle referente a “obrigatoriedade” de vínculo do número da Ordem de Produção ao Mov. Interno de estoque quando utilizado o Tipo de Movimentação em questão. A seguir, é apresentado um exemplo a respeito do cadastro de Tipo de Movimentação de Requisição para apontamento da utilização dos insumos no ciclo de cultivo.
 
-Este recurso cria os arquivos\exporta as informações a partir do que está salvo na tabela de XML Recebidos, ou seja, não se trata de cópia dos arquivos originais utilizados quando os arquivos foram importados para o ADDON.
+![](./assets/controlecultivos/Imagem101.png){.flow-image}
 
-#### 4.3. EXCLUIR
+#### 4.2	ATUALIZAÇÕES\MOVIMENTAÇÕES\INTERNAS\MOV. MULTIPLA
 
-* Ações Relacionadas\Excluir<br>
-Esta funcionalidade tem por objetivo possibilitar a exclusão do registro de um XML de Terceiros o qual foi anteriormente importado.<br>
-Para isto, basta posicionar sobre o registro desejado e acionar a opção de exclusão.
+Após a execução do processo de inclusão\definição do Planejamento de Cultivo\Plantio para cada um dos cadastros de Fazendas necessários, é possível realizar a “baixa de estoque” referente aos insumos utilizados no ciclo de cultivo em cada uma das respectivas áreas. Para isto, deve-se utilizar à rotina de Mov. Multipla – MATA241.PRW disponível no módulo de Estoque\Custos.
 
-![](./assets/xmlterceiros/Imagem13.png){.flow-image}
+![](./assets/controlecultivos/Imagem102.png){.flow-image}
 
-Ao confirmar a tela, o registro em questão será excluído da base de dados do ADDON XML de Terceiros.
+Ao realizar a inclusão do Mov. Interno de baixa do estoque referente aos produtos\insumos utilizados no cultivo, deve-se informar um Tipo de Movimentação de Requisição e, o número da Ordem de Produção referente à cada Fazenda\Talhão em que foi utilizado o produto.
 
-<strong>DICA:</strong> Não é possível efetuar a exclusão de um registro de XML Terceiros o qual já tenha sido processado, ou seja, que possua documento fiscal de entrada ou conhecimento de frete vinculado ao mesmo.
+![](./assets/controlecultivos/Imagem103.png){.flow-image}
 
-#### 4.4. VISUALIZAR
+Ao confirmar à inclusão do Mov. Interno Múltiplo, caso um ou mais itens não tenham à Ordem de Produção informada, será apresentado mensagem alertando à respeito, sendo necessário ajustar as informações.
 
-Através desta funcionalidade, é possível realizar a visualização das informações presentes em um registro de XML Terceiros o qual existe na base de dados do ADDON XML Terceiros.
+![](./assets/controlecultivos/Imagem104.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem14.png){.flow-image}
+Após realizar à definição correta das informações referentes à baixa do estoque dos insumos direcionando para as Ordens de Produção de cada uma das Fazendas\Talhões em que foram utilizados, será confirmado à interface e assim, gerado à baixa do estoque.
 
-Ao visualizar um registro de XML terceiros, são apresentados os campos pertinentes as informações do registro de XML em questão.<br>
-Inicialmente, são apresentados campos com as informações pertinentes ao tipo do documento, chave de localização e versão do mesmo.<br>
+![](./assets/controlecultivos/Imagem105.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem15.png){.flow-image}
+A inclusão de Mov. Internos Múltiplos referentes ao consumo dos produtos\insumos utilizados, ocorrerá durante todo o ciclo de cultivo da safra. O ideal, é que conforme os produtos forem utilizados\consumidos, sejam realizados os devidos apontamentos.
 
-Posteriormente, são apresentados campos pertinentes as informações do XML de autorização do documento fiscal, data e hora de emissão do mesmo bem como data, hora e modo pelo qual o XML foi recebido.
-<br>
-![](./assets/xmlterceiros/Imagem16.png){.flow-image}
+A rotina de Baixas de Estoque, foi implementada com o objetivo de ser um “facilitador” com interface mais amigável, internamente, à rotina realiza à inclusão\manipulação de Mov. Internos Múltiplos.
 
-Finalizando os campos presentes na interface, são apresentados campos iguais aos descritos anteriormente, porém, referente ao XML de cancelamento do documento fiscal - caso o mesmo exista.
-<br>
-![](./assets/xmlterceiros/Imagem17.png){.flow-image}
+#### 4.3	ATUALIZAÇÕES\MOVIMENTAÇÕES\PRODUÇÃO\APONTAR PROD.
 
-<strong>DICA:</strong> Conforme descrito acima, quando existe para um determinado documento fiscal (NF-e \ CT-e) tanto o XML de Autorização como também o XML de Cancelamento, ambos os XML ficam gravados no mesmo registro junto a rotina de XML Recebidos.
+Conforme apresentado nos tópicos anteriores, à partir do registro das cargas de cereais originadas no processo de colheita das áreas de cultivo junto à rotina de Romaneios, serão gerados de forma automática os movimentos de Apontamento de Produção. No entanto, estes podem ser consultados e até mesmo “estornados” através da rotina padrão Apontar Produção – MATA250.PRW disponível no módulo de Estoque\Custos.
 
-#### 4.5. PROCESSAR
+![](./assets/controlecultivos/Imagem106.png){.flow-image}
 
-A funcionalidade "processar" existente na rotina de XML Recebidos se refere a utilização do XML previamente importado ao ADDON para auxiliar\agilizar no lançamento do documento fiscal.<br>
-Ao acionar esta funcionalidade, será disponibilizado interface para que seja informado a chave do documento fiscal o qual deseja-se processar (NF-e \ CT-e).
+Caso seja desejado “estornar” o Apontamento de Produção, deve-se posicionar sob o registro desejado e acionar à funcionalidade disponível em “Outras Ações”.
 
-![](./assets/xmlterceiros/Imagem18.png){.flow-image}
+![](./assets/controlecultivos/Imagem107.png){.flow-image}
 
-Ao informar a chave do documento fiscal, será verificado os itens abaixo: <br>
+Será disponibilizado à interface com as informações do apontamento. Entre estas, é possível identificar o número do Romaneio, correspondente à geração do apontamento que será estornado.
 
-* Existência de registro de XML Terceiros no ADDON referente a chave em questão.<br>
-* Havendo o registro do XML Terceiros, se o mesmo está pendente, ou seja, sem documento fiscal lançado no ERP Protheus.<br>
-* Caso no cadastro de Usuários X Permissões esteja determinado que deverá ocorrer a validação do XML no Sefaz, será verificado se o documento se encontra autorizado no Sefaz.
-    * Nesta validação, é considerado a utilização do Totvs Sped Service (TSS) conforme configuração do ambiente, ou seja, se estiver configurado a NFe para HOMOLOGAÇÃO a validação da chave será realizada no mesmo ambiente.  
+![](./assets/controlecultivos/Imagem108.png){.flow-image}
 
-Uma vez que os itens acima estejam válidos, será possibilitado o processamento do XML.
+Confirmando à realização do estorno, será retornado ao browse, onde é possível observar o estorno realizado no Apontamento de Produção. Antes disto, será realizado atualização do Romaneio vinculado ao movimento de produção que foi estornado, sendo apresentado mensagem de advertência ao usuário.
 
-![](./assets/xmlterceiros/Imagem19.png){.flow-image}
+![](./assets/controlecultivos/Imagem109.png){.flow-image}
 
-Em caso de inconsistência, será apresentada mensagem ao operador reportando o fato ocorrido.
+A atualização realizada sob o Romaneio ocorrerá de acordo com à configuração do parâmetro MV_XCESP07. Caso o parâmetro esteja ativado (.T.), será realizado de forma automática, o “cancelamento” do Romaneio. Aqui, caso seja necessário deve-se gerar o registro de um “novo” Romaneio referente há carga de cereais. Agora, caso o parâmetro esteja desativado (.F.), apenas será retornado o status do Romaneio para “fechado”, possibilitando que sejam realizados ajustes\alterações no Romaneio (caso necessário) e em seguida, novo Apontamento de Produção através da funcionalidade “Faturar” presente no browse da rotina de Romaneios conforme abordado em tópicos anteriores.
 
-Ao confirmar a interface inicial, ocorrerá o carregamento das informações presentes no XML Terceiros para uma interface auxiliar para definição de algumas informações obrigatórias antes da geração do documento fiscal.
+#### 4.4	CONSULTAS\CADASTROS\KARDEX DIÁRIO
 
-Na primeira tela, são apresentados no cabeçalho informações do documento fiscal e na parte inferior, informações sobre o cadastro do cliente\fornecedor vinculado ao documento fiscal.
-![](./assets/xmlterceiros/Imagem20.png){.flow-image}
+Através da rotina de Kardex Diário – MATC030.PRX presente no módulo de Estoque\Custos, é possível realizar o acompanhamento das movimentações de entrada no estoque dos produtos referentes aos cereais obtidos no processo de colheita abordado anteriormente.
 
-Caso o cliente\fornecedor presente no documento não tenha seu cadastro localizado na empresa\filial, somente poderá ser possível avançar a tela após o cadastramento do mesmo.
+![](./assets/controlecultivos/Imagem110.png){.flow-image}
 
-* A busca em torno do cadastro do cliente\fornecedor ocorre através da informação do CNPJ \ CPF existente no XML do documento fiscal o qual está sendo processado.<br>
+Para execução da consulta, deve-se considerar como parâmetro o Armazém\Local de Estoque (NNR) correspondente ao cadastro da Fazenda (SZL) desejado. Ex: F01.
 
-Se o usuário logado possuir permissão para inclusão de cliente\fornecedor (Cadastro Usuários X Permissões), será disponibilizado botão para inclusão do cadastro na parte inferior esquerda da interface.
+![](./assets/controlecultivos/Imagem111.png){.flow-image}
 
-![](./assets/xmlterceiros/Imagem21.png){.flow-image}
+#### 4.5	RELATÓRIOS\PRODUÇÃO\DETALHAMENTO DE OP
 
-Ao acionar este botão, será carregado a tela padrão de inclusão do cadastro de cliente\fornecedor.
+A partir das regras abordadas nos tópicos anteriores desta documentação, é possível realizar à consulta de forma individual de cada uma das Ordens de Produção, com seus respectivos insumos\produtos utilizados no ciclo de cultivo bem como, os registros de cada uma das cargas de cereais obtidas no processo de colheita, compondo desta forma, por cada “Ordem de Produção” o custo do cereal cultivado. Estas informações, são disponibilizadas pelo Rel. Detalhamento de Ordem Produção – MATR860.PRX.
 
-![](./assets/xmlterceiros/Imagem22.png){.flow-image}
+![](./assets/controlecultivos/Imagem112.png){.flow-image}
 
-Para auxiliar no cadastramento do cliente\fornecedor, pode-se utilizar as informações básicas do mesmo cujo as quais estão presentes no arquivo de XML Terceiros que esta sendo processado.<br>
-Para isto, basta pressionar a tecla de atalho F2.
+O relatório, irá apresentar também os “custos indiretos”, desde que as regras envolvidas em sua composição e apropriação tenham sido configuradas e executadas de forma prévia à emissão do relatório.
 
-![](./assets/xmlterceiros/Imagem23.png){.flow-image}
+![](./assets/controlecultivos/Imagem113.png){.flow-image}
 
-Ao confirmar o cadastro, o cliente\fornecedor será vinculado a tela de processamento do XML Terceiros conforme exemplo abaixo.
 
-![](./assets/xmlterceiros/Imagem24.png){.flow-image}
-
-<strong>DICA:</strong> Através da configuração do parâmetro <strong>MV_X004006</strong>, poderá ser parametrizado a funcionalidade de processamento de XML Terceiros para que o número e\ou série do documento fiscal o qual está sendo processado, tenha zeros adicionados a esquerda.
-<br>
-
-Ao avançar a interface, será apresentada uma nova tela com os itens do documento fiscal.
-
-![](./assets/xmlterceiros/Imagem25.png){.flow-image}
-
-Por padrão, é necessário que sejam definidos nesta tela o conteúdo dos campos abaixo listados:
-
-*	Produtos
-    * Esta relação será necessária ao menos uma vez. Posteriormente, caso esteja definido no cadastro de Usuários X Permissão para o usuário logado que deva ser salvo a definição de Produtos X Fornecedores, em novos processamentos, será automaticamente carregado o PRODUTO (código interno do ERP) a partir desta amarração. Não localizando o produto na amarração de Produtos X Fornecedores, irá buscar o produto pelo código de barras existente no XML.
-    * Caso o produto não esteja cadastrado no ambiente e o usuário possua permissão para incluir produtos (Cadastro Usuários X Permissões), poderá efetuar tal processo estando posicionado no item do documento clicando no atalho específico.  
-
-![](./assets/xmlterceiros/Imagem26.png){.flow-image}
-
-* Será apresentado a interface de inclusão do produto. Para agilizar no processo, pode-se utilizar a tecla de atalho F2 onde serão atualizados alguns campos a partir de informações presentes no próprio XML que está sendo processado.
-* Ao confirmar a inclusão do produto, o mesmo é automaticamente vinculado ao item, caso necessário, poderá ser alterado para outro produto já incluso.
-
-<strong>DICAS:</strong> 
-
-* Através da configuração do parâmetro MV_X004008, poderá ser parametrizado a funcionalidade de processamento de XML Terceiros para que esteja sugerindo a conta contábil e\ou centro de custos vinculado ao cadastro do produto para o respectivo item junto ao grid de itens da interface de processamento do XML.
-* No cadastro de Produtos X Fornecedores, se o campo Unidade (A5_UNID) estiver preenchido, no momento do processamento do XML, o sistema verifica qual das unidades do produto Protheus (Primária ou Secundária) é utilizada pelo Fornecedor, efetuando automaticamente o preenchimento no GRID. 
-Exemplo:
-Produto ABC – Unidade Primária PC, Unidade Secundária CX
-Fornecedor efetua o fornecimento sempre em CX. No Cadastro de Produtos x Fornecedor, foi informado campo Unidade = CX. 
-No momento do processamento do XML, identificamos que a unidade é CX, o campo a ser preenchido automaticamente pelo sistema será o da unidade Secundária, efetuando os cálculos para a primeira unidade. 
-
-<strong>TES:</strong> 
-
-* O TES é necessário para que seja posteriormente gerado o Documento de Entrada ou Conhecimento de Frete.
-* Quando se trata do processamento do XML de NF-e, é possível replicar uma mesma TES a todos os itens do documento fiscal, neste momento será apresentado mensagem ao usuário em torno da execução deste processo ou não.
-*	Referente ao processamento de XML de CT-e, sempre será replicado o TES informado\alterado em qualquer item para todos os demais itens do documento. Isto ocorre, pois a rotina padrão de Conhecimento de Frete permite o lançamento do conhecimento com um único Tes.
-
-<strong>PEDIDO DE COMPRA:</strong> 
-
-*	Junto aos itens da interface de processamento, existem campos para vinculo de pedidos de compra.
-*	Neste caso, ao dar "enter" sob o campo, será apresentado interface com os pedidos de compra para o fornecedor\produto em questão que possuem saldo.
-*	Se necessário, poderá ser selecionado itens de pedidos diferentes para atender a quantidade do item da nota. Neste caso, o item na tela de processamento ficará com o pedido "999999" vinculado. Posteriormente, ao gerar a Pré-Nota\Documento de Entrada, será "quebrado" o item do documento em mais de um item sendo vinculado a cada item os respectivos pedidos de compra conforme a quantidade\valor unitário definidos.
-*	Caso a nota fiscal de entrada tenha vindo de uma loja do fornecedor diferente daquela do pedido de compra, será possível fazer o vínculo do pedido normalmente, desde que o parâmetro “Quanto ao PC”, na rotina Documento de Entrada, acessado via tecla F12, seja definido como “Fornecedor”;
-
-![](./assets/xmlterceiros/Imagem27.png){.flow-image}
-
-<strong>DICA:</strong> Através da utilização do parâmetro MV_X004009, poderá ser ativado parametrização onde havendo um único pedido de compra vinculado aos itens do documento fiscal que está sendo processado, será sugerido a condição de pagamento vinculada ao pedido de compra em questão, como sendo a condição de pagamento para a inclusão do documento fiscal em campo específico existente na última sessão da funcionalidade de processamento XML Terceiros presente na aba Duplicatas.
-
-*	Caso o item do pedido de compra selecionado contenha os campos das entidades contábeis preenchidos (Centro de Custo, Conta Contábil, Item Contábil, Classe de Valor), estes campos serão vinculados ao item do documento fiscal em questão.<br> 
-<strong>OBS:</strong> Isso somente se houver um único pedido de compra vinculado.
-
-*	 Atentar ao preenchimento do parâmetro MV_X004013 que define se o valor unitário para a Pré-Nota ou Documento de entrada será considerado pelo Pedido de Compras ou pelo XML.
-<br>
-
-<strong>Gestão de Cereais:</strong> 
-
-  *	Quando a empresa\filial utiliza-se também do ADDON de Gestão de Cereais, serão adicionadas novas tags ao ADDON de XML Terceiros de modo que ocorrerá a obrigatoriedade na informação de outros campos específicos do ADDON de gestão de cereais conforme a configuração do produto vinculado aos itens em questão.
-
-Após a definição das informações dos itens conforme observações acima, ao avançar a interface será apresentado a tela final de processamento do XML. Nesta interface, na parte inferior existe a aba "duplicatas" onde deverá ser informado a condição de pagamento e a natureza financeira.
-<br>
-<strong>DICA:</strong> Através da parametrização do parâmetro <strong>MV_X004007</strong>, poderá ser parametrizado a funcionalidade de processamento de XML Terceiros para que seja sugerido a natureza financeira vinculada ao cadastro do cliente\fornecedor vinculado ao XML Terceiros que esta sendo processada. 
-
-![](./assets/xmlterceiros/Imagem28.png){.flow-image}
-
-Caso no cadastro de Usuários X Permissões esteja definido que o usuário gera apenas Pré-Nota (Processamento XML NFe), não será obrigatório informar estes campos, bem como o TES nos itens, pois a Pré-Nota não se utiliza destas informações. Já no caso de geração de documento de entrada ou conhecimento de frete (Processamento XML CTe), é obrigatório a informação destes campos.
-<br>
-
-<strong>DICA:</strong> Caso esteja definido que a informação de natureza é obrigatória no documento de entrada, a mesma também será obrigatória na tela de processamento do XML.
-<br>
-Uma vez que todas as informações foram definidas, ao acionar a opção "Finalizar" existente na interface, será aplicado validações finais gerais. Após isto, estando tudo correto, ocorrerá a inclusão do documento fiscal: 
-
-*	Processamento XML NF-e: será gerado (Pré-Nota \ Documento de Entrada) conforme definido no cadastro de Usuários X Permissões para o usuário logado. Caso esteja definido como INFORMADO NO MOMENTO, será questionado ao usuário qual o tipo de documento deseja gerar. Ao confirmar, será apresentado a tela de inclusão com todas as informações onde o usuário poderá checar\complementar antes de confirmar a inclusão.
-*	Processamento XML CT-e: independente do Cadastro de Usuários X Permissões, quando se trata de processamento de CTe sob documentos de compra vinculados, será utilizado a inclusão de Conhecimento de Frete, não sendo apresentado a interface ao usuário (Rotina automática não disponibiliza este recurso). Caso seja conhecimento de frete onde as notas fiscais referenciadas não sejam documentos de entrada (frete não entra no custo do produto), será tratado como inclusão de documento de entrada do tipo normal referente a despesa com frete. Neste caso, é apresentado a interface do documento ao usuário antes de confirmar a inclusão.
-
-Após gerar o documento fiscal, o registro do XML tem o seu status atualizado conforme situações apresentadas na legenda.
-
-<strong>OBSERVAÇÃO:</strong> Caso seja de interesse, considerar que o valor do ICMS e ICMS ST presentes no XML seja considerado para o Documento de Entrada no processamento do XML, deve-se apendar ao cadastro de tags, tags personalizadas para este processo as quais estão disponíveis junto ao pacote deste Addon. Além disto, é necessário que seja ativado o parâmetro MV_X004014 (.T.). Com isto, ao processar o XML gerando Documento de Entrada, desde que o TES esteja parametrizado para calcular ICMS, serão replicados os valores do ICMS e ICMS ST presentes nos itens do XML do documento fiscal, para os itens na rotina de Documento de Entrada.
-
-#### 4.6. LEGENDA
-Ações Relacionadas\Legenda <br>
-Através da funcionalidade de legenda, é possível identificar os status vinculados aos registros existentes no browse da rotina de XML Terceiros.
-
-![](./assets/xmlterceiros/Imagem29.png){.flow-image}
-
-Os status existentes para os XML existentes na rotina estão condicionados a situação do mesmo perante ao ADDON.
-
-<strong>DICA:</strong> Conforme já descrito no recurso de exclusão dos registros de XML, não é possível excluir um registro de XML Terceiros o qual já possua documento fiscal, ou seja, caso o status seja referente a Pré-Nota ou Documento de Entrada (Documento Entrada \ Conhecimento de Transporte).
-
-#### 5. RELATÓRIO LISTAGEM XML RECEBIDOS
-
-Através deste relatório, é possível emitir a relação de XML Terceiros importados\existentes junto ao ADDON XML Terceiros.
-
-![](./assets/xmlterceiros/Imagem30.png){.flow-image}
-
-Este relatório tem por objetivo permitir um controle\relação em torno dos XML a partir do status do mesmo e até para verificar os XML que ainda não possuem documento fiscal vinculado, ou seja, cujo o documento fiscal ainda não foi dado entrada junto ao ERP Protheus.
-
-![](./assets/xmlterceiros/Imagem30.png){.flow-image}
-
-<strong>DICA:</strong> O relatório de Listagem XML Recebidos foi desenvolvimento utilizando o componente TReport, desta forma, é possível efetuar personalizações em torno do layout do mesmo visando atender necessidades especificas.
 </div>
 </details>
