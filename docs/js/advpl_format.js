@@ -1,5 +1,6 @@
 /* advpl_format.js */
 
+
 (function () {
   console.log("Iniciando formatador ADVPL...");
 
@@ -23,6 +24,9 @@
   }
 
   // ── Tokenizador ──────────────────────────────────────────────────────────  
+  /* Vinicius Marques - 07/05/2026
+    Ajuste na formatação do ADVPL 
+  */
   function tokenizar(linha) {
     const tokens = [];
     let i = 0;
@@ -121,6 +125,9 @@
   }
 
   // ── Renderiza lista de tokens em HTML ─────────────────────────────
+  /* Vinicius Marques - 07/05/2026
+    Ajuste na renderização do código ADVPL 
+  */
   function renderizar(tokens) {
     return tokens
       .map(({ tipo, valor }) => {

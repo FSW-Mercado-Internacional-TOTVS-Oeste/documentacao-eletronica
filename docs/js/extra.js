@@ -1,5 +1,6 @@
 /*
  * extra.js — Custom sidebar toggle and overlay
+ * Atualizado - Vinicius Marques - 07/05/2026 
  */
 
 document.addEventListener('DOMContentLoaded', function () {

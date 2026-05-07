@@ -1,6 +1,6 @@
-/* ============================================================
-   TOTVS DOCUMENTATION - REFATORADO
-   ============================================================
+/* ================================================================
+   TOTVS DOCUMENTATION - REFATORADO - Vinícius Marques - 07/05/2026
+   ================================================================
    Estrutura:
    1. Variáveis CSS (Design Tokens)
    2. Reset e Base
@@ -1825,6 +1825,22 @@ body.fs-home-page .md-typeset h2 {
 /* ============================================================
    HOME HERO CONTACT (LEGACY)
    ============================================================ */
+   
+/* Estilo dos Titulos das subpaginas - Vinicius Marques - 07/05/2026 */  
+.home-hero-title-subpages {
+  position: relative;
+  width: 100vw;
+  left: 51%;
+  right: 50%;
+  margin-left: -52vw;
+  margin-right: -50vw;
+  margin-top: 60px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 .home-hero-contact {
   position: relative;
   width: 100vw;
@@ -1988,6 +2004,6 @@ body.fs-home-page .md-typeset h2 {
   background: none;
 }
 [data-md-toggle="drawer"]:checked ~ .md-header .md-header__button--toggle {
-  left: 12.1rem !important; /* Largura padrão da sidebar do Material */
-  border-radius: 50% !important; /* Volta a ser circular quando fora da borda */
+  left: 12.1rem !important;
+  border-radius: 50% !important; 
 }
