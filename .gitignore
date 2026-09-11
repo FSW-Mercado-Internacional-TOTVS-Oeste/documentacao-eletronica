@@ -1,0 +1,12 @@
+uv.lock
+pyproject.toml
+.python-version
+main.py
+.venv/
+site/
+.obsidian
+.vscode
+.qwen
+.claude
+.openclaude
+outros

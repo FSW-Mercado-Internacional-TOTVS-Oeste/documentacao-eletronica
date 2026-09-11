@@ -1,0 +1,123 @@
+site_name: TOTVS - Documentação Técnica
+site_url: https://fsw-mi-addons.totvscascavel.com.br/
+repo_url: https://gitlab.com/fsw-mi-totvsoeste/documentacao-eletronica
+
+plugins:
+  - search
+
+theme:
+  name: material
+  language: pt
+  logo: assets/totvs_icon_write.png
+  favicon: assets/totvs_icon.png
+  palette:
+    - scheme: default
+      primary: custom
+      accent: orange
+
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - content.code.copy
+    - content.action.edit
+    - content.tabs.link
+    - navigation.tracking
+
+nav:
+  - Inicio: index.md  
+  
+  - Projeto FSW99_001:
+    - A - Alçadas - Regras: addon-alcadas-regras.md
+    - B - Alçadas - Workflow Pedido de Venda: addon-alcadas-pedido-venda.md
+    - C - Alçadas - Workflow Pedidos de Compras: addon-alcadas-pedido-compras.md
+    - D - Alçadas - Workflow Contas a Pagar: addon-alcadas-contas-pagar.md   
+
+  - Projeto FSW99_002:
+    - A - Compras - Cotações: addon-alcadas-regras.md
+
+  - Projeto FSW99_003:
+    - A - CNAB - A Receber: addon-cnab-a-receber.md
+    - B - CNAB - A Pagar: addon-cnab-a-pagar.md
+    - C - CNAB - Folha: addon-cnab-folha.md
+    - D - CNAB - Extrato Bancario: addon-cnab-extrato-bancario.md 
+
+  - Projeto FSW99_004:
+    - A - Addon - Importação de XML: addon-xml-terceiro.md
+
+  - Projeto FSW99_006:
+    - A - Addon - Comissões e Faturamento: addon-comissoes-faturamento.md
+
+  - Projeto FSW99_007:  
+    - A - Addon - Leite: addon-leite.md
+
+  - Projeto FSW99_009:  
+    - A - Addon - Processo de Workflow de Alçadas Cadastrais: addon-alcadas-workflow-cadastrais.md
+
+  - Projeto FSW99_010:  
+    - A - Addon - Mensagems DANFE: addon-mensagens-danfe.md
+
+  - Projeto FSW99_011:  
+    - A - Plugins - TOTVS CRM: addon-plugin-totvscrm.md
+    - A - Plugins - RS Station: em-construcao1.md
+
+  - Projeto FSW99_012:  
+    - A - Cereais - Originação de Grãos: addon-mensagens-danfe.md
+    - B - Cereais - Controle de Cultivos: addon-gestaocereais.md
+
+  - Projeto FSW99_013:  
+    - A - Addon - Rotina de Expedição - Faturamento: addon-rotina-expedicao.md
+
+  - Projeto FSW99_015:  
+    - A - Financeiro - DRE Financeiro: em-construcao2.md
+    - B - Financeiro - Controle de Cheques: em-construcao3.md
+
+  - Projeto FSW99_016:  
+    - A - Contabilidade - Regras de Contabilização: em-construcao4.md
+  
+  - Projeto FSW99_017:  
+    - B - PCO - Regras para PCO: em-construcao5.md
+
+  - Projeto FSW99_018:  
+    - A - Acelerador - Gatilho Cliente/Fornecedor/Produto: em-construcao6.md
+    - B - Acelerador - UPD Tamanho Campos: em-construcao7.md
+    - C - Acelerador - Campos Reservados: em-construcao8.md
+    - D - Acelerador - Consulta Genérica: em-construcao9.md
+    - E - Acelerador - Importação Saldo Inicial: em-construcao10.md
+    - F - Acelerador - Carrega XML: em-construcao11.md
+    - G - Acelerador - Replica Tabelas: em-construcao12.md
+    - H - Acelerador - Impressão Pedido de Compra: em-construcao13.md
+    - I - Acelerador - Impressão Pedido de Venda/Orçamento: em-construcao14.md
+    - J - Acelerador - Impressão Duplicata/Recibos : em-construcao15.md
+    - K - Acelerador - Impressão Recibo Baixas a Receber : em-construcao16.md
+    - L - Acelerador - Taxa da Moeda : em-construcao17.md
+    - M - Acelerador - Simulação Carga : em-construcao18.md
+
+  - Suporte: suporte.md         
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+  - toc:      
+      permalink: false      
+      toc_depth: 3
+
+extra_javascript:
+  - js/advpl_format.js  
+  - js/extra.js
+
+extra_css:
+  - stylesheets/extra.css
+  
