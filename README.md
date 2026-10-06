@@ -1,14 +1,14 @@
 
 # Documentação Eletrônica - TOTVS Oeste
 
-Este repositório contém os arquivos fontes do manual de documentação eletrônica, gerado estaticamente através do **MkDocs** e hospedado via **GitLab Pages**.
+Este repositório contém os arquivos fontes do manual de documentação eletrônica, gerado estaticamente através do **MkDocs** e hospedado via **GitHub Pages**.
 
 ## 🌐 Link de Acesso
 O manual publicado pode ser acessado em:
 [https://fsw-mi-addons.totvscascavel.com.br/](https://fsw-mi-addons.totvscascavel.com.br/)
 
-Ou pelo redirecionamento do GitLab:
-[https://fsw-mi-totvsoeste.gitlab.io/documentacao-eletronica/](https://fsw-mi-totvsoeste.gitlab.io/documentacao-eletronica/)
+Ou pelo endereço do GitHub Pages:
+[https://fsw-mercado-internacional-totvs-oeste.github.io/documentacao-eletronica/](https://fsw-mercado-internacional-totvs-oeste.github.io/documentacao-eletronica/)
 
 ---
 
@@ -25,7 +25,7 @@ Ao baixar o projeto pela primeira vez, configure o ambiente virtual para evitar 
 
 ```
 # Baixa o projeto no diretório atual, recomendado criar uma pasta específica para o projeto:
-git clone https://gitlab.com/fsw-mi-totvsoeste/documentacao-eletronica.git
+git clone https://github.com/FSW-Mercado-Internacional-TOTVS-Oeste/documentacao-eletronica.git
 
 # Criar ambiente virtual
 python -m venv .venv
@@ -104,7 +104,7 @@ git rebase --continue
 * **docs/stylesheets**: Contém o arquivo CSS que contém as configurações de estilo do manual.
 * **docs/js**: Contém os scripts em js do manual.
 * **mkdocs.yml**: Arquivo de configuração principal (menu, tema e plugins).
-* **.gitlab-ci.yml**: Script de automação que realiza o build e deploy do site.
+* **.github/workflows/pages.yml**: Script de automação (GitHub Actions) que realiza o build e deploy do site.
 * **requirements.txt**: Lista de bibliotecas necessárias para o projeto.
 
 ---
